@@ -40,9 +40,9 @@ namespace ScarFly.MyClasses
                     {
                         switch (buttonItem.Name)
                         {
-                            case "Start": buttonItem.Position = new Vector2(buttonItem.Position.X + 10, buttonItem.Position.Y);
+                            case "Start": buttonItem.Position = new Vector2(buttonItem.Position.X + 5, buttonItem.Position.Y);
                                 break;
-                            case "Scores": buttonItem.Position = new Vector2(buttonItem.Position.X, buttonItem.Position.Y + 10);
+                            case "Scores": buttonItem.Position = new Vector2(buttonItem.Position.X, buttonItem.Position.Y + 5);
                                 break;
                             default:
                                 break;

@@ -22,6 +22,9 @@ namespace ScarFly
         SpriteBatch spriteBatch;
         MainMenu mainMenu;
 
+        Texture2D character;
+        int count = 1;
+
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);

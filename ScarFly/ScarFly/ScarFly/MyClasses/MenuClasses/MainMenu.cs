@@ -8,6 +8,14 @@ using System.Text;
 
 namespace ScarFly.MyClasses
 {
+    public enum GameState
+    {
+        Gaming,
+        InMainMenu,
+        InScoreMenu,
+        Invalid
+    }
+
     public class MainMenu
     {
         public MainMenu(List<MenuButton> buttonList)
@@ -26,30 +34,35 @@ namespace ScarFly.MyClasses
             foreach (MenuButton buttonItem in ButtonList) { spriteBatch.Draw(buttonItem.Texture, buttonItem.Position, Color.White); }
         }
 
-        public void IsTouched(Game1 game, TouchCollection touchCollection)
+        public GameState IsTouched(Game1 game, TouchCollection touchCollection, GameState currentGameState)
         {
-            foreach (TouchLocation touchLocItem in touchCollection)
+            GameState result = currentGameState;
+            if (ButtonList != null)
             {
-                foreach (MenuButton buttonItem in ButtonList)
+                foreach (TouchLocation touchLocItem in touchCollection)
                 {
-                    if ((touchLocItem.State == TouchLocationState.Pressed) 
-                    && (touchLocItem.Position.X >= buttonItem.Position.X 
-                    && touchLocItem.Position.Y >=buttonItem. Position.Y 
-                    && touchLocItem.Position.X <= buttonItem.Texture.Height + buttonItem.Position.X 
-                    && touchLocItem.Position.Y <= buttonItem.Texture.Width + buttonItem.Position.Y))
+                    foreach (MenuButton buttonItem in ButtonList)
                     {
-                        switch (buttonItem.Name)
+                        if ((touchLocItem.State == TouchLocationState.Pressed)
+                        && (touchLocItem.Position.X >= buttonItem.Position.X
+                        && touchLocItem.Position.Y >= buttonItem.Position.Y
+                        && touchLocItem.Position.X <= buttonItem.Texture.Height + buttonItem.Position.X
+                        && touchLocItem.Position.Y <= buttonItem.Texture.Width + buttonItem.Position.Y))
                         {
-                            case "Start": buttonItem.Position = new Vector2(buttonItem.Position.X + 5, buttonItem.Position.Y);
-                                break;
-                            case "Scores": buttonItem.Position = new Vector2(buttonItem.Position.X, buttonItem.Position.Y + 5);
-                                break;
-                            default:
-                                break;
+                            switch (buttonItem.Name)
+                            {
+                                case "Start": result = GameState.Gaming;
+                                    break;
+                                case "Scores": result = GameState.InScoreMenu;
+                                    break;
+                                default:
+                                    break;
+                            }
                         }
                     }
                 }
             }
+            return result;
         }
     }
 }

@@ -20,10 +20,13 @@ namespace ScarFly
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-        MainMenu mainMenu;
 
-        Texture2D character;
-        int count = 1;
+        MainMenu mainMenu;
+        List<MenuButton> buttons = new List<MenuButton>();
+
+        Player player;
+
+        GameState gameState;
 
         public Game1()
         {
@@ -39,18 +42,18 @@ namespace ScarFly
             graphics.SupportedOrientations = DisplayOrientation.LandscapeLeft;
             graphics.IsFullScreen = true;
 
-            List<MenuButton> buttons = new List<MenuButton>();
-            buttons.Add(new MenuButton("Start","testButton", 10, 10));
-            buttons.Add(new MenuButton("Scores", "testButton", 400, 200));
-
+            gameState = GameState.InMainMenu;
+            buttons = new List<MenuButton>();
+            buttons.Add(new MenuButton("Start","Buttons/testButton", 10, 10));
+            buttons.Add(new MenuButton("Scores", "Buttons/testButton", 400, 10));
             mainMenu = new MainMenu(buttons);
+            player = new Player("Player1", 100, 390, "Player/circle", "Player/circle", "Player/circle");
         }
 
         protected override void Initialize()
         {
-            // TODO: Add your initialization logic here
-
             base.Initialize();
+            TouchPanel.EnabledGestures = GestureType.Hold | GestureType.Tap | GestureType.None;
         }
 
         protected override void LoadContent()
@@ -58,9 +61,9 @@ namespace ScarFly
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            mainMenu.LoadButtonList(this);
-
             // TODO: use this.Content to load your game content here
+            mainMenu.LoadButtonList(this);
+            player.Load(this);
         }
 
         protected override void UnloadContent()
@@ -68,19 +71,47 @@ namespace ScarFly
             // TODO: Unload any non ContentManager content here
         }
 
-        /// <summary>
-        /// Allows the game to run logic such as updating the world,
-        /// checking for collisions, gathering input, and playing audio.
-        /// </summary>
-        /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
             // Allows the game to exit
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
-                this.Exit();
+            
             // TODO: Add your update logic here
 
-            mainMenu.IsTouched(this, TouchPanel.GetState());
+            if (gameState == GameState.Gaming)
+            {
+                mainMenu = new MainMenu(null);
+                while (TouchPanel.IsGestureAvailable)
+                {
+                    var gesture = TouchPanel.ReadGesture();
+                    if (gesture.GestureType == GestureType.Tap && (player.PlayerState == PlayerStates.Falling || player.PlayerState == PlayerStates.Running))
+                    {
+                        player.PlayerState = PlayerStates.Flying;
+                    }
+                    else if (gesture.GestureType == GestureType.Tap && player.PlayerState == PlayerStates.Flying)
+                    {
+                        player.PlayerState = PlayerStates.Falling;
+                    }
+                }
+
+                if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
+                    gameState = GameState.InMainMenu;
+            }
+            else if (gameState == GameState.InMainMenu)
+            {
+                mainMenu = new MainMenu(buttons);
+                if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
+                    this.Exit();
+            }
+            else if (gameState == GameState.InScoreMenu)
+            {
+                    
+            }
+            else if (gameState == GameState.Invalid)
+            {
+                
+            }
+
+            gameState = mainMenu.IsTouched(this, TouchPanel.GetState(), gameState);
 
             base.Update(gameTime);
         }
@@ -88,12 +119,34 @@ namespace ScarFly
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            GraphicsDevice.Clear(Color.Black);
 
             // TODO: Add your drawing code here
 
             spriteBatch.Begin();
-            mainMenu.DrawButtonList(spriteBatch);
+            if (gameState == GameState.InMainMenu)
+            {
+                mainMenu.DrawButtonList(spriteBatch);
+            }
+            else if (gameState == GameState.Gaming)
+            {
+                if (player.PlayerState == PlayerStates.Running)
+                {
+                    player.Run(spriteBatch, 1);
+                }
+                else if (player.PlayerState == PlayerStates.Flying)
+                {
+                    player.Fly(spriteBatch, 1);
+                }
+                else if (player.PlayerState == PlayerStates.Falling)
+                {
+                    player.Fall(spriteBatch, 1);
+                }
+            }
+            else if (gameState == GameState.InScoreMenu)
+            {
+                GraphicsDevice.Clear(Color.Red);
+            }
             spriteBatch.End();
 
             base.Draw(gameTime);

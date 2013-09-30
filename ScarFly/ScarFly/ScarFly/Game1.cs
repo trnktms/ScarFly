@@ -10,6 +10,7 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Input.Touch;
 using Microsoft.Xna.Framework.Media;
 using ScarFly.MyClasses;
+using ScarFly.MyClasses.PlayerClasses;
 
 namespace ScarFly
 {
@@ -25,6 +26,7 @@ namespace ScarFly
         List<MenuButton> buttons = new List<MenuButton>();
 
         Player player;
+        PlayerBackground background;
 
         GameState gameState;
 
@@ -48,6 +50,7 @@ namespace ScarFly
             buttons.Add(new MenuButton("Scores", "Buttons/testButton", 400, 10));
             mainMenu = new MainMenu(buttons);
             player = new Player("Player1", 100, 390, "Player/circle", "Player/circle", "Player/circle");
+            background = new PlayerBackground("Background/testBackground", 0, 0);
         }
 
         protected override void Initialize()
@@ -64,6 +67,7 @@ namespace ScarFly
             // TODO: use this.Content to load your game content here
             mainMenu.LoadButtonList(this);
             player.Load(this);
+            background.Load(this);
         }
 
         protected override void UnloadContent()
@@ -130,6 +134,7 @@ namespace ScarFly
             }
             else if (gameState == GameState.Gaming)
             {
+                background.Scroll(this, spriteBatch);
                 if (player.PlayerState == PlayerStates.Running)
                 {
                     player.Run(spriteBatch, 1);

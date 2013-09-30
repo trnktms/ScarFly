@@ -36,7 +36,7 @@ namespace ScarFly
             Content.RootDirectory = "Content";
 
             // Frame rate is 30 fps by default for Windows Phone.
-            TargetElapsedTime = TimeSpan.FromTicks(333333);
+            TargetElapsedTime = TimeSpan.FromTicks(100000);
 
             // Extend battery life under lock.
             InactiveSleepTime = TimeSpan.FromSeconds(1);
@@ -47,10 +47,10 @@ namespace ScarFly
             gameState = GameState.InMainMenu;
             buttons = new List<MenuButton>();
             buttons.Add(new MenuButton("Start","Buttons/testButton", 10, 10));
-            buttons.Add(new MenuButton("Scores", "Buttons/testButton", 400, 10));
             mainMenu = new MainMenu(buttons);
+
             player = new Player("Player1", 100, 390, "Player/circle", "Player/circle", "Player/circle");
-            background = new PlayerBackground("Background/testBackground", 0, 0);
+            background = new PlayerBackground("Background/testBackground", 1);
         }
 
         protected override void Initialize()
@@ -64,7 +64,6 @@ namespace ScarFly
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            // TODO: use this.Content to load your game content here
             mainMenu.LoadButtonList(this);
             player.Load(this);
             background.Load(this);
@@ -79,11 +78,10 @@ namespace ScarFly
         {
             // Allows the game to exit
             
-            // TODO: Add your update logic here
-
             if (gameState == GameState.Gaming)
             {
                 mainMenu = new MainMenu(null);
+                background.Scroll(this);
                 while (TouchPanel.IsGestureAvailable)
                 {
                     var gesture = TouchPanel.ReadGesture();
@@ -98,13 +96,16 @@ namespace ScarFly
                 }
 
                 if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
+                {
                     gameState = GameState.InMainMenu;
+                    mainMenu = new MainMenu(buttons);
+                }
             }
             else if (gameState == GameState.InMainMenu)
             {
-                mainMenu = new MainMenu(buttons);
                 if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                     this.Exit();
+                background.Scroll(this);
             }
             else if (gameState == GameState.InScoreMenu)
             {
@@ -124,17 +125,16 @@ namespace ScarFly
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.Black);
-
-            // TODO: Add your drawing code here
-
             spriteBatch.Begin();
+
             if (gameState == GameState.InMainMenu)
             {
+                background.Draw(spriteBatch);
                 mainMenu.DrawButtonList(spriteBatch);
             }
             else if (gameState == GameState.Gaming)
             {
-                background.Scroll(this, spriteBatch);
+                background.Draw(spriteBatch);
                 if (player.PlayerState == PlayerStates.Running)
                 {
                     player.Run(spriteBatch, 1);
@@ -152,6 +152,7 @@ namespace ScarFly
             {
                 GraphicsDevice.Clear(Color.Red);
             }
+
             spriteBatch.End();
 
             base.Draw(gameTime);

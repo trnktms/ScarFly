@@ -9,33 +9,42 @@ namespace ScarFly.MyClasses.PlayerClasses
 {
     public class PlayerBackground
     {
-        public PlayerBackground(string assetName, float positionX, float positionY)
+        public PlayerBackground(string assetName, int step)
         {
             this.AssetName = assetName;
-            Position = new Vector2(positionX, positionY);
+            this.Step = step;
         }
 
-        public Vector2 Position { get; set; }
         public string AssetName { get; set; }
-        public Texture2D Texture { get; set; }
+        public int Step { get; set; }
+        public Rectangle Rectangle1 { get; set; }
+        public Rectangle Rectangle2 { get; set; }
+        public Texture2D Texture1 { get; set; }
+        public Texture2D Texture2 { get; set; }
 
-        public void Load(Game1 game) { Texture = game.Content.Load<Texture2D>(AssetName); }
-
-        private int _scrollCount = 0;
-        public void Scroll(Game1 game, SpriteBatch spriteBatch)
+        public void Load(Game1 game) 
         {
-            spriteBatch.Draw(Texture, Position, new Rectangle((int)Position.X + _scrollCount, (int)Position.Y, (int)Texture.Width, (int)Texture.Height), Color.White);
-            _scrollCount++;
+            Texture1 = game.Content.Load<Texture2D>(AssetName);
+            Texture2 = game.Content.Load<Texture2D>(AssetName);
+            Rectangle1 = new Rectangle(0, 0, Texture1.Width, Texture1.Height);
+            Rectangle2 = new Rectangle(Texture1.Width, 0, Texture1.Width, Texture1.Height);
+        }
 
-            if (_scrollCount >= Texture.Width - game.GraphicsDevice.Viewport.Width)
-            {
-                spriteBatch.Draw(Texture, Position, new Rectangle((int)Position.X + game.GraphicsDevice.Viewport.Width + _scrollCount, (int)Position.Y, (int)Texture.Width, (int)Texture.Height), Color.White);
-            }
+        public void Scroll(Game1 game)
+        {
+            if (Rectangle1.X + Texture1.Width <= 0)
+                Rectangle1 = new Rectangle(Rectangle2.X + Texture1.Width, Rectangle1.Y, Rectangle1.Width, Rectangle1.Height);
+            if (Rectangle2.X + Texture1.Width <= 0)
+                Rectangle2 = new Rectangle(Rectangle1.X + Texture1.Width, Rectangle2.Y, Rectangle2.Width, Rectangle2.Height);
 
-            if (_scrollCount >= Texture.Width)
-            {
-                _scrollCount = 0;
-            }
+            Rectangle1 = new Rectangle(Rectangle1.X - Step, Rectangle1.Y, Rectangle1.Width, Rectangle1.Height);
+            Rectangle2 = new Rectangle(Rectangle2.X - Step, Rectangle2.Y, Rectangle2.Width, Rectangle2.Height);
+        }
+
+        public void Draw(SpriteBatch spriteBatch)
+        {
+            spriteBatch.Draw(Texture1, Rectangle1, Color.White);
+            spriteBatch.Draw(Texture2, Rectangle2, Color.White);
         }
     }
 }

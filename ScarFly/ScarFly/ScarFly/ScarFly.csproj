@@ -68,6 +68,10 @@
     <Reference Include="System.Net" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MyClasses\BarrierClasses\Barrier.cs" />
+    <Compile Include="MyClasses\BarrierClasses\BarrierIndex.cs" />
+    <Compile Include="MyClasses\BarrierClasses\Barriers.cs" />
+    <Compile Include="MyClasses\BarrierClasses\BarrierTexture.cs" />
     <Compile Include="MyClasses\PlayerClasses\Dress.cs" />
     <Compile Include="MyClasses\PlayerClasses\InjuryStopper.cs" />
     <Compile Include="MyClasses\MenuClasses\MainMenu.cs" />
@@ -75,6 +79,9 @@
     <Compile Include="MyClasses\PlayerClasses\Player.cs" />
     <Compile Include="MyClasses\PlayerClasses\PlayerBackground.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <None Include="Levels\level_1.level">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Properties\AppManifest.xml">
       <XnaPlatformSpecific>true</XnaPlatformSpecific>
     </None>

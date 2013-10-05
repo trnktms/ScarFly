@@ -70,17 +70,21 @@ namespace ScarFly.MyClasses
             Animate(spriteBatch, moveCount);
             if (_sy > ZeroPositionY || _sy > ZeroPositionY - 12)
             {
-                //Position = new Vector2(Position.X, ZeroPositionY);
+                Position = new Vector2(Position.X, ZeroPositionY);
                 PlayerState = PlayerStates.Running;
             }
         }
 
         public void Fly(SpriteBatch spriteBatch, int moveCount)
         {
-            Position = new Vector2(Position.X, Position.Y - 9);
-            _sy = (int)Position.Y;
-            _vy = 0;
-            _ay = 1;
+            
+            if (Position.Y > 0)
+            {
+                Position = new Vector2(Position.X, Position.Y - 9);
+                _sy = (int)Position.Y;
+                _vy = 0;
+                _ay = 1;
+            }
             Animate(spriteBatch, moveCount);
         }
 

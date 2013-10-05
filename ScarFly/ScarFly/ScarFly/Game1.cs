@@ -42,6 +42,8 @@ namespace ScarFly
             InactiveSleepTime = TimeSpan.FromSeconds(1);
             graphics.SupportedOrientations = DisplayOrientation.LandscapeLeft;
             graphics.IsFullScreen = true;
+            graphics.PreferredBackBufferHeight = 480;
+            graphics.PreferredBackBufferWidth = 800;
             phoneHeight = graphics.PreferredBackBufferHeight;
             phoneWidth = graphics.PreferredBackBufferWidth;
 
@@ -50,8 +52,8 @@ namespace ScarFly
             buttons.Add(new MenuButton("Start","Buttons/testButton", 10, 10));
             mainMenu = new MainMenu(buttons);
 
-            player = new Player("Player1", 100, 390, "Player/circle", "Player/circle", "Player/circle");
-            backBackground = new PlayerBackground("Background/Forest", 1);
+            player = new Player("Player1", 100, 370, "Player/circle", "Player/circle", "Player/circle");
+            backBackground = new PlayerBackground("Background/Forest", 2);
             foreBackground = new PlayerBackground("Background/ForestFore", 3);
             barriers = new Barriers("level_1", 5, phoneWidth, phoneHeight);
         }
@@ -130,7 +132,6 @@ namespace ScarFly
         {
             GraphicsDevice.Clear(Color.Black);
             spriteBatch.Begin();
-
             if (gameState == GameState.InMainMenu)
             {
                 backBackground.Draw(spriteBatch);

@@ -68,7 +68,7 @@ namespace ScarFly.MyClasses
             _sy = _sy + _vy;
             Position = new Vector2(Position.X, _sy);
             Animate(spriteBatch, moveCount);
-            if (_sy > ZeroPositionY || _sy > ZeroPositionY - 10)
+            if (_sy > ZeroPositionY || _sy > ZeroPositionY - 12)
             {
                 //Position = new Vector2(Position.X, ZeroPositionY);
                 PlayerState = PlayerStates.Running;
@@ -77,7 +77,7 @@ namespace ScarFly.MyClasses
 
         public void Fly(SpriteBatch spriteBatch, int moveCount)
         {
-            Position = new Vector2(Position.X, Position.Y - 8);
+            Position = new Vector2(Position.X, Position.Y - 9);
             _sy = (int)Position.Y;
             _vy = 0;
             _ay = 1;

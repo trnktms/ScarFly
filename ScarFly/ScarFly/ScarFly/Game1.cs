@@ -11,22 +11,24 @@ using Microsoft.Xna.Framework.Input.Touch;
 using Microsoft.Xna.Framework.Media;
 using ScarFly.MyClasses;
 using ScarFly.MyClasses.PlayerClasses;
+using ScarFly.MyClasses.BarrierClasses;
 
 namespace ScarFly
 {
-    /// <summary>
-    /// This is the main type for your game
-    /// </summary>
     public class Game1 : Microsoft.Xna.Framework.Game
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+        int phoneWidth;
+        int phoneHeight;
 
         MainMenu mainMenu;
         List<MenuButton> buttons = new List<MenuButton>();
 
         Player player;
-        PlayerBackground background;
+        PlayerBackground backBackground;
+        PlayerBackground foreBackground;
+        Barriers barriers;
 
         GameState gameState;
 
@@ -34,15 +36,14 @@ namespace ScarFly
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
-
             // Frame rate is 30 fps by default for Windows Phone.
-            TargetElapsedTime = TimeSpan.FromTicks(100000);
-
+            TargetElapsedTime = TimeSpan.FromTicks(333333);
             // Extend battery life under lock.
             InactiveSleepTime = TimeSpan.FromSeconds(1);
-
             graphics.SupportedOrientations = DisplayOrientation.LandscapeLeft;
             graphics.IsFullScreen = true;
+            phoneHeight = graphics.PreferredBackBufferHeight;
+            phoneWidth = graphics.PreferredBackBufferWidth;
 
             gameState = GameState.InMainMenu;
             buttons = new List<MenuButton>();
@@ -50,23 +51,26 @@ namespace ScarFly
             mainMenu = new MainMenu(buttons);
 
             player = new Player("Player1", 100, 390, "Player/circle", "Player/circle", "Player/circle");
-            background = new PlayerBackground("Background/testBackground", 1);
+            backBackground = new PlayerBackground("Background/Forest", 1);
+            foreBackground = new PlayerBackground("Background/ForestFore", 3);
+            barriers = new Barriers("level_1", 5, phoneWidth, phoneHeight);
         }
 
         protected override void Initialize()
         {
             base.Initialize();
-            TouchPanel.EnabledGestures = GestureType.Hold | GestureType.Tap | GestureType.None;
+            TouchPanel.EnabledGestures = GestureType.Tap | GestureType.None;
         }
 
         protected override void LoadContent()
         {
-            // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             mainMenu.LoadButtonList(this);
             player.Load(this);
-            background.Load(this);
+            backBackground.Load(this);
+            foreBackground.Load(this);
+            barriers.Load(this);
         }
 
         protected override void UnloadContent()
@@ -75,13 +79,14 @@ namespace ScarFly
         }
 
         protected override void Update(GameTime gameTime)
-        {
-            // Allows the game to exit
-            
+        {            
             if (gameState == GameState.Gaming)
             {
                 mainMenu = new MainMenu(null);
-                background.Scroll(this);
+                backBackground.Scroll(this);
+                foreBackground.Scroll(this);
+                barriers.Scroll(this);
+
                 while (TouchPanel.IsGestureAvailable)
                 {
                     var gesture = TouchPanel.ReadGesture();
@@ -105,7 +110,9 @@ namespace ScarFly
             {
                 if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                     this.Exit();
-                background.Scroll(this);
+                backBackground.Scroll(this);
+                foreBackground.Scroll(this);
+                gameState = mainMenu.IsTouched(this, TouchPanel.GetState(), gameState);
             }
             else if (gameState == GameState.InScoreMenu)
             {
@@ -116,12 +123,9 @@ namespace ScarFly
                 
             }
 
-            gameState = mainMenu.IsTouched(this, TouchPanel.GetState(), gameState);
-
             base.Update(gameTime);
         }
 
-        /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.Black);
@@ -129,12 +133,15 @@ namespace ScarFly
 
             if (gameState == GameState.InMainMenu)
             {
-                background.Draw(spriteBatch);
+                backBackground.Draw(spriteBatch);
+                foreBackground.Draw(spriteBatch);
                 mainMenu.DrawButtonList(spriteBatch);
             }
             else if (gameState == GameState.Gaming)
             {
-                background.Draw(spriteBatch);
+                backBackground.Draw(spriteBatch);
+                foreBackground.Draw(spriteBatch);
+                barriers.Draw(spriteBatch);
                 if (player.PlayerState == PlayerStates.Running)
                 {
                     player.Run(spriteBatch, 1);

@@ -165,6 +165,7 @@ namespace ScarFly
             {
                 backBackground.Draw(spriteBatch);
                 foreBackground.Draw(spriteBatch);
+                barriers.Draw(spriteBatch);
                 mainMenu.DrawButtonList(spriteBatch);
             }
             else if (gameState == GameState.InScoreMenu)

@@ -52,7 +52,7 @@ namespace ScarFly
             buttons.Add(new MenuButton("Start","Buttons/testButton", 10, 10));
             mainMenu = new MainMenu(buttons);
 
-            player = new Player("Player1", 100, 370, "Player/circle", "Player/circle", "Player/circle");
+            player = new Player("Player1", 100, 370, "Player/char_anim", "Player/char_anim", "Player/char_anim", 6, 6, 6);
             backBackground = new PlayerBackground("Background/Forest", 2);
             foreBackground = new PlayerBackground("Background/ForestFore", 3);
             barriers = new Barriers("level_1", 5, phoneWidth, phoneHeight);
@@ -142,19 +142,18 @@ namespace ScarFly
             {
                 backBackground.Draw(spriteBatch);
                 foreBackground.Draw(spriteBatch);
+                switch (player.PlayerState)
+                {
+                    case PlayerStates.Running: player.Run(spriteBatch);
+                        break;
+                    case PlayerStates.Flying: player.Fly(spriteBatch);
+                        break;
+                    case PlayerStates.Falling: player.Fall(spriteBatch);
+                        break;
+                    default:
+                        break;
+                }
                 barriers.Draw(spriteBatch);
-                if (player.PlayerState == PlayerStates.Running)
-                {
-                    player.Run(spriteBatch, 1);
-                }
-                else if (player.PlayerState == PlayerStates.Flying)
-                {
-                    player.Fly(spriteBatch, 1);
-                }
-                else if (player.PlayerState == PlayerStates.Falling)
-                {
-                    player.Fall(spriteBatch, 1);
-                }
             }
             else if (gameState == GameState.InScoreMenu)
             {

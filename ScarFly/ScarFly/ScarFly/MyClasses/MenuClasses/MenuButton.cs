@@ -31,8 +31,8 @@ namespace ScarFly.MyClasses
                 if ((touchLocItem.State == TouchLocationState.Pressed) 
                     && (touchLocItem.Position.X >= Position.X 
                     && touchLocItem.Position.Y >= Position.Y 
-                    && touchLocItem.Position.X <= Texture.Height + Position.X 
-                    && touchLocItem.Position.Y <= Texture.Width + Position.Y))
+                    && touchLocItem.Position.X <= Texture.Width + Position.X 
+                    && touchLocItem.Position.Y <= Texture.Height + Position.Y))
                 {
                     return true;
                 }

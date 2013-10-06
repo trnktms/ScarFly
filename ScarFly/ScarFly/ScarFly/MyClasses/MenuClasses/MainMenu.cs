@@ -13,6 +13,7 @@ namespace ScarFly.MyClasses
         Gaming,
         InMainMenu,
         InScoreMenu,
+        InPauseMenu,
         Invalid
     }
 
@@ -46,8 +47,8 @@ namespace ScarFly.MyClasses
                         if ((touchLocItem.State == TouchLocationState.Pressed)
                         && (touchLocItem.Position.X >= buttonItem.Position.X
                         && touchLocItem.Position.Y >= buttonItem.Position.Y
-                        && touchLocItem.Position.X <= buttonItem.Texture.Height + buttonItem.Position.X
-                        && touchLocItem.Position.Y <= buttonItem.Texture.Width + buttonItem.Position.Y))
+                        && touchLocItem.Position.X <= buttonItem.Texture.Width + buttonItem.Position.X
+                        && touchLocItem.Position.Y <= buttonItem.Texture.Height + buttonItem.Position.Y))
                         {
                             switch (buttonItem.Name)
                             {

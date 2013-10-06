@@ -85,7 +85,7 @@ namespace ScarFly.MyClasses
             Animate(spriteBatch, FallMoveCount);
             if (_sy > ZeroPositionY || _sy > ZeroPositionY - 12)
             {
-                Position = new Vector2(Position.X, ZeroPositionY);
+                //Position = new Vector2(Position.X, ZeroPositionY);
                 PlayerState = PlayerStates.Running;
             }
         }

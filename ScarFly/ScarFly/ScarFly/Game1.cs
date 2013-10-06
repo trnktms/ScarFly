@@ -49,10 +49,10 @@ namespace ScarFly
 
             gameState = GameState.InMainMenu;
             buttons = new List<MenuButton>();
-            buttons.Add(new MenuButton("Start","Buttons/testButton", 10, 10));
+            buttons.Add(new MenuButton("Start", "Buttons/StartButton", (phoneWidth / 2) - 124, (phoneHeight / 2) - 128));
             mainMenu = new MainMenu(buttons);
 
-            player = new Player("Player1", 100, 370, "Player/char_anim", "Player/char_anim", "Player/char_anim", 6, 6, 6);
+            player = new Player("Player1", 100, 370, "Player/AnimatedCircle", "Player/AnimatedCircle", "Player/AnimatedCircle", 16, 16, 16);
             backBackground = new PlayerBackground("Background/Forest", 2);
             foreBackground = new PlayerBackground("Background/ForestFore", 3);
             barriers = new Barriers("level_1", 5, phoneWidth, phoneHeight);
@@ -104,7 +104,7 @@ namespace ScarFly
 
                 if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 {
-                    gameState = GameState.InMainMenu;
+                    gameState = GameState.InPauseMenu;
                     mainMenu = new MainMenu(buttons);
                 }
             }
@@ -118,11 +118,17 @@ namespace ScarFly
             }
             else if (gameState == GameState.InScoreMenu)
             {
-                    
+
+            }
+            else if (gameState == GameState.InPauseMenu)
+            {
+                if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
+                    gameState = GameState.InMainMenu;
+                gameState = mainMenu.IsTouched(this, TouchPanel.GetState(), gameState);
             }
             else if (gameState == GameState.Invalid)
             {
-                
+
             }
 
             base.Update(gameTime);
@@ -154,6 +160,12 @@ namespace ScarFly
                         break;
                 }
                 barriers.Draw(spriteBatch);
+            }
+            else if (gameState == GameState.InPauseMenu)
+            {
+                backBackground.Draw(spriteBatch);
+                foreBackground.Draw(spriteBatch);
+                mainMenu.DrawButtonList(spriteBatch);
             }
             else if (gameState == GameState.InScoreMenu)
             {

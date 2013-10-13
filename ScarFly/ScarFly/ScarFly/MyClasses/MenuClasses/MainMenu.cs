@@ -52,9 +52,11 @@ namespace ScarFly.MyClasses
                         {
                             switch (buttonItem.Name)
                             {
-                                case "Start": result = GameState.Gaming;
+                                case "Main_Start": result = GameState.Gaming;
                                     break;
-                                case "Scores": result = GameState.InScoreMenu;
+                                case "Main_Scores": result = GameState.InScoreMenu;
+                                    break;
+                                case "Pause_Resume": result = GameState.Gaming;
                                     break;
                                 default:
                                     break;

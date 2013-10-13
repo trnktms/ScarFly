@@ -31,6 +31,7 @@ namespace ScarFly
         PlayerBackground backBackground;
         PlayerBackground foreBackground;
         Barriers barriers;
+        Collosion collosion;
 
         GameState gameState;
 
@@ -65,6 +66,8 @@ namespace ScarFly
             foreBackground = new PlayerBackground("Background/ForestFore", 3);
 
             barriers = new Barriers("level_1", 3, phoneWidth, phoneHeight);
+
+            collosion = new Collosion(barriers, player);
         }
 
         protected override void Initialize()
@@ -109,7 +112,7 @@ namespace ScarFly
                 backBackground.Scroll(this);
                 foreBackground.Scroll(this);
                 barriers.Scroll(this);
-
+                collosion.Update();
                 while (TouchPanel.IsGestureAvailable)
                 {
                     var gesture = TouchPanel.ReadGesture();

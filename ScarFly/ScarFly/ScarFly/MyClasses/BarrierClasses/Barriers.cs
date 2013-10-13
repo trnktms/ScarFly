@@ -24,22 +24,13 @@ namespace ScarFly.MyClasses.BarrierClasses
 
         public string LevelName { get; set; }
         public List<Barrier> BarrierList { get; set; }
-        public List<BarrierTexture> BarrierTextures { get; set; }
-
         public int Velocity { get; set; }
-
         public int PhoneHeight { get; set; }
         public int PhoneWidth { get; set; }
 
-        public void Load(Game1 game) 
-        {
-            BarrierTextures = BarrierList
-                .GroupBy(p => new { ID = p.Index.ID, AssetName = p.AssetName })
-                .Select(p => new BarrierTexture((int)p.Key.ID, p.Key.AssetName.ToString()))
-                .ToList();
+        public void Load(Game1 game) { foreach (var item in BarrierList) { item.Load(game); } }
 
-            foreach (var item in BarrierTextures) { item.Load(game); }
-        }
+        public void RePosition() { foreach (var item in BarrierList) { item.Position = item.StartPosition; } }
 
         private void ProcLevelFile()
         {
@@ -64,9 +55,9 @@ namespace ScarFly.MyClasses.BarrierClasses
                     {
                         switch (id)
                         {
-                            case 1: BarrierList.Add(new Barrier("Barriers/fire", new BarrierIndex(j, i, id), PhoneWidth, PhoneHeight));
+                            case 1: BarrierList.Add(new Barrier("Barriers/Barrier1", new BarrierIndex(j, i, id), PhoneWidth, PhoneHeight));
                                 break;
-                            case 2: BarrierList.Add(new Barrier("Barriers/fire", new BarrierIndex(j, i, id), PhoneWidth, PhoneHeight));
+                            case 2: BarrierList.Add(new Barrier("Barriers/Barrier2", new BarrierIndex(j, i, id), PhoneWidth, PhoneHeight));
                                 break;
                             default:
                                 break;
@@ -80,37 +71,24 @@ namespace ScarFly.MyClasses.BarrierClasses
         private int _verticalStep;
         public void Scroll(Game1 game)
         {
-            foreach (var textureItem in BarrierTextures)
+            foreach (var barrierItem in BarrierList)
             {
-                foreach (var barrierItem in BarrierList)
+                if (barrierItem.Position.X >= -barrierItem.Texture.Width)
                 {
-                    if (barrierItem.Position.X >= -textureItem.Texture.Width)
-                    {
-                        barrierItem.Position = new Vector2(barrierItem.Position.X - Velocity, barrierItem.Position.Y);
-                    }
+                    barrierItem.Position = new Vector2(barrierItem.Position.X - Velocity, barrierItem.Position.Y);
+                    barrierItem.UpdateRectangle();
                 }
             }
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            foreach (var textureItem in BarrierTextures)
+            foreach (var barrierItem in BarrierList)
             {
-                foreach (var barrierItem in BarrierList)
+                if (barrierItem.Position.X >= -barrierItem.Texture.Width && barrierItem.Position.X <= PhoneWidth)
                 {
-                    if (barrierItem.Position.X >= -textureItem.Texture.Width && barrierItem.Position.X <= PhoneWidth)
-                    {
-                        spriteBatch.Draw(textureItem.Texture, barrierItem.Position, Color.White);
-                    }
+                    spriteBatch.Draw(barrierItem.Texture, barrierItem.Position, Color.White);
                 }
-            }
-        }
-
-        public void RePosition()
-        {
-            foreach (var item in BarrierList)
-            {
-                item.Position = item.StartPosition;
             }
         }
     }

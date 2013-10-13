@@ -33,12 +33,23 @@ namespace ScarFly.MyClasses.PlayerClasses
         public void Scroll(Game1 game)
         {
             if (Rectangle1.X + Texture1.Width <= 0)
-                Rectangle1 = new Rectangle(Rectangle2.X + Texture1.Width, Rectangle1.Y, Rectangle1.Width, Rectangle1.Height);
+            {
+                Rectangle1 = new Rectangle(Rectangle2.X + Texture1.Width - Step, Rectangle1.Y, Rectangle1.Width, Rectangle1.Height);
+            }
+            else
+            {
+                Rectangle1 = new Rectangle(Rectangle1.X - Step, Rectangle1.Y, Rectangle1.Width, Rectangle1.Height);
+                //Rectangle2 = new Rectangle(Rectangle2.X - Step, Rectangle2.Y, Rectangle2.Width, Rectangle2.Height);
+            }
             if (Rectangle2.X + Texture1.Width <= 0)
-                Rectangle2 = new Rectangle(Rectangle1.X + Texture1.Width, Rectangle2.Y, Rectangle2.Width, Rectangle2.Height);
-
-            Rectangle1 = new Rectangle(Rectangle1.X - Step, Rectangle1.Y, Rectangle1.Width, Rectangle1.Height);
-            Rectangle2 = new Rectangle(Rectangle2.X - Step, Rectangle2.Y, Rectangle2.Width, Rectangle2.Height);
+            {
+                Rectangle2 = new Rectangle(Rectangle1.X + Texture1.Width - Step, Rectangle2.Y, Rectangle2.Width, Rectangle2.Height);
+            }
+            else
+            {
+                //Rectangle1 = new Rectangle(Rectangle1.X - Step, Rectangle1.Y, Rectangle1.Width, Rectangle1.Height);
+                Rectangle2 = new Rectangle(Rectangle2.X - Step, Rectangle2.Y, Rectangle2.Width, Rectangle2.Height);
+            }
         }
 
         public void Draw(SpriteBatch spriteBatch)

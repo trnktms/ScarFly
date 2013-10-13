@@ -23,7 +23,9 @@ namespace ScarFly
         int phoneHeight;
 
         MainMenu mainMenu;
-        List<MenuButton> buttons = new List<MenuButton>();
+        MainMenu pauseMenu;
+        List<MenuButton> mainButtons = new List<MenuButton>();
+        List<MenuButton> pauseButtons = new List<MenuButton>();
 
         Player player;
         PlayerBackground backBackground;
@@ -48,14 +50,21 @@ namespace ScarFly
             phoneWidth = graphics.PreferredBackBufferWidth;
 
             gameState = GameState.InMainMenu;
-            buttons = new List<MenuButton>();
-            buttons.Add(new MenuButton("Start", "Buttons/StartButton", (phoneWidth / 2) - 124, (phoneHeight / 2) - 128));
-            mainMenu = new MainMenu(buttons);
+
+            mainButtons = new List<MenuButton>();
+            mainButtons.Add(new MenuButton("Main_Start", "Buttons/StartButton", (phoneWidth / 2) - 124, (phoneHeight / 2) - 128));
+            mainMenu = new MainMenu(mainButtons);
+
+            pauseButtons = new List<MenuButton>();
+            pauseButtons.Add(new MenuButton("Pause_Resume", "Buttons/StartButton", 10, 10));
+            pauseMenu = new MainMenu(pauseButtons);
+
 
             player = new Player("Player1", 100, 370, "Player/AnimatedCircle", "Player/AnimatedCircle", "Player/AnimatedCircle", 16, 16, 16);
-            backBackground = new PlayerBackground("Background/Forest", 2);
+            backBackground = new PlayerBackground("Background/Forest", 1);
             foreBackground = new PlayerBackground("Background/ForestFore", 3);
-            barriers = new Barriers("level_1", 5, phoneWidth, phoneHeight);
+
+            barriers = new Barriers("level_1", 3, phoneWidth, phoneHeight);
         }
 
         protected override void Initialize()
@@ -69,9 +78,12 @@ namespace ScarFly
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             mainMenu.LoadButtonList(this);
+            pauseMenu.LoadButtonList(this);
+
             player.Load(this);
             backBackground.Load(this);
             foreBackground.Load(this);
+            Texture2D background = Content.Load<Texture2D>("Background/Forest");
             barriers.Load(this);
         }
 
@@ -81,10 +93,19 @@ namespace ScarFly
         }
 
         protected override void Update(GameTime gameTime)
-        {            
-            if (gameState == GameState.Gaming)
+        {
+            float elapsed = (float)gameTime.ElapsedGameTime.TotalSeconds;
+            if (gameState == GameState.InMainMenu)
             {
-                mainMenu = new MainMenu(null);
+                if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
+                    this.Exit();
+                backBackground.Scroll(this);
+                foreBackground.Scroll(this);
+
+                gameState = mainMenu.IsTouched(this, TouchPanel.GetState(), gameState);
+            }
+            else if (gameState == GameState.Gaming)
+            {
                 backBackground.Scroll(this);
                 foreBackground.Scroll(this);
                 barriers.Scroll(this);
@@ -105,26 +126,23 @@ namespace ScarFly
                 if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 {
                     gameState = GameState.InPauseMenu;
-                    mainMenu = new MainMenu(buttons);
+                    pauseMenu = new MainMenu(pauseButtons);
                 }
-            }
-            else if (gameState == GameState.InMainMenu)
-            {
-                if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
-                    this.Exit();
-                backBackground.Scroll(this);
-                foreBackground.Scroll(this);
-                gameState = mainMenu.IsTouched(this, TouchPanel.GetState(), gameState);
-            }
-            else if (gameState == GameState.InScoreMenu)
-            {
-
             }
             else if (gameState == GameState.InPauseMenu)
             {
                 if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
+                {
                     gameState = GameState.InMainMenu;
-                gameState = mainMenu.IsTouched(this, TouchPanel.GetState(), gameState);
+                    mainMenu = new MainMenu(mainButtons);
+                    barriers.RePosition();
+                }
+                gameState = pauseMenu.IsTouched(this, TouchPanel.GetState(), gameState);
+            }
+            
+            else if (gameState == GameState.InScoreMenu)
+            {
+
             }
             else if (gameState == GameState.Invalid)
             {
@@ -166,11 +184,11 @@ namespace ScarFly
                 backBackground.Draw(spriteBatch);
                 foreBackground.Draw(spriteBatch);
                 barriers.Draw(spriteBatch);
-                mainMenu.DrawButtonList(spriteBatch);
+                pauseMenu.DrawButtonList(spriteBatch);
             }
             else if (gameState == GameState.InScoreMenu)
             {
-                GraphicsDevice.Clear(Color.Red);
+
             }
 
             spriteBatch.End();

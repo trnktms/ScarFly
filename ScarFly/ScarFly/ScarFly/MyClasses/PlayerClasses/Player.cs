@@ -32,6 +32,8 @@ namespace ScarFly.MyClasses
             this.FlyMoveCount = flyMoveCount;
             this.FallMoveCount = fallMoveCount;
             isDead = false;
+            isEatMoney = false;
+            GameScore = 0;
         }
 
         public string Name { get; set; }
@@ -42,6 +44,7 @@ namespace ScarFly.MyClasses
 
         public PlayerStates PlayerState { get; set; }
         public bool isDead { get; set; }
+        public bool isEatMoney { get; set; }
 
         private int ZeroPositionY { get; set; }
         public Vector2 Position { get; set; }
@@ -134,18 +137,22 @@ namespace ScarFly.MyClasses
         private int _animateCount = 0;
         public void Animate(SpriteBatch spriteBatch, int moveCount)
         {
+            Color overlayer = Color.White;
+            if (isDead) { overlayer = Color.Red; }
+            else if (isEatMoney) { overlayer = Color.Blue; GameScore++; }
+
             if (_animateCount < moveCount - 1)
             {
                 switch (PlayerState)
                 {
                     case PlayerStates.Running:
-                        spriteBatch.Draw(RunTexture, Position, new Rectangle((int)(_runMoveWidth * _animateCount), 0, (int)_runMoveWidth, (int)RunTexture.Height), !isDead ? Color.White : Color.Red);
+                        spriteBatch.Draw(RunTexture, Position, new Rectangle((int)(_runMoveWidth * _animateCount), 0, (int)_runMoveWidth, (int)RunTexture.Height), overlayer);
                         break;
                     case PlayerStates.Flying:
-                        spriteBatch.Draw(FlyTexture, Position, new Rectangle((int)(_flyMoveWidth * _animateCount), 0, (int)_flyMoveWidth, (int)FlyTexture.Height), !isDead ? Color.White : Color.Red);
+                        spriteBatch.Draw(FlyTexture, Position, new Rectangle((int)(_flyMoveWidth * _animateCount), 0, (int)_flyMoveWidth, (int)FlyTexture.Height), overlayer);
                         break;
                     case PlayerStates.Falling:
-                        spriteBatch.Draw(FallTexture, Position, new Rectangle((int)(_fallMoveWidth * _animateCount), 0, (int)_fallMoveWidth, (int)FallTexture.Height), !isDead ? Color.White : Color.Red);
+                        spriteBatch.Draw(FallTexture, Position, new Rectangle((int)(_fallMoveWidth * _animateCount), 0, (int)_fallMoveWidth, (int)FallTexture.Height), overlayer);
                         break;
                     default:
                         break;
@@ -157,13 +164,13 @@ namespace ScarFly.MyClasses
                 switch (PlayerState)
                 {
                     case PlayerStates.Running:
-                        spriteBatch.Draw(RunTexture, Position, new Rectangle((int)(_runMoveWidth * (moveCount - 1)), 0, (int)_runMoveWidth, (int)RunTexture.Height), !isDead ? Color.White : Color.Red);
+                        spriteBatch.Draw(RunTexture, Position, new Rectangle((int)(_runMoveWidth * (moveCount - 1)), 0, (int)_runMoveWidth, (int)RunTexture.Height), overlayer);
                         break;
                     case PlayerStates.Flying:
-                        spriteBatch.Draw(FlyTexture, Position, new Rectangle((int)(_flyMoveWidth * (moveCount - 1)), 0, (int)_flyMoveWidth, (int)FlyTexture.Height), !isDead ? Color.White : Color.Red);
+                        spriteBatch.Draw(FlyTexture, Position, new Rectangle((int)(_flyMoveWidth * (moveCount - 1)), 0, (int)_flyMoveWidth, (int)FlyTexture.Height), overlayer);
                         break;
                     case PlayerStates.Falling:
-                        spriteBatch.Draw(FallTexture, Position, new Rectangle((int)(_fallMoveWidth * (moveCount - 1)), 0, (int)_fallMoveWidth, (int)FallTexture.Height), !isDead ? Color.White : Color.Red);
+                        spriteBatch.Draw(FallTexture, Position, new Rectangle((int)(_fallMoveWidth * (moveCount - 1)), 0, (int)_fallMoveWidth, (int)FallTexture.Height), overlayer);
                         break;
                     default:
                         break;

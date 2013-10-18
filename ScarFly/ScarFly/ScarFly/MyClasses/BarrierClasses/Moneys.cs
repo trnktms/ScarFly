@@ -8,9 +8,9 @@ using System.Text;
 
 namespace ScarFly.MyClasses.BarrierClasses
 {
-    public class Barriers
+    public class Moneys
     {
-        public Barriers(string levelName, int velocity, int phoneWidth, int phoneHeight)
+        public Moneys(string levelName, int velocity, int phoneWidth, int phoneHeight)
         {
             this.LevelName = string.Format(@"Levels\{0}.level", levelName);
             this.Velocity = velocity;
@@ -21,20 +21,19 @@ namespace ScarFly.MyClasses.BarrierClasses
             _horizontalStep = this.PhoneWidth / Consts.PhoneWidthRate;
             _verticalStep = this.PhoneHeight / Consts.PhoneHeightRate;
         }
-
         public string LevelName { get; set; }
-        public List<Barrier> BarrierList { get; set; }
+        public List<Money> MoneyList { get; set; }
         public int Velocity { get; set; }
         public int PhoneHeight { get; set; }
         public int PhoneWidth { get; set; }
 
-        public void Load(Game1 game) { foreach (var item in BarrierList) { item.Load(game); } }
+        public void Load(Game1 game) { foreach (var item in MoneyList) { item.Load(game); } }
 
-        public void RePosition() { foreach (var item in BarrierList) { item.Position = item.StartPosition; } }
+        public void RePosition() { foreach (var item in MoneyList) { item.Position = item.StartPosition; } }
 
         private void ProcLevelFile()
         {
-            BarrierList = new List<Barrier>();
+            MoneyList = new List<Money>();
             List<string> rows = new List<string>();
 
             using (var stream = TitleContainer.OpenStream(LevelName))
@@ -50,14 +49,12 @@ namespace ScarFly.MyClasses.BarrierClasses
             {
                 for (int j = 0; j < rows[i].Length; j++)
                 {
-                    int id = 0;
-                    if (int.TryParse(rows[i][j].ToString(), out id))
+                    string id = rows[i][j].ToString();
+                    if (!string.IsNullOrEmpty(id))
                     {
                         switch (id)
                         {
-                            case 1: BarrierList.Add(new Barrier("Barriers/Barrier1", new BarrierIndex(j, i, id), PhoneWidth, PhoneHeight));
-                                break;
-                            case 2: BarrierList.Add(new Barrier("Barriers/Barrier2", new BarrierIndex(j, i, id), PhoneWidth, PhoneHeight));
+                            case "a": MoneyList.Add(new Money("Barriers/Money", new MoneyIndex(j, i, id), PhoneWidth, PhoneHeight));
                                 break;
                             default:
                                 break;
@@ -71,23 +68,23 @@ namespace ScarFly.MyClasses.BarrierClasses
         private int _verticalStep;
         public void Scroll(Game1 game)
         {
-            foreach (var barrierItem in BarrierList)
+            foreach (var moneyItem in MoneyList)
             {
-                if (barrierItem.Position.X >= -barrierItem.Texture.Width)
+                if (moneyItem.Position.X >= -moneyItem.Texture.Width)
                 {
-                    barrierItem.Position = new Vector2(barrierItem.Position.X - Velocity, barrierItem.Position.Y);
-                    barrierItem.UpdateRectangle();
+                    moneyItem.Position = new Vector2(moneyItem.Position.X - Velocity, moneyItem.Position.Y);
+                    moneyItem.UpdateRectangle();
                 }
             }
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            foreach (var barrierItem in BarrierList)
+            foreach (var moneyItem in MoneyList)
             {
-                if (barrierItem.Position.X >= -barrierItem.Texture.Width && barrierItem.Position.X <= PhoneWidth)
+                if (moneyItem.Position.X >= -moneyItem.Texture.Width && moneyItem.Position.X <= PhoneWidth)
                 {
-                    spriteBatch.Draw(barrierItem.Texture, barrierItem.Position, Color.White);
+                    spriteBatch.Draw(moneyItem.Texture, moneyItem.Position, Color.White);
                 }
             }
         }

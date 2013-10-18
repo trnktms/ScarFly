@@ -11,12 +11,14 @@ namespace ScarFly.MyClasses.PlayerClasses
 {
     public class Collosion
     {
-        public Collosion(Barriers barriers, Player player)
+        public Collosion(Barriers barriers, Player player, Moneys moneys)
         {
             this.Barriers = barriers;
             this.Player = player;
+            this.Moneys = moneys;
         }
 
+        public Moneys Moneys { get; set; }
         public Barriers Barriers { get; set; }
         public Player Player { get; set; }
 
@@ -45,9 +47,35 @@ namespace ScarFly.MyClasses.PlayerClasses
             return result;
         }
 
+        public bool CollosionDetectionWithMoney()
+        {
+            bool result = false;
+            foreach (var moneyItem in Moneys.MoneyList.Where(p => p.Position.X < Moneys.PhoneWidth).Select(p => p))
+            {
+                switch (Player.PlayerState)
+                {
+                    case PlayerStates.Running:
+                        result = IntersectsPixel(moneyItem.Bound, moneyItem.ColorData, Player.RunBound, Player.RunColorData);
+                        break;
+                    case PlayerStates.Flying:
+                        result = IntersectsPixel(moneyItem.Bound, moneyItem.ColorData, Player.FlyBound, Player.FlyColorData);
+                        break;
+                    case PlayerStates.Falling:
+                        result = IntersectsPixel(moneyItem.Bound, moneyItem.ColorData, Player.FallBound, Player.FallColorData);
+                        break;
+                    default:
+                        break;
+                }
+
+                if (result) { return true; }
+            }
+            return result;
+        }
+
         public void Update()
         {
             Player.isDead = CollosionDetectionWithBarrier();
+            Player.isEatMoney = CollosionDetectionWithMoney();
         }
 
         public bool IntersectsPixel(Rectangle rectangle1, Color[] data1, Rectangle rectangle2, Color[] data2)

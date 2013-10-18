@@ -21,6 +21,7 @@ namespace ScarFly
         SpriteBatch spriteBatch;
         int phoneWidth;
         int phoneHeight;
+        SpriteFont gameScoreSpriteFont;
 
         MainMenu mainMenu;
         MainMenu pauseMenu;
@@ -31,6 +32,7 @@ namespace ScarFly
         PlayerBackground backBackground;
         PlayerBackground foreBackground;
         Barriers barriers;
+        Moneys moneys;
         Collosion collosion;
 
         GameState gameState;
@@ -66,8 +68,9 @@ namespace ScarFly
             foreBackground = new PlayerBackground("Background/ForestFore", 3);
 
             barriers = new Barriers("level_1", 3, phoneWidth, phoneHeight);
+            moneys = new Moneys("level_1", 3, phoneWidth, phoneHeight);
 
-            collosion = new Collosion(barriers, player);
+            collosion = new Collosion(barriers, player, moneys);
         }
 
         protected override void Initialize()
@@ -84,10 +87,13 @@ namespace ScarFly
             pauseMenu.LoadButtonList(this);
 
             player.Load(this);
+
             backBackground.Load(this);
             foreBackground.Load(this);
-            Texture2D background = Content.Load<Texture2D>("Background/Forest");
+
             barriers.Load(this);
+            moneys.Load(this);
+            gameScoreSpriteFont = this.Content.Load<SpriteFont>("GameScoreSpriteFont");
         }
 
         protected override void UnloadContent()
@@ -112,6 +118,7 @@ namespace ScarFly
                 backBackground.Scroll(this);
                 foreBackground.Scroll(this);
                 barriers.Scroll(this);
+                moneys.Scroll(this);
                 collosion.Update();
                 while (TouchPanel.IsGestureAvailable)
                 {
@@ -139,6 +146,7 @@ namespace ScarFly
                     gameState = GameState.InMainMenu;
                     mainMenu = new MainMenu(mainButtons);
                     barriers.RePosition();
+                    moneys.RePosition();
                 }
                 gameState = pauseMenu.IsTouched(this, TouchPanel.GetState(), gameState);
             }
@@ -181,12 +189,15 @@ namespace ScarFly
                         break;
                 }
                 barriers.Draw(spriteBatch);
+                moneys.Draw(spriteBatch);
+                spriteBatch.DrawString(gameScoreSpriteFont, player.GameScore.ToString(), new Vector2(0, 0), Color.White);
             }
             else if (gameState == GameState.InPauseMenu)
             {
                 backBackground.Draw(spriteBatch);
                 foreBackground.Draw(spriteBatch);
                 barriers.Draw(spriteBatch);
+                moneys.Draw(spriteBatch);
                 pauseMenu.DrawButtonList(spriteBatch);
             }
             else if (gameState == GameState.InScoreMenu)

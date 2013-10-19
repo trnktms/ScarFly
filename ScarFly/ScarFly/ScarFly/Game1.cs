@@ -21,7 +21,6 @@ namespace ScarFly
         SpriteBatch spriteBatch;
         int phoneWidth;
         int phoneHeight;
-        SpriteFont gameScoreSpriteFont;
 
         MainMenu mainMenu;
         MainMenu pauseMenu;
@@ -64,7 +63,7 @@ namespace ScarFly
 
 
             player = new Player("Player1", 100, 370, "Player/AnimatedCircle", "Player/AnimatedCircle", "Player/AnimatedCircle", 16, 16, 16);
-            backBackground = new PlayerBackground("Background/Forest", 1);
+            backBackground = new PlayerBackground("Background/Forest3", 1);
             foreBackground = new PlayerBackground("Background/ForestFore", 3);
 
             barriers = new Barriers("level_1", 3, phoneWidth, phoneHeight);
@@ -93,7 +92,6 @@ namespace ScarFly
 
             barriers.Load(this);
             moneys.Load(this);
-            gameScoreSpriteFont = this.Content.Load<SpriteFont>("GameScoreSpriteFont");
         }
 
         protected override void UnloadContent()
@@ -147,15 +145,12 @@ namespace ScarFly
                     mainMenu = new MainMenu(mainButtons);
                     barriers.RePosition();
                     moneys.RePosition();
+                    player.RePosition();
                 }
                 gameState = pauseMenu.IsTouched(this, TouchPanel.GetState(), gameState);
             }
             
             else if (gameState == GameState.InScoreMenu)
-            {
-
-            }
-            else if (gameState == GameState.Invalid)
             {
 
             }
@@ -190,7 +185,6 @@ namespace ScarFly
                 }
                 barriers.Draw(spriteBatch);
                 moneys.Draw(spriteBatch);
-                spriteBatch.DrawString(gameScoreSpriteFont, player.GameScore.ToString(), new Vector2(0, 0), Color.White);
             }
             else if (gameState == GameState.InPauseMenu)
             {

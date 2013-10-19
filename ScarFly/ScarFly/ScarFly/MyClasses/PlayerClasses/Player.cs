@@ -38,6 +38,7 @@ namespace ScarFly.MyClasses
 
         public string Name { get; set; }
         public int GameScore { get; set; }
+        public SpriteFont GameScoreSpriteFont { get; set; }
         public int TotalScore { get; set; }
         public List<Dress> DressList { get; set; }
         public List<InjuryStopper> InjuryStopperList { get; set; }
@@ -74,6 +75,8 @@ namespace ScarFly.MyClasses
             RunTexture = game.Content.Load<Texture2D>(RunAssetName);
             FlyTexture = game.Content.Load<Texture2D>(FlyAssetName);
             FallTexture = game.Content.Load<Texture2D>(FallAssetName);
+            GameScoreSpriteFont = game.Content.Load<SpriteFont>(Consts.sf_GameScore);
+
 
             UpdateRectangle();
 
@@ -138,7 +141,7 @@ namespace ScarFly.MyClasses
         public void Animate(SpriteBatch spriteBatch, int moveCount)
         {
             Color overlayer = Color.White;
-            if (isDead) { overlayer = Color.Red; }
+            if (isDead) { overlayer = Color.Red; GameScore--;  }
             else if (isEatMoney) { overlayer = Color.Blue; GameScore++; }
 
             if (_animateCount < moveCount - 1)
@@ -177,6 +180,15 @@ namespace ScarFly.MyClasses
                 }
                 _animateCount = 0;
             }
+
+            spriteBatch.DrawString(GameScoreSpriteFont, string.Format("Score: {0}", GameScore.ToString()), new Vector2(0, 0), Color.White);
+        }
+
+        public void RePosition()
+        {
+            Position = new Vector2(Position.X, ZeroPositionY);
+            PlayerState = PlayerStates.Running;
+            GameScore = 0;
         }
     }
 }

@@ -9,5 +9,6 @@ namespace ScarFly.MyClasses
     {
         public static int PhoneWidthRate = 8;
         public static int PhoneHeightRate = 5;
+        public static string sf_GameScore = "Fonts/GameScore";
     }
 }

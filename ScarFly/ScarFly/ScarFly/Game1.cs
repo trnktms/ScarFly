@@ -12,6 +12,7 @@ using Microsoft.Xna.Framework.Media;
 using ScarFly.MyClasses;
 using ScarFly.MyClasses.PlayerClasses;
 using ScarFly.MyClasses.BarrierClasses;
+using ScarFly.MyClasses.MenuClasses;
 
 namespace ScarFly
 {
@@ -27,13 +28,12 @@ namespace ScarFly
         List<MenuButton> mainButtons = new List<MenuButton>();
         List<MenuButton> pauseButtons = new List<MenuButton>();
 
-        Player player;
         PlayerBackground backBackground;
         PlayerBackground foreBackground;
+        Player player;
         Barriers barriers;
         Moneys moneys;
         Collosion collosion;
-
         GameState gameState;
 
         public Game1()
@@ -58,16 +58,16 @@ namespace ScarFly
             mainMenu = new MainMenu(mainButtons);
 
             pauseButtons = new List<MenuButton>();
-            pauseButtons.Add(new MenuButton("Pause_Resume", "Buttons/StartButton", 10, 10));
+            pauseButtons.Add(new MenuButton("Pause_Resume", "Buttons/StartButton", (phoneWidth / 2) - 124, (phoneHeight / 2) - 128));
             pauseMenu = new MainMenu(pauseButtons);
 
 
-            player = new Player("Player1", 100, 370, "Player/AnimatedCircle", "Player/AnimatedCircle", "Player/AnimatedCircle", 16, 16, 16);
-            backBackground = new PlayerBackground("Background/Forest3", 1);
-            foreBackground = new PlayerBackground("Background/ForestFore", 3);
+            player = new Player("Player1", 4, 100, 370, "Player/AnimatedCircle", "Player/AnimatedCircle", "Player/AnimatedCircle", 16, 16, 16);
+            backBackground = new PlayerBackground("Background/Forest", 1);
+            foreBackground = new PlayerBackground("Background/ForestFore", 4);
 
-            barriers = new Barriers("level_1", 3, phoneWidth, phoneHeight);
-            moneys = new Moneys("level_1", 3, phoneWidth, phoneHeight);
+            barriers = new Barriers("level_1", 4, phoneWidth, phoneHeight);
+            moneys = new Moneys("level_1", 4, phoneWidth, phoneHeight);
 
             collosion = new Collosion(barriers, player, moneys);
         }
@@ -81,15 +81,11 @@ namespace ScarFly
         protected override void LoadContent()
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
-
             mainMenu.LoadButtonList(this);
             pauseMenu.LoadButtonList(this);
-
             player.Load(this);
-
             backBackground.Load(this);
             foreBackground.Load(this);
-
             barriers.Load(this);
             moneys.Load(this);
         }
@@ -185,6 +181,7 @@ namespace ScarFly
                 }
                 barriers.Draw(spriteBatch);
                 moneys.Draw(spriteBatch);
+                player.Score.DrawGameScore(spriteBatch);
             }
             else if (gameState == GameState.InPauseMenu)
             {

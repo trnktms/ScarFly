@@ -9,14 +9,14 @@ namespace ScarFly.MyClasses.PlayerClasses
 {
     public class PlayerBackground
     {
-        public PlayerBackground(string assetName, int step)
+        public PlayerBackground(string assetName, int velocity)
         {
             this.AssetName = assetName;
-            this.Step = step;
+            this.Velocity = velocity;
         }
 
         public string AssetName { get; set; }
-        public int Step { get; set; }
+        public int Velocity { get; set; }
         public Rectangle Rectangle1 { get; set; }
         public Rectangle Rectangle2 { get; set; }
         public Texture2D Texture1 { get; set; }
@@ -34,21 +34,21 @@ namespace ScarFly.MyClasses.PlayerClasses
         {
             if (Rectangle1.X + Texture1.Width <= 0)
             {
-                Rectangle1 = new Rectangle(Rectangle2.X + Texture1.Width - Step, Rectangle1.Y, Rectangle1.Width, Rectangle1.Height);
+                Rectangle1 = new Rectangle(Rectangle2.X + Texture1.Width - Velocity, Rectangle1.Y, Rectangle1.Width, Rectangle1.Height);
             }
             else
             {
-                Rectangle1 = new Rectangle(Rectangle1.X - Step, Rectangle1.Y, Rectangle1.Width, Rectangle1.Height);
+                Rectangle1 = new Rectangle(Rectangle1.X - Velocity, Rectangle1.Y, Rectangle1.Width, Rectangle1.Height);
                 //Rectangle2 = new Rectangle(Rectangle2.X - Step, Rectangle2.Y, Rectangle2.Width, Rectangle2.Height);
             }
             if (Rectangle2.X + Texture1.Width <= 0)
             {
-                Rectangle2 = new Rectangle(Rectangle1.X + Texture1.Width - Step, Rectangle2.Y, Rectangle2.Width, Rectangle2.Height);
+                Rectangle2 = new Rectangle(Rectangle1.X + Texture1.Width - Velocity, Rectangle2.Y, Rectangle2.Width, Rectangle2.Height);
             }
             else
             {
                 //Rectangle1 = new Rectangle(Rectangle1.X - Step, Rectangle1.Y, Rectangle1.Width, Rectangle1.Height);
-                Rectangle2 = new Rectangle(Rectangle2.X - Step, Rectangle2.Y, Rectangle2.Width, Rectangle2.Height);
+                Rectangle2 = new Rectangle(Rectangle2.X - Velocity, Rectangle2.Y, Rectangle2.Width, Rectangle2.Height);
             }
         }
 

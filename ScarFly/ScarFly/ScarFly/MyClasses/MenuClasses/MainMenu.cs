@@ -6,17 +6,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace ScarFly.MyClasses
+namespace ScarFly.MyClasses.MenuClasses
 {
-    public enum GameState
-    {
-        Gaming,
-        InMainMenu,
-        InScoreMenu,
-        InPauseMenu,
-        Invalid
-    }
-
     public class MainMenu
     {
         public MainMenu(List<MenuButton> buttonList)

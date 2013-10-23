@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading;
+using ScarFly.MyClasses.PlayerClasses;
 
 namespace ScarFly.MyClasses
 {
@@ -18,7 +19,7 @@ namespace ScarFly.MyClasses
 
     public class Player
     {
-        public Player(string name, float positionX, float positionY, string runAssetName, string flyAssetName, string fallAssetName, int runMoveCount, int flyMoveCount, int fallMoveCount)
+        public Player(string name, int velocity, float positionX, float positionY, string runAssetName, string flyAssetName, string fallAssetName, int runMoveCount, int flyMoveCount, int fallMoveCount)
         {
             this.Name = name;
             this.RunAssetName = runAssetName;
@@ -27,58 +28,53 @@ namespace ScarFly.MyClasses
             this.Position = new Vector2(positionX, positionY);
             this.ZeroPositionY = (int)positionY;
             PlayerState = PlayerStates.Running;
-
             this.RunMoveCount = runMoveCount;
             this.FlyMoveCount = flyMoveCount;
             this.FallMoveCount = fallMoveCount;
             isDead = false;
             isEatMoney = false;
-            GameScore = 0;
+            Score = new Score(Consts.p_MoneyIcon, Consts.p_MoneyIcon, Consts.sf_GameScore, Consts.sf_GameScore);
+            this.Velocity = velocity;
+            PositionHistory = new Queue<Vector2>((int)positionX);
         }
 
         public string Name { get; set; }
-        public int GameScore { get; set; }
-        public SpriteFont GameScoreSpriteFont { get; set; }
-        public int TotalScore { get; set; }
-        public List<Dress> DressList { get; set; }
-        public List<InjuryStopper> InjuryStopperList { get; set; }
-
         public PlayerStates PlayerState { get; set; }
         public bool isDead { get; set; }
         public bool isEatMoney { get; set; }
+
+        Queue<Vector2> PositionHistory;
+        Texture2D _line;
+        public Score Score { get; set; }
+        public int Velocity { get; set; }
 
         private int ZeroPositionY { get; set; }
         public Vector2 Position { get; set; }
 
         public string RunAssetName { get; set; }
-        public Texture2D RunTexture { get; set; }
-        public Rectangle RunBound { get; set; }
-        public Color[] RunColorData { get; set; }
-        public int RunMoveCount { get; set; }
         public string FlyAssetName { get; set; }
-        public Texture2D FlyTexture { get; set; }
-        public Rectangle FlyBound { get; set; }
-        public Color[] FlyColorData { get; set; }
-        public int FlyMoveCount { get; set; }
         public string FallAssetName { get; set; }
+        public Texture2D RunTexture { get; set; }
+        public Texture2D FlyTexture { get; set; }
         public Texture2D FallTexture { get; set; }
+        public Rectangle RunBound { get; set; }
+        public Rectangle FlyBound { get; set; }
         public Rectangle FallBound { get; set; }
+        public Color[] RunColorData { get; set; }
+        public Color[] FlyColorData { get; set; }
         public Color[] FallColorData { get; set; }
+        public int RunMoveCount { get; set; }
+        public int FlyMoveCount { get; set; }
         public int FallMoveCount { get; set; }
-
-        public int _runMoveWidth { get; set; }
-        public int _flyMoveWidth { get; set; }
-        public int _fallMoveWidth { get; set; }
+        public int RunMoveWidth { get; set; }
+        public int FlyMoveWidth { get; set; }
+        public int FallMoveWidth { get; set; }
 
         public void Load(Game1 game) 
         { 
             RunTexture = game.Content.Load<Texture2D>(RunAssetName);
             FlyTexture = game.Content.Load<Texture2D>(FlyAssetName);
             FallTexture = game.Content.Load<Texture2D>(FallAssetName);
-            GameScoreSpriteFont = game.Content.Load<SpriteFont>(Consts.sf_GameScore);
-
-
-            UpdateRectangle();
 
             RunColorData = new Color[RunTexture.Width * RunTexture.Height];
             FlyColorData = new Color[FlyTexture.Width * FlyTexture.Height];
@@ -88,16 +84,21 @@ namespace ScarFly.MyClasses
             FlyTexture.GetData(FlyColorData);
             FallTexture.GetData(FallColorData);
 
-            _runMoveWidth = RunTexture.Width / this.RunMoveCount;
-            _flyMoveWidth = FlyTexture.Width / this.FlyMoveCount;
-            _fallMoveWidth = FallTexture.Width / this.FallMoveCount;
+            RunMoveWidth = RunTexture.Width / this.RunMoveCount;
+            FlyMoveWidth = FlyTexture.Width / this.FlyMoveCount;
+            FallMoveWidth = FallTexture.Width / this.FallMoveCount;
+
+            UpdateRectangle();
+            Score.Load(game);
+
+            _line = game.Content.Load<Texture2D>(Consts.p_Pixel);
         }
 
         public void UpdateRectangle()
         {
-            RunBound = new Rectangle((int)Position.X, (int)Position.Y, _runMoveWidth, RunTexture.Height);
-            FlyBound = new Rectangle((int)Position.X, (int)Position.Y, _flyMoveWidth, FlyTexture.Height);
-            FallBound = new Rectangle((int)Position.X, (int)Position.Y, _fallMoveWidth, FallTexture.Height);
+            RunBound = new Rectangle((int)Position.X, (int)Position.Y, RunMoveWidth, RunTexture.Height);
+            FlyBound = new Rectangle((int)Position.X, (int)Position.Y, FlyMoveWidth, FlyTexture.Height);
+            FallBound = new Rectangle((int)Position.X, (int)Position.Y, FallMoveWidth, FallTexture.Height);
         }
 
         public void Run(SpriteBatch spriteBatch)
@@ -141,54 +142,68 @@ namespace ScarFly.MyClasses
         public void Animate(SpriteBatch spriteBatch, int moveCount)
         {
             Color overlayer = Color.White;
-            if (isDead) { overlayer = Color.Red; GameScore--;  }
-            else if (isEatMoney) { overlayer = Color.Blue; GameScore++; }
+            if (isDead) { overlayer = Color.Red; Score.GameScore--;  }
+            else if (isEatMoney) { overlayer = Color.Green; Score.GameScore++; }
+
+            DrawHistory(spriteBatch);
 
             if (_animateCount < moveCount - 1)
             {
                 switch (PlayerState)
                 {
                     case PlayerStates.Running:
-                        spriteBatch.Draw(RunTexture, Position, new Rectangle((int)(_runMoveWidth * _animateCount), 0, (int)_runMoveWidth, (int)RunTexture.Height), overlayer);
+                        spriteBatch.Draw(RunTexture, Position, new Rectangle((int)(RunMoveWidth * _animateCount), 0, (int)RunMoveWidth, (int)RunTexture.Height), overlayer);
                         break;
                     case PlayerStates.Flying:
-                        spriteBatch.Draw(FlyTexture, Position, new Rectangle((int)(_flyMoveWidth * _animateCount), 0, (int)_flyMoveWidth, (int)FlyTexture.Height), overlayer);
+                        spriteBatch.Draw(FlyTexture, Position, new Rectangle((int)(FlyMoveWidth * _animateCount), 0, (int)FlyMoveWidth, (int)FlyTexture.Height), overlayer);
                         break;
                     case PlayerStates.Falling:
-                        spriteBatch.Draw(FallTexture, Position, new Rectangle((int)(_fallMoveWidth * _animateCount), 0, (int)_fallMoveWidth, (int)FallTexture.Height), overlayer);
+                        spriteBatch.Draw(FallTexture, Position, new Rectangle((int)(FallMoveWidth * _animateCount), 0, (int)FallMoveWidth, (int)FallTexture.Height), overlayer);
                         break;
                     default:
                         break;
                 }
-                ++_animateCount;
+                _animateCount++;
             }
             else
             {
                 switch (PlayerState)
                 {
                     case PlayerStates.Running:
-                        spriteBatch.Draw(RunTexture, Position, new Rectangle((int)(_runMoveWidth * (moveCount - 1)), 0, (int)_runMoveWidth, (int)RunTexture.Height), overlayer);
+                        spriteBatch.Draw(RunTexture, Position, new Rectangle((int)(RunMoveWidth * (moveCount - 1)), 0, (int)RunMoveWidth, (int)RunTexture.Height), overlayer);
                         break;
                     case PlayerStates.Flying:
-                        spriteBatch.Draw(FlyTexture, Position, new Rectangle((int)(_flyMoveWidth * (moveCount - 1)), 0, (int)_flyMoveWidth, (int)FlyTexture.Height), overlayer);
+                        spriteBatch.Draw(FlyTexture, Position, new Rectangle((int)(FlyMoveWidth * (moveCount - 1)), 0, (int)FlyMoveWidth, (int)FlyTexture.Height), overlayer);
                         break;
                     case PlayerStates.Falling:
-                        spriteBatch.Draw(FallTexture, Position, new Rectangle((int)(_fallMoveWidth * (moveCount - 1)), 0, (int)_fallMoveWidth, (int)FallTexture.Height), overlayer);
+                        spriteBatch.Draw(FallTexture, Position, new Rectangle((int)(FallMoveWidth * (moveCount - 1)), 0, (int)FallMoveWidth, (int)FallTexture.Height), overlayer);
                         break;
                     default:
                         break;
                 }
                 _animateCount = 0;
             }
+        }
 
-            spriteBatch.DrawString(GameScoreSpriteFont, string.Format("Score: {0}", GameScore.ToString()), new Vector2(0, 0), Color.White);
+        private void DrawHistory(SpriteBatch spriteBatch)
+        {
+            PositionHistory.Enqueue(Position);
+            int i = (int)Position.X;
+            foreach (var item in PositionHistory)
+            {
+                spriteBatch.Draw(_line, new Vector2(item.X - i * Velocity, item.Y + RunTexture.Height / 2), Color.White);
+                i--;
+            }
+
+            if (PositionHistory.Count == (int)Position.X) { PositionHistory.Dequeue(); }
         }
 
         public void RePosition()
         {
             Position = new Vector2(Position.X, ZeroPositionY);
             PlayerState = PlayerStates.Running;
-            GameScore = 0;
+            Score.GameScore = 0;
+            PositionHistory.Clear();
         }
     }
 }

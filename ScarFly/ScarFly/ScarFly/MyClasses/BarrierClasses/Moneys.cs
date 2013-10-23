@@ -21,6 +21,7 @@ namespace ScarFly.MyClasses.BarrierClasses
             _horizontalStep = this.PhoneWidth / Consts.PhoneWidthRate;
             _verticalStep = this.PhoneHeight / Consts.PhoneHeightRate;
         }
+
         public string LevelName { get; set; }
         public List<Money> MoneyList { get; set; }
         public int Velocity { get; set; }
@@ -55,6 +56,8 @@ namespace ScarFly.MyClasses.BarrierClasses
                         switch (id)
                         {
                             case "a": MoneyList.Add(new Money("Barriers/Money", new MoneyIndex(j, i, id), PhoneWidth, PhoneHeight));
+                                break;
+                            case "!": MoneyList.Add(new Money("Barriers/Barrier2", new MoneyIndex(j, i, id), PhoneWidth, PhoneHeight));
                                 break;
                             default:
                                 break;

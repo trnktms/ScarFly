@@ -82,6 +82,7 @@
     <Compile Include="MyClasses\MenuClasses\MenuButton.cs" />
     <Compile Include="MyClasses\PlayerClasses\Player.cs" />
     <Compile Include="MyClasses\PlayerClasses\PlayerBackground.cs" />
+    <Compile Include="MyClasses\PlayerClasses\Score.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <None Include="Levels\level_1.level">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

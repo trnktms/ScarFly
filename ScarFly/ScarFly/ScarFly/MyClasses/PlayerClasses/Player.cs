@@ -143,6 +143,10 @@ namespace ScarFly.MyClasses
                 _fall_sy = (int)Position.Y;
                 _fall_vy = 0;
             }
+            else
+            {
+                PlayerState = PlayerStates.Falling;
+            }
             Animate(spriteBatch, FlyMoveCount);
         }
 

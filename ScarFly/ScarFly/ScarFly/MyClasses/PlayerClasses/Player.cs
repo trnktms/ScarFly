@@ -213,6 +213,7 @@ namespace ScarFly.MyClasses
             PlayerState = PlayerStates.Running;
             Score.GameScore = 0;
             PositionHistory.Clear();
+            _fly_sy = (int)Position.Y;
         }
     }
 }

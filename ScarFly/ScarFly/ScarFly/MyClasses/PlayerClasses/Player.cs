@@ -35,7 +35,8 @@ namespace ScarFly.MyClasses
             isEatMoney = false;
             Score = new Score(Consts.p_MoneyIcon, Consts.p_MoneyIcon, Consts.sf_GameScore, Consts.sf_GameScore);
             this.Velocity = velocity;
-            PositionHistory = new Queue<Vector2>((int)positionX);
+            PositionHistory = new Queue<Vector2>(20);
+            _fly_sy = (int)Position.Y;
         }
 
         public string Name { get; set; }
@@ -108,31 +109,39 @@ namespace ScarFly.MyClasses
             Animate(spriteBatch, RunMoveCount);
         }
 
-        private int _vy, _sy;
-        private int _ay = 1;
+        private int _fall_vy, _fall_sy;
+        private int _fall_ay = 1;
         public void Fall(SpriteBatch spriteBatch)
         {
-            _vy = _vy + _ay;
-            _sy = _sy + _vy;
-            Position = new Vector2(Position.X, _sy);
+            _fall_vy += _fall_ay;
+            _fall_sy += _fall_vy;
+
+            Position = new Vector2(Position.X, _fall_sy);
+
+            _fly_sy = (int)Position.Y;
+            _fly_vy = 0;
+
             UpdateRectangle();
             Animate(spriteBatch, FallMoveCount);
-            if (_sy > ZeroPositionY || _sy > ZeroPositionY - 12)
+            if (_fall_sy > ZeroPositionY || _fall_sy > ZeroPositionY - 12)
             {
                 //Position = new Vector2(Position.X, ZeroPositionY);
                 PlayerState = PlayerStates.Running;
             }
         }
 
+        private int _fly_vy, _fly_sy;
+        private int _fly_ay = 1;
         public void Fly(SpriteBatch spriteBatch)
         {
             if (Position.Y > 0)
             {
-                Position = new Vector2(Position.X, Position.Y - 7);
+                if (_fly_vy < 10) { _fly_vy += _fly_ay; }
+                _fly_sy -= _fly_vy;
+                Position = new Vector2(Position.X, _fly_sy);
                 UpdateRectangle();
-                _sy = (int)Position.Y;
-                _vy = 0;
-                _ay = 1;
+                _fall_sy = (int)Position.Y;
+                _fall_vy = 0;
             }
             Animate(spriteBatch, FlyMoveCount);
         }
@@ -188,14 +197,14 @@ namespace ScarFly.MyClasses
         private void DrawHistory(SpriteBatch spriteBatch)
         {
             PositionHistory.Enqueue(Position);
-            int i = (int)Position.X;
+            int i = 20;
             foreach (var item in PositionHistory)
             {
                 spriteBatch.Draw(_line, new Vector2(item.X - i * Velocity, item.Y + RunTexture.Height / 2), Color.White);
                 i--;
             }
 
-            if (PositionHistory.Count == (int)Position.X) { PositionHistory.Dequeue(); }
+            if (PositionHistory.Count == 20) { PositionHistory.Dequeue(); }
         }
 
         public void RePosition()

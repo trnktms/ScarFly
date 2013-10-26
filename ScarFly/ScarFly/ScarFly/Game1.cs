@@ -62,9 +62,9 @@ namespace ScarFly
             pauseMenu = new MainMenu(pauseButtons);
 
 
-            player = new Player("Player1", 4, 100, 370, "Player/AnimatedCircle", "Player/AnimatedCircle", "Player/AnimatedCircle", 16, 16, 16);
+            player = new Player("Player1", 4, 100, 370, "Player/PaperPlane_v2", "Player/PaperPlane_v2", "Player/PaperPlane_v2", 1, 1, 1);
             backBackground = new PlayerBackground("Background/Forest", 1);
-            foreBackground = new PlayerBackground("Background/ForestFore", 4);
+            foreBackground = new PlayerBackground("Background/ForestFore", 2);
 
             barriers = new Barriers("level_1", 4, phoneWidth, phoneHeight);
             moneys = new Moneys("level_1", 4, phoneWidth, phoneHeight);

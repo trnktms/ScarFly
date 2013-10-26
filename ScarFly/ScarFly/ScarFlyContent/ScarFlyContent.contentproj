@@ -55,18 +55,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Barriers\Barrier1.png">
-      <Name>Barrier1</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="Barriers\Barrier2.png">
-      <Name>Barrier2</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="Barriers\Money.png">
       <Name>Money</Name>
       <Importer>TextureImporter</Importer>
@@ -90,6 +78,67 @@
   <ItemGroup>
     <Compile Include="Player\Pixel.png">
       <Name>Pixel</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Player\PaperPlane_v2.png">
+      <Name>PaperPlane_v2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Player\PaperPlane_v2_Fall.png">
+      <Name>PaperPlane_v2_Fall</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Player\PaperPlane_v2_Fly.png">
+      <Name>PaperPlane_v2_Fly</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Player\PinWheelAnim.png">
+      <Name>PinWheelAnim</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Barriers\PinWheel.png">
+      <Name>PinWheel</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Barriers\PinWheelMini.png">
+      <Name>PinWheelMini</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Barriers\PinWheelBig.png">
+      <Name>PinWheelBig</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Barriers\PinWheelBig_BW.png">
+      <Name>PinWheelBig_BW</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Barriers\PinWheelMini_BW.png">
+      <Name>PinWheelMini_BW</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

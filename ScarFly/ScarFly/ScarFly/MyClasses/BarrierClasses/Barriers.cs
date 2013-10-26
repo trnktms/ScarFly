@@ -55,9 +55,9 @@ namespace ScarFly.MyClasses.BarrierClasses
                     {
                         switch (id)
                         {
-                            case 1: BarrierList.Add(new Barrier("Barriers/Barrier1", new BarrierIndex(j, i, id), PhoneWidth, PhoneHeight));
+                            case 1: BarrierList.Add(new Barrier("Barriers/PinWheelMini_BW", new BarrierIndex(j, i, id), PhoneWidth, PhoneHeight, 20));
                                 break;
-                            case 2: BarrierList.Add(new Barrier("Barriers/Barrier2", new BarrierIndex(j, i, id), PhoneWidth, PhoneHeight));
+                            case 2: BarrierList.Add(new Barrier("Barriers/PinWheelBig_BW", new BarrierIndex(j, i, id), PhoneWidth, PhoneHeight, 20));
                                 break;
                             default:
                                 break;
@@ -87,7 +87,8 @@ namespace ScarFly.MyClasses.BarrierClasses
             {
                 if (barrierItem.Position.X >= -barrierItem.Texture.Width && barrierItem.Position.X <= PhoneWidth)
                 {
-                    spriteBatch.Draw(barrierItem.Texture, barrierItem.Position, Color.White);
+                    barrierItem.Draw(spriteBatch);
+                    //spriteBatch.Draw(barrierItem.Texture, barrierItem.Position, Color.White);
                 }
             }
         }

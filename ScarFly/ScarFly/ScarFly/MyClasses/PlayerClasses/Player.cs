@@ -115,19 +115,12 @@ namespace ScarFly.MyClasses
         {
             _fall_vy += _fall_ay;
             _fall_sy += _fall_vy;
-
             Position = new Vector2(Position.X, _fall_sy);
-
             _fly_sy = (int)Position.Y;
             _fly_vy = 0;
-
             UpdateRectangle();
+            if (_fall_sy > ZeroPositionY || _fall_sy > ZeroPositionY - 12) { PlayerState = PlayerStates.Running; }
             Animate(spriteBatch, FallMoveCount);
-            if (_fall_sy > ZeroPositionY || _fall_sy > ZeroPositionY - 12)
-            {
-                //Position = new Vector2(Position.X, ZeroPositionY);
-                PlayerState = PlayerStates.Running;
-            }
         }
 
         private int _fly_vy, _fly_sy;
@@ -143,10 +136,7 @@ namespace ScarFly.MyClasses
                 _fall_sy = (int)Position.Y;
                 _fall_vy = 0;
             }
-            else
-            {
-                PlayerState = PlayerStates.Falling;
-            }
+            else { PlayerState = PlayerStates.Falling; }
             Animate(spriteBatch, FlyMoveCount);
         }
 

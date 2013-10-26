@@ -57,8 +57,8 @@ namespace ScarFly.MyClasses.BarrierClasses
                         {
                             case "a": MoneyList.Add(new Money("Barriers/Money", new MoneyIndex(j, i, id), PhoneWidth, PhoneHeight));
                                 break;
-                            case "!": MoneyList.Add(new Money("Barriers/Barrier2", new MoneyIndex(j, i, id), PhoneWidth, PhoneHeight));
-                                break;
+                            //case "!": MoneyList.Add(new Money("Barriers/Barrier2", new MoneyIndex(j, i, id), PhoneWidth, PhoneHeight));
+                            //    break;
                             default:
                                 break;
                         }

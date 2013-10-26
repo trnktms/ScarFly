@@ -55,9 +55,9 @@ namespace ScarFly.MyClasses.BarrierClasses
                     {
                         switch (id)
                         {
-                            case 1: BarrierList.Add(new Barrier("Barriers/PinWheelMini_BW", new BarrierIndex(j, i, id), PhoneWidth, PhoneHeight, 20));
+                            case 1: BarrierList.Add(new Barrier("Barriers/PinWheelMini", new BarrierIndex(j, i, id), PhoneWidth, PhoneHeight, 20));
                                 break;
-                            case 2: BarrierList.Add(new Barrier("Barriers/PinWheelBig_BW", new BarrierIndex(j, i, id), PhoneWidth, PhoneHeight, 20));
+                            case 2: BarrierList.Add(new Barrier("Barriers/PinWheelBig", new BarrierIndex(j, i, id), PhoneWidth, PhoneHeight, 20));
                                 break;
                             default:
                                 break;

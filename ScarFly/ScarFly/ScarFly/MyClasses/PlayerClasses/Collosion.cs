@@ -25,7 +25,7 @@ namespace ScarFly.MyClasses.PlayerClasses
         public bool CollosionDetectionWithBarrier()
         {
             bool result = false;
-            foreach (var barrierItem in Barriers.BarrierList.Where(p => p.Position.X < Barriers.PhoneWidth).Select(p => p))
+            foreach (var barrierItem in Barriers.BarrierList)
             {
                 switch (Player.PlayerState)
                 {
@@ -50,7 +50,8 @@ namespace ScarFly.MyClasses.PlayerClasses
         public bool CollosionDetectionWithMoney()
         {
             bool result = false;
-            foreach (var moneyItem in Moneys.MoneyList.Where(p => p.Position.X < Moneys.PhoneWidth).Select(p => p))
+            int i = 0;
+            foreach (var moneyItem in Moneys.MoneyList)
             {
                 switch (Player.PlayerState)
                 {
@@ -67,8 +68,12 @@ namespace ScarFly.MyClasses.PlayerClasses
                         break;
                 }
 
-                if (result) { return true; }
+                if (result) { 
+                    break; }
+                i++;
             }
+
+            if (result) { Moneys.MoneyList.RemoveAt(i); }
             return result;
         }
 

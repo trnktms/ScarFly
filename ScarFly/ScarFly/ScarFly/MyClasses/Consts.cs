@@ -11,7 +11,7 @@ namespace ScarFly.MyClasses
         InMainMenu,
         InScoreMenu,
         InPauseMenu,
-        Invalid
+        InEndGameMenu
     }
 
     public static class Consts

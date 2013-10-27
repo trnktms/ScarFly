@@ -9,12 +9,13 @@ namespace ScarFly.MyClasses.BarrierClasses
 {
     public class Money
     {
-        public Money(string assetName, MoneyIndex index, int phoneWidth, int phoneHeight)
+        public Money(string assetName, MoneyIndex index, int phoneWidth, int phoneHeight, int moveCount)
         {
             this.AssetName = assetName;
             this.Index = index;
             Position = new Vector2(this.Index.Column * (phoneWidth / Consts.PhoneWidthRate), (this.Index.Row) * (phoneHeight / Consts.PhoneHeightRate));
             StartPosition = Position;
+            this.MoveCount = moveCount;
         }
 
         public MoneyIndex Index { get; set; }
@@ -24,18 +25,29 @@ namespace ScarFly.MyClasses.BarrierClasses
         public Color[] ColorData { get; set; }
         public Vector2 Position { get; set; }
         public Vector2 StartPosition { get; set; }
+        public int MoveWidth { get; set; }
+        public int MoveCount { get; set; }
 
         public void Load(Game1 game)
         {
             Texture = game.Content.Load<Texture2D>(AssetName);
-            UpdateRectangle();
             ColorData = new Color[Texture.Width * Texture.Height];
+            this.MoveWidth = Texture.Width / MoveCount;
             Texture.GetData(ColorData);
+            UpdateRectangle();
         }
 
         public void UpdateRectangle()
         {
-            Bound = new Rectangle((int)Position.X, (int)Position.Y, Texture.Width, Texture.Height);
+            Bound = new Rectangle((int)Position.X, (int)Position.Y, MoveWidth, Texture.Height);
+        }
+
+        private int _animateCount = 0;
+        public void Draw(SpriteBatch spriteBatch)
+        {
+            spriteBatch.Draw(Texture, Position, new Rectangle((int)(MoveWidth * _animateCount), 0, (int)MoveWidth, (int)Texture.Height), Color.White);
+            _animateCount++;
+            if (_animateCount == MoveCount) { _animateCount = 0; }
         }
     }
 }

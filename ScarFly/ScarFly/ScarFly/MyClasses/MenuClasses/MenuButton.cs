@@ -26,19 +26,13 @@ namespace ScarFly.MyClasses.MenuClasses
 
         public bool IsTouched(Game1 game, TouchCollection touchCollection) 
         {
-            foreach (TouchLocation touchLocItem in touchCollection)
-            {
-                if ((touchLocItem.State == TouchLocationState.Pressed) 
-                    && (touchLocItem.Position.X >= Position.X 
-                    && touchLocItem.Position.Y >= Position.Y 
-                    && touchLocItem.Position.X <= Texture.Width + Position.X 
-                    && touchLocItem.Position.Y <= Texture.Height + Position.Y))
-                {
-                    return true;
-                }
-            }
-
-            return false;
+            return touchCollection
+                .Where(p => (p.State == TouchLocationState.Pressed)
+                    && (p.Position.X >= Position.X
+                    && p.Position.Y >= Position.Y
+                    && p.Position.X <= Texture.Width + Position.X
+                    && p.Position.Y <= Texture.Height + Position.Y))
+                .Any();
         }
     }
 }

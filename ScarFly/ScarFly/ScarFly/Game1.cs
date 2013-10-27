@@ -25,11 +25,14 @@ namespace ScarFly
 
         MainMenu mainMenu;
         MainMenu pauseMenu;
+        MainMenu endGameMenu;
         List<MenuButton> mainButtons = new List<MenuButton>();
         List<MenuButton> pauseButtons = new List<MenuButton>();
+        List<MenuButton> endGameButtons = new List<MenuButton>();
 
         PlayerBackground backBackground;
         PlayerBackground foreBackground;
+        PlayerBackground walkPlace;
         Player player;
         Barriers barriers;
         Moneys moneys;
@@ -61,10 +64,14 @@ namespace ScarFly
             pauseButtons.Add(new MenuButton("Pause_Resume", "Buttons/StartButton", (phoneWidth / 2) - 124, (phoneHeight / 2) - 128));
             pauseMenu = new MainMenu(pauseButtons);
 
+            endGameButtons = new List<MenuButton>();
+            endGameButtons.Add(new MenuButton("EndGame_Start", "Buttons/StartButton", (phoneWidth / 2) - 124, (phoneHeight / 2) - 128));
+            endGameMenu = new MainMenu(endGameButtons);
 
             player = new Player("Player1", 4, 100, 370, "Player/PaperPlane_v2", "Player/PaperPlane_v2", "Player/PaperPlane_v2", 1, 1, 1);
             backBackground = new PlayerBackground("Background/Forest", 1);
             foreBackground = new PlayerBackground("Background/ForestFore", 2);
+            walkPlace = new PlayerBackground("Background/WalkPlace", 4);
 
             barriers = new Barriers("level_1", 4, phoneWidth, phoneHeight);
             moneys = new Moneys("level_1", 4, phoneWidth, phoneHeight);
@@ -83,9 +90,11 @@ namespace ScarFly
             spriteBatch = new SpriteBatch(GraphicsDevice);
             mainMenu.LoadButtonList(this);
             pauseMenu.LoadButtonList(this);
+            endGameMenu.LoadButtonList(this);
             player.Load(this);
             backBackground.Load(this);
             foreBackground.Load(this);
+            walkPlace.Load(this);
             barriers.Load(this);
             moneys.Load(this);
         }
@@ -98,32 +107,47 @@ namespace ScarFly
         protected override void Update(GameTime gameTime)
         {
             float elapsed = (float)gameTime.ElapsedGameTime.TotalSeconds;
+            //NOTE: MAIN MENU
             if (gameState == GameState.InMainMenu)
             {
-                if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
-                    this.Exit();
+                if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed) this.Exit();
                 backBackground.Scroll(this);
                 foreBackground.Scroll(this);
-
+                walkPlace.Scroll(this);
                 gameState = mainMenu.IsTouched(this, TouchPanel.GetState(), gameState);
             }
+            //NOTE: GAMING
             else if (gameState == GameState.Gaming)
             {
-                backBackground.Scroll(this);
-                foreBackground.Scroll(this);
-                barriers.Scroll(this);
-                moneys.Scroll(this);
-                collosion.Update();
                 while (TouchPanel.IsGestureAvailable)
                 {
                     var gesture = TouchPanel.ReadGesture();
                     if (gesture.GestureType == GestureType.Tap && (player.PlayerState == PlayerStates.Falling || player.PlayerState == PlayerStates.Running))
-                    {
                         player.PlayerState = PlayerStates.Flying;
-                    }
                     else if (gesture.GestureType == GestureType.Tap && player.PlayerState == PlayerStates.Flying)
-                    {
                         player.PlayerState = PlayerStates.Falling;
+                }
+
+                if (!(moneys.GetActualMoneyList().Count != 0 && moneys.GetActualMoneyList().LastOrDefault().Index.ID == "!"))
+                {
+                    backBackground.Scroll(this);
+                    foreBackground.Scroll(this);
+                    walkPlace.Scroll(this);
+                    barriers.Scroll(this);
+                    moneys.Scroll(this);
+                    collosion.Update();
+                }
+                else 
+                {
+                    player.isEnd = true;
+                    collosion.Update();
+                    if (player.Position.X >= phoneWidth)
+                    {
+                        gameState = GameState.InEndGameMenu;
+                        endGameMenu = new MainMenu(endGameButtons);
+                        barriers.RePosition();
+                        moneys.RePosition(this);
+                        player.RePosition();
                     }
                 }
 
@@ -133,6 +157,7 @@ namespace ScarFly
                     pauseMenu = new MainMenu(pauseButtons);
                 }
             }
+            //NOTE: PAUSE MENU
             else if (gameState == GameState.InPauseMenu)
             {
                 if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
@@ -140,16 +165,31 @@ namespace ScarFly
                     gameState = GameState.InMainMenu;
                     mainMenu = new MainMenu(mainButtons);
                     barriers.RePosition();
-                    moneys.RePosition();
+                    moneys.RePosition(this);
                     player.RePosition();
                 }
                 gameState = pauseMenu.IsTouched(this, TouchPanel.GetState(), gameState);
             }
-            
-            else if (gameState == GameState.InScoreMenu)
+            //NOTE: END GAME MENU
+            else if (gameState == GameState.InEndGameMenu)
             {
+                backBackground.Scroll(this);
+                foreBackground.Scroll(this);
+                walkPlace.Scroll(this);
+                gameState = endGameMenu.IsTouched(this, TouchPanel.GetState(), gameState);
 
+                if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
+                {
+                    gameState = GameState.InMainMenu;
+                    mainMenu = new MainMenu(mainButtons);
+                    barriers.RePosition();
+                    moneys.RePosition(this);
+                    player.RePosition();
+                }
             }
+            //NOTE: SCORE MENU
+            else if (gameState == GameState.InScoreMenu)
+            { }
 
             base.Update(gameTime);
         }
@@ -158,16 +198,20 @@ namespace ScarFly
         {
             GraphicsDevice.Clear(Color.Black);
             spriteBatch.Begin();
+            //NOTE: MAIN MENU
             if (gameState == GameState.InMainMenu)
             {
                 backBackground.Draw(spriteBatch);
                 foreBackground.Draw(spriteBatch);
+                walkPlace.Draw(spriteBatch);
                 mainMenu.DrawButtonList(spriteBatch);
             }
+            //NOTE: GAMING
             else if (gameState == GameState.Gaming)
             {
                 backBackground.Draw(spriteBatch);
                 foreBackground.Draw(spriteBatch);
+                walkPlace.Draw(spriteBatch);
                 switch (player.PlayerState)
                 {
                     case PlayerStates.Running: player.Run(spriteBatch);
@@ -183,21 +227,31 @@ namespace ScarFly
                 moneys.Draw(spriteBatch);
                 player.Score.DrawGameScore(spriteBatch);
             }
+            //NOTE: PAUSE MENU
             else if (gameState == GameState.InPauseMenu)
             {
                 backBackground.Draw(spriteBatch);
                 foreBackground.Draw(spriteBatch);
+                walkPlace.Draw(spriteBatch);
                 barriers.Draw(spriteBatch);
                 moneys.Draw(spriteBatch);
                 pauseMenu.DrawButtonList(spriteBatch);
             }
-            else if (gameState == GameState.InScoreMenu)
+            //NOTE: END GAME MENU
+            else if (gameState == GameState.InEndGameMenu)
             {
-
+                backBackground.Draw(spriteBatch);
+                foreBackground.Draw(spriteBatch);
+                walkPlace.Draw(spriteBatch);
+                endGameMenu.DrawButtonList(spriteBatch);
+                spriteBatch.DrawString(player.Score.GameScoreFont, "" + player.Score.TempGameScore, new Vector2(10, 10), Color.White);
+                spriteBatch.DrawString(player.Score.TotalScoreFont, "" + player.Score.TotalScore, new Vector2(10, 80), Color.White);
             }
+            //NOTE: SCORE MENU
+            else if (gameState == GameState.InScoreMenu)
+            { }
 
             spriteBatch.End();
-
             base.Draw(gameTime);
         }
     }

@@ -14,6 +14,7 @@ namespace ScarFly.MyClasses.MenuClasses
         {
             this.ButtonList = buttonList;
         }
+
         public List<MenuButton> ButtonList { get; set; }
 
         public void LoadButtonList(Game1 game)
@@ -48,6 +49,8 @@ namespace ScarFly.MyClasses.MenuClasses
                                 case "Main_Scores": result = GameState.InScoreMenu;
                                     break;
                                 case "Pause_Resume": result = GameState.Gaming;
+                                    break;
+                                case "EndGame_Start": result = GameState.Gaming;
                                     break;
                                 default:
                                     break;

@@ -30,13 +30,12 @@ namespace ScarFly.MyClasses.BarrierClasses
 
         public void Load(Game1 game) { foreach (var item in MoneyList) { item.Load(game); } }
 
-        public void RePosition() { foreach (var item in MoneyList) { item.Position = item.StartPosition; } }
+        public void RePosition(Game1 game) { ProcLevelFile(); Load(game); }
 
         private void ProcLevelFile()
         {
             MoneyList = new List<Money>();
             List<string> rows = new List<string>();
-
             using (var stream = TitleContainer.OpenStream(LevelName))
             {
                 using (var reader = new StreamReader(stream))
@@ -55,10 +54,10 @@ namespace ScarFly.MyClasses.BarrierClasses
                     {
                         switch (id)
                         {
-                            case "a": MoneyList.Add(new Money("Barriers/Money", new MoneyIndex(j, i, id), PhoneWidth, PhoneHeight));
+                            case "a": MoneyList.Add(new Money("Barriers/Money", new MoneyIndex(j, i, id), PhoneWidth, PhoneHeight, 1));
                                 break;
-                            //case "!": MoneyList.Add(new Money("Barriers/Barrier2", new MoneyIndex(j, i, id), PhoneWidth, PhoneHeight));
-                            //    break;
+                            case "!": MoneyList.Add(new Money("Barriers/Money", new MoneyIndex(j, i, id), PhoneWidth, PhoneHeight, 1));
+                                break;
                             default:
                                 break;
                         }
@@ -71,24 +70,23 @@ namespace ScarFly.MyClasses.BarrierClasses
         private int _verticalStep;
         public void Scroll(Game1 game)
         {
-            foreach (var moneyItem in MoneyList)
+            foreach (var moneyItem in MoneyList.Where(p => p.Position.X >= -p.Texture.Width))
             {
-                if (moneyItem.Position.X >= -moneyItem.Texture.Width)
-                {
-                    moneyItem.Position = new Vector2(moneyItem.Position.X - Velocity, moneyItem.Position.Y);
-                    moneyItem.UpdateRectangle();
-                }
+                moneyItem.Position = new Vector2(moneyItem.Position.X - Velocity, moneyItem.Position.Y);
+                moneyItem.UpdateRectangle();
             }
+        }
+
+        public List<Money> GetActualMoneyList()
+        {
+            return MoneyList.Where(p => p.Position.X >= -p.Texture.Width && p.Position.X <= PhoneWidth).ToList();
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            foreach (var moneyItem in MoneyList)
+            foreach (var moneyItem in MoneyList.Where(p => p.Position.X >= -p.Texture.Width && p.Position.X <= PhoneWidth))
             {
-                if (moneyItem.Position.X >= -moneyItem.Texture.Width && moneyItem.Position.X <= PhoneWidth)
-                {
-                    spriteBatch.Draw(moneyItem.Texture, moneyItem.Position, Color.White);
-                }
+                moneyItem.Draw(spriteBatch);
             }
         }
     }

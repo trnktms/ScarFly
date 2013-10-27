@@ -6,6 +6,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading;
+using System.IO.IsolatedStorage;
+using System.IO;
 
 namespace ScarFly.MyClasses.PlayerClasses
 {
@@ -17,7 +19,10 @@ namespace ScarFly.MyClasses.PlayerClasses
             this.TotalScoreIconAssetName = totalScoreIconAssetName;
             this.GameScoreFontAssetName = gameScoreFontName;
             this.TotalScoreFontAssetName = totalGameScoreFontName;
+            LoadTotalScore();
         }
+
+        public int TempGameScore { get; set; }
 
         public int GameScore { get; set; }
         public int TotalScore { get; set; }
@@ -52,6 +57,31 @@ namespace ScarFly.MyClasses.PlayerClasses
         {
             spriteBatch.Draw(TotalScoreIcon, new Vector2(0, 0), Color.White);
             spriteBatch.DrawString(TotalScoreFont, TotalScore.ToString(), new Vector2(TotalScoreIcon.Width, 0), Color.White);
+        }
+
+        public void SaveTotalScore()
+        {
+            IsolatedStorageFile myIsolatedStorage = IsolatedStorageFile.GetUserStoreForApplication();
+            IsolatedStorageFileStream fileStream = myIsolatedStorage.OpenFile("TotalScore.txt", FileMode.OpenOrCreate, FileAccess.Write);
+            using (StreamWriter writer = new StreamWriter(fileStream))
+            {
+                writer.Write(TotalScore);
+            }
+        }
+
+        public void LoadTotalScore()
+        {
+            IsolatedStorageFile myIsolatedStorage = IsolatedStorageFile.GetUserStoreForApplication();
+            if (myIsolatedStorage.FileExists("TotalScore.txt"))
+            {
+                using (IsolatedStorageFileStream fileStream = myIsolatedStorage.OpenFile("TotalScore.txt", FileMode.Open, FileAccess.ReadWrite))
+                {
+                    using (StreamReader reader = new StreamReader(fileStream))
+                    {
+                        TotalScore = int.Parse(reader.ReadLine());
+                    }
+                }
+            }
         }
     }
 }

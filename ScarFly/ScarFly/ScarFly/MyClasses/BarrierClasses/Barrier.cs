@@ -45,7 +45,6 @@ namespace ScarFly.MyClasses.BarrierClasses
         private int _animateCount = 0;
         public void Draw(SpriteBatch spriteBatch)
         {
-
             spriteBatch.Draw(Texture, Position, new Rectangle((int)(MoveWidth * _animateCount), 0, (int)MoveWidth, (int)Texture.Height), Color.White);
             _animateCount++;
             if (_animateCount == MoveCount) { _animateCount = 0; }

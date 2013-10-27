@@ -71,25 +71,18 @@ namespace ScarFly.MyClasses.BarrierClasses
         private int _verticalStep;
         public void Scroll(Game1 game)
         {
-            foreach (var barrierItem in BarrierList)
+            foreach (var barrierItem in BarrierList.Where(p => p.Position.X >= -p.Texture.Width))
             {
-                if (barrierItem.Position.X >= -barrierItem.Texture.Width)
-                {
-                    barrierItem.Position = new Vector2(barrierItem.Position.X - Velocity, barrierItem.Position.Y);
-                    barrierItem.UpdateRectangle();
-                }
+                barrierItem.Position = new Vector2(barrierItem.Position.X - Velocity, barrierItem.Position.Y);
+                barrierItem.UpdateRectangle();
             }
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            foreach (var barrierItem in BarrierList)
+            foreach (var barrierItem in BarrierList.Where(p => p.Position.X >= -p.Texture.Width && p.Position.X <= PhoneWidth))
             {
-                if (barrierItem.Position.X >= -barrierItem.Texture.Width && barrierItem.Position.X <= PhoneWidth)
-                {
-                    barrierItem.Draw(spriteBatch);
-                    //spriteBatch.Draw(barrierItem.Texture, barrierItem.Position, Color.White);
-                }
+                barrierItem.Draw(spriteBatch);
             }
         }
     }

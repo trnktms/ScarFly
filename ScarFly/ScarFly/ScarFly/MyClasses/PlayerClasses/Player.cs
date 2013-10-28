@@ -35,7 +35,7 @@ namespace ScarFly.MyClasses
             this.isDead = false;
             this.isEatMoney = false;
             this.isEnd = false;
-            this.Score = new Score(Consts.p_MoneyIcon, Consts.p_MoneyIcon, Consts.sf_GameScore, Consts.sf_GameScore);
+            this.Score = new Score(Consts.P_MoneyIcon, Consts.P_MoneyIcon, Consts.SF_GameScore, Consts.SF_GameScore);
             this.Velocity = velocity;
             this.PositionHistory = new Queue<Vector2>(20);
             this._fly_sy = (int)Position.Y;
@@ -97,7 +97,7 @@ namespace ScarFly.MyClasses
             UpdateRectangle();
             Score.Load(game);
 
-            _line = game.Content.Load<Texture2D>(Consts.p_Pixel);
+            _line = game.Content.Load<Texture2D>(Consts.P_Pixel);
         }
 
         public void UpdateRectangle()

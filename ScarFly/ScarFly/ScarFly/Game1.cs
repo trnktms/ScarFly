@@ -11,7 +11,7 @@ using Microsoft.Xna.Framework.Input.Touch;
 using Microsoft.Xna.Framework.Media;
 using ScarFly.MyClasses;
 using ScarFly.MyClasses.PlayerClasses;
-using ScarFly.MyClasses.BarrierClasses;
+using ScarFly.MyClasses.LevelElementClasses;
 using ScarFly.MyClasses.MenuClasses;
 
 namespace ScarFly
@@ -20,12 +20,10 @@ namespace ScarFly
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-        int phoneWidth;
-        int phoneHeight;
 
-        MainMenu mainMenu;
-        MainMenu pauseMenu;
-        MainMenu endGameMenu;
+        Menu mainMenu;
+        Menu pauseMenu;
+        Menu endGameMenu;
         List<MenuButton> mainButtons = new List<MenuButton>();
         List<MenuButton> pauseButtons = new List<MenuButton>();
         List<MenuButton> endGameButtons = new List<MenuButton>();
@@ -51,30 +49,30 @@ namespace ScarFly
             graphics.IsFullScreen = true;
             graphics.PreferredBackBufferHeight = 480;
             graphics.PreferredBackBufferWidth = 800;
-            phoneHeight = graphics.PreferredBackBufferHeight;
-            phoneWidth = graphics.PreferredBackBufferWidth;
+            Consts.PhoneWidth = graphics.PreferredBackBufferWidth;
+            Consts.PhoneHeight = graphics.PreferredBackBufferHeight;
 
             gameState = GameState.InMainMenu;
 
             mainButtons = new List<MenuButton>();
-            mainButtons.Add(new MenuButton("Main_Start", "Buttons/StartButton", (phoneWidth / 2) - 124, (phoneHeight / 2) - 128));
-            mainMenu = new MainMenu(mainButtons);
+            mainButtons.Add(new MenuButton("Main_Start", "Buttons/StartButton", (Consts.PhoneWidth / 2) - 124, (Consts.PhoneHeight / 2) - 128));
+            mainMenu = new Menu(mainButtons);
 
             pauseButtons = new List<MenuButton>();
-            pauseButtons.Add(new MenuButton("Pause_Resume", "Buttons/StartButton", (phoneWidth / 2) - 124, (phoneHeight / 2) - 128));
-            pauseMenu = new MainMenu(pauseButtons);
+            pauseButtons.Add(new MenuButton("Pause_Resume", "Buttons/StartButton", (Consts.PhoneWidth / 2) - 124, (Consts.PhoneHeight / 2) - 128));
+            pauseMenu = new Menu(pauseButtons);
 
             endGameButtons = new List<MenuButton>();
-            endGameButtons.Add(new MenuButton("EndGame_Start", "Buttons/StartButton", (phoneWidth / 2) - 124, (phoneHeight / 2) - 128));
-            endGameMenu = new MainMenu(endGameButtons);
+            endGameButtons.Add(new MenuButton("EndGame_Start", "Buttons/StartButton", (Consts.PhoneWidth / 2) - 124, (Consts.PhoneHeight / 2) - 128));
+            endGameMenu = new Menu(endGameButtons);
 
             player = new Player("Player1", 4, 100, 370, "Player/PaperPlane_v2", "Player/PaperPlane_v2", "Player/PaperPlane_v2", 1, 1, 1);
             backBackground = new PlayerBackground("Background/Forest", 1);
             foreBackground = new PlayerBackground("Background/ForestFore", 2);
             walkPlace = new PlayerBackground("Background/WalkPlace", 4);
 
-            barriers = new Barriers("level_1", 4, phoneWidth, phoneHeight);
-            moneys = new Moneys("level_1", 4, phoneWidth, phoneHeight);
+            barriers = new Barriers("level_1", 4);
+            moneys = new Moneys("level_1", 4);
 
             collosion = new Collosion(barriers, player, moneys);
         }
@@ -141,10 +139,10 @@ namespace ScarFly
                 {
                     player.isEnd = true;
                     collosion.Update();
-                    if (player.Position.X >= phoneWidth)
+                    if (player.Position.X >= Consts.PhoneWidth)
                     {
                         gameState = GameState.InEndGameMenu;
-                        endGameMenu = new MainMenu(endGameButtons);
+                        endGameMenu = new Menu(endGameButtons);
                         barriers.RePosition();
                         moneys.RePosition(this);
                         player.RePosition();
@@ -154,7 +152,7 @@ namespace ScarFly
                 if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 {
                     gameState = GameState.InPauseMenu;
-                    pauseMenu = new MainMenu(pauseButtons);
+                    pauseMenu = new Menu(pauseButtons);
                 }
             }
             //NOTE: PAUSE MENU
@@ -163,7 +161,7 @@ namespace ScarFly
                 if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 {
                     gameState = GameState.InMainMenu;
-                    mainMenu = new MainMenu(mainButtons);
+                    mainMenu = new Menu(mainButtons);
                     barriers.RePosition();
                     moneys.RePosition(this);
                     player.RePosition();
@@ -181,7 +179,7 @@ namespace ScarFly
                 if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 {
                     gameState = GameState.InMainMenu;
-                    mainMenu = new MainMenu(mainButtons);
+                    mainMenu = new Menu(mainButtons);
                     barriers.RePosition();
                     moneys.RePosition(this);
                     player.RePosition();

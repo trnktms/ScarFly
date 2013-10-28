@@ -48,13 +48,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Player\AnimatedCircle.png">
-      <Name>AnimatedCircle</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="Barriers\Money.png">
       <Name>Money</Name>
       <Importer>TextureImporter</Importer>
@@ -90,34 +83,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Player\PaperPlane_v2_Fall.png">
-      <Name>PaperPlane_v2_Fall</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Player\PaperPlane_v2_Fly.png">
-      <Name>PaperPlane_v2_Fly</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Player\PinWheelAnim.png">
-      <Name>PinWheelAnim</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Barriers\PinWheel.png">
-      <Name>PinWheel</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="Barriers\PinWheelMini.png">
       <Name>PinWheelMini</Name>
       <Importer>TextureImporter</Importer>
@@ -132,13 +97,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Barriers\PinWheelBig_BW.png">
-      <Name>PinWheelBig_BW</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="Barriers\PinWheelMini_BW.png">
-      <Name>PinWheelMini_BW</Name>
+    <Compile Include="Background\WalkPlace.png">
+      <Name>WalkPlace</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

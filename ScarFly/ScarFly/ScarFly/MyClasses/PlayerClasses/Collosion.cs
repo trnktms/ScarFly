@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using ScarFly.MyClasses.BarrierClasses;
+using ScarFly.MyClasses.LevelElementClasses;
 using ScarFly.MyClasses.PlayerClasses;
 
 namespace ScarFly.MyClasses.PlayerClasses

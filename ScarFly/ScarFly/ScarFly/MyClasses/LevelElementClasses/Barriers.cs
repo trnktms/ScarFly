@@ -6,27 +6,23 @@ using System.IO;
 using System.Linq;
 using System.Text;
 
-namespace ScarFly.MyClasses.BarrierClasses
+namespace ScarFly.MyClasses.LevelElementClasses
 {
     public class Barriers
     {
-        public Barriers(string levelName, int velocity, int phoneWidth, int phoneHeight)
+        public Barriers(string levelName, int velocity)
         {
             this.LevelName = string.Format(@"Levels\{0}.level", levelName);
             this.Velocity = velocity;
-            this.PhoneWidth = phoneWidth;
-            this.PhoneHeight = phoneHeight;
             ProcLevelFile();
 
-            _horizontalStep = this.PhoneWidth / Consts.PhoneWidthRate;
-            _verticalStep = this.PhoneHeight / Consts.PhoneHeightRate;
+            _horizontalStep = Consts.PhoneWidth / Consts.PhoneWidthRate;
+            _verticalStep = Consts.PhoneHeight / Consts.PhoneHeightRate;
         }
 
         public string LevelName { get; set; }
         public List<Barrier> BarrierList { get; set; }
         public int Velocity { get; set; }
-        public int PhoneHeight { get; set; }
-        public int PhoneWidth { get; set; }
 
         public void Load(Game1 game) { foreach (var item in BarrierList) { item.Load(game); } }
 
@@ -55,9 +51,9 @@ namespace ScarFly.MyClasses.BarrierClasses
                     {
                         switch (id)
                         {
-                            case 1: BarrierList.Add(new Barrier("Barriers/PinWheelMini", new BarrierIndex(j, i, id), PhoneWidth, PhoneHeight, 20));
+                            case 1: BarrierList.Add(new Barrier("Barriers/PinWheelMini", new BarrierIndex(j, i, id), 20));
                                 break;
-                            case 2: BarrierList.Add(new Barrier("Barriers/PinWheelBig", new BarrierIndex(j, i, id), PhoneWidth, PhoneHeight, 20));
+                            case 2: BarrierList.Add(new Barrier("Barriers/PinWheelBig", new BarrierIndex(j, i, id), 20));
                                 break;
                             default:
                                 break;
@@ -80,7 +76,7 @@ namespace ScarFly.MyClasses.BarrierClasses
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            foreach (var barrierItem in BarrierList.Where(p => p.Position.X >= -p.Texture.Width && p.Position.X <= PhoneWidth))
+            foreach (var barrierItem in BarrierList.Where(p => p.Position.X >= -p.Texture.Width && p.Position.X <= Consts.PhoneWidth))
             {
                 barrierItem.Draw(spriteBatch);
             }

@@ -5,20 +5,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace ScarFly.MyClasses.BarrierClasses
+namespace ScarFly.MyClasses.LevelElementClasses
 {
-    public class Money
+    public class Barrier
     {
-        public Money(string assetName, MoneyIndex index, int phoneWidth, int phoneHeight, int moveCount)
+        public Barrier(string assetName, BarrierIndex index, int moveCount)
         {
             this.AssetName = assetName;
             this.Index = index;
-            Position = new Vector2(this.Index.Column * (phoneWidth / Consts.PhoneWidthRate), (this.Index.Row) * (phoneHeight / Consts.PhoneHeightRate));
+            Position = new Vector2(this.Index.Column * (Consts.PhoneWidth / Consts.PhoneWidthRate), (this.Index.Row) * (Consts.PhoneHeight / Consts.PhoneHeightRate));
             StartPosition = Position;
             this.MoveCount = moveCount;
         }
 
-        public MoneyIndex Index { get; set; }
+        public BarrierIndex Index { get; set; }
         public string AssetName { get; set; }
         public Texture2D Texture { get; set; }
         public Rectangle Bound { get; set; }
@@ -28,12 +28,12 @@ namespace ScarFly.MyClasses.BarrierClasses
         public int MoveWidth { get; set; }
         public int MoveCount { get; set; }
 
-        public void Load(Game1 game)
-        {
+        public void Load(Game1 game) 
+        { 
             Texture = game.Content.Load<Texture2D>(AssetName);
             ColorData = new Color[Texture.Width * Texture.Height];
-            this.MoveWidth = Texture.Width / MoveCount;
             Texture.GetData(ColorData);
+            this.MoveWidth = Texture.Width / MoveCount;
             UpdateRectangle();
         }
 

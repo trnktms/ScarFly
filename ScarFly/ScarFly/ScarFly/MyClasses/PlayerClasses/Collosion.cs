@@ -51,7 +51,7 @@ namespace ScarFly.MyClasses.PlayerClasses
         {
             bool result = false;
             int i = 0;
-            foreach (var moneyItem in Moneys.MoneyList)
+            foreach (var moneyItem in Moneys.MoneyList.Where(p => p.Index.ID != "!"))
             {
                 switch (Player.PlayerState)
                 {

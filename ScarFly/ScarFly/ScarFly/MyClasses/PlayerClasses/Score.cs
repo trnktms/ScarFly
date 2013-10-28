@@ -22,8 +22,6 @@ namespace ScarFly.MyClasses.PlayerClasses
             LoadTotalScore();
         }
 
-        public int TempGameScore { get; set; }
-
         public int GameScore { get; set; }
         public int TotalScore { get; set; }
 

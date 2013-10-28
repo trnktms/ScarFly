@@ -52,10 +52,10 @@ namespace ScarFly.MyClasses.PlayerClasses
             }
         }
 
-        public void Draw(SpriteBatch spriteBatch)
+        public void Draw(SpriteBatch spriteBatch, Color color)
         {
-            spriteBatch.Draw(Texture1, Rectangle1, Color.White);
-            spriteBatch.Draw(Texture2, Rectangle2, Color.White);
+            spriteBatch.Draw(Texture1, Rectangle1, color);
+            spriteBatch.Draw(Texture2, Rectangle2, color);
         }
     }
 }

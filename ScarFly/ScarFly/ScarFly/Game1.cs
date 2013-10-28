@@ -121,7 +121,7 @@ namespace ScarFly
                 backBackground.Scroll(this);
                 foreBackground.Scroll(this);
                 walkPlace.Scroll(this);
-                gameState = mainMenu.IsTouched(this, TouchPanel.GetState(), gameState, ref firstEntry);
+                gameState = mainMenu.IsTouched(this, TouchPanel.GetState(), gameState, ref firstEntry, spriteBatch);
             }
             //NOTE: GAMING
             else if (gameState == GameState.Gaming)
@@ -138,31 +138,35 @@ namespace ScarFly
 
                     firstEntry = false;
                 }
-                player.Update();
-                if (!(moneys.GetActualMoneyList().Count != 0 && moneys.GetActualMoneyList().LastOrDefault().Index.ID == "!"))
-                {
-                    backBackground.Scroll(this);
-                    foreBackground.Scroll(this);
-                    walkPlace.Scroll(this);
-                    barriers.Scroll(this);
-                    moneys.Scroll(this);
-                    collosion.Update();
-                }
                 else
                 {
-                    player.isEnd = true;
-                    collosion.Update();
-                    if (player.Position.X >= Consts.PhoneWidth)
+                    player.Update();
+                    if (!(moneys.GetActualMoneyList().Count != 0 && moneys.GetActualMoneyList().LastOrDefault().Index.ID == "!"))
                     {
-                        gameState = GameState.InEndGameMenu;
+                        backBackground.Scroll(this);
+                        foreBackground.Scroll(this);
+                        walkPlace.Scroll(this);
+                        barriers.Scroll(this);
+                        moneys.Scroll(this);
+                        collosion.Update();
+                    }
+                    else
+                    {
+                        player.isEnd = true;
+                        collosion.Update();
+                        if (player.Position.X >= Consts.PhoneWidth)
+                        {
+                            Consts.IsTransition = true;
+                            gameState = GameState.InEndGameMenu;
+                            firstEntry = true;
+                        }
+                    }
+
+                    if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
+                    {
+                        gameState = GameState.InPauseMenu;
                         firstEntry = true;
                     }
-                }
-
-                if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
-                {
-                    gameState = GameState.InPauseMenu;
-                    firstEntry = true;
                 }
             }
             //NOTE: PAUSE MENU
@@ -175,10 +179,11 @@ namespace ScarFly
                 }
                 if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 {
+                    Consts.IsTransition = true;
                     gameState = GameState.InMainMenu;
                     firstEntry = true;
                 }
-                gameState = pauseMenu.IsTouched(this, TouchPanel.GetState(), gameState, ref firstEntry);
+                gameState = pauseMenu.IsTouched(this, TouchPanel.GetState(), gameState, ref firstEntry, spriteBatch);
             }
             //NOTE: END GAME MENU
             else if (gameState == GameState.InEndGameMenu)
@@ -191,10 +196,11 @@ namespace ScarFly
                 backBackground.Scroll(this);
                 foreBackground.Scroll(this);
                 walkPlace.Scroll(this);
-                gameState = endGameMenu.IsTouched(this, TouchPanel.GetState(), gameState, ref firstEntry);
+                gameState = endGameMenu.IsTouched(this, TouchPanel.GetState(), gameState, ref firstEntry, spriteBatch);
 
                 if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 {
+                    Consts.IsTransition = true;
                     gameState = GameState.InMainMenu;
                 }
             }
@@ -205,6 +211,7 @@ namespace ScarFly
             base.Update(gameTime);
         }
 
+        int transitionCounter = 0;
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.Black);
@@ -212,41 +219,49 @@ namespace ScarFly
             //NOTE: MAIN MENU
             if (gameState == GameState.InMainMenu)
             {
-                backBackground.Draw(spriteBatch);
-                foreBackground.Draw(spriteBatch);
-                walkPlace.Draw(spriteBatch);
-                mainMenu.DrawButtonList(spriteBatch);
+                Color color = Color.White;
+                Transitions.Transition(ref transitionCounter, ref color);
+                backBackground.Draw(spriteBatch, color);
+                foreBackground.Draw(spriteBatch, color);
+                walkPlace.Draw(spriteBatch, color);
+                mainMenu.DrawButtonList(spriteBatch, color);
             }
             //NOTE: GAMING
             else if (gameState == GameState.Gaming)
             {
-                backBackground.Draw(spriteBatch);
-                foreBackground.Draw(spriteBatch);
-                walkPlace.Draw(spriteBatch);
-                player.Draw(spriteBatch);
-                barriers.Draw(spriteBatch);
-                moneys.Draw(spriteBatch);
+                Color color = Color.White;
+                Transitions.Transition(ref transitionCounter, ref color);
+                backBackground.Draw(spriteBatch, color);
+                foreBackground.Draw(spriteBatch, color);
+                walkPlace.Draw(spriteBatch, color);
+                player.Draw(spriteBatch, color);
+                barriers.Draw(spriteBatch, color);
+                moneys.Draw(spriteBatch, color);
                 player.Score.DrawGameScore(spriteBatch);
             }
             //NOTE: PAUSE MENU
             else if (gameState == GameState.InPauseMenu)
             {
-                backBackground.Draw(spriteBatch);
-                foreBackground.Draw(spriteBatch);
-                walkPlace.Draw(spriteBatch);
-                barriers.Draw(spriteBatch);
-                moneys.Draw(spriteBatch);
-                pauseMenu.DrawButtonList(spriteBatch);
+                Color color = Color.White;
+                Transitions.Transition(ref transitionCounter, ref color);
+                backBackground.Draw(spriteBatch, color);
+                foreBackground.Draw(spriteBatch, color);
+                walkPlace.Draw(spriteBatch, color);
+                barriers.Draw(spriteBatch, color);
+                moneys.Draw(spriteBatch, color);
+                pauseMenu.DrawButtonList(spriteBatch, color);
             }
             //NOTE: END GAME MENU
             else if (gameState == GameState.InEndGameMenu)
             {
-                backBackground.Draw(spriteBatch);
-                foreBackground.Draw(spriteBatch);
-                walkPlace.Draw(spriteBatch);
-                endGameMenu.DrawButtonList(spriteBatch);
-                spriteBatch.DrawString(player.Score.GameScoreFont, "" + player.Score.GameScore, new Vector2(10, 10), Color.White);
-                spriteBatch.DrawString(player.Score.TotalScoreFont, "" + player.Score.TotalScore, new Vector2(10, 80), Color.White);
+                Color color = Color.White;
+                Transitions.Transition(ref transitionCounter, ref color);
+                backBackground.Draw(spriteBatch, color);
+                foreBackground.Draw(spriteBatch, color);
+                walkPlace.Draw(spriteBatch, color);
+                endGameMenu.DrawButtonList(spriteBatch, color);
+                spriteBatch.DrawString(player.Score.GameScoreFont, "" + player.Score.GameScore, new Vector2(10, 10), color);
+                spriteBatch.DrawString(player.Score.TotalScoreFont, "" + player.Score.TotalScore, new Vector2(10, 80), color);
             }
             //NOTE: SCORE MENU
             else if (gameState == GameState.InScoreMenu)

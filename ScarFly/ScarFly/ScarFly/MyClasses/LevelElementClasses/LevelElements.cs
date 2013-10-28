@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework.Graphics;
+﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,6 +29,6 @@ namespace ScarFly.MyClasses.LevelElementClasses
         public abstract void RePosition(Game1 game);
         public abstract void Load(Game1 game);
         public abstract void Scroll(Game1 game);
-        public abstract void Draw(SpriteBatch spriteBatch);
+        public abstract void Draw(SpriteBatch spriteBatch, Color color);
     }
 }

@@ -69,11 +69,11 @@ namespace ScarFly.MyClasses.LevelElementClasses
             return result;
         }
 
-        public override void Draw(SpriteBatch spriteBatch)
+        public override void Draw(SpriteBatch spriteBatch, Color color)
         {
             foreach (var moneyItem in MoneyList.Where(p => p.Position.X >= -p.Texture.Width && p.Position.X <= Consts.PhoneWidth && p.Index.ID != "!"))
             {
-                moneyItem.Draw(spriteBatch);
+                moneyItem.Draw(spriteBatch, color);
             }
         }
     }

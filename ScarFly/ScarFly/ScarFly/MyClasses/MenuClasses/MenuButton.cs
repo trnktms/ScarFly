@@ -21,7 +21,6 @@ namespace ScarFly.MyClasses.MenuClasses
         public Vector2 Position { get; set; }
         public string AssetName { get; set; }
         public Texture2D Texture { get; set; }
-        public bool ButtonIsTouched { get; set; }
 
         public void Load(Game1 game) { Texture = game.Content.Load<Texture2D>(AssetName); }
 
@@ -29,7 +28,7 @@ namespace ScarFly.MyClasses.MenuClasses
         {
             if (touchCollection.Count != 0)
             {
-                ButtonIsTouched = touchCollection
+                return touchCollection
                 .Where(p => (p.State == TouchLocationState.Pressed)
                     && (p.Position.X >= Position.X
                     && p.Position.Y >= Position.Y
@@ -37,12 +36,12 @@ namespace ScarFly.MyClasses.MenuClasses
                     && p.Position.Y <= Texture.Height + Position.Y))
                 .Any();
             }
-            return ButtonIsTouched;
+            return false;
         }
 
-        public void Draw(SpriteBatch spriteBatch)
+        public void Draw(SpriteBatch spriteBatch, Color color)
         {
-            spriteBatch.Draw(Texture, Position, Color.White);
+            spriteBatch.Draw(Texture, Position, color);
         }
     }
 }

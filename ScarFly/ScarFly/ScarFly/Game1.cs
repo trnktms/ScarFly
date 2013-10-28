@@ -143,7 +143,7 @@ namespace ScarFly
                     {
                         gameState = GameState.InEndGameMenu;
                         endGameMenu = new Menu(endGameButtons);
-                        barriers.RePosition();
+                        barriers.RePosition(this);
                         moneys.RePosition(this);
                         player.RePosition();
                     }
@@ -162,7 +162,7 @@ namespace ScarFly
                 {
                     gameState = GameState.InMainMenu;
                     mainMenu = new Menu(mainButtons);
-                    barriers.RePosition();
+                    barriers.RePosition(this);
                     moneys.RePosition(this);
                     player.RePosition();
                 }
@@ -180,7 +180,7 @@ namespace ScarFly
                 {
                     gameState = GameState.InMainMenu;
                     mainMenu = new Menu(mainButtons);
-                    barriers.RePosition();
+                    barriers.RePosition(this);
                     moneys.RePosition(this);
                     player.RePosition();
                 }

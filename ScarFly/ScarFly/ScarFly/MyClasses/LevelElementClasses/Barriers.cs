@@ -8,28 +8,16 @@ using System.Text;
 
 namespace ScarFly.MyClasses.LevelElementClasses
 {
-    public class Barriers
+    public class Barriers : LevelElements
     {
         public Barriers(string levelName, int velocity)
-        {
-            this.LevelName = string.Format(@"Levels\{0}.level", levelName);
-            this.Velocity = velocity;
-            ProcLevelFile();
+            : base(levelName, velocity) { }
 
-            _horizontalStep = Consts.PhoneWidth / Consts.PhoneWidthRate;
-            _verticalStep = Consts.PhoneHeight / Consts.PhoneHeightRate;
-        }
-
-        public string LevelName { get; set; }
         public List<Barrier> BarrierList { get; set; }
-        public int Velocity { get; set; }
 
-        public void Load(Game1 game) { foreach (var item in BarrierList) { item.Load(game); } }
-
-        public void RePosition() { foreach (var item in BarrierList) { item.Position = item.StartPosition; } }
-
-        private void ProcLevelFile()
+        public override void ProcLevelFile()
         {
+            
             BarrierList = new List<Barrier>();
             List<string> rows = new List<string>();
 
@@ -63,9 +51,11 @@ namespace ScarFly.MyClasses.LevelElementClasses
             }
         }
 
-        private int _horizontalStep;
-        private int _verticalStep;
-        public void Scroll(Game1 game)
+        public override void Load(Game1 game) { foreach (var item in BarrierList) { item.Load(game); } }
+
+        public override void RePosition(Game1 game) { foreach (var item in BarrierList) { item.Position = item.StartPosition; } }
+
+        public override void Scroll(Game1 game)
         {
             foreach (var barrierItem in BarrierList.Where(p => p.Position.X >= -p.Texture.Width))
             {
@@ -74,12 +64,12 @@ namespace ScarFly.MyClasses.LevelElementClasses
             }
         }
 
-        public void Draw(SpriteBatch spriteBatch)
+        public override void Draw(SpriteBatch spriteBatch)
         {
             foreach (var barrierItem in BarrierList.Where(p => p.Position.X >= -p.Texture.Width && p.Position.X <= Consts.PhoneWidth))
             {
                 barrierItem.Draw(spriteBatch);
             }
-        }
+        } 
     }
 }

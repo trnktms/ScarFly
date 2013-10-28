@@ -71,6 +71,8 @@
     <Compile Include="MyClasses\LevelElementClasses\Barrier.cs" />
     <Compile Include="MyClasses\LevelElementClasses\BarrierIndex.cs" />
     <Compile Include="MyClasses\LevelElementClasses\Barriers.cs" />
+    <Compile Include="MyClasses\LevelElementClasses\LevelElement.cs" />
+    <Compile Include="MyClasses\LevelElementClasses\LevelElements.cs" />
     <Compile Include="MyClasses\LevelElementClasses\Money.cs" />
     <Compile Include="MyClasses\LevelElementClasses\MoneyIndex.cs" />
     <Compile Include="MyClasses\LevelElementClasses\Moneys.cs" />

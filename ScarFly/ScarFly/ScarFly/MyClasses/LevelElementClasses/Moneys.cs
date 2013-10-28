@@ -6,27 +6,23 @@ using System.IO;
 using System.Linq;
 using System.Text;
 
-namespace ScarFly.MyClasses.BarrierClasses
+namespace ScarFly.MyClasses.LevelElementClasses
 {
     public class Moneys
     {
-        public Moneys(string levelName, int velocity, int phoneWidth, int phoneHeight)
+        public Moneys(string levelName, int velocity)
         {
             this.LevelName = string.Format(@"Levels\{0}.level", levelName);
             this.Velocity = velocity;
-            this.PhoneWidth = phoneWidth;
-            this.PhoneHeight = phoneHeight;
             ProcLevelFile();
 
-            _horizontalStep = this.PhoneWidth / Consts.PhoneWidthRate;
-            _verticalStep = this.PhoneHeight / Consts.PhoneHeightRate;
+            _horizontalStep = Consts.PhoneWidth / Consts.PhoneWidthRate;
+            _verticalStep = Consts.PhoneHeight / Consts.PhoneHeightRate;
         }
 
         public string LevelName { get; set; }
         public List<Money> MoneyList { get; set; }
         public int Velocity { get; set; }
-        public int PhoneHeight { get; set; }
-        public int PhoneWidth { get; set; }
 
         public void Load(Game1 game) { foreach (var item in MoneyList) { item.Load(game); } }
 
@@ -54,9 +50,9 @@ namespace ScarFly.MyClasses.BarrierClasses
                     {
                         switch (id)
                         {
-                            case "a": MoneyList.Add(new Money("Barriers/Money", new MoneyIndex(j, i, id), PhoneWidth, PhoneHeight, 1));
+                            case "a": MoneyList.Add(new Money("Barriers/Money", new MoneyIndex(j, i, id), 1));
                                 break;
-                            case "!": MoneyList.Add(new Money("Barriers/Money", new MoneyIndex(j, i, id), PhoneWidth, PhoneHeight, 1));
+                            case "!": MoneyList.Add(new Money("Barriers/Money", new MoneyIndex(j, i, id), 1));
                                 break;
                             default:
                                 break;
@@ -79,12 +75,12 @@ namespace ScarFly.MyClasses.BarrierClasses
 
         public List<Money> GetActualMoneyList()
         {
-            return MoneyList.Where(p => p.Position.X >= -p.Texture.Width && p.Position.X <= PhoneWidth).ToList();
+            return MoneyList.Where(p => p.Position.X >= -p.Texture.Width && p.Position.X <= Consts.PhoneWidth).ToList();
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            foreach (var moneyItem in MoneyList.Where(p => p.Position.X >= -p.Texture.Width && p.Position.X <= PhoneWidth))
+            foreach (var moneyItem in MoneyList.Where(p => p.Position.X >= -p.Texture.Width && p.Position.X <= Consts.PhoneWidth))
             {
                 moneyItem.Draw(spriteBatch);
             }

@@ -8,9 +8,9 @@ using System.Text;
 
 namespace ScarFly.MyClasses.MenuClasses
 {
-    public class MainMenu
+    public class Menu
     {
-        public MainMenu(List<MenuButton> buttonList)
+        public Menu(List<MenuButton> buttonList)
         {
             this.ButtonList = buttonList;
         }

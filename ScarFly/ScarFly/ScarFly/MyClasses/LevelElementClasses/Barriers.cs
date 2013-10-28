@@ -64,11 +64,11 @@ namespace ScarFly.MyClasses.LevelElementClasses
             }
         }
 
-        public override void Draw(SpriteBatch spriteBatch)
+        public override void Draw(SpriteBatch spriteBatch, Color color)
         {
             foreach (var barrierItem in BarrierList.Where(p => p.Position.X >= -p.Texture.Width && p.Position.X <= Consts.PhoneWidth))
             {
-                barrierItem.Draw(spriteBatch);
+                barrierItem.Draw(spriteBatch, color);
             }
         } 
     }

@@ -38,9 +38,9 @@ namespace ScarFly.MyClasses.LevelElementClasses
         }
 
         private int _animateCount = 0;
-        public void Draw(SpriteBatch spriteBatch)
+        public void Draw(SpriteBatch spriteBatch, Color color)
         {
-            spriteBatch.Draw(Texture, Position, new Rectangle((int)(MoveWidth * _animateCount), 0, (int)MoveWidth, (int)Texture.Height), Color.White);
+            spriteBatch.Draw(Texture, Position, new Rectangle((int)(MoveWidth * _animateCount), 0, (int)MoveWidth, (int)Texture.Height), color);
             _animateCount++;
             if (_animateCount == MoveCount) { _animateCount = 0; }
         }

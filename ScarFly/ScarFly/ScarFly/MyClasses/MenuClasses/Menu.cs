@@ -22,12 +22,12 @@ namespace ScarFly.MyClasses.MenuClasses
             foreach (MenuButton buttonItem in ButtonList) { buttonItem.Load(game); }
         }
 
-        public void DrawButtonList(SpriteBatch spriteBatch)
+        public void DrawButtonList(SpriteBatch spriteBatch, Color color)
         {
-            foreach (MenuButton buttonItem in ButtonList) { buttonItem.Draw(spriteBatch); }
+            foreach (MenuButton buttonItem in ButtonList) { buttonItem.Draw(spriteBatch, color); }
         }
 
-        public GameState IsTouched(Game1 game, TouchCollection touchCollection, GameState currentGameState, ref bool firstEntry)
+        public GameState IsTouched(Game1 game, TouchCollection touchCollection, GameState currentGameState, ref bool firstEntry, SpriteBatch spriteBatch)
         {
             GameState result = currentGameState;
             if (ButtonList != null)
@@ -44,18 +44,17 @@ namespace ScarFly.MyClasses.MenuClasses
                         {
                             switch (buttonItem.Name)
                             {
-                                case "Main_Start": result = GameState.Gaming; firstEntry = true;
+                                case "Main_Start": result = GameState.Gaming; Consts.IsTransition = true; firstEntry = true;
                                     break;
-                                case "Main_Scores": result = GameState.InScoreMenu; firstEntry = true;
+                                case "Main_Scores": result = GameState.InScoreMenu; Consts.IsTransition = true; firstEntry = true;
                                     break;
-                                case "Pause_Resume": result = GameState.Gaming; firstEntry = false;
+                                case "Pause_Resume": result = GameState.Gaming;
                                     break;
-                                case "EndGame_Start": result = GameState.Gaming; firstEntry = true;
+                                case "EndGame_Start": result = GameState.Gaming; Consts.IsTransition = true; firstEntry = true;
                                     break;
                                 default:
                                     break;
                             }
-                            buttonItem.ButtonIsTouched = true;
                             break;
                         }
                     }

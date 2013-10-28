@@ -64,12 +64,14 @@ namespace ScarFly.MyClasses.LevelElementClasses
 
         public List<Money> GetActualMoneyList()
         {
-            return MoneyList.Where(p => p.Position.X >= -p.Texture.Width && p.Position.X <= Consts.PhoneWidth).ToList();
+            List<Money> result = new List<Money>();
+            result = MoneyList.Where(p => p.Position.X >= -p.Texture.Width && p.Position.X <= Consts.PhoneWidth).ToList();
+            return result;
         }
 
         public override void Draw(SpriteBatch spriteBatch)
         {
-            foreach (var moneyItem in MoneyList.Where(p => p.Position.X >= -p.Texture.Width && p.Position.X <= Consts.PhoneWidth))
+            foreach (var moneyItem in MoneyList.Where(p => p.Position.X >= -p.Texture.Width && p.Position.X <= Consts.PhoneWidth && p.Index.ID != "!"))
             {
                 moneyItem.Draw(spriteBatch);
             }

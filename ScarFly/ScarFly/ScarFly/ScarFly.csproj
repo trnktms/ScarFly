@@ -80,12 +80,21 @@
     <Compile Include="MyClasses\PlayerClasses\Collosion.cs" />
     <Compile Include="MyClasses\PlayerClasses\Dress.cs" />
     <Compile Include="MyClasses\PlayerClasses\InjuryStopper.cs" />
-    <Compile Include="MyClasses\MenuClasses\MainMenu.cs" />
+    <Compile Include="MyClasses\MenuClasses\Menu.cs" />
     <Compile Include="MyClasses\MenuClasses\MenuButton.cs" />
     <Compile Include="MyClasses\PlayerClasses\Player.cs" />
     <Compile Include="MyClasses\PlayerClasses\PlayerBackground.cs" />
     <Compile Include="MyClasses\PlayerClasses\Score.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <None Include="Levels\level_5.level">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Levels\level_4.level">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Levels\level_3.level">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Levels\level_1.level">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -100,6 +109,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Game.ico" />
+    <None Include="Levels\level_2.level">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <Content Include="PhoneGameThumb.png">
       <XnaPlatformSpecific>true</XnaPlatformSpecific>
     </Content>

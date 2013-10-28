@@ -21,18 +21,28 @@ namespace ScarFly.MyClasses.MenuClasses
         public Vector2 Position { get; set; }
         public string AssetName { get; set; }
         public Texture2D Texture { get; set; }
+        public bool ButtonIsTouched { get; set; }
 
         public void Load(Game1 game) { Texture = game.Content.Load<Texture2D>(AssetName); }
 
         public bool IsTouched(Game1 game, TouchCollection touchCollection) 
         {
-            return touchCollection
+            if (touchCollection.Count != 0)
+            {
+                ButtonIsTouched = touchCollection
                 .Where(p => (p.State == TouchLocationState.Pressed)
                     && (p.Position.X >= Position.X
                     && p.Position.Y >= Position.Y
                     && p.Position.X <= Texture.Width + Position.X
                     && p.Position.Y <= Texture.Height + Position.Y))
                 .Any();
+            }
+            return ButtonIsTouched;
+        }
+
+        public void Draw(SpriteBatch spriteBatch)
+        {
+            spriteBatch.Draw(Texture, Position, Color.White);
         }
     }
 }

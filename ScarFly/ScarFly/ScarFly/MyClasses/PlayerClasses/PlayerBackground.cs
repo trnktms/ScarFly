@@ -13,10 +13,12 @@ namespace ScarFly.MyClasses.PlayerClasses
         {
             this.AssetName = assetName;
             this.Velocity = velocity;
+            this.StartVelocity = velocity;
         }
 
         public string AssetName { get; set; }
         public int Velocity { get; set; }
+        public int StartVelocity { get; set; }
         public Rectangle Rectangle1 { get; set; }
         public Rectangle Rectangle2 { get; set; }
         public Texture2D Texture1 { get; set; }
@@ -56,6 +58,11 @@ namespace ScarFly.MyClasses.PlayerClasses
         {
             spriteBatch.Draw(Texture1, Rectangle1, color);
             spriteBatch.Draw(Texture2, Rectangle2, color);
+        }
+
+        public void RePosition()
+        {
+            Velocity = StartVelocity;
         }
     }
 }

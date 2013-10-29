@@ -39,9 +39,9 @@ namespace ScarFly.MyClasses.LevelElementClasses
                     {
                         switch (id)
                         {
-                            case 1: BarrierList.Add(new Barrier("Barriers/PinWheelMini", new BarrierIndex(j, i, id), 20));
+                            case 1: BarrierList.Add(new Barrier("LevelElements/PinWheelMini", new BarrierIndex(j, i, id), 20));
                                 break;
-                            case 2: BarrierList.Add(new Barrier("Barriers/PinWheelBig", new BarrierIndex(j, i, id), 20));
+                            case 2: BarrierList.Add(new Barrier("LevelElements/PinWheelBig", new BarrierIndex(j, i, id), 20));
                                 break;
                             default:
                                 break;

@@ -8,20 +8,20 @@ using System.Text;
 
 namespace ScarFly.MyClasses.LevelElementClasses
 {
-    public class Moneys : LevelElements
+    public class Modifiers : LevelElements
     {
-        public Moneys(string levelName, int velocity)
+        public Modifiers(string levelName, int velocity)
             : base(levelName, velocity) { }
 
-        public List<Money> MoneyList { get; set; }
+        public List<Modifier> ModifierList { get; set; }
 
-        public override void Load(Game1 game) { foreach (var item in MoneyList) { item.Load(game); } }
+        public override void Load(Game1 game) { foreach (var item in ModifierList) { item.Load(game); } }
 
         public override void RePosition(Game1 game) { ProcLevelFile(); Load(game); }
 
         public override void ProcLevelFile()
         {
-            MoneyList = new List<Money>();
+            ModifierList = new List<Modifier>();
             List<string> rows = new List<string>();
             using (var stream = TitleContainer.OpenStream(LevelName))
             {
@@ -41,9 +41,7 @@ namespace ScarFly.MyClasses.LevelElementClasses
                     {
                         switch (id)
                         {
-                            case "a": MoneyList.Add(new Money("LevelElements/Money", new MoneyIndex(j, i, id), 1));
-                                break;
-                            case "!": MoneyList.Add(new Money("LevelElements/Money", new MoneyIndex(j, i, id), 1));
+                            case "*": ModifierList.Add(new Modifier("LevelElements/Modifier", new ModifierIndex(j, i, id), 1));
                                 break;
                             default:
                                 break;
@@ -55,23 +53,23 @@ namespace ScarFly.MyClasses.LevelElementClasses
 
         public override void Scroll(Game1 game)
         {
-            foreach (var moneyItem in MoneyList.Where(p => p.Position.X >= -p.Texture.Width))
+            foreach (var moneyItem in ModifierList.Where(p => p.Position.X >= -p.Texture.Width))
             {
                 moneyItem.Position = new Vector2(moneyItem.Position.X - Velocity, moneyItem.Position.Y);
                 moneyItem.UpdateRectangle();
             }
         }
 
-        public List<Money> GetActualMoneyList()
+        public List<Modifier> GetActualMoneyList()
         {
-            List<Money> result = new List<Money>();
-            result = MoneyList.Where(p => p.Position.X >= -p.Texture.Width && p.Position.X <= Consts.PhoneWidth).ToList();
+            List<Modifier> result = new List<Modifier>();
+            result = ModifierList.Where(p => p.Position.X >= -p.Texture.Width && p.Position.X <= Consts.PhoneWidth).ToList();
             return result;
         }
 
         public override void Draw(SpriteBatch spriteBatch, Color color)
         {
-            foreach (var moneyItem in MoneyList.Where(p => p.Position.X >= -p.Texture.Width && p.Position.X <= Consts.PhoneWidth && p.Index.ID != "!"))
+            foreach (var moneyItem in ModifierList.Where(p => p.Position.X >= -p.Texture.Width && p.Position.X <= Consts.PhoneWidth))
             {
                 moneyItem.Draw(spriteBatch, color);
             }

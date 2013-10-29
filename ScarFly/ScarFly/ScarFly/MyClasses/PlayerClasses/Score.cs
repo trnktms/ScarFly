@@ -45,16 +45,16 @@ namespace ScarFly.MyClasses.PlayerClasses
             TotalScoreIcon = game.Content.Load<Texture2D>(TotalScoreIconAssetName);
         }
 
-        public void DrawGameScore(SpriteBatch spriteBatch)
+        public void DrawGameScore(SpriteBatch spriteBatch, Color color)
         {
-            spriteBatch.Draw(GameScoreIcon, new Vector2(0, 0), Color.White);
-            spriteBatch.DrawString(GameScoreFont, GameScore.ToString(), new Vector2(GameScoreIcon.Width, 0), Color.White);
+            spriteBatch.Draw(GameScoreIcon, new Vector2(0, 0), color);
+            spriteBatch.DrawString(GameScoreFont, GameScore.ToString(), new Vector2(GameScoreIcon.Width, 0), color);
         }
 
-        public void DrawTotalScore(SpriteBatch spriteBatch)
+        public void DrawTotalScore(SpriteBatch spriteBatch, Color color)
         {
             spriteBatch.Draw(TotalScoreIcon, new Vector2(0, 0), Color.White);
-            spriteBatch.DrawString(TotalScoreFont, TotalScore.ToString(), new Vector2(TotalScoreIcon.Width, 0), Color.White);
+            spriteBatch.DrawString(TotalScoreFont, TotalScore.ToString(), new Vector2(TotalScoreIcon.Width, 0), color);
         }
 
         public void SaveTotalScore()

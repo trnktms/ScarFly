@@ -28,12 +28,14 @@ namespace ScarFly
         List<MenuButton> pauseButtons = new List<MenuButton>();
         List<MenuButton> endGameButtons = new List<MenuButton>();
 
+        List<PlayerBackground> backgroundList;
         PlayerBackground backBackground;
         PlayerBackground foreBackground;
         PlayerBackground walkPlace;
         Player player;
         Barriers barriers;
         Moneys moneys;
+        Modifiers modifiers;
         Collosion collosion;
         GameState gameState;
 
@@ -77,8 +79,14 @@ namespace ScarFly
             string level = LevelSelector.Select();
             barriers = new Barriers(level, 4);
             moneys = new Moneys(level, 4);
+            modifiers = new Modifiers(level, 4);
 
-            collosion = new Collosion(barriers, player, moneys);
+            backgroundList = new List<PlayerBackground>();
+            backgroundList.Add(backBackground);
+            backgroundList.Add(foreBackground);
+            backgroundList.Add(foreBackground);
+
+            collosion = new Collosion(barriers, player, moneys, modifiers, backgroundList);
         }
 
         protected override void Initialize()
@@ -99,6 +107,7 @@ namespace ScarFly
             walkPlace.Load(this);
             barriers.Load(this);
             moneys.Load(this);
+            modifiers.Load(this);
         }
 
         protected override void UnloadContent()
@@ -128,13 +137,16 @@ namespace ScarFly
             {
                 if (firstEntry)
                 {
+                    foreach (PlayerBackground item in backgroundList) { item.RePosition(); }
                     string level = LevelSelector.Select();
                     barriers = new Barriers(level, 4);
                     barriers.Load(this);
                     moneys = new Moneys(level, 4);
                     moneys.Load(this);
+                    modifiers = new Modifiers(level, 4);
+                    modifiers.Load(this);
                     player.RePosition();
-                    collosion = new Collosion(barriers, player, moneys);
+                    collosion = new Collosion(barriers, player, moneys, modifiers, backgroundList);
 
                     firstEntry = false;
                 }
@@ -148,6 +160,7 @@ namespace ScarFly
                         walkPlace.Scroll(this);
                         barriers.Scroll(this);
                         moneys.Scroll(this);
+                        modifiers.Scroll(this);
                         collosion.Update();
                     }
                     else
@@ -156,7 +169,8 @@ namespace ScarFly
                         collosion.Update();
                         if (player.Position.X >= Consts.PhoneWidth)
                         {
-                            Consts.IsTransition = true;
+                            Transitions.TransitionCounter = 0;
+                            Transitions.IsTransition = true;
                             gameState = GameState.InEndGameMenu;
                             firstEntry = true;
                         }
@@ -179,7 +193,8 @@ namespace ScarFly
                 }
                 if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 {
-                    Consts.IsTransition = true;
+                    Transitions.TransitionCounter = 0;
+                    Transitions.IsTransition = true;
                     gameState = GameState.InMainMenu;
                     firstEntry = true;
                 }
@@ -200,7 +215,8 @@ namespace ScarFly
 
                 if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 {
-                    Consts.IsTransition = true;
+                    Transitions.TransitionCounter = 0;
+                    Transitions.IsTransition = true;
                     gameState = GameState.InMainMenu;
                 }
             }
@@ -211,7 +227,6 @@ namespace ScarFly
             base.Update(gameTime);
         }
 
-        int transitionCounter = 0;
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.Black);
@@ -220,7 +235,7 @@ namespace ScarFly
             if (gameState == GameState.InMainMenu)
             {
                 Color color = Color.White;
-                Transitions.Transition(ref transitionCounter, ref color);
+                Transitions.Transition(ref color);
                 backBackground.Draw(spriteBatch, color);
                 foreBackground.Draw(spriteBatch, color);
                 walkPlace.Draw(spriteBatch, color);
@@ -230,32 +245,34 @@ namespace ScarFly
             else if (gameState == GameState.Gaming)
             {
                 Color color = Color.White;
-                Transitions.Transition(ref transitionCounter, ref color);
+                Transitions.Transition(ref color);
                 backBackground.Draw(spriteBatch, color);
                 foreBackground.Draw(spriteBatch, color);
                 walkPlace.Draw(spriteBatch, color);
                 player.Draw(spriteBatch, color);
                 barriers.Draw(spriteBatch, color);
                 moneys.Draw(spriteBatch, color);
-                player.Score.DrawGameScore(spriteBatch);
+                modifiers.Draw(spriteBatch, color);
+                player.Score.DrawGameScore(spriteBatch, color);
             }
             //NOTE: PAUSE MENU
             else if (gameState == GameState.InPauseMenu)
             {
                 Color color = Color.White;
-                Transitions.Transition(ref transitionCounter, ref color);
+                Transitions.Transition(ref color);
                 backBackground.Draw(spriteBatch, color);
                 foreBackground.Draw(spriteBatch, color);
                 walkPlace.Draw(spriteBatch, color);
                 barriers.Draw(spriteBatch, color);
                 moneys.Draw(spriteBatch, color);
+                modifiers.Draw(spriteBatch, color);
                 pauseMenu.DrawButtonList(spriteBatch, color);
             }
             //NOTE: END GAME MENU
             else if (gameState == GameState.InEndGameMenu)
             {
                 Color color = Color.White;
-                Transitions.Transition(ref transitionCounter, ref color);
+                Transitions.Transition(ref color);
                 backBackground.Draw(spriteBatch, color);
                 foreBackground.Draw(spriteBatch, color);
                 walkPlace.Draw(spriteBatch, color);

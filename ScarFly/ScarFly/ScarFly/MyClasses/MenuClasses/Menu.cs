@@ -44,13 +44,17 @@ namespace ScarFly.MyClasses.MenuClasses
                         {
                             switch (buttonItem.Name)
                             {
-                                case "Main_Start": result = GameState.Gaming; Consts.IsTransition = true; firstEntry = true;
+                                case "Main_Start": 
+                                    result = GameState.Gaming; Transitions.IsTransition = true; firstEntry = true; Transitions.TransitionCounter = 0;
                                     break;
-                                case "Main_Scores": result = GameState.InScoreMenu; Consts.IsTransition = true; firstEntry = true;
+                                case "Main_Scores": 
+                                    result = GameState.InScoreMenu; Transitions.IsTransition = true; firstEntry = true; Transitions.TransitionCounter = 0;
                                     break;
-                                case "Pause_Resume": result = GameState.Gaming;
+                                case "Pause_Resume": 
+                                    result = GameState.Gaming;
                                     break;
-                                case "EndGame_Start": result = GameState.Gaming; Consts.IsTransition = true; firstEntry = true;
+                                case "EndGame_Start": 
+                                    result = GameState.Gaming; Transitions.IsTransition = true; firstEntry = true; Transitions.TransitionCounter = 0;
                                     break;
                                 default:
                                     break;

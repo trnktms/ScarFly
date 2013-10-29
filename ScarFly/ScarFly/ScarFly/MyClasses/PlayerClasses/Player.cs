@@ -36,6 +36,7 @@ namespace ScarFly.MyClasses
             this.isEnd = false;
             this.Score = new Score(Consts.P_MoneyIcon, Consts.P_MoneyIcon, Consts.SF_GameScore, Consts.SF_GameScore);
             this.Velocity = velocity;
+            this.StartVelocity = velocity;
             this.PositionHistory = new Queue<Vector2>(20);
             this._fly_sy = (int)Position.Y;
             this.Score.LoadTotalScore();
@@ -45,12 +46,14 @@ namespace ScarFly.MyClasses
         public PlayerStates PlayerState { get; set; }
         public bool isDead { get; set; }
         public bool isEatMoney { get; set; }
+        public bool isEatModifier { get; set; }
         public bool isEnd { get; set; }
 
         Queue<Vector2> PositionHistory;
         Texture2D _line;
         public Score Score { get; set; }
         public int Velocity { get; set; }
+        public int StartVelocity { get; set; }
         public Color Overlayer { get; set; }
 
         private Vector2 ZeroPosition { get; set; }
@@ -231,7 +234,7 @@ namespace ScarFly.MyClasses
             PositionHistory.Enqueue(Position); int i = 20;
             foreach (var item in PositionHistory)
             {
-                spriteBatch.Draw(_line, new Vector2(item.X - i * Velocity, item.Y + RunTexture.Height / 2), color);
+                spriteBatch.Draw(_line, new Vector2(item.X - i * StartVelocity, item.Y + RunTexture.Height / 2), color);
                 i--;
             }
             if (PositionHistory.Count == 20) { PositionHistory.Dequeue(); }
@@ -265,6 +268,8 @@ namespace ScarFly.MyClasses
             isEnd = false;
             isDead = false;
             isEatMoney = false;
+            isEatModifier = false;
+            Velocity = StartVelocity;
         }
     }
 }

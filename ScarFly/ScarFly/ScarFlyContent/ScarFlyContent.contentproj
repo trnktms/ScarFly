@@ -48,7 +48,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Barriers\Money.png">
+    <Compile Include="LevelElements\Money.png">
       <Name>Money</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
@@ -83,14 +83,14 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Barriers\PinWheelMini.png">
+    <Compile Include="LevelElements\PinWheelMini.png">
       <Name>PinWheelMini</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Barriers\PinWheelBig.png">
+    <Compile Include="LevelElements\PinWheelBig.png">
       <Name>PinWheelBig</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
@@ -99,6 +99,13 @@
   <ItemGroup>
     <Compile Include="Background\WalkPlace.png">
       <Name>WalkPlace</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="LevelElements\Modifier.png">
+      <Name>Modifier</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

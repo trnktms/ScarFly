@@ -11,16 +11,20 @@ namespace ScarFly.MyClasses.PlayerClasses
 {
     public class Collosion
     {
-        public Collosion(Barriers barriers, Player player, Moneys moneys)
+        public Collosion(Barriers barriers, Player player, Moneys moneys, Modifiers modifiers, List<PlayerBackground> backgrounds)
         {
             this.Barriers = barriers;
             this.Player = player;
             this.Moneys = moneys;
+            this.Modifiers = modifiers;
+            this.Backgrounds = backgrounds;
         }
 
         public Moneys Moneys { get; set; }
         public Barriers Barriers { get; set; }
         public Player Player { get; set; }
+        public Modifiers Modifiers { get; set; }
+        public List<PlayerBackground> Backgrounds { get; set; }
 
         public bool CollosionDetectionWithBarrier()
         {
@@ -68,8 +72,7 @@ namespace ScarFly.MyClasses.PlayerClasses
                         break;
                 }
 
-                if (result) { 
-                    break; }
+                if (result) { break; }
                 i++;
             }
 
@@ -77,10 +80,41 @@ namespace ScarFly.MyClasses.PlayerClasses
             return result;
         }
 
+        public bool CollosionDetectionWithModifier()
+        {
+            bool result = false;
+            int i = 0;
+            foreach (var modifierItem in Modifiers.ModifierList.Where(p => p.Index.ID != "!"))
+            {
+                switch (Player.PlayerState)
+                {
+                    case PlayerStates.Running:
+                        result = IntersectsPixel(modifierItem.Bound, modifierItem.ColorData, Player.RunBound, Player.RunColorData);
+                        break;
+                    case PlayerStates.Flying:
+                        result = IntersectsPixel(modifierItem.Bound, modifierItem.ColorData, Player.FlyBound, Player.FlyColorData);
+                        break;
+                    case PlayerStates.Falling:
+                        result = IntersectsPixel(modifierItem.Bound, modifierItem.ColorData, Player.FallBound, Player.FallColorData);
+                        break;
+                    default:
+                        break;
+                }
+
+                if (result) { break; }
+                i++;
+            }
+
+            if (result) { Modifiers.ModifierList.RemoveAt(i); }
+            return result;
+        }
+
         public void Update()
         {
             Player.isDead = CollosionDetectionWithBarrier();
             Player.isEatMoney = CollosionDetectionWithMoney();
+            Player.isEatModifier = CollosionDetectionWithModifier();
+            ModifyGame();
         }
 
         public bool IntersectsPixel(Rectangle rectangle1, Color[] data1, Rectangle rectangle2, Color[] data2)
@@ -101,6 +135,105 @@ namespace ScarFly.MyClasses.PlayerClasses
             }
 
             return false;
+        }
+
+        private int selectedModify = -1;
+        private int modifyCounter = 0;
+        private bool isModify { get; set; }
+        public void ModifyGame()
+        {
+            if (selectedModify == -1)
+            {
+                Random R = new Random();
+                selectedModify = R.Next(0, 3);
+            }
+
+            switch (selectedModify)
+            {
+                case 0: IncreaseVelocity();
+                    break;
+                case 1: DecreaseVelocity();
+                    break;
+                case 2: EatMore();
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        public void IncreaseVelocity()
+        {
+            if (Player.isEatModifier)
+            {
+                isModify = true;
+                foreach (var item in Backgrounds) { item.Velocity *= 2; }
+                Player.Velocity *= 2;
+                Barriers.Velocity *= 2;
+                Moneys.Velocity *= 2;
+                Modifiers.Velocity *= 2;
+            }
+            if (isModify)
+            {
+                modifyCounter++;
+                if (modifyCounter >= 200)
+                {
+                    isModify = false;
+                    modifyCounter = 0;
+                    selectedModify = -1;
+                    foreach (var item in Backgrounds) { item.Velocity /= 2; }
+                    Player.Velocity /= 2;
+                    Barriers.Velocity /= 2;
+                    Moneys.Velocity /= 2;
+                    Modifiers.Velocity /= 2;
+                }
+            }
+        }
+
+        public void DecreaseVelocity()
+        {
+            if (Player.isEatModifier)
+            {
+                isModify = true;
+                foreach (var item in Backgrounds) { if (item.Velocity != 1) { item.Velocity /= 2; } }
+                Player.Velocity /= 2;
+                Barriers.Velocity /= 2;
+                Moneys.Velocity /= 2;
+                Modifiers.Velocity /= 2;
+            }
+            if (isModify)
+            {
+                modifyCounter++;
+                if (modifyCounter >= 200)
+                {
+                    isModify = false;
+                    modifyCounter = 0;
+                    selectedModify = -1;
+                    foreach (var item in Backgrounds) { if (item.Velocity != 1) { item.Velocity *= 2; } }
+                    Player.Velocity *= 2;
+                    Barriers.Velocity *= 2;
+                    Moneys.Velocity *= 2;
+                    Modifiers.Velocity *= 2;
+                }
+            }
+        }
+
+        public void EatMore()
+        {
+            if (Player.isEatModifier)
+            {
+                isModify = true;
+            }
+            if (isModify)
+            {
+                modifyCounter++;
+                if (Player.isEatMoney) { Player.Score.GameScore += 10; }
+                if (modifyCounter >= 200)
+                {
+                    isModify = false;
+                    modifyCounter = 0;
+                    selectedModify = -1;
+                }
+            }
         }
     }
 }

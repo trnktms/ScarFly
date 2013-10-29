@@ -73,13 +73,14 @@
     <Compile Include="MyClasses\LevelElementClasses\Barriers.cs" />
     <Compile Include="MyClasses\LevelElementClasses\LevelElement.cs" />
     <Compile Include="MyClasses\LevelElementClasses\LevelElements.cs" />
+    <Compile Include="MyClasses\LevelElementClasses\Modifier.cs" />
+    <Compile Include="MyClasses\LevelElementClasses\ModifierIndex.cs" />
+    <Compile Include="MyClasses\LevelElementClasses\Modifiers.cs" />
     <Compile Include="MyClasses\LevelElementClasses\Money.cs" />
     <Compile Include="MyClasses\LevelElementClasses\MoneyIndex.cs" />
     <Compile Include="MyClasses\LevelElementClasses\Moneys.cs" />
     <Compile Include="MyClasses\Consts.cs" />
     <Compile Include="MyClasses\PlayerClasses\Collosion.cs" />
-    <Compile Include="MyClasses\PlayerClasses\Dress.cs" />
-    <Compile Include="MyClasses\PlayerClasses\InjuryStopper.cs" />
     <Compile Include="MyClasses\MenuClasses\Menu.cs" />
     <Compile Include="MyClasses\MenuClasses\MenuButton.cs" />
     <Compile Include="MyClasses\PlayerClasses\Player.cs" />

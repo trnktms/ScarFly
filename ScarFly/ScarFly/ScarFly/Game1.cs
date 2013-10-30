@@ -162,20 +162,9 @@ namespace ScarFly
                 else
                 {
                     player.Update();
-                    if (!(moneys.GetActualMoneyList().Count != 0 && moneys.GetActualMoneyList().LastOrDefault().Index.ID == "!"))
-                    {
-                        backBackground.Scroll(this);
-                        foreBackground.Scroll(this);
-                        walkPlace.Scroll(this);
-                        barriers.Scroll(this);
-                        moneys.Scroll(this);
-                        modifiers.Scroll(this);
-                        collosion.Update();
-                    }
-                    else
+                    if (moneys.GetActualMoneyList().Count != 0 && moneys.GetActualMoneyList().LastOrDefault().Index.ID == "!")
                     {
                         player.isEnd = true;
-                        collosion.Update();
                         if (player.Position.X >= Consts.PhoneWidth)
                         {
                             Transitions.TransitionCounter = 0;
@@ -184,7 +173,13 @@ namespace ScarFly
                             firstEntry = true;
                         }
                     }
-
+                    backBackground.Scroll(this);
+                    foreBackground.Scroll(this);
+                    walkPlace.Scroll(this);
+                    barriers.Scroll(this);
+                    moneys.Scroll(this);
+                    modifiers.Scroll(this);
+                    collosion.Update();
                     if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                     {
                         gameState = GameState.InPauseMenu;
@@ -288,7 +283,7 @@ namespace ScarFly
                 walkPlace.Draw(spriteBatch, color);
                 endGameMenu.DrawButtonList(spriteBatch, color);
                 spriteBatch.DrawString(player.Score.GameScoreFont, "" + player.Score.GameScore, new Vector2(10, 10), color);
-                spriteBatch.DrawString(player.Score.TotalScoreFont, "" + player.Score.TotalScore, new Vector2(10, 80), color);
+                spriteBatch.DrawString(player.Score.TotalScoreFont, "" + (player.Score.TotalScore + player.Score.GameScore), new Vector2(10, 80), color);
             }
             //NOTE: SCORE MENU
             else if (gameState == GameState.InScoreMenu)

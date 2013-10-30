@@ -25,8 +25,12 @@ namespace ScarFly.MyClasses
         public static int PhoneHeightRate = 5;
 
         public static string SF_GameScore = "Fonts/GameScore";
+        public static string SF_ModifierNotification = "Fonts/ModifierNotification";
         public static string P_MoneyIcon = "LevelElements/Money";
         public static string P_Pixel = "Player/Pixel";
+
+        public static Color PastelGreen = new Color(119, 221, 119);
+        public static Color PastelRed = new Color(255, 105, 97);
     }
 
     public static class LevelSelector

@@ -19,18 +19,14 @@ namespace ScarFly.MyClasses
 
     public class Player
     {
-        public Player(string name, int velocity, float positionX, float positionY, string runAssetName, string flyAssetName, string fallAssetName, int runMoveCount, int flyMoveCount, int fallMoveCount)
+        public Player(string name, int velocity, float positionX, float positionY, string runAssetName, int runMoveCount)
         {
             this.Name = name;
             this.RunAssetName = runAssetName;
-            this.FlyAssetName = flyAssetName;
-            this.FallAssetName = fallAssetName;
             this.Position = new Vector2(positionX, positionY);
             this.ZeroPosition = new Vector2(positionX, positionY);
             this.PlayerState = PlayerStates.Running;
             this.RunMoveCount = runMoveCount;
-            this.FlyMoveCount = flyMoveCount;
-            this.FallMoveCount = fallMoveCount;
             this.isDead = false;
             this.isEatMoney = false;
             this.isEnd = false;
@@ -50,7 +46,7 @@ namespace ScarFly.MyClasses
         public bool isEnd { get; set; }
 
         Queue<Vector2> PositionHistory;
-        Texture2D _line;
+        private Texture2D _line;
         public Score Score { get; set; }
         public int Velocity { get; set; }
         public int StartVelocity { get; set; }
@@ -60,53 +56,26 @@ namespace ScarFly.MyClasses
         public Vector2 Position { get; set; }
 
         public string RunAssetName { get; set; }
-        public string FlyAssetName { get; set; }
-        public string FallAssetName { get; set; }
         public Texture2D RunTexture { get; set; }
-        public Texture2D FlyTexture { get; set; }
-        public Texture2D FallTexture { get; set; }
         public Rectangle RunBound { get; set; }
-        public Rectangle FlyBound { get; set; }
-        public Rectangle FallBound { get; set; }
         public Color[] RunColorData { get; set; }
-        public Color[] FlyColorData { get; set; }
-        public Color[] FallColorData { get; set; }
         public int RunMoveCount { get; set; }
-        public int FlyMoveCount { get; set; }
-        public int FallMoveCount { get; set; }
         public int RunMoveWidth { get; set; }
-        public int FlyMoveWidth { get; set; }
-        public int FallMoveWidth { get; set; }
 
         public void Load(Game1 game) 
         { 
             RunTexture = game.Content.Load<Texture2D>(RunAssetName);
-            FlyTexture = game.Content.Load<Texture2D>(FlyAssetName);
-            FallTexture = game.Content.Load<Texture2D>(FallAssetName);
-
             RunColorData = new Color[RunTexture.Width * RunTexture.Height];
-            FlyColorData = new Color[FlyTexture.Width * FlyTexture.Height];
-            FallColorData = new Color[FallTexture.Width * FallTexture.Height];
-
             RunTexture.GetData(RunColorData);
-            FlyTexture.GetData(FlyColorData);
-            FallTexture.GetData(FallColorData);
-
             RunMoveWidth = RunTexture.Width / this.RunMoveCount;
-            FlyMoveWidth = FlyTexture.Width / this.FlyMoveCount;
-            FallMoveWidth = FallTexture.Width / this.FallMoveCount;
-
             UpdateRectangle();
             Score.Load(game);
-
             _line = game.Content.Load<Texture2D>(Consts.P_Pixel);
         }
 
         public void UpdateRectangle()
         {
             RunBound = new Rectangle((int)Position.X, (int)Position.Y, RunMoveWidth, RunTexture.Height);
-            FlyBound = new Rectangle((int)Position.X, (int)Position.Y, FlyMoveWidth, FlyTexture.Height);
-            FallBound = new Rectangle((int)Position.X, (int)Position.Y, FallMoveWidth, FallTexture.Height);
         }
 
         public void Update()
@@ -142,7 +111,7 @@ namespace ScarFly.MyClasses
             _fly_sy = (int)Position.Y;
             _fly_vy = 0;
             if (_fall_sy > ZeroPosition.Y || _fall_sy > ZeroPosition.Y - 12) { PlayerState = PlayerStates.Running; }
-            Animate(spriteBatch, FallMoveCount, color);
+            Animate(spriteBatch, RunMoveCount, color);
         }
 
         private int _fly_vy, _fly_sy;
@@ -158,7 +127,7 @@ namespace ScarFly.MyClasses
                 _fall_vy = 0;
             }
             else { PlayerState = PlayerStates.Falling; }
-            Animate(spriteBatch, FlyMoveCount, color);
+            Animate(spriteBatch, RunMoveCount, color);
         }
 
         private int _animateCount = 0;
@@ -169,75 +138,34 @@ namespace ScarFly.MyClasses
 
             if (_animateCount < moveCount - 1)
             {
-                switch (PlayerState)
-                {
-                    case PlayerStates.Running:
-                        spriteBatch.Draw(
+                spriteBatch.Draw(
                             RunTexture,
                             Position,
                             new Rectangle((int)(RunMoveWidth * _animateCount), 0, (int)RunMoveWidth, (int)RunTexture.Height),
                             color);
-                        break;
-                    case PlayerStates.Flying:
-                        spriteBatch.Draw(
-                            FlyTexture,
-                            Position,
-                            new Rectangle((int)(FlyMoveWidth * _animateCount), 0, (int)FlyMoveWidth, (int)FlyTexture.Height),
-                            color);
-                        break;
-                    case PlayerStates.Falling:
-                        spriteBatch.Draw(
-                            FallTexture,
-                            Position,
-                            new Rectangle((int)(FallMoveWidth * _animateCount), 0, (int)FallMoveWidth, (int)FallTexture.Height),
-                            color);
-                        break;
-                    default:
-                        break;
-                }
                 _animateCount++;
             }
             else
             {
-                switch (PlayerState)
-                {
-                    case PlayerStates.Running:
-                        spriteBatch.Draw(
+                spriteBatch.Draw(
                             RunTexture,
                             Position,
                             new Rectangle((int)(RunMoveWidth * (moveCount - 1)), 0, (int)RunMoveWidth, (int)RunTexture.Height),
                             color);
-                        break;
-                    case PlayerStates.Flying:
-                        spriteBatch.Draw(
-                            FlyTexture,
-                            Position,
-                            new Rectangle((int)(FlyMoveWidth * (moveCount - 1)), 0, (int)FlyMoveWidth, (int)FlyTexture.Height),
-                            color);
-                        break;
-                    case PlayerStates.Falling:
-                        spriteBatch.Draw(
-                            FallTexture,
-                            Position,
-                            new Rectangle((int)(FallMoveWidth * (moveCount - 1)), 0, (int)FallMoveWidth, (int)FallTexture.Height),
-                            color);
-                        break;
-                    default:
-                        break;
-                }
                 _animateCount = 0;
             }
         }
 
+        private int _positionHistoryMax = 20;
         private void DrawHistory(SpriteBatch spriteBatch, Color color)
         {
-            PositionHistory.Enqueue(Position); int i = 20;
+            PositionHistory.Enqueue(Position); int i = _positionHistoryMax;
             foreach (var item in PositionHistory)
             {
                 spriteBatch.Draw(_line, new Vector2(item.X - i * StartVelocity, item.Y + RunTexture.Height / 2), color);
                 i--;
             }
-            if (PositionHistory.Count == 20) { PositionHistory.Dequeue(); }
+            if (PositionHistory.Count == _positionHistoryMax) { PositionHistory.Dequeue(); }
         }
 
         public void Draw(SpriteBatch spriteBatch, Color color)

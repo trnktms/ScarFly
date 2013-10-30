@@ -48,13 +48,13 @@ namespace ScarFly.MyClasses.PlayerClasses
         public void DrawGameScore(SpriteBatch spriteBatch, Color color)
         {
             spriteBatch.Draw(GameScoreIcon, new Vector2(0, 0), color);
-            spriteBatch.DrawString(GameScoreFont, GameScore.ToString(), new Vector2(GameScoreIcon.Width, 0), color);
+            spriteBatch.DrawString(GameScoreFont, GameScore.ToString(), new Vector2(GameScoreIcon.Width + 3, 3), color);
         }
 
         public void DrawTotalScore(SpriteBatch spriteBatch, Color color)
         {
             spriteBatch.Draw(TotalScoreIcon, new Vector2(0, 0), Color.White);
-            spriteBatch.DrawString(TotalScoreFont, TotalScore.ToString(), new Vector2(TotalScoreIcon.Width, 0), color);
+            spriteBatch.DrawString(TotalScoreFont, TotalScore.ToString(), new Vector2(TotalScoreIcon.Width + 3, 3), color);
         }
 
         public void SaveTotalScore()

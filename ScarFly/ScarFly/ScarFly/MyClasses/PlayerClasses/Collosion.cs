@@ -20,32 +20,21 @@ namespace ScarFly.MyClasses.PlayerClasses
             this.Backgrounds = backgrounds;
         }
 
+        public SpriteFont Font { get; set; }
         public Moneys Moneys { get; set; }
         public Barriers Barriers { get; set; }
         public Player Player { get; set; }
         public Modifiers Modifiers { get; set; }
         public List<PlayerBackground> Backgrounds { get; set; }
 
+        public void Load(Game1 game) { Font = game.Content.Load<SpriteFont>(Consts.SF_ModifierNotification); }
+
         public bool CollosionDetectionWithBarrier()
         {
             bool result = false;
             foreach (var barrierItem in Barriers.BarrierList)
             {
-                switch (Player.PlayerState)
-                {
-                    case PlayerStates.Running:
-                        result = IntersectsPixel(barrierItem.Bound, barrierItem.ColorData, Player.RunBound, Player.RunColorData);
-                        break;
-                    case PlayerStates.Flying:
-                        result = IntersectsPixel(barrierItem.Bound, barrierItem.ColorData, Player.FlyBound, Player.FlyColorData);
-                        break;
-                    case PlayerStates.Falling:
-                        result = IntersectsPixel(barrierItem.Bound, barrierItem.ColorData, Player.FallBound, Player.FallColorData);
-                        break;
-                    default:
-                        break;
-                }
-
+                result = IntersectsPixel(barrierItem.Bound, barrierItem.ColorData, Player.RunBound, Player.RunColorData);
                 if (result) { return true; }
             }
             return result;
@@ -57,21 +46,7 @@ namespace ScarFly.MyClasses.PlayerClasses
             int i = 0;
             foreach (var moneyItem in Moneys.MoneyList.Where(p => p.Index.ID != "!"))
             {
-                switch (Player.PlayerState)
-                {
-                    case PlayerStates.Running:
-                        result = IntersectsPixel(moneyItem.Bound, moneyItem.ColorData, Player.RunBound, Player.RunColorData);
-                        break;
-                    case PlayerStates.Flying:
-                        result = IntersectsPixel(moneyItem.Bound, moneyItem.ColorData, Player.FlyBound, Player.FlyColorData);
-                        break;
-                    case PlayerStates.Falling:
-                        result = IntersectsPixel(moneyItem.Bound, moneyItem.ColorData, Player.FallBound, Player.FallColorData);
-                        break;
-                    default:
-                        break;
-                }
-
+                result = IntersectsPixel(moneyItem.Bound, moneyItem.ColorData, Player.RunBound, Player.RunColorData);
                 if (result) { break; }
                 i++;
             }
@@ -86,21 +61,7 @@ namespace ScarFly.MyClasses.PlayerClasses
             int i = 0;
             foreach (var modifierItem in Modifiers.ModifierList.Where(p => p.Index.ID != "!"))
             {
-                switch (Player.PlayerState)
-                {
-                    case PlayerStates.Running:
-                        result = IntersectsPixel(modifierItem.Bound, modifierItem.ColorData, Player.RunBound, Player.RunColorData);
-                        break;
-                    case PlayerStates.Flying:
-                        result = IntersectsPixel(modifierItem.Bound, modifierItem.ColorData, Player.FlyBound, Player.FlyColorData);
-                        break;
-                    case PlayerStates.Falling:
-                        result = IntersectsPixel(modifierItem.Bound, modifierItem.ColorData, Player.FallBound, Player.FallColorData);
-                        break;
-                    default:
-                        break;
-                }
-
+                result = IntersectsPixel(modifierItem.Bound, modifierItem.ColorData, Player.RunBound, Player.RunColorData);
                 if (result) { break; }
                 i++;
             }
@@ -139,6 +100,7 @@ namespace ScarFly.MyClasses.PlayerClasses
 
         private int selectedModify = -1;
         private int modifyCounter = 0;
+        private int modifyCounterMax = 400;
         private bool isModify { get; set; }
         public void ModifyGame()
         {
@@ -175,7 +137,7 @@ namespace ScarFly.MyClasses.PlayerClasses
             if (isModify)
             {
                 modifyCounter++;
-                if (modifyCounter >= 200)
+                if (modifyCounter >= modifyCounterMax || Player.isEnd)
                 {
                     isModify = false;
                     modifyCounter = 0;
@@ -203,7 +165,7 @@ namespace ScarFly.MyClasses.PlayerClasses
             if (isModify)
             {
                 modifyCounter++;
-                if (modifyCounter >= 200)
+                if (modifyCounter >= modifyCounterMax || Player.isEnd)
                 {
                     isModify = false;
                     modifyCounter = 0;
@@ -219,19 +181,34 @@ namespace ScarFly.MyClasses.PlayerClasses
 
         public void EatMore()
         {
-            if (Player.isEatModifier)
-            {
-                isModify = true;
-            }
+            if (Player.isEatModifier) { isModify = true; }
             if (isModify)
             {
                 modifyCounter++;
                 if (Player.isEatMoney) { Player.Score.GameScore += 10; }
-                if (modifyCounter >= 200)
+                if (modifyCounter >= modifyCounterMax || Player.isEnd)
                 {
                     isModify = false;
                     modifyCounter = 0;
                     selectedModify = -1;
+                }
+            }
+        }
+
+        public void Draw(SpriteBatch spriteBatch)
+        {
+            if (isModify)
+            {
+                switch (selectedModify)
+                {
+                    case 0: spriteBatch.DrawString(Font, "Faster!", new Vector2(10, Consts.PhoneHeight - 40), Consts.PastelGreen);
+                        break;
+                    case 1: spriteBatch.DrawString(Font, "Slower!", new Vector2(10, Consts.PhoneHeight - 40), Consts.PastelRed);
+                        break;
+                    case 2: spriteBatch.DrawString(Font, "Eat more!", new Vector2(10, Consts.PhoneHeight - 40), Consts.PastelGreen);
+                        break;
+                    default:
+                        break;
                 }
             }
         }

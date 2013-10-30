@@ -48,6 +48,7 @@ namespace ScarFly
             // Frame rate is 30 fps by default for Windows Phone.
             TargetElapsedTime = TimeSpan.FromTicks(333333);
             // Extend battery life under lock.
+            this.Deactivated += Game1_Deactivated;
             InactiveSleepTime = TimeSpan.FromSeconds(1);
             graphics.SupportedOrientations = DisplayOrientation.LandscapeLeft;
             graphics.IsFullScreen = true;
@@ -71,7 +72,8 @@ namespace ScarFly
             endGameButtons.Add(new MenuButton("EndGame_Start", "Buttons/StartButton", (Consts.PhoneWidth / 2) - 124, (Consts.PhoneHeight / 2) - 128));
             endGameMenu = new Menu(endGameButtons);
 
-            player = new Player("Player1", 4, 100, 370, "Player/PaperPlane_v2", "Player/PaperPlane_v2", "Player/PaperPlane_v2", 1, 1, 1);
+            //player = new Player("Player1", 4, 100, 370, "Player/PaperPlane_v2", "Player/PaperPlane_v2", "Player/PaperPlane_v2", 1, 1, 1);
+            player = new Player("Player1", 4, 100, 370, "Player/PaperPlane_v2", 1);
             backBackground = new PlayerBackground("Background/Forest", 1);
             foreBackground = new PlayerBackground("Background/ForestFore", 2);
             walkPlace = new PlayerBackground("Background/WalkPlace", 4);
@@ -87,6 +89,11 @@ namespace ScarFly
             backgroundList.Add(foreBackground);
 
             collosion = new Collosion(barriers, player, moneys, modifiers, backgroundList);
+        }
+
+        private void Game1_Deactivated(object sender, EventArgs e)
+        {
+            if (gameState == GameState.Gaming) { gameState = GameState.InPauseMenu; } 
         }
 
         protected override void Initialize()
@@ -108,6 +115,7 @@ namespace ScarFly
             barriers.Load(this);
             moneys.Load(this);
             modifiers.Load(this);
+            collosion.Load(this);
         }
 
         protected override void UnloadContent()
@@ -116,7 +124,7 @@ namespace ScarFly
         }
 
         protected override void Update(GameTime gameTime)
-        {
+        {  
             //NOTE: MAIN MENU
             if (gameState == GameState.InMainMenu)
             {
@@ -147,6 +155,7 @@ namespace ScarFly
                     modifiers.Load(this);
                     player.RePosition();
                     collosion = new Collosion(barriers, player, moneys, modifiers, backgroundList);
+                    collosion.Load(this);
 
                     firstEntry = false;
                 }
@@ -254,6 +263,7 @@ namespace ScarFly
                 moneys.Draw(spriteBatch, color);
                 modifiers.Draw(spriteBatch, color);
                 player.Score.DrawGameScore(spriteBatch, color);
+                collosion.Draw(spriteBatch);
             }
             //NOTE: PAUSE MENU
             else if (gameState == GameState.InPauseMenu)

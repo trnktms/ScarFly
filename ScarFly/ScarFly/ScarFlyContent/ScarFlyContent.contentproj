@@ -62,13 +62,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Background\Forest.jpg">
-      <Name>Forest</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="Player\Pixel.png">
       <Name>Pixel</Name>
       <Importer>TextureImporter</Importer>
@@ -120,6 +113,13 @@
   <ItemGroup>
     <Compile Include="Buttons\Tutorial.png">
       <Name>Tutorial</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Background\Forest.png">
+      <Name>Forest</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

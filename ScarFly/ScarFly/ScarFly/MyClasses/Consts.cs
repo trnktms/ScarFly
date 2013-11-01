@@ -12,7 +12,6 @@ namespace ScarFly.MyClasses
     {
         Gaming,
         InMainMenu,
-        InScoreMenu,
         InPauseMenu,
         InEndGameMenu,
         InTutorial

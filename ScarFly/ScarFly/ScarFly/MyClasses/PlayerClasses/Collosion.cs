@@ -170,7 +170,7 @@ namespace ScarFly.MyClasses.PlayerClasses
                     isModify = false;
                     modifyCounter = 0;
                     selectedModify = -1;
-                    foreach (var item in Backgrounds) { if (item.Velocity != 1) { item.Velocity *= 2; } }
+                    foreach (var item in Backgrounds) { if (item.StartVelocity != 1) { item.Velocity *= 2; } }
                     Player.Velocity *= 2;
                     Barriers.Velocity *= 2;
                     Moneys.Velocity *= 2;

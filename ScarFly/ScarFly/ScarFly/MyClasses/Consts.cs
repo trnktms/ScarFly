@@ -65,9 +65,11 @@ namespace ScarFly.MyClasses
         public static bool FirstStart()
         {
             bool result;
-            IsolatedStorageFile myIsolatedStorage = IsolatedStorageFile.GetUserStoreForApplication();
-            result = myIsolatedStorage.FileExists("TotalScore.txt");
-            if (!result) { myIsolatedStorage.CreateFile("TotalScore.txt"); }
+            using (IsolatedStorageFile myIsolatedStorage = IsolatedStorageFile.GetUserStoreForApplication())
+            {
+                result = myIsolatedStorage.FileExists("TotalScore.txt");
+                if (!result) { myIsolatedStorage.CreateFile("TotalScore.txt"); }
+            }
             return result;
         }
     }

@@ -35,7 +35,6 @@ namespace ScarFly.MyClasses
             this.StartVelocity = velocity;
             this.PositionHistory = new Queue<Vector2>(20);
             this._fly_sy = (int)Position.Y;
-            this.Score.LoadTotalScore();
         }
 
         public string Name { get; set; }
@@ -188,7 +187,6 @@ namespace ScarFly.MyClasses
             Position = ZeroPosition;
             PlayerState = PlayerStates.Running;
             Score.TotalScore += Score.GameScore;
-            Score.SaveTotalScore();
             Score.GameScore = 0;
             PositionHistory.Clear();
             _fly_sy = (int)Position.Y;

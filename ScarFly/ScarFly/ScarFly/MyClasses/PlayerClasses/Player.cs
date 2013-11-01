@@ -105,12 +105,12 @@ namespace ScarFly.MyClasses
         private int _fall_ay = 1;
         public void Fall(SpriteBatch spriteBatch, Color color)
         {
-            _fall_vy += _fall_ay;
+            if (_fall_vy < 10) { _fall_vy += _fall_ay; }
             _fall_sy += _fall_vy;
             Position = new Vector2(Position.X, _fall_sy);
             _fly_sy = (int)Position.Y;
             _fly_vy = 0;
-            if (_fall_sy > ZeroPosition.Y || _fall_sy > ZeroPosition.Y - 12) { PlayerState = PlayerStates.Running; }
+            if (_fall_sy > ZeroPosition.Y || _fall_sy > ZeroPosition.Y - 12) { PlayerState = PlayerStates.Flying; }
             Animate(spriteBatch, RunMoveCount, color);
         }
 
@@ -118,7 +118,7 @@ namespace ScarFly.MyClasses
         private int _fly_ay = 1;
         public void Fly(SpriteBatch spriteBatch, Color color)
         {
-            if (Position.Y > 0)
+            if (Position.Y > 5)
             {
                 if (_fly_vy < 10) { _fly_vy += _fly_ay; }
                 _fly_sy -= _fly_vy;

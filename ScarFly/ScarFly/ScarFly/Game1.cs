@@ -95,6 +95,8 @@ namespace ScarFly
             backgroundList.Add(foreBackground);
 
             collosion = new Collosion(barriers, player, moneys, modifiers, backgroundList);
+
+            if (!Tutorial.FirstStart()) { gameState = GameState.InTutorial; }
         }
 
         private void Game1_Deactivated(object sender, EventArgs e)
@@ -135,9 +137,9 @@ namespace ScarFly
             //NOTE: MAIN MENU
             if (gameState == GameState.InMainMenu)
             {
-                if (!Tutorial.FirstStart()) { gameState = GameState.InTutorial; return; }
                 if (firstEntry)
                 {
+                    player.Score.LoadTotalScore();
                     mainMenu = new Menu(mainButtons);
                     firstEntry = false;
                 }
@@ -217,6 +219,7 @@ namespace ScarFly
                 if (firstEntry)
                 {
                     endGameMenu = new Menu(endGameButtons);
+                    player.Score.SaveTotalScore();
                     firstEntry = false;
                 }
                 backBackground.Scroll(this);
@@ -229,6 +232,7 @@ namespace ScarFly
                     Transitions.TransitionCounter = 0;
                     Transitions.IsTransition = true;
                     gameState = GameState.InMainMenu;
+                    firstEntry = true;
                 }
             }
             //NOTE: SCORE MENU
@@ -256,6 +260,8 @@ namespace ScarFly
                 foreBackground.Draw(spriteBatch, color);
                 walkPlace.Draw(spriteBatch, color);
                 mainMenu.DrawButtonList(spriteBatch, color);
+                spriteBatch.DrawString(player.Score.TotalScoreFont, "" + (player.Score.TotalScore), new Vector2(10, 10), color);
+                spriteBatch.DrawString(player.Score.GameScoreFont, "" + player.Score.Rank.ToString(), new Vector2(10, 80), color);
             }
             //NOTE: GAMING
             else if (gameState == GameState.Gaming)
@@ -295,7 +301,8 @@ namespace ScarFly
                 walkPlace.Draw(spriteBatch, color);
                 endGameMenu.DrawButtonList(spriteBatch, color);
                 spriteBatch.DrawString(player.Score.GameScoreFont, "" + player.Score.GameScore, new Vector2(10, 10), color);
-                spriteBatch.DrawString(player.Score.TotalScoreFont, "" + (player.Score.TotalScore + player.Score.GameScore), new Vector2(10, 80), color);
+                spriteBatch.DrawString(player.Score.TotalScoreFont, "" + (player.Score.TotalScore), new Vector2(10, 80), color);
+                spriteBatch.DrawString(player.Score.GameScoreFont, "" + player.Score.Rank.ToString(), new Vector2(10, 150), color);
             }
             //NOTE: SCORE MENU
             else if (gameState == GameState.InScoreMenu)
@@ -303,7 +310,7 @@ namespace ScarFly
             //NOTE: TUTORIAL
             else if (gameState == GameState.InTutorial)
             {
-                Color  color = Color.White;
+                Color color = Color.White;
                 Transitions.Transition(ref color);
                 tutorialMenu.DrawButtonList(spriteBatch, color);
             }

@@ -11,6 +11,14 @@ using System.IO;
 
 namespace ScarFly.MyClasses.PlayerClasses
 {
+    public enum PlayerRank
+    {
+        Beginner,
+        Amateur,
+        Professional,
+        Hardcore,
+        Impendent
+    }
     public class Score
     {
         public Score(string gameScoreIconAssetName, string totalScoreIconAssetName, string gameScoreFontName, string totalGameScoreFontName)
@@ -19,9 +27,8 @@ namespace ScarFly.MyClasses.PlayerClasses
             this.TotalScoreIconAssetName = totalScoreIconAssetName;
             this.GameScoreFontAssetName = gameScoreFontName;
             this.TotalScoreFontAssetName = totalGameScoreFontName;
-            LoadTotalScore();
         }
-
+        public PlayerRank Rank { get; set; }
         public int GameScore { get; set; }
         public int TotalScore { get; set; }
 
@@ -51,19 +58,16 @@ namespace ScarFly.MyClasses.PlayerClasses
             spriteBatch.DrawString(GameScoreFont, GameScore.ToString(), new Vector2(GameScoreIcon.Width + 3, 3), color);
         }
 
-        public void DrawTotalScore(SpriteBatch spriteBatch, Color color)
-        {
-            spriteBatch.Draw(TotalScoreIcon, new Vector2(0, 0), Color.White);
-            spriteBatch.DrawString(TotalScoreFont, TotalScore.ToString(), new Vector2(TotalScoreIcon.Width + 3, 3), color);
-        }
-
         public void SaveTotalScore()
         {
+            LoadTotalScore();
+            TotalScore += GameScore;
             IsolatedStorageFile myIsolatedStorage = IsolatedStorageFile.GetUserStoreForApplication();
             IsolatedStorageFileStream fileStream = myIsolatedStorage.OpenFile("TotalScore.txt", FileMode.OpenOrCreate, FileAccess.Write);
             using (StreamWriter writer = new StreamWriter(fileStream))
             {
                 writer.Write(TotalScore);
+                writer.Close();
             }
         }
 
@@ -76,13 +80,20 @@ namespace ScarFly.MyClasses.PlayerClasses
                 {
                     using (StreamReader reader = new StreamReader(fileStream))
                     {
-                        if (!string.IsNullOrEmpty(reader.ReadLine()) && reader.ReadLine() != null)
-                        {
-                            TotalScore = int.Parse(reader.ReadLine());
+                        string temp = reader.ReadToEnd();
+                        if (temp != null && temp != "")
+                        { 
+                            TotalScore = int.Parse(temp);
                         }
                     }
                 }
             }
+
+            if (TotalScore > 50000) { Rank = PlayerRank.Impendent; }
+            else if (TotalScore > 25000) { Rank = PlayerRank.Hardcore; }
+            else if (TotalScore > 15000) { Rank = PlayerRank.Professional; }
+            else if (TotalScore > 7500) { Rank = PlayerRank.Beginner; }
+            else if (TotalScore > 3000) { Rank = PlayerRank.Amateur; }
         }
     }
 }

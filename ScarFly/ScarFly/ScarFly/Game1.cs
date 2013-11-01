@@ -24,9 +24,11 @@ namespace ScarFly
         Menu mainMenu;
         Menu pauseMenu;
         Menu endGameMenu;
+        Menu tutorialMenu;
         List<MenuButton> mainButtons = new List<MenuButton>();
         List<MenuButton> pauseButtons = new List<MenuButton>();
         List<MenuButton> endGameButtons = new List<MenuButton>();
+        List<MenuButton> tutorialButtons = new List<MenuButton>();
 
         List<PlayerBackground> backgroundList;
         PlayerBackground backBackground;
@@ -72,6 +74,10 @@ namespace ScarFly
             endGameButtons.Add(new MenuButton("EndGame_Start", "Buttons/StartButton", (Consts.PhoneWidth / 2) - 124, (Consts.PhoneHeight / 2) - 128));
             endGameMenu = new Menu(endGameButtons);
 
+            tutorialButtons = new List<MenuButton>();
+            tutorialButtons.Add(new MenuButton("Tutorial", "Buttons/Tutorial", 0, 0));
+            tutorialMenu = new Menu(tutorialButtons);
+
             //player = new Player("Player1", 4, 100, 370, "Player/PaperPlane_v2", "Player/PaperPlane_v2", "Player/PaperPlane_v2", 1, 1, 1);
             player = new Player("Player1", 4, 100, 370, "Player/PaperPlane_v2", 1);
             backBackground = new PlayerBackground("Background/Forest", 1);
@@ -108,6 +114,7 @@ namespace ScarFly
             mainMenu.LoadButtonList(this);
             pauseMenu.LoadButtonList(this);
             endGameMenu.LoadButtonList(this);
+            tutorialMenu.LoadButtonList(this);
             player.Load(this);
             backBackground.Load(this);
             foreBackground.Load(this);
@@ -128,10 +135,10 @@ namespace ScarFly
             //NOTE: MAIN MENU
             if (gameState == GameState.InMainMenu)
             {
+                if (!Tutorial.FirstStart()) { gameState = GameState.InTutorial; return; }
                 if (firstEntry)
                 {
                     mainMenu = new Menu(mainButtons);
-
                     firstEntry = false;
                 }
                 if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed) this.Exit();
@@ -227,6 +234,11 @@ namespace ScarFly
             //NOTE: SCORE MENU
             else if (gameState == GameState.InScoreMenu)
             { }
+            //NOTE: TUTORIAL
+            else if (gameState == GameState.InTutorial)
+            {
+                gameState = tutorialMenu.IsTouched(this, TouchPanel.GetState(), gameState, ref firstEntry, spriteBatch);
+            }
 
             base.Update(gameTime);
         }
@@ -288,6 +300,13 @@ namespace ScarFly
             //NOTE: SCORE MENU
             else if (gameState == GameState.InScoreMenu)
             { }
+            //NOTE: TUTORIAL
+            else if (gameState == GameState.InTutorial)
+            {
+                Color  color = Color.White;
+                Transitions.Transition(ref color);
+                tutorialMenu.DrawButtonList(spriteBatch, color);
+            }
 
             spriteBatch.End();
             base.Draw(gameTime);

@@ -76,7 +76,10 @@ namespace ScarFly.MyClasses.PlayerClasses
                 {
                     using (StreamReader reader = new StreamReader(fileStream))
                     {
-                        TotalScore = int.Parse(reader.ReadLine());
+                        if (!string.IsNullOrEmpty(reader.ReadLine()) && reader.ReadLine() != null)
+                        {
+                            TotalScore = int.Parse(reader.ReadLine());
+                        }
                     }
                 }
             }

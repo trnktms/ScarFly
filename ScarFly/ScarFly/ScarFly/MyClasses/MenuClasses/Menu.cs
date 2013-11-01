@@ -56,6 +56,9 @@ namespace ScarFly.MyClasses.MenuClasses
                                 case "EndGame_Start": 
                                     result = GameState.Gaming; Transitions.IsTransition = true; firstEntry = true; Transitions.TransitionCounter = 0;
                                     break;
+                                case "Tutorial":
+                                    result = GameState.InMainMenu; Transitions.IsTransition = true; firstEntry = true; Transitions.TransitionCounter = 0;
+                                    break;
                                 default:
                                     break;
                             }

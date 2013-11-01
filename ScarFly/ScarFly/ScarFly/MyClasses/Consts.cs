@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.IO.IsolatedStorage;
 using System.Linq;
 using System.Text;
 
@@ -13,7 +14,8 @@ namespace ScarFly.MyClasses
         InMainMenu,
         InScoreMenu,
         InPauseMenu,
-        InEndGameMenu
+        InEndGameMenu,
+        InTutorial
     }
 
     public static class Consts
@@ -55,6 +57,18 @@ namespace ScarFly.MyClasses
                 color = new Color(TransitionCounter, TransitionCounter, TransitionCounter);
                 TransitionCounter += 5;
             }
+        }
+    }
+
+    public static class Tutorial
+    {
+        public static bool FirstStart()
+        {
+            bool result;
+            IsolatedStorageFile myIsolatedStorage = IsolatedStorageFile.GetUserStoreForApplication();
+            result = myIsolatedStorage.FileExists("TotalScore.txt");
+            if (!result) { myIsolatedStorage.CreateFile("TotalScore.txt"); }
+            return result;
         }
     }
 }

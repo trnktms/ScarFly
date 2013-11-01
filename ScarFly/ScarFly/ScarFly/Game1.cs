@@ -92,7 +92,7 @@ namespace ScarFly
             backgroundList = new List<PlayerBackground>();
             backgroundList.Add(backBackground);
             backgroundList.Add(foreBackground);
-            backgroundList.Add(foreBackground);
+            backgroundList.Add(walkPlace);
 
             collosion = new Collosion(barriers, player, moneys, modifiers, backgroundList);
 
@@ -235,9 +235,6 @@ namespace ScarFly
                     firstEntry = true;
                 }
             }
-            //NOTE: SCORE MENU
-            else if (gameState == GameState.InScoreMenu)
-            { }
             //NOTE: TUTORIAL
             else if (gameState == GameState.InTutorial)
             {
@@ -270,11 +267,11 @@ namespace ScarFly
                 Transitions.Transition(ref color);
                 backBackground.Draw(spriteBatch, color);
                 foreBackground.Draw(spriteBatch, color);
-                walkPlace.Draw(spriteBatch, color);
                 player.Draw(spriteBatch, color);
                 barriers.Draw(spriteBatch, color);
                 moneys.Draw(spriteBatch, color);
                 modifiers.Draw(spriteBatch, color);
+                walkPlace.Draw(spriteBatch, color);
                 player.Score.DrawGameScore(spriteBatch, color);
                 collosion.Draw(spriteBatch);
             }
@@ -304,9 +301,6 @@ namespace ScarFly
                 spriteBatch.DrawString(player.Score.TotalScoreFont, "" + (player.Score.TotalScore), new Vector2(10, 80), color);
                 spriteBatch.DrawString(player.Score.GameScoreFont, "" + player.Score.Rank.ToString(), new Vector2(10, 150), color);
             }
-            //NOTE: SCORE MENU
-            else if (gameState == GameState.InScoreMenu)
-            { }
             //NOTE: TUTORIAL
             else if (gameState == GameState.InTutorial)
             {

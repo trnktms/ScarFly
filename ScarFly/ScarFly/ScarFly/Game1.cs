@@ -257,8 +257,7 @@ namespace ScarFly
                 foreBackground.Draw(spriteBatch, color);
                 walkPlace.Draw(spriteBatch, color);
                 mainMenu.DrawButtonList(spriteBatch, color);
-                spriteBatch.DrawString(player.Score.TotalScoreFont, "" + (player.Score.TotalScore), new Vector2(10, 10), color);
-                spriteBatch.DrawString(player.Score.GameScoreFont, "" + player.Score.Rank.ToString(), new Vector2(10, 80), color);
+                player.Score.DrawMainMenuScores(spriteBatch, color);
             }
             //NOTE: GAMING
             else if (gameState == GameState.Gaming)
@@ -282,10 +281,11 @@ namespace ScarFly
                 Transitions.Transition(ref color);
                 backBackground.Draw(spriteBatch, color);
                 foreBackground.Draw(spriteBatch, color);
-                walkPlace.Draw(spriteBatch, color);
                 barriers.Draw(spriteBatch, color);
                 moneys.Draw(spriteBatch, color);
                 modifiers.Draw(spriteBatch, color);
+                walkPlace.Draw(spriteBatch, color);
+                player.Score.DrawGameScore(spriteBatch, color);
                 pauseMenu.DrawButtonList(spriteBatch, color);
             }
             //NOTE: END GAME MENU
@@ -297,9 +297,7 @@ namespace ScarFly
                 foreBackground.Draw(spriteBatch, color);
                 walkPlace.Draw(spriteBatch, color);
                 endGameMenu.DrawButtonList(spriteBatch, color);
-                spriteBatch.DrawString(player.Score.GameScoreFont, "" + player.Score.GameScore, new Vector2(10, 10), color);
-                spriteBatch.DrawString(player.Score.TotalScoreFont, "" + (player.Score.TotalScore), new Vector2(10, 80), color);
-                spriteBatch.DrawString(player.Score.GameScoreFont, "" + player.Score.Rank.ToString(), new Vector2(10, 150), color);
+                player.Score.DrawEndGameScores(spriteBatch, color);
             }
             //NOTE: TUTORIAL
             else if (gameState == GameState.InTutorial)

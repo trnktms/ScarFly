@@ -41,9 +41,9 @@ namespace ScarFly.MyClasses.LevelElementClasses
                     {
                         switch (id)
                         {
-                            case "a": MoneyList.Add(new Money("LevelElements/Money", new MoneyIndex(j, i, id), 1));
+                            case "a": MoneyList.Add(new Money("LevelElements/Money", new MoneyIndex(j, i, id), 20));
                                 break;
-                            case "!": MoneyList.Add(new Money("LevelElements/Money", new MoneyIndex(j, i, id), 1));
+                            case "!": MoneyList.Add(new Money("LevelElements/Money", new MoneyIndex(j, i, id), 20));
                                 break;
                             default:
                                 break;

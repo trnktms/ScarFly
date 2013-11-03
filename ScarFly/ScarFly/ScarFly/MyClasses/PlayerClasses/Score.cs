@@ -64,6 +64,8 @@ namespace ScarFly.MyClasses.PlayerClasses
             spriteBatch.DrawString(Font, Rank.ToString(), new Vector2(RankIcon.Width + 8, 8), color);
             spriteBatch.Draw(GameScoreIcon, new Vector2(5, 85), color);
             spriteBatch.DrawString(Font, TotalScore.ToString(), new Vector2(GameScoreIcon.Width + 8, 88), color);
+            spriteBatch.Draw(GameScoreIcon, new Vector2(5, 165), color);
+            spriteBatch.DrawString(Font, GameScore.ToString(), new Vector2(GameScoreIcon.Width + 8, 168), color);
         }
 
         public void DrawEndGameScores(SpriteBatch spriteBatch, Color color)

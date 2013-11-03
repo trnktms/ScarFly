@@ -23,7 +23,7 @@ namespace ScarFly
 
         Menu mainMenu;
         Menu pauseMenu;
-        Menu endGameMenu;
+        //Menu endGameMenu;
         Menu tutorialMenu;
         List<MenuButton> mainButtons = new List<MenuButton>();
         List<MenuButton> pauseButtons = new List<MenuButton>();
@@ -69,12 +69,12 @@ namespace ScarFly
             mainMenu = new Menu(mainButtons);
 
             pauseButtons = new List<MenuButton>();
-            pauseButtons.Add(new MenuButton("Pause_Resume", "Buttons/ResumeButton", (Consts.PhoneWidth / 2) + 20, (Consts.PhoneHeight / 2) - 200));
+            pauseButtons.Add(new MenuButton("Pause_Resume", "Buttons/ResumeButton", (Consts.PhoneWidth / 2) - 166, (Consts.PhoneHeight / 2) - 200));
             pauseMenu = new Menu(pauseButtons);
 
-            endGameButtons = new List<MenuButton>();
-            endGameButtons.Add(new MenuButton("EndGame_Start", "Buttons/StartButton", (Consts.PhoneWidth / 2) + 20, (Consts.PhoneHeight / 2) - 200));
-            endGameMenu = new Menu(endGameButtons);
+            //endGameButtons = new List<MenuButton>();
+            //endGameButtons.Add(new MenuButton("EndGame_Start", "Buttons/StartButton", (Consts.PhoneWidth / 2) + 20, (Consts.PhoneHeight / 2) - 200));
+            //endGameMenu = new Menu(endGameButtons);
 
             tutorialButtons = new List<MenuButton>();
             tutorialButtons.Add(new MenuButton("Tutorial", "Buttons/Tutorial", 0, 0));
@@ -117,7 +117,7 @@ namespace ScarFly
             spriteBatch = new SpriteBatch(GraphicsDevice);
             mainMenu.LoadButtonList(this);
             pauseMenu.LoadButtonList(this);
-            endGameMenu.LoadButtonList(this);
+            //endGameMenu.LoadButtonList(this);
             tutorialMenu.LoadButtonList(this);
             player.Load(this);
             backBackground.Load(this);
@@ -135,113 +135,118 @@ namespace ScarFly
         }
 
         protected override void Update(GameTime gameTime)
-        {  
-            //NOTE: MAIN MENU
-            if (gameState == GameState.InMainMenu)
+        {
+            switch (gameState)
             {
-                if (firstEntry)
-                {
-                    player.Score.LoadTotalScore();
-                    mainMenu = new Menu(mainButtons);
-                    firstEntry = false;
-                }
-                if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed) this.Exit();
-                backBackground.Scroll(this);
-                foreBackground.Scroll(this);
-                walkPlace.Scroll(this);
-                gameState = mainMenu.IsTouched(this, TouchPanel.GetState(), gameState, ref firstEntry, spriteBatch);
-            }
-            //NOTE: GAMING
-            else if (gameState == GameState.Gaming)
-            {
-                if (firstEntry)
-                {
-                    foreach (PlayerBackground item in backgroundList) { item.RePosition(); }
-                    string level = LevelSelector.Select();
-                    barriers = new Barriers(level, 4);
-                    barriers.Load(this);
-                    moneys = new Moneys(level, 4);
-                    moneys.Load(this);
-                    modifiers = new Modifiers(level, 4);
-                    modifiers.Load(this);
-                    player.RePosition();
-                    collosion = new Collosion(barriers, player, moneys, modifiers, backgroundList);
-                    collosion.Load(this);
-
-                    firstEntry = false;
-                }
-                else
-                {
-                    player.Update();
-                    if (moneys.GetActualMoneyList().Count != 0 && moneys.GetActualMoneyList().LastOrDefault().Index.ID == "!")
+                case GameState.Gaming:
+                    if (firstEntry)
                     {
-                        player.isEnd = true;
-                        if (player.Position.X >= Consts.PhoneWidth)
+                        foreach (PlayerBackground item in backgroundList) { item.RePosition(); }
+                        string level = LevelSelector.Select();
+                        barriers = new Barriers(level, 4);
+                        barriers.Load(this);
+                        moneys = new Moneys(level, 4);
+                        moneys.Load(this);
+                        modifiers = new Modifiers(level, 4);
+                        modifiers.Load(this);
+                        player.RePosition();
+                        collosion = new Collosion(barriers, player, moneys, modifiers, backgroundList);
+                        collosion.Load(this);
+                        firstEntry = false;
+                    }
+                    else
+                    {
+                        player.Update();
+                        if (moneys.GetActualMoneyList().Count != 0 && moneys.GetActualMoneyList().LastOrDefault().Index.ID == "!")
                         {
-                            Transitions.TransitionCounter = 0;
-                            Transitions.IsTransition = true;
-                            gameState = GameState.InEndGameMenu;
+                            player.isEnd = true;
+                            if (player.Position.X >= Consts.PhoneWidth)
+                            {
+                                Transitions.ChangeGameState(ref firstEntry);
+                                gameState = GameState.InEndGameMenu;
+                            }
+                        }
+                        backBackground.Scroll(this);
+                        foreBackground.Scroll(this);
+                        walkPlace.Scroll(this);
+                        barriers.Scroll(this);
+                        moneys.Scroll(this);
+                        modifiers.Scroll(this);
+                        collosion.Update();
+                        if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
+                        {
+                            gameState = GameState.InPauseMenu;
                             firstEntry = true;
                         }
+                    }
+                    break;
+                case GameState.InMainMenu:
+                    if (firstEntry)
+                    {
+                        player.Score.LoadTotalScore();
+                        mainMenu = new Menu(mainButtons);
+                        firstEntry = false;
                     }
                     backBackground.Scroll(this);
                     foreBackground.Scroll(this);
                     walkPlace.Scroll(this);
-                    barriers.Scroll(this);
-                    moneys.Scroll(this);
-                    modifiers.Scroll(this);
-                    collosion.Update();
+                    gameState = mainMenu.IsTouched(this, TouchPanel.GetState(), gameState, ref firstEntry, spriteBatch);
+                    if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed) this.Exit();
+                    break;
+                case GameState.InPauseMenu:
+                    if (firstEntry)
+                    {
+                        pauseMenu = new Menu(pauseButtons);
+                        firstEntry = false;
+                    }
+                    gameState = pauseMenu.IsTouched(this, TouchPanel.GetState(), gameState, ref firstEntry, spriteBatch);
                     if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                     {
-                        gameState = GameState.InPauseMenu;
-                        firstEntry = true;
+                        Transitions.ChangeGameState(ref firstEntry);
+                        gameState = GameState.InMainMenu;
                     }
-                }
-            }
-            //NOTE: PAUSE MENU
-            else if (gameState == GameState.InPauseMenu)
-            {
-                if (firstEntry)
-                {
-                    pauseMenu = new Menu(pauseButtons);
-                    firstEntry = false;
-                }
-                if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
-                {
-                    Transitions.TransitionCounter = 0;
-                    Transitions.IsTransition = true;
+                    break;
+                case GameState.InTutorial:
+                    backBackground.Scroll(this);
+                    foreBackground.Scroll(this);
+                    walkPlace.Scroll(this);
+                    gameState = tutorialMenu.IsTouched(this, TouchPanel.GetState(), gameState, ref firstEntry, spriteBatch);
+                    if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
+                    {
+                        Transitions.ChangeGameState(ref firstEntry);
+                        gameState = GameState.InMainMenu;
+                    }
+                    break;
+                case GameState.InEndGameMenu:
+                    player.Score.SaveTotalScore();
                     gameState = GameState.InMainMenu;
-                    firstEntry = true;
-                }
-                gameState = pauseMenu.IsTouched(this, TouchPanel.GetState(), gameState, ref firstEntry, spriteBatch);
+                    break;
+                default:
+                    break;
             }
             //NOTE: END GAME MENU
-            else if (gameState == GameState.InEndGameMenu)
-            {
-                if (firstEntry)
-                {
-                    endGameMenu = new Menu(endGameButtons);
-                    player.Score.SaveTotalScore();
-                    firstEntry = false;
-                }
-                backBackground.Scroll(this);
-                foreBackground.Scroll(this);
-                walkPlace.Scroll(this);
-                gameState = endGameMenu.IsTouched(this, TouchPanel.GetState(), gameState, ref firstEntry, spriteBatch);
+            //else if (gameState == GameState.InEndGameMenu)
+            //{
+            //    if (firstEntry)
+            //    {
+            //        endGameMenu = new Menu(endGameButtons);
+            //        player.Score.SaveTotalScore();
+            //        firstEntry = false;
+            //    }
+            //    backBackground.Scroll(this);
+            //    foreBackground.Scroll(this);
+            //    walkPlace.Scroll(this);
+            //    //gameState = endGameMenu.IsTouched(this, TouchPanel.GetState(), gameState, ref firstEntry, spriteBatch);
 
-                if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
-                {
-                    Transitions.TransitionCounter = 0;
-                    Transitions.IsTransition = true;
-                    gameState = GameState.InMainMenu;
-                    firstEntry = true;
-                }
-            }
+            //    if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
+            //    {
+            //        Transitions.TransitionCounter = 0;
+            //        Transitions.IsTransition = true;
+            //        gameState = GameState.InMainMenu;
+            //        firstEntry = true;
+            //    }
+            //}
             //NOTE: TUTORIAL
-            else if (gameState == GameState.InTutorial)
-            {
-                gameState = tutorialMenu.IsTouched(this, TouchPanel.GetState(), gameState, ref firstEntry, spriteBatch);
-            }
 
             base.Update(gameTime);
         }
@@ -291,21 +296,24 @@ namespace ScarFly
                 pauseMenu.DrawButtonList(spriteBatch, color);
             }
             //NOTE: END GAME MENU
-            else if (gameState == GameState.InEndGameMenu)
+            //else if (gameState == GameState.InEndGameMenu)
+            //{
+            //    Color color = Color.White;
+            //    Transitions.Transition(ref color);
+            //    backBackground.Draw(spriteBatch, color);
+            //    foreBackground.Draw(spriteBatch, color);
+            //    walkPlace.Draw(spriteBatch, color);
+            //    //endGameMenu.DrawButtonList(spriteBatch, color);
+            //    player.Score.DrawEndGameScores(spriteBatch, color);
+            //}
+            //NOTE: TUTORIAL
+            else if (gameState == GameState.InTutorial)
             {
                 Color color = Color.White;
                 Transitions.Transition(ref color);
                 backBackground.Draw(spriteBatch, color);
                 foreBackground.Draw(spriteBatch, color);
                 walkPlace.Draw(spriteBatch, color);
-                endGameMenu.DrawButtonList(spriteBatch, color);
-                player.Score.DrawEndGameScores(spriteBatch, color);
-            }
-            //NOTE: TUTORIAL
-            else if (gameState == GameState.InTutorial)
-            {
-                Color color = Color.White;
-                Transitions.Transition(ref color);
                 tutorialMenu.DrawButtonList(spriteBatch, color);
             }
 

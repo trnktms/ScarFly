@@ -27,6 +27,7 @@ namespace ScarFly.MyClasses
 
         public static string SF_GameScore = "Fonts/GameScore";
         public static string SF_ModifierNotification = "Fonts/ModifierNotification";
+        public static string SF_EndGameScore = "Fonts/EndGameScore";
         public static string P_MoneyIcon = "Icons/MoneyIcon";
         public static string P_RankIcon = "Icons/RankIcon";
         public static string P_Pixel = "Player/Pixel";
@@ -49,6 +50,7 @@ namespace ScarFly.MyClasses
     {
         public static int TransitionCounter = 0;
         public static bool IsTransition = true;
+
         public static void Transition(ref Color color)
         {
             if (IsTransition)
@@ -57,6 +59,13 @@ namespace ScarFly.MyClasses
                 color = new Color(TransitionCounter, TransitionCounter, TransitionCounter);
                 TransitionCounter += 5;
             }
+        }
+
+        public static void ChangeGameState(ref bool firstEntry)
+        {
+            TransitionCounter = 0;
+            IsTransition = true;
+            firstEntry = true;
         }
     }
 

@@ -63,15 +63,17 @@ namespace ScarFly
             gameState = GameState.InMainMenu;
 
             mainButtons = new List<MenuButton>();
-            mainButtons.Add(new MenuButton("Main_Start", "Buttons/StartButton", (Consts.PhoneWidth / 2) - 124, (Consts.PhoneHeight / 2) - 128));
+            mainButtons.Add(new MenuButton("Main_Start", "Buttons/StartButton", (Consts.PhoneWidth / 2) + 20, (Consts.PhoneHeight / 2) - 200));
+            mainButtons.Add(new MenuButton("Main_Help", "Buttons/HelpButton", (Consts.PhoneWidth / 2) + 20, (Consts.PhoneHeight / 2) - 200 + 100));
+            mainButtons.Add(new MenuButton("Main_About", "Buttons/AboutButton", (Consts.PhoneWidth / 2) + 20, (Consts.PhoneHeight / 2) - 200 + 200));
             mainMenu = new Menu(mainButtons);
 
             pauseButtons = new List<MenuButton>();
-            pauseButtons.Add(new MenuButton("Pause_Resume", "Buttons/StartButton", (Consts.PhoneWidth / 2) - 124, (Consts.PhoneHeight / 2) - 128));
+            pauseButtons.Add(new MenuButton("Pause_Resume", "Buttons/ResumeButton", (Consts.PhoneWidth / 2) + 20, (Consts.PhoneHeight / 2) - 200));
             pauseMenu = new Menu(pauseButtons);
 
             endGameButtons = new List<MenuButton>();
-            endGameButtons.Add(new MenuButton("EndGame_Start", "Buttons/StartButton", (Consts.PhoneWidth / 2) - 124, (Consts.PhoneHeight / 2) - 128));
+            endGameButtons.Add(new MenuButton("EndGame_Start", "Buttons/StartButton", (Consts.PhoneWidth / 2) + 20, (Consts.PhoneHeight / 2) - 200));
             endGameMenu = new Menu(endGameButtons);
 
             tutorialButtons = new List<MenuButton>();

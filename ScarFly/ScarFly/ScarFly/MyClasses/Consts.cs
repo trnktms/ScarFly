@@ -77,7 +77,7 @@ namespace ScarFly.MyClasses
             using (IsolatedStorageFile myIsolatedStorage = IsolatedStorageFile.GetUserStoreForApplication())
             {
                 result = myIsolatedStorage.FileExists("TotalScore.txt");
-                if (!result) { myIsolatedStorage.CreateFile("TotalScore.txt"); }
+                if (!result) { myIsolatedStorage.CreateFile("TotalScore.txt"); myIsolatedStorage.CreateFile("HighScore.txt"); }
             }
             return result;
         }

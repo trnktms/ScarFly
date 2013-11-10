@@ -184,7 +184,12 @@ namespace ScarFly
                     if (firstEntry)
                     {
                         player.Score.LoadTotalScore();
+                        player.Score.LoadHighScore();
                         mainMenu = new Menu(mainButtons);
+                        player.isDead = false;
+                        player.isEatMoney = false;
+                        player.isEatModifier = false;
+                        collosion.Reset();
                         firstEntry = false;
                     }
                     backBackground.Scroll(this);
@@ -203,6 +208,7 @@ namespace ScarFly
                     if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                     {
                         Transitions.ChangeGameState(ref firstEntry);
+                        player.Score.GameScore = 0;
                         gameState = GameState.InMainMenu;
                     }
                     break;
@@ -219,6 +225,7 @@ namespace ScarFly
                     break;
                 case GameState.InEndGameMenu:
                     player.Score.SaveTotalScore();
+                    player.Score.SaveHighScore();
                     gameState = GameState.InMainMenu;
                     break;
                 default:

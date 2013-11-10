@@ -212,5 +212,12 @@ namespace ScarFly.MyClasses.PlayerClasses
                 }
             }
         }
+
+        public void Reset()
+        {
+            selectedModify = -1;
+            modifyCounter = 0;
+            isModify = false;
+        }
     }
 }

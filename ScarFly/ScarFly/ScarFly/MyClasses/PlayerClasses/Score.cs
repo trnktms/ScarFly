@@ -25,21 +25,26 @@ namespace ScarFly.MyClasses.PlayerClasses
         {
             this.GameScoreIconAssetName = gameScoreIconAssetName;
             this.TotalScoreIconAssetName = totalScoreIconAssetName;
+            this.HighScoreIconAssetName = totalScoreIconAssetName;
             this.RankIconAssetName = rankIconAssetName;
             this.FontAssetName = fontName;
         }
         public PlayerRank Rank { get; set; }
         public int GameScore { get; set; }
         public int TotalScore { get; set; }
+        public int HighScore { get; set; }
+        public bool IsNewHighScore { get; set; }
 
         public SpriteFont Font { get; set; }
 
         public Texture2D GameScoreIcon { get; set; }
         public Texture2D TotalScoreIcon { get; set; }
+        public Texture2D HighScoreIcon { get; set; }
         public Texture2D RankIcon { get; set; }
 
         public string GameScoreIconAssetName { get; set; }
         public string TotalScoreIconAssetName { get; set; }
+        public string HighScoreIconAssetName { get; set; }
         public string RankIconAssetName { get; set; }
 
         public string FontAssetName { get; set; }
@@ -49,6 +54,7 @@ namespace ScarFly.MyClasses.PlayerClasses
             Font = game.Content.Load<SpriteFont>(FontAssetName);
             GameScoreIcon = game.Content.Load<Texture2D>(GameScoreIconAssetName);
             TotalScoreIcon = game.Content.Load<Texture2D>(TotalScoreIconAssetName);
+            HighScoreIcon = game.Content.Load<Texture2D>(HighScoreIconAssetName);
             RankIcon = game.Content.Load<Texture2D>(RankIconAssetName);
         }
 
@@ -63,9 +69,10 @@ namespace ScarFly.MyClasses.PlayerClasses
             spriteBatch.Draw(RankIcon, new Vector2(5, 5), color);
             spriteBatch.DrawString(Font, Rank.ToString(), new Vector2(RankIcon.Width + 8, 8), color);
             spriteBatch.Draw(GameScoreIcon, new Vector2(5, 85), color);
-            spriteBatch.DrawString(Font, TotalScore.ToString(), new Vector2(GameScoreIcon.Width + 8, 88), color);
-            spriteBatch.Draw(GameScoreIcon, new Vector2(5, 165), color);
-            spriteBatch.DrawString(Font, GameScore.ToString(), new Vector2(GameScoreIcon.Width + 8, 168), color);
+            spriteBatch.DrawString(Font, string.Format("{0}/{1}",TotalScore.ToString(), GameScore.ToString() + (IsNewHighScore ? "!":"")), new Vector2(GameScoreIcon.Width + 8, 88), color);
+            spriteBatch.Draw(HighScoreIcon, new Vector2(5, 165), color);
+            spriteBatch.DrawString(Font, HighScore.ToString(), new Vector2(GameScoreIcon.Width + 8, 168), color);
+            //if (IsNewHighScore) { spriteBatch.DrawString(Font, "New high score!", new Vector2(GameScoreIcon.Width + 8, 248), color); }
         }
 
         public void DrawEndGameScores(SpriteBatch spriteBatch, Color color)
@@ -110,6 +117,46 @@ namespace ScarFly.MyClasses.PlayerClasses
             else if (TotalScore > 15000) { Rank = PlayerRank.Professional; }
             else if (TotalScore > 7500) { Rank = PlayerRank.Amateur; }
             else if (TotalScore > 3000) { Rank = PlayerRank.Beginner; }
+        }
+
+        public void LoadHighScore()
+        {
+            IsolatedStorageFile myIsolatedStorage = IsolatedStorageFile.GetUserStoreForApplication();
+            if (myIsolatedStorage.FileExists("HighScore.txt"))
+            {
+                using (IsolatedStorageFileStream fileStream = myIsolatedStorage.OpenFile("HighScore.txt", FileMode.Open, FileAccess.ReadWrite))
+                {
+                    using (StreamReader reader = new StreamReader(fileStream))
+                    {
+                        string temp = reader.ReadToEnd();
+                        if (temp != null && temp != "")
+                        {
+                            HighScore = int.Parse(temp);
+                        }
+                    }
+                }
+            }
+        }
+
+        public void SaveHighScore()
+        {
+            LoadHighScore();
+            if (GameScore > HighScore)
+            {
+                IsNewHighScore = true;
+                HighScore = GameScore;
+                IsolatedStorageFile myIsolatedStorage = IsolatedStorageFile.GetUserStoreForApplication();
+                IsolatedStorageFileStream fileStream = myIsolatedStorage.OpenFile("HighScore.txt", FileMode.OpenOrCreate, FileAccess.Write);
+                using (StreamWriter writer = new StreamWriter(fileStream))
+                {
+                    writer.Write(HighScore);
+                    writer.Close();
+                }
+            }
+            else
+            {
+                IsNewHighScore = false;
+            }
         }
     }
 }

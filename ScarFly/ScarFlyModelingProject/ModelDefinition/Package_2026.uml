@@ -1,0 +1,1350 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm9="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner"
+  dslVersion="1.0.0.0"
+  Id="552aebf5-ad50-4aee-af5c-7436c33ea6ad"
+  name="PlayerClasses"
+  visibility="Private" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <referencesInternal>
+    <reference
+      Id="bb0119ea-a9ea-477c-8538-6f3cfda839ac"
+      handle="viewcode://./CodeSchema_Namespace?Namespace%3DScarFly.MyClasses.PlayerClasses"
+      tag="ViewCode" />
+  </referencesInternal>
+  <packagedElements>
+    <packageHasNamedElement>
+      <class
+        Id="d5307ee9-d535-4175-b7d6-2b87b692c5cf"
+        name="PlayerBackground"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="48e9f1bb-7977-407b-8649-3e6af5a4c6d9"
+            handle="viewcode://./CodeSchema_Class?Assembly%3D&quot;file:%2F%2F%2FD:%2FProjects%2FTHESIS%2FScarFly%2FScarFly%2FScarFly%2Fbin%2FWindows Phone%2FDebug%2FScarFly.dll&quot; Namespace%3DScarFly.MyClasses.PlayerClasses Type%3DPlayerBackground"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="b4f74844-1e89-42aa-a666-a5314326aa18"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="7f95725c-25d9-4d32-9dbd-96558fd36f0d">
+                <propertyInstance
+                  Id="50b2a2d9-eb9c-4b76-b2bf-321769156818"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="78c44e3d-b94e-4bb7-b38e-1535460fb8e8">
+                <propertyInstance
+                  Id="15943afc-3c56-4836-8cf9-5ebcbe76242a"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="a5d0dabb-822f-4498-b92a-5a777ec0256b">
+                <propertyInstance
+                  Id="4a4bf9b4-a907-43f8-bd3a-f995e508c80b"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="2ccbf275-14f6-4127-bb27-cbce47bf4ee9">
+                <propertyInstance
+                  Id="1153c155-58a2-4161-a24d-d63116d9efdf"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="87289c06-9857-4c86-923c-8efd143b9c72">
+                <propertyInstance
+                  Id="d0fc005a-c0e6-4b8f-9b7e-4b8c5d1dea16"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+        <targetEnds>
+          <association
+            Id="518972b4-2c62-42e3-a83b-ed1438a9ee7c"
+            isDerived="false"
+            sourceEndRoleName="PlayerBackground"
+            targetEndRoleName="Rectangle1"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="6972d9e6-3153-4294-a7ad-7d6e262a65ef"
+              LastKnownName="Rectangle"
+              LastKnownLocation="Package8_0733.uml" />
+            <description>Property Rectangle1 references type Rectangle.</description>
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="ae1bad48-44d1-45fd-9c98-8136dc13e47e"
+                  name="PlayerBackground"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="6496cce5-02d6-40df-a1e3-1ebe1b174ff0"
+                      name="Lower"
+                      value="*" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="9fb3204f-4603-4ba8-8988-6994fb86b111"
+                      name="Upper"
+                      value="*" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="47bf804f-1aaf-4f07-9211-055ff434ceb5"
+                  name="Rectangle1"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="79a5e04b-7c00-419e-a01a-c6bacb397e21"
+                      name="Lower"
+                      value="1" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="068522b8-5217-4452-9327-904d29233e77"
+                      name="Upper"
+                      value="1" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="64c29eb6-de2e-4a87-8261-884fe49b53b6"
+            isDerived="false"
+            sourceEndRoleName="PlayerBackground"
+            targetEndRoleName="Rectangle2"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="6972d9e6-3153-4294-a7ad-7d6e262a65ef"
+              LastKnownName="Rectangle"
+              LastKnownLocation="Package8_0733.uml" />
+            <description>Property Rectangle2 references type Rectangle.</description>
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="c72c7fbf-0f03-4996-9281-039b8df406fe"
+                  name="PlayerBackground"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="1b89798b-00b6-4e66-8065-8932b7f8c779"
+                      name="Lower"
+                      value="*" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="42e3f1db-ea8f-4a41-8d73-d0c6bcbfbd2e"
+                      name="Upper"
+                      value="*" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="f918a0d7-a313-4eb8-89f7-9b1f4e3b2d4d"
+                  name="Rectangle2"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="4f7557a3-ae31-4322-818c-0481df4f40b1"
+                      name="Lower"
+                      value="1" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="8241164f-faaf-43da-af71-6a835c613a6a"
+                      name="Upper"
+                      value="1" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="4a652234-732a-4b22-aa2d-0d4b4e343f4d"
+            isDerived="false"
+            sourceEndRoleName="PlayerBackground"
+            targetEndRoleName="Texture1"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="38cb006b-2475-4d58-a789-9bb97485db1b"
+              LastKnownName="Texture2D"
+              LastKnownLocation="Package9_0733.uml" />
+            <description>Property Texture1 references type Texture2D.</description>
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="2268c6fc-8680-40c2-8ec4-7ba747d06fc1"
+                  name="PlayerBackground"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="5b073487-0e69-4aa9-86cc-516395fd2cd1"
+                      name="Lower"
+                      value="*" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="0884ea0e-b9be-44f7-8e5d-5aafa288755e"
+                      name="Upper"
+                      value="*" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="20c729de-e354-4e89-98a9-59f492ad2d32"
+                  name="Texture1"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="34b0ef47-74e1-46cb-b29d-7fbb260fcd67"
+                      name="Lower"
+                      value="1" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="c6d46754-8054-4a3c-86aa-3508564310a0"
+                      name="Upper"
+                      value="1" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="b44d4a5a-2fc2-46c0-8236-d85ec721797c"
+            isDerived="false"
+            sourceEndRoleName="PlayerBackground"
+            targetEndRoleName="Texture2"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="38cb006b-2475-4d58-a789-9bb97485db1b"
+              LastKnownName="Texture2D"
+              LastKnownLocation="Package9_0733.uml" />
+            <description>Property Texture2 references type Texture2D.</description>
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="dae2a792-a74b-4a64-b955-0f184a79916a"
+                  name="PlayerBackground"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="0779283e-386c-4205-891c-378b5fcd08c5"
+                      name="Lower"
+                      value="*" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="0f82fb31-2a2c-4b2c-91c5-ab1b121b55d3"
+                      name="Upper"
+                      value="*" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="b7af320d-5644-446e-8f1c-503a423836c5"
+                  name="Texture2"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="8bca8c92-31a1-43a4-8e96-d4edddf6bb76"
+                      name="Lower"
+                      value="1" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="4108a5e3-a0fd-4375-a38c-64aaded0ce58"
+                      name="Upper"
+                      value="1" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+        <ownedAttributesInternal>
+          <property
+            Id="6cf3c083-982c-4e24-bfdb-7d175ec4be43"
+            name="AssetName"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="ae69862b-4ba2-421a-9185-568e5eb8cb98"
+                handle="viewcode://./CodeSchema_Property?Assembly%3D&quot;file:%2F%2F%2FD:%2FProjects%2FTHESIS%2FScarFly%2FScarFly%2FScarFly%2Fbin%2FWindows Phone%2FDebug%2FScarFly.dll&quot; Namespace%3DScarFly.MyClasses.PlayerClasses Type%3DPlayerBackground Member%3DAssetName"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="320a3cfd-fcf9-4e03-bcee-5c72aa18c0af"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="8a5fc574-bac1-4902-b5cc-9da42e4db419">
+                    <propertyInstance
+                      Id="39c36c18-6b82-46fc-a784-29e8f31862b7"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="f1e08ba7-bdb8-44a9-978c-d16fc4c4bb98">
+                    <propertyInstance
+                      Id="997ac2d9-b126-4632-92fd-890522669e1b"
+                      name="Get"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="f9654417-0ff9-4713-86be-7d87ceaa268b">
+                    <propertyInstance
+                      Id="f01bc886-b76d-4616-a5f4-678917a3bc2a"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b4cbb39e-3e77-405b-b51a-9f6e0780591a">
+                    <propertyInstance
+                      Id="3e3f4ed1-8393-4196-a2ef-98847c412dcc"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="3c1702ec-f372-48f6-b11b-da4b0e9268d6">
+                    <propertyInstance
+                      Id="167cb822-d690-49ce-9494-b37e6c4a4c00"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="9dd64f10-31d9-4422-b568-823519059991">
+                    <propertyInstance
+                      Id="fec76866-5a9f-4371-ace5-ccfcfb72c923"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="97d6cd8b-a5b1-4bf1-81c1-b89d7fba94ac">
+                    <propertyInstance
+                      Id="6d015fe0-7647-4abe-b65a-add15af9f01c"
+                      name="Set"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <primitiveTypeMoniker
+                Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                LastKnownName="String"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="e28b7483-45e2-42b0-b177-31c17c237365"
+            name="Rectangle1"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="7dc8ab9e-a557-4096-b117-c5ca601b4a52"
+                handle="viewcode://./CodeSchema_Property?Assembly%3D&quot;file:%2F%2F%2FD:%2FProjects%2FTHESIS%2FScarFly%2FScarFly%2FScarFly%2Fbin%2FWindows Phone%2FDebug%2FScarFly.dll&quot; Namespace%3DScarFly.MyClasses.PlayerClasses Type%3DPlayerBackground Member%3DRectangle1"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="37d121f5-0335-484e-95fa-03ba77b35220"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="bc0185fe-ab57-4aaa-8112-80c13c1a7bc3">
+                    <propertyInstance
+                      Id="2ed329e7-9e45-4cb0-a867-fa1869730e71"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="82e5a8d3-c871-4856-831c-190388609757">
+                    <propertyInstance
+                      Id="cccbe916-0683-45d9-996a-901df39aa2b8"
+                      name="Get"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="2c01a087-2c7a-46db-aa28-0ff53f386b5c">
+                    <propertyInstance
+                      Id="13203355-de1d-418a-87af-000ddbf50eee"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="f6aa1800-dfda-4165-9685-8629cb9a5d37">
+                    <propertyInstance
+                      Id="a8201114-509b-4c3b-859c-c8d058d19951"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="bf8951a3-c22e-4132-b53d-77a981aa635d">
+                    <propertyInstance
+                      Id="5f3763f1-bb9f-4b59-b82a-27cee8dee45d"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="54200750-bae1-4e6b-b105-0f0b960f1525">
+                    <propertyInstance
+                      Id="f2802a0b-0565-40e9-9da7-aba675133b54"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="4ea20e55-cbf5-4c3b-8828-aadc864e8dea">
+                    <propertyInstance
+                      Id="9c64f582-6c3f-4655-b10c-25309e53f09a"
+                      name="Set"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="6972d9e6-3153-4294-a7ad-7d6e262a65ef"
+                LastKnownName="Rectangle"
+                LastKnownLocation="Package8_0733.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="0f8ca929-90b9-4cc7-88f3-d85fad1e3a32"
+            name="Rectangle2"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="963be2bc-f929-4cb5-946f-dd6a6910038a"
+                handle="viewcode://./CodeSchema_Property?Assembly%3D&quot;file:%2F%2F%2FD:%2FProjects%2FTHESIS%2FScarFly%2FScarFly%2FScarFly%2Fbin%2FWindows Phone%2FDebug%2FScarFly.dll&quot; Namespace%3DScarFly.MyClasses.PlayerClasses Type%3DPlayerBackground Member%3DRectangle2"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="05a0834f-3e37-4be2-81de-d7ba5723de53"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="fde6a46d-74c3-43e5-b1af-80b64ce321b7">
+                    <propertyInstance
+                      Id="b294d4fb-7fcc-4f93-b4ff-12304fcbc488"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="1a2c6b25-1ea7-4120-83ec-6819a65ae411">
+                    <propertyInstance
+                      Id="680aa6fd-cc7b-4321-9655-3fc27cd64e49"
+                      name="Get"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="1502155a-344d-499c-b7ca-dcca6ae943ab">
+                    <propertyInstance
+                      Id="1f2ca2cb-4848-4889-bfcc-d60ad42188bb"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="417788fe-2625-4795-b79a-8c14d222a8c1">
+                    <propertyInstance
+                      Id="63764ff1-03b3-4cb6-8dfc-cba89809b757"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e4c13285-4372-4391-9368-9a967c606227">
+                    <propertyInstance
+                      Id="11471086-c22f-4ef4-8153-cfe25fb97902"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="2ae1eef7-4495-4522-bc05-f21898a22373">
+                    <propertyInstance
+                      Id="cd8cfa2b-80f0-4e46-bbff-73bc1e9d479b"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="0d1ca4d5-94bf-457d-8826-0702882adb8b">
+                    <propertyInstance
+                      Id="ef5e9f26-da92-4e57-bc58-32875d893e2f"
+                      name="Set"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="6972d9e6-3153-4294-a7ad-7d6e262a65ef"
+                LastKnownName="Rectangle"
+                LastKnownLocation="Package8_0733.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="898c3dac-8bd6-4626-a3d4-f341318b583e"
+            name="StartVelocity"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="78fb7aaf-424c-405e-8885-81c481a21f42"
+                handle="viewcode://./CodeSchema_Property?Assembly%3D&quot;file:%2F%2F%2FD:%2FProjects%2FTHESIS%2FScarFly%2FScarFly%2FScarFly%2Fbin%2FWindows Phone%2FDebug%2FScarFly.dll&quot; Namespace%3DScarFly.MyClasses.PlayerClasses Type%3DPlayerBackground Member%3DStartVelocity"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="6abb542a-64c0-495b-9a50-1f7d7bcb289f"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="a2ee06d6-b7a4-4e75-920f-55ec7d75432a">
+                    <propertyInstance
+                      Id="0e00c435-74d5-408a-bad6-9f6672ce6e75"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c945a46d-d2d2-4e5b-84c0-fe54aeaaec2e">
+                    <propertyInstance
+                      Id="281f2bf4-d9ce-44cc-a739-60ebdf51b6c6"
+                      name="Get"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="6b2e3e5d-6698-4cfe-8946-e81071ffc26b">
+                    <propertyInstance
+                      Id="2a9e4b37-91b8-418b-aa99-ab2f575fbf9f"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="a3de909d-206d-45cf-a3ee-016cacca8488">
+                    <propertyInstance
+                      Id="bff4250e-4f73-493a-958d-862051614990"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="fe0352cd-9fb9-4761-be6e-41be38d1a86a">
+                    <propertyInstance
+                      Id="92e94144-6934-4128-b6d8-837cb4377800"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="388867ec-f9ec-417b-ab78-9032ae325816">
+                    <propertyInstance
+                      Id="82474f95-c07b-4d90-9123-d2f74b6790f1"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e296d97b-f916-472c-b8c0-f35982d68cd2">
+                    <propertyInstance
+                      Id="84d6ae6b-4a6a-49cc-b205-e6b5fc46408c"
+                      name="Set"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <primitiveTypeMoniker
+                Id="220a3521-e091-4221-bae9-3ef9018e845c"
+                LastKnownName="Integer"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="8b4ad70c-e14a-4def-8540-6d783aeab7a6"
+            name="Texture1"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="b7514ae9-c819-412f-8b79-519d89b16a6c"
+                handle="viewcode://./CodeSchema_Property?Assembly%3D&quot;file:%2F%2F%2FD:%2FProjects%2FTHESIS%2FScarFly%2FScarFly%2FScarFly%2Fbin%2FWindows Phone%2FDebug%2FScarFly.dll&quot; Namespace%3DScarFly.MyClasses.PlayerClasses Type%3DPlayerBackground Member%3DTexture1"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="b0b173ec-dd31-42b9-9ad2-c1f285732860"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="51b447bb-123b-4457-b0a8-0c1354eee565">
+                    <propertyInstance
+                      Id="fc484ba8-ca68-42c4-8b8c-0aeafc7adc00"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="0e65df96-7c04-48a1-90e2-561f4495ddbe">
+                    <propertyInstance
+                      Id="d489c5b4-3c16-4059-a007-6cc2cd38b758"
+                      name="Get"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c571f94a-b82e-4be6-99a4-8277601aea69">
+                    <propertyInstance
+                      Id="95928948-fc57-4424-a2e0-d6676703bc1e"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="7d3e875a-a8b1-456d-8a8b-e5647bf44c2c">
+                    <propertyInstance
+                      Id="8b022f98-7b3d-49c5-955c-880b5780419d"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="4f9bc230-b2c5-4b95-b711-5cdb435bb8a6">
+                    <propertyInstance
+                      Id="c3821d37-973d-4d87-bbb2-9eae587933a8"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="809637c3-1316-4d49-9c4f-b27f51c5f9f9">
+                    <propertyInstance
+                      Id="21dd8533-4a48-48aa-9a28-5856e9ab5a4d"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="17d36b06-6e8a-4804-a8fe-1fba9734c0b3">
+                    <propertyInstance
+                      Id="3398581c-c124-4f74-8982-5e031494c549"
+                      name="Set"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="38cb006b-2475-4d58-a789-9bb97485db1b"
+                LastKnownName="Texture2D"
+                LastKnownLocation="Package9_0733.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="e96cddcd-12f5-4501-96d1-6d57f2192633"
+            name="Texture2"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="00274698-1899-4518-973d-ac60a1e8eecc"
+                handle="viewcode://./CodeSchema_Property?Assembly%3D&quot;file:%2F%2F%2FD:%2FProjects%2FTHESIS%2FScarFly%2FScarFly%2FScarFly%2Fbin%2FWindows Phone%2FDebug%2FScarFly.dll&quot; Namespace%3DScarFly.MyClasses.PlayerClasses Type%3DPlayerBackground Member%3DTexture2"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="1095dc75-a752-4dba-8da1-791f267152d7"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="484da0dd-0fb4-4f19-9a95-6e63e30f83ce">
+                    <propertyInstance
+                      Id="94b015d0-ff03-4f4f-89d8-2606fef8b48d"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ca136b04-c3fd-4508-ac20-6321aa7ed8c9">
+                    <propertyInstance
+                      Id="088b2b70-7ddf-4e84-8ce0-0caf06d5cc1d"
+                      name="Get"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="24517410-45ff-46d2-be4f-db086131268a">
+                    <propertyInstance
+                      Id="0fde62ea-1afa-4e16-bf1c-b0c5804cd28a"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="9578e5ea-cb84-46fb-8c8f-5cf98f6508f7">
+                    <propertyInstance
+                      Id="ce380f45-ac44-4132-a180-1666ed061503"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e9149620-3445-43b7-9cef-6a57cdf910f6">
+                    <propertyInstance
+                      Id="3e511616-572e-428f-b0c3-307608500140"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="49115e19-0b2e-4898-a2ed-1556a24ee466">
+                    <propertyInstance
+                      Id="885a0883-dfbd-493e-ba77-4442f3f2eb48"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b710221a-c32a-4baa-84c5-b576d8511a6b">
+                    <propertyInstance
+                      Id="e5434358-da5b-46a1-a133-a403c910976c"
+                      name="Set"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="38cb006b-2475-4d58-a789-9bb97485db1b"
+                LastKnownName="Texture2D"
+                LastKnownLocation="Package9_0733.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="af876ec7-afba-4626-95cd-1249e991e9d7"
+            name="Velocity"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="712a8b4d-7f1b-4c85-bd68-6ed02c69c132"
+                handle="viewcode://./CodeSchema_Property?Assembly%3D&quot;file:%2F%2F%2FD:%2FProjects%2FTHESIS%2FScarFly%2FScarFly%2FScarFly%2Fbin%2FWindows Phone%2FDebug%2FScarFly.dll&quot; Namespace%3DScarFly.MyClasses.PlayerClasses Type%3DPlayerBackground Member%3DVelocity"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="0e7fbd70-22f2-4b0d-b954-814d4b9460d6"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="7afece66-4d64-42b5-92f1-6af06a0b5833">
+                    <propertyInstance
+                      Id="7361accb-755e-4206-963b-5943c874938b"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="5ac39302-972a-4a4e-b60a-a969c1383e9e">
+                    <propertyInstance
+                      Id="a087eb78-2476-4239-8fb9-ca5b10d3b499"
+                      name="Get"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="33b9abab-fb59-45dd-856a-a2bde55765ec">
+                    <propertyInstance
+                      Id="cbdf2e21-d1c5-4c44-a3c5-91d27574f78d"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ac6a0b27-26cb-473b-ac27-93427fa8658d">
+                    <propertyInstance
+                      Id="0351225c-30f0-44a2-b7fe-98859a00a0bb"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c174d3f0-90bf-45b5-af79-89ccc335150e">
+                    <propertyInstance
+                      Id="74363625-dad0-4ffb-8e6a-8e2c5538580d"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="dbcaa43a-45a7-4063-80f4-5b25ace20283">
+                    <propertyInstance
+                      Id="4033c271-6f18-4e75-a10b-0f1de1540784"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="80878355-eb88-4aad-81ca-fa4c97f796a1">
+                    <propertyInstance
+                      Id="ba3aa5c5-7c52-49ac-afe4-92d5a3bed742"
+                      name="Set"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <primitiveTypeMoniker
+                Id="220a3521-e091-4221-bae9-3ef9018e845c"
+                LastKnownName="Integer"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="c41f1ec1-693c-421a-ad63-85380398855f"
+            name="PlayerBackground"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="d1de622c-6030-4d0e-a866-b02b3a4ad544"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FD:%2FProjects%2FTHESIS%2FScarFly%2FScarFly%2FScarFly%2Fbin%2FWindows Phone%2FDebug%2FScarFly.dll&quot; Namespace%3DScarFly.MyClasses.PlayerClasses Type%3DPlayerBackground Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2FSilverlight%2Fv4.0%2FProfile%2FWindowsPhone71%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2FSilverlight%2Fv4.0%2FProfile%2FWindowsPhone71%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="eb37b663-a833-496c-bb9d-c073a6671bba"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="70b3b2a4-2401-42db-bac7-ac367b8cc103">
+                    <propertyInstance
+                      Id="4d213639-705c-4576-b37d-fa2f689a0d9d"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="7e6cfff3-467d-47a1-8428-d35bf0b3787f">
+                    <propertyInstance
+                      Id="2d718ab4-e417-4b9d-ba2e-53326964c56c"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="897d4d69-a541-47ba-8efc-8ab749b18d51">
+                    <propertyInstance
+                      Id="b7719bba-3331-4dd6-99d0-b3e3c69aa2ac"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c7607589-e7a4-4da6-abdd-be322353a55b">
+                    <propertyInstance
+                      Id="898151c9-ec2f-4f14-95f2-57884ffc85b9"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ffb58345-3d24-4f99-96c1-8981fc1632fa">
+                    <propertyInstance
+                      Id="160623c2-282d-4776-918c-e722324a8c5b"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d5704ea9-c48e-4b97-994e-ae48de599b7c">
+                    <propertyInstance
+                      Id="66bdb60c-8dd1-4ce0-8887-0058bc0dc04c"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="2bdae43f-2478-4e30-b249-4679c618851f"
+                  name="assetName"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="8fe2e106-6b34-4de5-a91d-1ae932ff5924"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FD:%2FProjects%2FTHESIS%2FScarFly%2FScarFly%2FScarFly%2Fbin%2FWindows Phone%2FDebug%2FScarFly.dll&quot; Namespace%3DScarFly.MyClasses.PlayerClasses Type%3DPlayerBackground Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2FSilverlight%2Fv4.0%2FProfile%2FWindowsPhone71%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2FSilverlight%2Fv4.0%2FProfile%2FWindowsPhone71%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)]) ParameterIdentifier%3DassetName"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                      LastKnownName="String"
+                      LastKnownLocation="ScarFlyModelingProject.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="d88c31d3-d8a1-40d0-998e-d47b262aae1c"
+                  name="velocity"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="57342e00-66a4-47d6-ad87-05b7e370d366"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FD:%2FProjects%2FTHESIS%2FScarFly%2FScarFly%2FScarFly%2Fbin%2FWindows Phone%2FDebug%2FScarFly.dll&quot; Namespace%3DScarFly.MyClasses.PlayerClasses Type%3DPlayerBackground Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2FSilverlight%2Fv4.0%2FProfile%2FWindowsPhone71%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2FSilverlight%2Fv4.0%2FProfile%2FWindowsPhone71%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)]) ParameterIdentifier%3Dvelocity"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="220a3521-e091-4221-bae9-3ef9018e845c"
+                      LastKnownName="Integer"
+                      LastKnownLocation="ScarFlyModelingProject.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="e792ca2c-49d3-4ac4-9e9d-f35e2ebae60f"
+            name="Draw"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="e4d7f91b-781e-4df4-86ea-b889bf5983b6"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FD:%2FProjects%2FTHESIS%2FScarFly%2FScarFly%2FScarFly%2Fbin%2FWindows Phone%2FDebug%2FScarFly.dll&quot; Namespace%3DScarFly.MyClasses.PlayerClasses Type%3DPlayerBackground Member%3D(Name%3DDraw OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2FSilverlight%2Fv4.0%2FProfile%2FWindowsPhone71%2FMicrosoft.Xna.Framework.Graphics.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Graphics Type%3DSpriteBatch)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2FSilverlight%2Fv4.0%2FProfile%2FWindowsPhone71%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DColor)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="5871e848-5dc2-439f-90bd-acc3964aefc2"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="87a477e3-4c47-440e-8d85-13831276b9d4">
+                    <propertyInstance
+                      Id="0f964d0e-db61-437d-a28d-accf63f666e6"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="a0589ebc-4849-49c0-b600-1b024883210f">
+                    <propertyInstance
+                      Id="b4713514-6804-42d7-b49e-c3df8ed49ed2"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ef48eb6d-4a6e-4094-a972-d6437ad9e0f1">
+                    <propertyInstance
+                      Id="bd736277-5e70-4e02-b6f9-28ce1da760e8"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="54202887-8fdd-4f80-b218-416da0273770">
+                    <propertyInstance
+                      Id="0c5bf458-5aaf-4560-bca9-f98863d021fb"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="54a3ef64-9f18-46a1-b7ec-bdd4c51f7772">
+                    <propertyInstance
+                      Id="65132a05-7959-46cc-bb2f-845bb2ec2bdf"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="5332829a-9264-486a-9e19-256b2393fe6d">
+                    <propertyInstance
+                      Id="9da1a621-8aaa-4349-8f1b-15a312423a41"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="31c3b917-b942-4f2e-a319-8c9e9bfa9654"
+                  name="spriteBatch"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="57509a7d-7e65-4e41-9824-385984b8ae7d"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FD:%2FProjects%2FTHESIS%2FScarFly%2FScarFly%2FScarFly%2Fbin%2FWindows Phone%2FDebug%2FScarFly.dll&quot; Namespace%3DScarFly.MyClasses.PlayerClasses Type%3DPlayerBackground Member%3D(Name%3DDraw OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2FSilverlight%2Fv4.0%2FProfile%2FWindowsPhone71%2FMicrosoft.Xna.Framework.Graphics.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Graphics Type%3DSpriteBatch)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2FSilverlight%2Fv4.0%2FProfile%2FWindowsPhone71%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DColor)]) ParameterIdentifier%3DspriteBatch"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="b135a420-4256-4c5b-b70d-2e264fe449ca"
+                      LastKnownName="SpriteBatch"
+                      LastKnownLocation="Package9_0733.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="7005c55d-5b91-445b-a905-4c71f4c33976"
+                  name="color"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="c0e89538-e492-4bf5-b32a-1ba832c3e31f"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FD:%2FProjects%2FTHESIS%2FScarFly%2FScarFly%2FScarFly%2Fbin%2FWindows Phone%2FDebug%2FScarFly.dll&quot; Namespace%3DScarFly.MyClasses.PlayerClasses Type%3DPlayerBackground Member%3D(Name%3DDraw OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2FSilverlight%2Fv4.0%2FProfile%2FWindowsPhone71%2FMicrosoft.Xna.Framework.Graphics.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Graphics Type%3DSpriteBatch)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2FSilverlight%2Fv4.0%2FProfile%2FWindowsPhone71%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DColor)]) ParameterIdentifier%3Dcolor"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="37db623c-d568-4200-a6fb-2a3035db9929"
+                      LastKnownName="Color"
+                      LastKnownLocation="Package8_0733.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="6b3f2a77-a2bc-42a6-805b-6394037bde23"
+            name="Load"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="4da4ee0b-3c60-4b95-83d1-4f4dcf9e9c8b"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FD:%2FProjects%2FTHESIS%2FScarFly%2FScarFly%2FScarFly%2Fbin%2FWindows Phone%2FDebug%2FScarFly.dll&quot; Namespace%3DScarFly.MyClasses.PlayerClasses Type%3DPlayerBackground Member%3D(Name%3DLoad OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FD:%2FProjects%2FTHESIS%2FScarFly%2FScarFly%2FScarFly%2Fbin%2FWindows Phone%2FDebug%2FScarFly.dll&quot; Namespace%3DScarFly Type%3DGame1)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="9002e9ee-d139-4fb7-a2f2-9f3f5fd58de3"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="93550590-7783-4b4f-a96c-a36680c6f63b">
+                    <propertyInstance
+                      Id="d87be1a0-0710-49d3-b07b-a31a2d21f801"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="8941724c-d1e7-471f-87d6-ae4510ad0385">
+                    <propertyInstance
+                      Id="5bfbe11d-2e5c-48f9-a176-f984b85630c9"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="345b1932-8f1d-4306-91fe-293187ccaa51">
+                    <propertyInstance
+                      Id="c6d54b42-fd19-48ba-b6bd-2f9ac248f3b4"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="3ccaae4d-af24-48c1-9d8d-189ee6d7441a">
+                    <propertyInstance
+                      Id="0cdead5c-75fb-4cdb-ac24-e9d0d3d6c6c2"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="7067c6ba-edd0-4bc5-bfb4-8710b8835d35">
+                    <propertyInstance
+                      Id="29510fb3-2e63-4b50-befe-7fc9fbf1c673"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="6d09a9db-0fdb-4124-a0e2-3176608decb3">
+                    <propertyInstance
+                      Id="a1424d6a-ecb1-428b-a514-b8e8cbf0e981"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="886c30b3-6251-4f1e-b9e0-daaffb5039e3"
+                  name="game"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="4df09cb7-c999-40eb-9a5f-d7c9edbea6f3"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FD:%2FProjects%2FTHESIS%2FScarFly%2FScarFly%2FScarFly%2Fbin%2FWindows Phone%2FDebug%2FScarFly.dll&quot; Namespace%3DScarFly.MyClasses.PlayerClasses Type%3DPlayerBackground Member%3D(Name%3DLoad OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FD:%2FProjects%2FTHESIS%2FScarFly%2FScarFly%2FScarFly%2Fbin%2FWindows Phone%2FDebug%2FScarFly.dll&quot; Namespace%3DScarFly Type%3DGame1)]) ParameterIdentifier%3Dgame"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="5070ea35-342a-4ab3-be8f-de15dda718e4"
+                      LastKnownName="Game1"
+                      LastKnownLocation="Package_0733.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="e86b51fc-df94-4ae1-9533-16cde2ff9d27"
+            name="Scroll"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="85aca5fd-3dfd-49be-8b4a-55467c6f64c9"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FD:%2FProjects%2FTHESIS%2FScarFly%2FScarFly%2FScarFly%2Fbin%2FWindows Phone%2FDebug%2FScarFly.dll&quot; Namespace%3DScarFly.MyClasses.PlayerClasses Type%3DPlayerBackground Member%3D(Name%3DScroll OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FD:%2FProjects%2FTHESIS%2FScarFly%2FScarFly%2FScarFly%2Fbin%2FWindows Phone%2FDebug%2FScarFly.dll&quot; Namespace%3DScarFly Type%3DGame1)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="307d9a8b-d57e-4fcb-b539-1921dad76ddf"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="eb2b062a-c60d-4c0a-a6cb-9d61500aabf2">
+                    <propertyInstance
+                      Id="eca91c20-8555-46d0-bc44-d303b86d5e16"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="edb5e7f8-921c-403b-b09c-02cffd989e11">
+                    <propertyInstance
+                      Id="b1cc1c05-eb77-49d0-9dc6-d535d0f4b76d"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="94489173-1562-4db6-a032-6ccc7c0cb34c">
+                    <propertyInstance
+                      Id="fb6a9ce4-f252-43b4-a6b8-2a692ae9bcf4"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="898ee308-4514-4531-bf12-4d6b57373046">
+                    <propertyInstance
+                      Id="7f0e0b88-4fb1-4d00-9bcd-6f91e0e8bdd8"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c00680b8-ad0d-4599-92f7-bf4b80892d94">
+                    <propertyInstance
+                      Id="af78b5c9-4074-4581-80b7-a8078718610e"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="87e9a818-0598-4502-a86f-5467384fc38f">
+                    <propertyInstance
+                      Id="0f5f6727-ed23-41c5-b164-f171cd020e7e"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="5dd97252-bd09-49f1-84c2-4a439e8dee54"
+                  name="game"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="29aa4baa-596d-408a-95cb-594dc581ca78"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FD:%2FProjects%2FTHESIS%2FScarFly%2FScarFly%2FScarFly%2Fbin%2FWindows Phone%2FDebug%2FScarFly.dll&quot; Namespace%3DScarFly.MyClasses.PlayerClasses Type%3DPlayerBackground Member%3D(Name%3DScroll OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FD:%2FProjects%2FTHESIS%2FScarFly%2FScarFly%2FScarFly%2Fbin%2FWindows Phone%2FDebug%2FScarFly.dll&quot; Namespace%3DScarFly Type%3DGame1)]) ParameterIdentifier%3Dgame"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="5070ea35-342a-4ab3-be8f-de15dda718e4"
+                      LastKnownName="Game1"
+                      LastKnownLocation="Package_0733.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="69efe6fb-0263-472e-be54-673dea794509"
+            name="RePosition"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="f6c938bb-dd2e-4c4d-85b3-d6d760de8726"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FD:%2FProjects%2FTHESIS%2FScarFly%2FScarFly%2FScarFly%2Fbin%2FWindows Phone%2FDebug%2FScarFly.dll&quot; Namespace%3DScarFly.MyClasses.PlayerClasses Type%3DPlayerBackground Member%3DRePosition"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="b2450e8a-101e-446f-acf9-5ffe51d3b49a"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d020bc47-5296-4ae4-8d37-daa4002a4982">
+                    <propertyInstance
+                      Id="e53b9f0e-f9f5-434c-9b96-6fe354eedaab"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="0b06a91e-c2ef-4ac7-b0f0-28517ad67aa5">
+                    <propertyInstance
+                      Id="e72b6311-fed2-4cf0-9c29-03446c4461c5"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="fdeecb45-cba7-4186-aa48-2e5e366ee7b8">
+                    <propertyInstance
+                      Id="6c1dadd0-2e3c-4b83-a236-f7cf794e3f14"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="3d38acd9-edf6-4872-896a-c4c1d77f713e">
+                    <propertyInstance
+                      Id="2f04193f-c2ca-439f-9fab-458cd1f8e482"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="81a9331b-050c-4a92-acb7-89ef30d19e3e">
+                    <propertyInstance
+                      Id="ec90eae3-9a46-412a-83a0-0ad7931f7f4c"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ad35e698-d5a4-43a1-8edc-abccf9ea5041">
+                    <propertyInstance
+                      Id="4808318e-e1c7-4afc-9bff-4286ef53752c"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+  </packagedElements>
+</package>

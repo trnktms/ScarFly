@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm9="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner"
   dslVersion="1.0.0.0"
   Id="b10a0c78-71f8-4f2d-933a-10673cb01927"
   name="ScarFlyModelingProject" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
@@ -41,6 +41,1455 @@
         Id="22ad97c1-c1d8-4942-a15f-4afc396be142"
         LastKnownName="Microsoft"
         LastKnownLocation="Package6_0733.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <interaction
+        Id="ef098cc8-b31c-4ead-9023-5d2c2bbedf0c"
+        name="BackgroundAnimation"
+        collapseFragmentsFlag="false"
+        isActiveClass="false"
+        isAbstract="false"
+        isLeaf="false"
+        isReentrant="false">
+        <fragments>
+          <behaviorExecutionSpecification
+            Id="a23e5bed-6a81-4baf-a83f-86c5307bdde3"
+            name="BehaviorExecutionSpecification">
+            <coveredLifelines>
+              <lifelineMoniker
+                Id="31fed615-40ed-4eb7-a45a-f825ce53b2bc"
+                LastKnownName="this : PlayerBackground"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </coveredLifelines>
+            <finish>
+              <executionOccurrenceSpecificationMoniker
+                Id="cdab4699-c4e4-4d04-ba8d-8b6e1097eb57"
+                LastKnownName="ExecutionOccurrenceSpecification"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </finish>
+            <start>
+              <executionOccurrenceSpecificationMoniker
+                Id="7e6b7cc2-1fbc-4dc2-85fb-176cd19b12de"
+                LastKnownName="ExecutionOccurrenceSpecification"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </start>
+            <nestedOccurrences>
+              <messageOccurrenceSpecificationMoniker
+                Id="820ec9d6-aac9-43d7-b9de-0a7d90ea4e4c"
+                LastKnownName="MessageOccurrenceSpecification"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+              <operandOccurrenceSpecificationMoniker
+                Id="3a28ecc9-13f1-42a8-a56b-848e32fadb82"
+                LastKnownName="OperandOccurrenceSpecification1"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="0833737c-fda0-4cbf-a294-93f17cad4791"
+                LastKnownName="MessageOccurrenceSpecification"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="1f735883-9ecf-4de1-a3ee-31b4832ef691"
+                LastKnownName="MessageOccurrenceSpecification"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+              <operandOccurrenceSpecificationMoniker
+                Id="846a40e3-9935-446a-a5c4-d279a55e24ab"
+                LastKnownName="OperandOccurrenceSpecification2"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+              <operandOccurrenceSpecificationMoniker
+                Id="6aa20350-25be-4e12-bbaa-79a78f374259"
+                LastKnownName="OperandOccurrenceSpecification7"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="1ef2fc6b-9295-444e-ba8e-58d4dff89eee"
+                LastKnownName="MessageOccurrenceSpecification"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="10f963e9-0522-4794-b495-9de5d842d0d4"
+                LastKnownName="MessageOccurrenceSpecification"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+              <operandOccurrenceSpecificationMoniker
+                Id="e5552ca3-b468-4dfc-9ea1-51841a6c14ee"
+                LastKnownName="OperandOccurrenceSpecification8"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+              <operandOccurrenceSpecificationMoniker
+                Id="8afa4cbb-834a-4253-a67a-60d78f72987a"
+                LastKnownName="OperandOccurrenceSpecification13"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="949c713c-6c5f-40b2-9654-4b8a1725ff4c"
+                LastKnownName="MessageOccurrenceSpecification"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="8233aa0d-f05b-4bb9-991c-acdbff3c1f19"
+                LastKnownName="MessageOccurrenceSpecification"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+              <operandOccurrenceSpecificationMoniker
+                Id="4b2901f8-a7f9-45bd-a5f0-f4220cd60c36"
+                LastKnownName="OperandOccurrenceSpecification14"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+              <operandOccurrenceSpecificationMoniker
+                Id="84e1d575-fed7-48fd-b6df-64defd8c097a"
+                LastKnownName="OperandOccurrenceSpecification19"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="28f27c37-8164-48ed-85f9-e278d996d68d"
+                LastKnownName="MessageOccurrenceSpecification"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="1d3ebc07-da28-42a0-b594-629b01879ecd"
+                LastKnownName="MessageOccurrenceSpecification"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+              <operandOccurrenceSpecificationMoniker
+                Id="14541795-2ed1-46f9-af3c-06dc05847357"
+                LastKnownName="OperandOccurrenceSpecification20"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </nestedOccurrences>
+          </behaviorExecutionSpecification>
+          <executionOccurrenceSpecification
+            Id="7e6b7cc2-1fbc-4dc2-85fb-176cd19b12de"
+            name="ExecutionOccurrenceSpecification">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="a337ad5c-9aa8-4752-81f7-6075fa9f31f8"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="ScarFlyModelingProject.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="31fed615-40ed-4eb7-a45a-f825ce53b2bc"
+                LastKnownName="this : PlayerBackground"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <lostFoundTarget
+            Id="f610cf19-58c4-45df-aea8-27c363587ee1"
+            name="LostFoundTarget" />
+          <messageOccurrenceSpecification
+            Id="820ec9d6-aac9-43d7-b9de-0a7d90ea4e4c"
+            name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker
+                Id="31fed615-40ed-4eb7-a45a-f825ce53b2bc"
+                LastKnownName="this : PlayerBackground"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <combinedFragment
+            Id="b1c61f62-f43f-4b33-85b6-ffc5e8d04c9d"
+            name="CombinedFragment1"
+            interactionOperator="Alt"
+            customInteractionOperator="If">
+            <coveredLifelines>
+              <lifelineMoniker
+                Id="31fed615-40ed-4eb7-a45a-f825ce53b2bc"
+                LastKnownName="this : PlayerBackground"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+              <lifelineMoniker
+                Id="31fdf64c-d634-472d-b311-a7ed79575513"
+                LastKnownName="Rectangle1 : Rectangle"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+              <lifelineMoniker
+                Id="eaf6d7f0-cbd2-42ce-8969-844f8e950ede"
+                LastKnownName="Rectangle1 : Rectangle"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </coveredLifelines>
+            <operands>
+              <interactionOperand
+                Id="f2013d18-d676-4e7f-9f8b-bd5a4e69a4de"
+                name="InteractionOperand1">
+                <coveredLifelines>
+                  <lifelineMoniker
+                    Id="31fed615-40ed-4eb7-a45a-f825ce53b2bc"
+                    LastKnownName="this : PlayerBackground"
+                    LastKnownLocation="ScarFlyModelingProject.uml" />
+                  <lifelineMoniker
+                    Id="31fdf64c-d634-472d-b311-a7ed79575513"
+                    LastKnownName="Rectangle1 : Rectangle"
+                    LastKnownLocation="ScarFlyModelingProject.uml" />
+                  <lifelineMoniker
+                    Id="eaf6d7f0-cbd2-42ce-8969-844f8e950ede"
+                    LastKnownName="Rectangle1 : Rectangle"
+                    LastKnownLocation="ScarFlyModelingProject.uml" />
+                </coveredLifelines>
+                <guard>
+                  <interactionConstraint
+                    Id="efb32f9d-580e-403d-9143-3dc105fca87a"
+                    guardText="if (Rectangle1.X + Texture1.Width &lt;= 0)" />
+                </guard>
+                <operandOccurrenceSpecifications>
+                  <operandOccurrenceSpecificationMoniker
+                    Id="3a28ecc9-13f1-42a8-a56b-848e32fadb82"
+                    LastKnownName="OperandOccurrenceSpecification1"
+                    LastKnownLocation="ScarFlyModelingProject.uml" />
+                  <operandOccurrenceSpecificationMoniker
+                    Id="846a40e3-9935-446a-a5c4-d279a55e24ab"
+                    LastKnownName="OperandOccurrenceSpecification2"
+                    LastKnownLocation="ScarFlyModelingProject.uml" />
+                  <operandOccurrenceSpecificationMoniker
+                    Id="51d81133-7234-4c1d-8c59-0f10c36cbc1e"
+                    LastKnownName="OperandOccurrenceSpecification3"
+                    LastKnownLocation="ScarFlyModelingProject.uml" />
+                  <operandOccurrenceSpecificationMoniker
+                    Id="f093f5ef-ff10-4ff0-aca2-fd0c79bc5d02"
+                    LastKnownName="OperandOccurrenceSpecification4"
+                    LastKnownLocation="ScarFlyModelingProject.uml" />
+                  <operandOccurrenceSpecificationMoniker
+                    Id="86881030-7c8f-40d7-8b0d-f48eca279f38"
+                    LastKnownName="OperandOccurrenceSpecification5"
+                    LastKnownLocation="ScarFlyModelingProject.uml" />
+                  <operandOccurrenceSpecificationMoniker
+                    Id="08f97b13-66fa-4e84-9457-6a0edf60e0ad"
+                    LastKnownName="OperandOccurrenceSpecification6"
+                    LastKnownLocation="ScarFlyModelingProject.uml" />
+                </operandOccurrenceSpecifications>
+              </interactionOperand>
+              <interactionOperand
+                Id="7dc2772d-a7d0-4002-ad51-927a62fb4935"
+                name="InteractionOperand2">
+                <coveredLifelines>
+                  <lifelineMoniker
+                    Id="31fed615-40ed-4eb7-a45a-f825ce53b2bc"
+                    LastKnownName="this : PlayerBackground"
+                    LastKnownLocation="ScarFlyModelingProject.uml" />
+                  <lifelineMoniker
+                    Id="31fdf64c-d634-472d-b311-a7ed79575513"
+                    LastKnownName="Rectangle1 : Rectangle"
+                    LastKnownLocation="ScarFlyModelingProject.uml" />
+                  <lifelineMoniker
+                    Id="eaf6d7f0-cbd2-42ce-8969-844f8e950ede"
+                    LastKnownName="Rectangle1 : Rectangle"
+                    LastKnownLocation="ScarFlyModelingProject.uml" />
+                </coveredLifelines>
+                <guard>
+                  <interactionConstraint
+                    Id="9a80197b-da30-4747-849c-f11cf2b9e121"
+                    guardText="else" />
+                </guard>
+                <operandOccurrenceSpecifications>
+                  <operandOccurrenceSpecificationMoniker
+                    Id="6aa20350-25be-4e12-bbaa-79a78f374259"
+                    LastKnownName="OperandOccurrenceSpecification7"
+                    LastKnownLocation="ScarFlyModelingProject.uml" />
+                  <operandOccurrenceSpecificationMoniker
+                    Id="e5552ca3-b468-4dfc-9ea1-51841a6c14ee"
+                    LastKnownName="OperandOccurrenceSpecification8"
+                    LastKnownLocation="ScarFlyModelingProject.uml" />
+                  <operandOccurrenceSpecificationMoniker
+                    Id="042381b2-20d6-4f9d-b33c-db168717a2a8"
+                    LastKnownName="OperandOccurrenceSpecification9"
+                    LastKnownLocation="ScarFlyModelingProject.uml" />
+                  <operandOccurrenceSpecificationMoniker
+                    Id="a1c52984-93ee-4256-be95-27fd157ea3b1"
+                    LastKnownName="OperandOccurrenceSpecification10"
+                    LastKnownLocation="ScarFlyModelingProject.uml" />
+                  <operandOccurrenceSpecificationMoniker
+                    Id="cf4e99d1-7496-47c6-8c6a-69fc3f27a0b0"
+                    LastKnownName="OperandOccurrenceSpecification11"
+                    LastKnownLocation="ScarFlyModelingProject.uml" />
+                  <operandOccurrenceSpecificationMoniker
+                    Id="3a9eb2c0-8a50-415b-8529-9101c79e8e1a"
+                    LastKnownName="OperandOccurrenceSpecification12"
+                    LastKnownLocation="ScarFlyModelingProject.uml" />
+                </operandOccurrenceSpecifications>
+              </interactionOperand>
+            </operands>
+          </combinedFragment>
+          <operandOccurrenceSpecification
+            Id="3a28ecc9-13f1-42a8-a56b-848e32fadb82"
+            name="OperandOccurrenceSpecification1">
+            <covered>
+              <lifelineMoniker
+                Id="31fed615-40ed-4eb7-a45a-f825ce53b2bc"
+                LastKnownName="this : PlayerBackground"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification
+            Id="51d81133-7234-4c1d-8c59-0f10c36cbc1e"
+            name="OperandOccurrenceSpecification3">
+            <covered>
+              <lifelineMoniker
+                Id="31fdf64c-d634-472d-b311-a7ed79575513"
+                LastKnownName="Rectangle1 : Rectangle"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification
+            Id="86881030-7c8f-40d7-8b0d-f48eca279f38"
+            name="OperandOccurrenceSpecification5">
+            <covered>
+              <lifelineMoniker
+                Id="eaf6d7f0-cbd2-42ce-8969-844f8e950ede"
+                LastKnownName="Rectangle1 : Rectangle"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <behaviorExecutionSpecification
+            Id="5871d50e-f65a-4f12-a89d-1a70f3a2c580"
+            name="BehaviorExecutionSpecification">
+            <coveredLifelines>
+              <lifelineMoniker
+                Id="31fdf64c-d634-472d-b311-a7ed79575513"
+                LastKnownName="Rectangle1 : Rectangle"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </coveredLifelines>
+            <finish>
+              <executionOccurrenceSpecificationMoniker
+                Id="0206f3e8-c143-48e9-ae4d-2b4bc1344922"
+                LastKnownName="ExecutionOccurrenceSpecification"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </finish>
+            <start>
+              <executionOccurrenceSpecificationMoniker
+                Id="9f66c33c-9c6d-40c0-b518-c91e480c1b98"
+                LastKnownName="ExecutionOccurrenceSpecification"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </start>
+            <nestedOccurrences>
+              <messageOccurrenceSpecificationMoniker
+                Id="5bd1f88e-83ef-466a-bdc5-1905229c60e4"
+                LastKnownName="MessageOccurrenceSpecification"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="5daf18b9-ac8c-4039-8c55-250a750f24c5"
+                LastKnownName="MessageOccurrenceSpecification"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </nestedOccurrences>
+          </behaviorExecutionSpecification>
+          <executionOccurrenceSpecification
+            Id="9f66c33c-9c6d-40c0-b518-c91e480c1b98"
+            name="ExecutionOccurrenceSpecification">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="8da64665-9e2a-41a4-a17c-ae9ba913760d"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="ScarFlyModelingProject.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="31fdf64c-d634-472d-b311-a7ed79575513"
+                LastKnownName="Rectangle1 : Rectangle"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="0833737c-fda0-4cbf-a294-93f17cad4791"
+            name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker
+                Id="31fed615-40ed-4eb7-a45a-f825ce53b2bc"
+                LastKnownName="this : PlayerBackground"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="5bd1f88e-83ef-466a-bdc5-1905229c60e4"
+            name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker
+                Id="31fdf64c-d634-472d-b311-a7ed79575513"
+                LastKnownName="Rectangle1 : Rectangle"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="1f735883-9ecf-4de1-a3ee-31b4832ef691"
+            name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker
+                Id="31fed615-40ed-4eb7-a45a-f825ce53b2bc"
+                LastKnownName="this : PlayerBackground"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="5daf18b9-ac8c-4039-8c55-250a750f24c5"
+            name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker
+                Id="31fdf64c-d634-472d-b311-a7ed79575513"
+                LastKnownName="Rectangle1 : Rectangle"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <executionOccurrenceSpecification
+            Id="0206f3e8-c143-48e9-ae4d-2b4bc1344922"
+            name="ExecutionOccurrenceSpecification">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="58a2fe86-f8a0-4369-8088-cd589022abc4"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="ScarFlyModelingProject.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="31fdf64c-d634-472d-b311-a7ed79575513"
+                LastKnownName="Rectangle1 : Rectangle"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <operandOccurrenceSpecification
+            Id="08f97b13-66fa-4e84-9457-6a0edf60e0ad"
+            name="OperandOccurrenceSpecification6">
+            <covered>
+              <lifelineMoniker
+                Id="eaf6d7f0-cbd2-42ce-8969-844f8e950ede"
+                LastKnownName="Rectangle1 : Rectangle"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification
+            Id="f093f5ef-ff10-4ff0-aca2-fd0c79bc5d02"
+            name="OperandOccurrenceSpecification4">
+            <covered>
+              <lifelineMoniker
+                Id="31fdf64c-d634-472d-b311-a7ed79575513"
+                LastKnownName="Rectangle1 : Rectangle"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification
+            Id="846a40e3-9935-446a-a5c4-d279a55e24ab"
+            name="OperandOccurrenceSpecification2">
+            <covered>
+              <lifelineMoniker
+                Id="31fed615-40ed-4eb7-a45a-f825ce53b2bc"
+                LastKnownName="this : PlayerBackground"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification
+            Id="cf4e99d1-7496-47c6-8c6a-69fc3f27a0b0"
+            name="OperandOccurrenceSpecification11">
+            <covered>
+              <lifelineMoniker
+                Id="eaf6d7f0-cbd2-42ce-8969-844f8e950ede"
+                LastKnownName="Rectangle1 : Rectangle"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification
+            Id="6aa20350-25be-4e12-bbaa-79a78f374259"
+            name="OperandOccurrenceSpecification7">
+            <covered>
+              <lifelineMoniker
+                Id="31fed615-40ed-4eb7-a45a-f825ce53b2bc"
+                LastKnownName="this : PlayerBackground"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification
+            Id="042381b2-20d6-4f9d-b33c-db168717a2a8"
+            name="OperandOccurrenceSpecification9">
+            <covered>
+              <lifelineMoniker
+                Id="31fdf64c-d634-472d-b311-a7ed79575513"
+                LastKnownName="Rectangle1 : Rectangle"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <behaviorExecutionSpecification
+            Id="94d032ec-6fa0-498d-ab6c-ee012c3652b9"
+            name="BehaviorExecutionSpecification">
+            <coveredLifelines>
+              <lifelineMoniker
+                Id="eaf6d7f0-cbd2-42ce-8969-844f8e950ede"
+                LastKnownName="Rectangle1 : Rectangle"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </coveredLifelines>
+            <finish>
+              <executionOccurrenceSpecificationMoniker
+                Id="c813dcdd-ab63-499b-bc16-3bee75c2b462"
+                LastKnownName="ExecutionOccurrenceSpecification"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </finish>
+            <start>
+              <executionOccurrenceSpecificationMoniker
+                Id="759b8a78-73bb-4e33-835d-44d9e683c42d"
+                LastKnownName="ExecutionOccurrenceSpecification"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </start>
+            <nestedOccurrences>
+              <messageOccurrenceSpecificationMoniker
+                Id="c69b56e6-670f-4079-8821-6509d81ffe10"
+                LastKnownName="MessageOccurrenceSpecification"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="f86c8ff6-aed9-48f5-b6b3-384c43e034a1"
+                LastKnownName="MessageOccurrenceSpecification"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </nestedOccurrences>
+          </behaviorExecutionSpecification>
+          <executionOccurrenceSpecification
+            Id="759b8a78-73bb-4e33-835d-44d9e683c42d"
+            name="ExecutionOccurrenceSpecification">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="a2e02792-44ca-47f2-a9b5-0932d3058607"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="ScarFlyModelingProject.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="eaf6d7f0-cbd2-42ce-8969-844f8e950ede"
+                LastKnownName="Rectangle1 : Rectangle"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="c69b56e6-670f-4079-8821-6509d81ffe10"
+            name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker
+                Id="eaf6d7f0-cbd2-42ce-8969-844f8e950ede"
+                LastKnownName="Rectangle1 : Rectangle"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="1ef2fc6b-9295-444e-ba8e-58d4dff89eee"
+            name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker
+                Id="31fed615-40ed-4eb7-a45a-f825ce53b2bc"
+                LastKnownName="this : PlayerBackground"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="10f963e9-0522-4794-b495-9de5d842d0d4"
+            name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker
+                Id="31fed615-40ed-4eb7-a45a-f825ce53b2bc"
+                LastKnownName="this : PlayerBackground"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="f86c8ff6-aed9-48f5-b6b3-384c43e034a1"
+            name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker
+                Id="eaf6d7f0-cbd2-42ce-8969-844f8e950ede"
+                LastKnownName="Rectangle1 : Rectangle"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <executionOccurrenceSpecification
+            Id="c813dcdd-ab63-499b-bc16-3bee75c2b462"
+            name="ExecutionOccurrenceSpecification">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="08386814-797a-451d-a495-1a08e113eee6"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="ScarFlyModelingProject.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="eaf6d7f0-cbd2-42ce-8969-844f8e950ede"
+                LastKnownName="Rectangle1 : Rectangle"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <operandOccurrenceSpecification
+            Id="e5552ca3-b468-4dfc-9ea1-51841a6c14ee"
+            name="OperandOccurrenceSpecification8">
+            <covered>
+              <lifelineMoniker
+                Id="31fed615-40ed-4eb7-a45a-f825ce53b2bc"
+                LastKnownName="this : PlayerBackground"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification
+            Id="3a9eb2c0-8a50-415b-8529-9101c79e8e1a"
+            name="OperandOccurrenceSpecification12">
+            <covered>
+              <lifelineMoniker
+                Id="eaf6d7f0-cbd2-42ce-8969-844f8e950ede"
+                LastKnownName="Rectangle1 : Rectangle"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification
+            Id="a1c52984-93ee-4256-be95-27fd157ea3b1"
+            name="OperandOccurrenceSpecification10">
+            <covered>
+              <lifelineMoniker
+                Id="31fdf64c-d634-472d-b311-a7ed79575513"
+                LastKnownName="Rectangle1 : Rectangle"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <combinedFragment
+            Id="8d36afe7-358f-4148-a69f-44a61bb81826"
+            name="CombinedFragment2"
+            interactionOperator="Alt"
+            customInteractionOperator="If">
+            <coveredLifelines>
+              <lifelineMoniker
+                Id="31fed615-40ed-4eb7-a45a-f825ce53b2bc"
+                LastKnownName="this : PlayerBackground"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+              <lifelineMoniker
+                Id="c3fdc74d-f7b8-4638-b062-cc51fbeec362"
+                LastKnownName="Rectangle2 : Rectangle"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+              <lifelineMoniker
+                Id="f4ca7a49-9e4e-4a48-bb1f-de63fc331550"
+                LastKnownName="Rectangle2 : Rectangle"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </coveredLifelines>
+            <operands>
+              <interactionOperand
+                Id="bb252d70-9c49-4611-a069-9964cb7e5684"
+                name="InteractionOperand1">
+                <coveredLifelines>
+                  <lifelineMoniker
+                    Id="31fed615-40ed-4eb7-a45a-f825ce53b2bc"
+                    LastKnownName="this : PlayerBackground"
+                    LastKnownLocation="ScarFlyModelingProject.uml" />
+                  <lifelineMoniker
+                    Id="c3fdc74d-f7b8-4638-b062-cc51fbeec362"
+                    LastKnownName="Rectangle2 : Rectangle"
+                    LastKnownLocation="ScarFlyModelingProject.uml" />
+                  <lifelineMoniker
+                    Id="f4ca7a49-9e4e-4a48-bb1f-de63fc331550"
+                    LastKnownName="Rectangle2 : Rectangle"
+                    LastKnownLocation="ScarFlyModelingProject.uml" />
+                </coveredLifelines>
+                <guard>
+                  <interactionConstraint
+                    Id="4f3b2b70-9973-4686-92b2-ae3c35a0657c"
+                    guardText="if (Rectangle2.X + Texture1.Width &lt;= 0)" />
+                </guard>
+                <operandOccurrenceSpecifications>
+                  <operandOccurrenceSpecificationMoniker
+                    Id="8afa4cbb-834a-4253-a67a-60d78f72987a"
+                    LastKnownName="OperandOccurrenceSpecification13"
+                    LastKnownLocation="ScarFlyModelingProject.uml" />
+                  <operandOccurrenceSpecificationMoniker
+                    Id="4b2901f8-a7f9-45bd-a5f0-f4220cd60c36"
+                    LastKnownName="OperandOccurrenceSpecification14"
+                    LastKnownLocation="ScarFlyModelingProject.uml" />
+                  <operandOccurrenceSpecificationMoniker
+                    Id="00ed7ccc-fcc8-4c2b-bbeb-afe116dcdf2a"
+                    LastKnownName="OperandOccurrenceSpecification15"
+                    LastKnownLocation="ScarFlyModelingProject.uml" />
+                  <operandOccurrenceSpecificationMoniker
+                    Id="ec77ac37-229d-4e66-af00-c31c5a6f0d30"
+                    LastKnownName="OperandOccurrenceSpecification16"
+                    LastKnownLocation="ScarFlyModelingProject.uml" />
+                  <operandOccurrenceSpecificationMoniker
+                    Id="c7937b03-1305-4fc1-a263-253f81938b92"
+                    LastKnownName="OperandOccurrenceSpecification17"
+                    LastKnownLocation="ScarFlyModelingProject.uml" />
+                  <operandOccurrenceSpecificationMoniker
+                    Id="64b332ac-669d-46f1-a7a9-9d29b6f9cdaa"
+                    LastKnownName="OperandOccurrenceSpecification18"
+                    LastKnownLocation="ScarFlyModelingProject.uml" />
+                </operandOccurrenceSpecifications>
+              </interactionOperand>
+              <interactionOperand
+                Id="a3ac5d7e-5d1e-430d-b93d-474d257349a8"
+                name="InteractionOperand2">
+                <coveredLifelines>
+                  <lifelineMoniker
+                    Id="31fed615-40ed-4eb7-a45a-f825ce53b2bc"
+                    LastKnownName="this : PlayerBackground"
+                    LastKnownLocation="ScarFlyModelingProject.uml" />
+                  <lifelineMoniker
+                    Id="c3fdc74d-f7b8-4638-b062-cc51fbeec362"
+                    LastKnownName="Rectangle2 : Rectangle"
+                    LastKnownLocation="ScarFlyModelingProject.uml" />
+                  <lifelineMoniker
+                    Id="f4ca7a49-9e4e-4a48-bb1f-de63fc331550"
+                    LastKnownName="Rectangle2 : Rectangle"
+                    LastKnownLocation="ScarFlyModelingProject.uml" />
+                </coveredLifelines>
+                <guard>
+                  <interactionConstraint
+                    Id="5074bd5a-8441-43d7-a252-b556e8be88a5"
+                    guardText="else" />
+                </guard>
+                <operandOccurrenceSpecifications>
+                  <operandOccurrenceSpecificationMoniker
+                    Id="84e1d575-fed7-48fd-b6df-64defd8c097a"
+                    LastKnownName="OperandOccurrenceSpecification19"
+                    LastKnownLocation="ScarFlyModelingProject.uml" />
+                  <operandOccurrenceSpecificationMoniker
+                    Id="14541795-2ed1-46f9-af3c-06dc05847357"
+                    LastKnownName="OperandOccurrenceSpecification20"
+                    LastKnownLocation="ScarFlyModelingProject.uml" />
+                  <operandOccurrenceSpecificationMoniker
+                    Id="edb1858b-03da-4f25-8f36-8a2fff582dcf"
+                    LastKnownName="OperandOccurrenceSpecification21"
+                    LastKnownLocation="ScarFlyModelingProject.uml" />
+                  <operandOccurrenceSpecificationMoniker
+                    Id="3d662441-2c20-4e5d-bd20-fc17ae193b97"
+                    LastKnownName="OperandOccurrenceSpecification22"
+                    LastKnownLocation="ScarFlyModelingProject.uml" />
+                  <operandOccurrenceSpecificationMoniker
+                    Id="3de22c7f-6092-4d50-bae0-989de01da151"
+                    LastKnownName="OperandOccurrenceSpecification23"
+                    LastKnownLocation="ScarFlyModelingProject.uml" />
+                  <operandOccurrenceSpecificationMoniker
+                    Id="684db96e-bf4c-44a8-a541-997913daf622"
+                    LastKnownName="OperandOccurrenceSpecification24"
+                    LastKnownLocation="ScarFlyModelingProject.uml" />
+                </operandOccurrenceSpecifications>
+              </interactionOperand>
+            </operands>
+          </combinedFragment>
+          <operandOccurrenceSpecification
+            Id="00ed7ccc-fcc8-4c2b-bbeb-afe116dcdf2a"
+            name="OperandOccurrenceSpecification15">
+            <covered>
+              <lifelineMoniker
+                Id="c3fdc74d-f7b8-4638-b062-cc51fbeec362"
+                LastKnownName="Rectangle2 : Rectangle"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification
+            Id="c7937b03-1305-4fc1-a263-253f81938b92"
+            name="OperandOccurrenceSpecification17">
+            <covered>
+              <lifelineMoniker
+                Id="f4ca7a49-9e4e-4a48-bb1f-de63fc331550"
+                LastKnownName="Rectangle2 : Rectangle"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification
+            Id="8afa4cbb-834a-4253-a67a-60d78f72987a"
+            name="OperandOccurrenceSpecification13">
+            <covered>
+              <lifelineMoniker
+                Id="31fed615-40ed-4eb7-a45a-f825ce53b2bc"
+                LastKnownName="this : PlayerBackground"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <behaviorExecutionSpecification
+            Id="717cd22a-908e-4321-b49a-7d67d675a74a"
+            name="BehaviorExecutionSpecification">
+            <coveredLifelines>
+              <lifelineMoniker
+                Id="c3fdc74d-f7b8-4638-b062-cc51fbeec362"
+                LastKnownName="Rectangle2 : Rectangle"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </coveredLifelines>
+            <finish>
+              <executionOccurrenceSpecificationMoniker
+                Id="a3253871-32dd-4c09-ac24-38bd3385cb1e"
+                LastKnownName="ExecutionOccurrenceSpecification"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </finish>
+            <start>
+              <executionOccurrenceSpecificationMoniker
+                Id="cc9d60bf-be4e-40f2-940f-bdcb199bf3d5"
+                LastKnownName="ExecutionOccurrenceSpecification"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </start>
+            <nestedOccurrences>
+              <messageOccurrenceSpecificationMoniker
+                Id="ec3c3ebc-1f37-4283-9da0-59fd9e717723"
+                LastKnownName="MessageOccurrenceSpecification"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="d5f1eec8-a864-4cf5-b4fb-787d4da9fe09"
+                LastKnownName="MessageOccurrenceSpecification"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </nestedOccurrences>
+          </behaviorExecutionSpecification>
+          <executionOccurrenceSpecification
+            Id="cc9d60bf-be4e-40f2-940f-bdcb199bf3d5"
+            name="ExecutionOccurrenceSpecification">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="00ed9881-df4b-4ce8-aa6e-64109d41ac34"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="ScarFlyModelingProject.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="c3fdc74d-f7b8-4638-b062-cc51fbeec362"
+                LastKnownName="Rectangle2 : Rectangle"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="ec3c3ebc-1f37-4283-9da0-59fd9e717723"
+            name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker
+                Id="c3fdc74d-f7b8-4638-b062-cc51fbeec362"
+                LastKnownName="Rectangle2 : Rectangle"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="949c713c-6c5f-40b2-9654-4b8a1725ff4c"
+            name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker
+                Id="31fed615-40ed-4eb7-a45a-f825ce53b2bc"
+                LastKnownName="this : PlayerBackground"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="8233aa0d-f05b-4bb9-991c-acdbff3c1f19"
+            name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker
+                Id="31fed615-40ed-4eb7-a45a-f825ce53b2bc"
+                LastKnownName="this : PlayerBackground"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="d5f1eec8-a864-4cf5-b4fb-787d4da9fe09"
+            name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker
+                Id="c3fdc74d-f7b8-4638-b062-cc51fbeec362"
+                LastKnownName="Rectangle2 : Rectangle"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <executionOccurrenceSpecification
+            Id="a3253871-32dd-4c09-ac24-38bd3385cb1e"
+            name="ExecutionOccurrenceSpecification">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="75f5e569-df5e-4014-82b9-d20354ef894d"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="ScarFlyModelingProject.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="c3fdc74d-f7b8-4638-b062-cc51fbeec362"
+                LastKnownName="Rectangle2 : Rectangle"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <operandOccurrenceSpecification
+            Id="4b2901f8-a7f9-45bd-a5f0-f4220cd60c36"
+            name="OperandOccurrenceSpecification14">
+            <covered>
+              <lifelineMoniker
+                Id="31fed615-40ed-4eb7-a45a-f825ce53b2bc"
+                LastKnownName="this : PlayerBackground"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification
+            Id="ec77ac37-229d-4e66-af00-c31c5a6f0d30"
+            name="OperandOccurrenceSpecification16">
+            <covered>
+              <lifelineMoniker
+                Id="c3fdc74d-f7b8-4638-b062-cc51fbeec362"
+                LastKnownName="Rectangle2 : Rectangle"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification
+            Id="64b332ac-669d-46f1-a7a9-9d29b6f9cdaa"
+            name="OperandOccurrenceSpecification18">
+            <covered>
+              <lifelineMoniker
+                Id="f4ca7a49-9e4e-4a48-bb1f-de63fc331550"
+                LastKnownName="Rectangle2 : Rectangle"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification
+            Id="3de22c7f-6092-4d50-bae0-989de01da151"
+            name="OperandOccurrenceSpecification23">
+            <covered>
+              <lifelineMoniker
+                Id="f4ca7a49-9e4e-4a48-bb1f-de63fc331550"
+                LastKnownName="Rectangle2 : Rectangle"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification
+            Id="edb1858b-03da-4f25-8f36-8a2fff582dcf"
+            name="OperandOccurrenceSpecification21">
+            <covered>
+              <lifelineMoniker
+                Id="c3fdc74d-f7b8-4638-b062-cc51fbeec362"
+                LastKnownName="Rectangle2 : Rectangle"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification
+            Id="84e1d575-fed7-48fd-b6df-64defd8c097a"
+            name="OperandOccurrenceSpecification19">
+            <covered>
+              <lifelineMoniker
+                Id="31fed615-40ed-4eb7-a45a-f825ce53b2bc"
+                LastKnownName="this : PlayerBackground"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <behaviorExecutionSpecification
+            Id="086b6895-5006-4861-829e-aebf3c404466"
+            name="BehaviorExecutionSpecification">
+            <coveredLifelines>
+              <lifelineMoniker
+                Id="f4ca7a49-9e4e-4a48-bb1f-de63fc331550"
+                LastKnownName="Rectangle2 : Rectangle"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </coveredLifelines>
+            <finish>
+              <executionOccurrenceSpecificationMoniker
+                Id="0fe46714-6483-4b81-9585-bda7e7fcd00c"
+                LastKnownName="ExecutionOccurrenceSpecification"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </finish>
+            <start>
+              <executionOccurrenceSpecificationMoniker
+                Id="ad417b77-5a0e-4f2a-8a31-9e095fa99040"
+                LastKnownName="ExecutionOccurrenceSpecification"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </start>
+            <nestedOccurrences>
+              <messageOccurrenceSpecificationMoniker
+                Id="f6252009-507d-4822-beb4-5207b411e961"
+                LastKnownName="MessageOccurrenceSpecification"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="d3bc8110-0587-46ef-a756-2c07a4d3c050"
+                LastKnownName="MessageOccurrenceSpecification"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </nestedOccurrences>
+          </behaviorExecutionSpecification>
+          <executionOccurrenceSpecification
+            Id="ad417b77-5a0e-4f2a-8a31-9e095fa99040"
+            name="ExecutionOccurrenceSpecification">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="ed4c3e76-b5ad-4c92-9166-533de5a730b6"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="ScarFlyModelingProject.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="f4ca7a49-9e4e-4a48-bb1f-de63fc331550"
+                LastKnownName="Rectangle2 : Rectangle"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="28f27c37-8164-48ed-85f9-e278d996d68d"
+            name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker
+                Id="31fed615-40ed-4eb7-a45a-f825ce53b2bc"
+                LastKnownName="this : PlayerBackground"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="f6252009-507d-4822-beb4-5207b411e961"
+            name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker
+                Id="f4ca7a49-9e4e-4a48-bb1f-de63fc331550"
+                LastKnownName="Rectangle2 : Rectangle"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="d3bc8110-0587-46ef-a756-2c07a4d3c050"
+            name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker
+                Id="f4ca7a49-9e4e-4a48-bb1f-de63fc331550"
+                LastKnownName="Rectangle2 : Rectangle"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="1d3ebc07-da28-42a0-b594-629b01879ecd"
+            name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker
+                Id="31fed615-40ed-4eb7-a45a-f825ce53b2bc"
+                LastKnownName="this : PlayerBackground"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <executionOccurrenceSpecification
+            Id="0fe46714-6483-4b81-9585-bda7e7fcd00c"
+            name="ExecutionOccurrenceSpecification">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="ade20e77-2325-4850-85ea-81524492abae"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="ScarFlyModelingProject.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="f4ca7a49-9e4e-4a48-bb1f-de63fc331550"
+                LastKnownName="Rectangle2 : Rectangle"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <operandOccurrenceSpecification
+            Id="3d662441-2c20-4e5d-bd20-fc17ae193b97"
+            name="OperandOccurrenceSpecification22">
+            <covered>
+              <lifelineMoniker
+                Id="c3fdc74d-f7b8-4638-b062-cc51fbeec362"
+                LastKnownName="Rectangle2 : Rectangle"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification
+            Id="14541795-2ed1-46f9-af3c-06dc05847357"
+            name="OperandOccurrenceSpecification20">
+            <covered>
+              <lifelineMoniker
+                Id="31fed615-40ed-4eb7-a45a-f825ce53b2bc"
+                LastKnownName="this : PlayerBackground"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification
+            Id="684db96e-bf4c-44a8-a541-997913daf622"
+            name="OperandOccurrenceSpecification24">
+            <covered>
+              <lifelineMoniker
+                Id="f4ca7a49-9e4e-4a48-bb1f-de63fc331550"
+                LastKnownName="Rectangle2 : Rectangle"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <executionOccurrenceSpecification
+            Id="cdab4699-c4e4-4d04-ba8d-8b6e1097eb57"
+            name="ExecutionOccurrenceSpecification">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="62095d3c-6f72-4523-8c51-d8fed03f86ab"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="ScarFlyModelingProject.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="31fed615-40ed-4eb7-a45a-f825ce53b2bc"
+                LastKnownName="this : PlayerBackground"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+        </fragments>
+        <lifelines>
+          <lifeline
+            Id="31fed615-40ed-4eb7-a45a-f825ce53b2bc"
+            name="this : PlayerBackground"
+            isActor="false"
+            lifelineDisplayName="this : PlayerBackground"
+            referencedInstance="(Assembly=&quot;$(fd270f92-4dbc-4aaa-85f3-1e19d50a2358.OutputPathUri)&quot; Namespace=ScarFly.MyClasses.PlayerClasses Type=PlayerBackground ObjectInstance=&quot;Object instance 2&quot;)"
+            referencedType="ScarFly‎.MyClasses‎.PlayerClasses‎.PlayerBackground">
+            <topLevelOccurrences>
+              <executionOccurrenceSpecificationMoniker
+                Id="7e6b7cc2-1fbc-4dc2-85fb-176cd19b12de"
+                LastKnownName="ExecutionOccurrenceSpecification"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="cdab4699-c4e4-4d04-ba8d-8b6e1097eb57"
+                LastKnownName="ExecutionOccurrenceSpecification"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </topLevelOccurrences>
+          </lifeline>
+          <lifeline
+            Id="31fdf64c-d634-472d-b311-a7ed79575513"
+            name="Rectangle1 : Rectangle"
+            isActor="false"
+            lifelineDisplayName="Rectangle1 : Rectangle"
+            referencedInstance="(Assembly=&quot;$(FxReferenceAssembliesUri)/Silverlight/v4.0/Profile/WindowsPhone71/Microsoft.Xna.Framework.dll&quot; Namespace=Microsoft.Xna.Framework Type=Rectangle ObjectInstance=&quot;Object instance 14&quot;)"
+            referencedType="Microsoft‎.Xna‎.Framework‎.Rectangle">
+            <topLevelOccurrences>
+              <operandOccurrenceSpecificationMoniker
+                Id="51d81133-7234-4c1d-8c59-0f10c36cbc1e"
+                LastKnownName="OperandOccurrenceSpecification3"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="9f66c33c-9c6d-40c0-b518-c91e480c1b98"
+                LastKnownName="ExecutionOccurrenceSpecification"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="0206f3e8-c143-48e9-ae4d-2b4bc1344922"
+                LastKnownName="ExecutionOccurrenceSpecification"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+              <operandOccurrenceSpecificationMoniker
+                Id="f093f5ef-ff10-4ff0-aca2-fd0c79bc5d02"
+                LastKnownName="OperandOccurrenceSpecification4"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+              <operandOccurrenceSpecificationMoniker
+                Id="042381b2-20d6-4f9d-b33c-db168717a2a8"
+                LastKnownName="OperandOccurrenceSpecification9"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+              <operandOccurrenceSpecificationMoniker
+                Id="a1c52984-93ee-4256-be95-27fd157ea3b1"
+                LastKnownName="OperandOccurrenceSpecification10"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </topLevelOccurrences>
+          </lifeline>
+          <lifeline
+            Id="eaf6d7f0-cbd2-42ce-8969-844f8e950ede"
+            name="Rectangle1 : Rectangle"
+            isActor="false"
+            lifelineDisplayName="Rectangle1 : Rectangle"
+            referencedInstance="(Assembly=&quot;$(FxReferenceAssembliesUri)/Silverlight/v4.0/Profile/WindowsPhone71/Microsoft.Xna.Framework.dll&quot; Namespace=Microsoft.Xna.Framework Type=Rectangle ObjectInstance=&quot;Object instance 19&quot;)"
+            referencedType="Microsoft‎.Xna‎.Framework‎.Rectangle">
+            <topLevelOccurrences>
+              <operandOccurrenceSpecificationMoniker
+                Id="86881030-7c8f-40d7-8b0d-f48eca279f38"
+                LastKnownName="OperandOccurrenceSpecification5"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+              <operandOccurrenceSpecificationMoniker
+                Id="08f97b13-66fa-4e84-9457-6a0edf60e0ad"
+                LastKnownName="OperandOccurrenceSpecification6"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+              <operandOccurrenceSpecificationMoniker
+                Id="cf4e99d1-7496-47c6-8c6a-69fc3f27a0b0"
+                LastKnownName="OperandOccurrenceSpecification11"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="759b8a78-73bb-4e33-835d-44d9e683c42d"
+                LastKnownName="ExecutionOccurrenceSpecification"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="c813dcdd-ab63-499b-bc16-3bee75c2b462"
+                LastKnownName="ExecutionOccurrenceSpecification"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+              <operandOccurrenceSpecificationMoniker
+                Id="3a9eb2c0-8a50-415b-8529-9101c79e8e1a"
+                LastKnownName="OperandOccurrenceSpecification12"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </topLevelOccurrences>
+          </lifeline>
+          <lifeline
+            Id="c3fdc74d-f7b8-4638-b062-cc51fbeec362"
+            name="Rectangle2 : Rectangle"
+            isActor="false"
+            lifelineDisplayName="Rectangle2 : Rectangle"
+            referencedInstance="(Assembly=&quot;$(FxReferenceAssembliesUri)/Silverlight/v4.0/Profile/WindowsPhone71/Microsoft.Xna.Framework.dll&quot; Namespace=Microsoft.Xna.Framework Type=Rectangle ObjectInstance=&quot;Object instance 27&quot;)"
+            referencedType="Microsoft‎.Xna‎.Framework‎.Rectangle">
+            <topLevelOccurrences>
+              <operandOccurrenceSpecificationMoniker
+                Id="00ed7ccc-fcc8-4c2b-bbeb-afe116dcdf2a"
+                LastKnownName="OperandOccurrenceSpecification15"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="cc9d60bf-be4e-40f2-940f-bdcb199bf3d5"
+                LastKnownName="ExecutionOccurrenceSpecification"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="a3253871-32dd-4c09-ac24-38bd3385cb1e"
+                LastKnownName="ExecutionOccurrenceSpecification"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+              <operandOccurrenceSpecificationMoniker
+                Id="ec77ac37-229d-4e66-af00-c31c5a6f0d30"
+                LastKnownName="OperandOccurrenceSpecification16"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+              <operandOccurrenceSpecificationMoniker
+                Id="edb1858b-03da-4f25-8f36-8a2fff582dcf"
+                LastKnownName="OperandOccurrenceSpecification21"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+              <operandOccurrenceSpecificationMoniker
+                Id="3d662441-2c20-4e5d-bd20-fc17ae193b97"
+                LastKnownName="OperandOccurrenceSpecification22"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </topLevelOccurrences>
+          </lifeline>
+          <lifeline
+            Id="f4ca7a49-9e4e-4a48-bb1f-de63fc331550"
+            name="Rectangle2 : Rectangle"
+            isActor="false"
+            lifelineDisplayName="Rectangle2 : Rectangle"
+            referencedInstance="(Assembly=&quot;$(FxReferenceAssembliesUri)/Silverlight/v4.0/Profile/WindowsPhone71/Microsoft.Xna.Framework.dll&quot; Namespace=Microsoft.Xna.Framework Type=Rectangle ObjectInstance=&quot;Object instance 31&quot;)"
+            referencedType="Microsoft‎.Xna‎.Framework‎.Rectangle">
+            <topLevelOccurrences>
+              <operandOccurrenceSpecificationMoniker
+                Id="c7937b03-1305-4fc1-a263-253f81938b92"
+                LastKnownName="OperandOccurrenceSpecification17"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+              <operandOccurrenceSpecificationMoniker
+                Id="64b332ac-669d-46f1-a7a9-9d29b6f9cdaa"
+                LastKnownName="OperandOccurrenceSpecification18"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+              <operandOccurrenceSpecificationMoniker
+                Id="3de22c7f-6092-4d50-bae0-989de01da151"
+                LastKnownName="OperandOccurrenceSpecification23"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="ad417b77-5a0e-4f2a-8a31-9e095fa99040"
+                LastKnownName="ExecutionOccurrenceSpecification"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="0fe46714-6483-4b81-9585-bda7e7fcd00c"
+                LastKnownName="ExecutionOccurrenceSpecification"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+              <operandOccurrenceSpecificationMoniker
+                Id="684db96e-bf4c-44a8-a541-997913daf622"
+                LastKnownName="OperandOccurrenceSpecification24"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </topLevelOccurrences>
+          </lifeline>
+        </lifelines>
+        <messages>
+          <message
+            Id="79e8726b-1c63-43fa-a219-8fbdec6b87cd"
+            name="Scroll"
+            messageKind="Found"
+            messageSort="AsynchCall"
+            createSelfMessage="false">
+            <sendEvent>
+              <lostFoundTargetMoniker
+                Id="f610cf19-58c4-45df-aea8-27c363587ee1"
+                LastKnownName="LostFoundTarget"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="820ec9d6-aac9-43d7-b9de-0a7d90ea4e4c"
+                LastKnownName="MessageOccurrenceSpecification"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </receiveEvent>
+          </message>
+          <message
+            Id="95310ff3-7b6c-4160-9c0d-cd4cd414b841"
+            name="Create Rectangle"
+            messageKind="Complete"
+            messageSort="CreateMessage"
+            createSelfMessage="false"
+            signatureText="new Rectangle(Rectangle2.X + Texture1.Width - Velocity, Rectangle1.Y, Rectangle1.Width, Rectangle1.Height)">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="0833737c-fda0-4cbf-a294-93f17cad4791"
+                LastKnownName="MessageOccurrenceSpecification"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="5bd1f88e-83ef-466a-bdc5-1905229c60e4"
+                LastKnownName="MessageOccurrenceSpecification"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </receiveEvent>
+          </message>
+          <message
+            Id="70727959-f4da-44a0-8417-235913bb700c"
+            name="&lt;&lt;return&gt;&gt;"
+            messageKind="Complete"
+            messageSort="Reply"
+            createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="5daf18b9-ac8c-4039-8c55-250a750f24c5"
+                LastKnownName="MessageOccurrenceSpecification"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="1f735883-9ecf-4de1-a3ee-31b4832ef691"
+                LastKnownName="MessageOccurrenceSpecification"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </receiveEvent>
+          </message>
+          <message
+            Id="fc1eb020-3054-4180-9eff-b35db0ce1eda"
+            name="Create Rectangle"
+            messageKind="Complete"
+            messageSort="CreateMessage"
+            createSelfMessage="false"
+            signatureText="new Rectangle(Rectangle1.X - Velocity, Rectangle1.Y, Rectangle1.Width, Rectangle1.Height)">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="1ef2fc6b-9295-444e-ba8e-58d4dff89eee"
+                LastKnownName="MessageOccurrenceSpecification"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="c69b56e6-670f-4079-8821-6509d81ffe10"
+                LastKnownName="MessageOccurrenceSpecification"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </receiveEvent>
+          </message>
+          <message
+            Id="cfbed542-b134-49ce-84ca-8ed46e9f464d"
+            name="&lt;&lt;return&gt;&gt;"
+            messageKind="Complete"
+            messageSort="Reply"
+            createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="f86c8ff6-aed9-48f5-b6b3-384c43e034a1"
+                LastKnownName="MessageOccurrenceSpecification"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="10f963e9-0522-4794-b495-9de5d842d0d4"
+                LastKnownName="MessageOccurrenceSpecification"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </receiveEvent>
+          </message>
+          <message
+            Id="510437fa-dca9-462e-95bb-8cda4659589b"
+            name="Create Rectangle"
+            messageKind="Complete"
+            messageSort="CreateMessage"
+            createSelfMessage="false"
+            signatureText="new Rectangle(Rectangle1.X + Texture1.Width - Velocity, Rectangle2.Y, Rectangle2.Width, Rectangle2.Height)">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="949c713c-6c5f-40b2-9654-4b8a1725ff4c"
+                LastKnownName="MessageOccurrenceSpecification"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="ec3c3ebc-1f37-4283-9da0-59fd9e717723"
+                LastKnownName="MessageOccurrenceSpecification"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </receiveEvent>
+          </message>
+          <message
+            Id="efd3e5b6-18fa-481a-b75d-41b948bba615"
+            name="&lt;&lt;return&gt;&gt;"
+            messageKind="Complete"
+            messageSort="Reply"
+            createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="d5f1eec8-a864-4cf5-b4fb-787d4da9fe09"
+                LastKnownName="MessageOccurrenceSpecification"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="8233aa0d-f05b-4bb9-991c-acdbff3c1f19"
+                LastKnownName="MessageOccurrenceSpecification"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </receiveEvent>
+          </message>
+          <message
+            Id="170c899a-26f2-4bf5-9dfe-7a892f4567d3"
+            name="Create Rectangle"
+            messageKind="Complete"
+            messageSort="CreateMessage"
+            createSelfMessage="false"
+            signatureText="new Rectangle(Rectangle2.X - Velocity, Rectangle2.Y, Rectangle2.Width, Rectangle2.Height)">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="28f27c37-8164-48ed-85f9-e278d996d68d"
+                LastKnownName="MessageOccurrenceSpecification"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="f6252009-507d-4822-beb4-5207b411e961"
+                LastKnownName="MessageOccurrenceSpecification"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </receiveEvent>
+          </message>
+          <message
+            Id="5833c946-936f-453a-9202-652ccf218657"
+            name="&lt;&lt;return&gt;&gt;"
+            messageKind="Complete"
+            messageSort="Reply"
+            createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="d3bc8110-0587-46ef-a756-2c07a4d3c050"
+                LastKnownName="MessageOccurrenceSpecification"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="1d3ebc07-da28-42a0-b594-629b01879ecd"
+                LastKnownName="MessageOccurrenceSpecification"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </receiveEvent>
+          </message>
+        </messages>
+      </interaction>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="a337ad5c-9aa8-4752-81f7-6075fa9f31f8"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="62095d3c-6f72-4523-8c51-d8fed03f86ab"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="8da64665-9e2a-41a4-a17c-ae9ba913760d"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="58a2fe86-f8a0-4369-8088-cd589022abc4"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="a2e02792-44ca-47f2-a9b5-0932d3058607"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="08386814-797a-451d-a495-1a08e113eee6"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="00ed9881-df4b-4ce8-aa6e-64109d41ac34"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="75f5e569-df5e-4014-82b9-d20354ef894d"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="ed4c3e76-b5ad-4c92-9166-533de5a730b6"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="ade20e77-2325-4850-85ea-81524492abae"
+        name="ExecutionEvent" />
     </packageHasNamedElement>
   </packagedElements>
   <primitiveType

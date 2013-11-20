@@ -1,25 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <SequenceDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" dslVersion="1.0.0.0" Id="b4535d24-f076-449f-b559-483a649d9af3" name="BackgroundAnimation" linkedPackageId="c17178a0-c5e2-4676-8287-95f5aafd660e" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner">
-  <profileInstances>
-    <packageHasProfileInstances Id="b6c374a0-dd2a-43ae-9b71-63feff1e2fff">
-      <profileInstance Id="2d6a90f0-7b55-428b-8515-902c032d249a" name="StandardProfileL2">
-        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
-      </profileInstance>
-      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
-    </packageHasProfileInstances>
-    <packageHasProfileInstances Id="5bb43368-ece0-4353-828a-c0688799518a">
-      <profileInstance Id="e44b2383-254b-4e2a-a18c-851ff312e23e" name="StandardProfileL3">
-        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
-      </profileInstance>
-      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
-    </packageHasProfileInstances>
-    <packageHasProfileInstances Id="5a7a72a7-7148-4862-b568-4a6e90034d60">
-      <profileInstance Id="c17e9759-ca17-4a5f-8757-63cb647147b7" name="CSharpProfile">
-        <elementDefinition Id="ee70e2cf-2376-41b0-974f-746add6be42b" />
-      </profileInstance>
-      <elementDefinition Id="8f7ce358-5cfb-4f83-87a0-39e54cb33676" />
-    </packageHasProfileInstances>
-  </profileInstances>
   <packagedElements>
     <packageHasNamedElement>
       <interaction Id="0f65117e-17d7-40dc-9fd5-4074bd3bcf1c" name="BackgroundAnimation" collapseFragmentsFlag="false" isActiveClass="false" isAbstract="false" isLeaf="false" isReentrant="false">
@@ -456,12 +436,6 @@
               <lifelineMoniker Id="5202cc9d-142e-43ba-a498-e96969af8bd1" LastKnownName="Rectangle2 : Rectangle" />
             </covered>
           </executionOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="9ca6c298-207e-43c3-89fd-026ec09c19e4" name="OperandOccurrenceSpecification14">
-            <elementDefinition Id="4b2901f8-a7f9-45bd-a5f0-f4220cd60c36" />
-            <covered>
-              <lifelineMoniker Id="0d638a4d-420d-49a3-84ec-fe9fec0ba46c" LastKnownName="this : PlayerBackground" />
-            </covered>
-          </operandOccurrenceSpecification>
           <operandOccurrenceSpecification Id="45699a18-f641-4def-9510-2bcad825b296" name="OperandOccurrenceSpecification16">
             <elementDefinition Id="ec77ac37-229d-4e66-af00-c31c5a6f0d30" />
             <covered>
@@ -472,6 +446,12 @@
             <elementDefinition Id="64b332ac-669d-46f1-a7a9-9d29b6f9cdaa" />
             <covered>
               <lifelineMoniker Id="3d01180b-5483-4d1c-b05b-793980a74b52" LastKnownName="Rectangle2 : Rectangle" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="9ca6c298-207e-43c3-89fd-026ec09c19e4" name="OperandOccurrenceSpecification14">
+            <elementDefinition Id="4b2901f8-a7f9-45bd-a5f0-f4220cd60c36" />
+            <covered>
+              <lifelineMoniker Id="0d638a4d-420d-49a3-84ec-fe9fec0ba46c" LastKnownName="this : PlayerBackground" />
             </covered>
           </operandOccurrenceSpecification>
           <operandOccurrenceSpecification Id="0a79b6d3-18d7-429c-9aaf-17a7af8c48d8" name="OperandOccurrenceSpecification23">
@@ -554,6 +534,12 @@
               <lifelineMoniker Id="3d01180b-5483-4d1c-b05b-793980a74b52" LastKnownName="Rectangle2 : Rectangle" />
             </covered>
           </executionOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="88b28911-6e3e-424c-928c-d930f9a3e386" name="OperandOccurrenceSpecification24">
+            <elementDefinition Id="684db96e-bf4c-44a8-a541-997913daf622" />
+            <covered>
+              <lifelineMoniker Id="3d01180b-5483-4d1c-b05b-793980a74b52" LastKnownName="Rectangle2 : Rectangle" />
+            </covered>
+          </operandOccurrenceSpecification>
           <operandOccurrenceSpecification Id="cb9b9cac-e75f-4e40-9a5c-6efd2f70f16a" name="OperandOccurrenceSpecification22">
             <elementDefinition Id="3d662441-2c20-4e5d-bd20-fc17ae193b97" />
             <covered>
@@ -564,12 +550,6 @@
             <elementDefinition Id="14541795-2ed1-46f9-af3c-06dc05847357" />
             <covered>
               <lifelineMoniker Id="0d638a4d-420d-49a3-84ec-fe9fec0ba46c" LastKnownName="this : PlayerBackground" />
-            </covered>
-          </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="88b28911-6e3e-424c-928c-d930f9a3e386" name="OperandOccurrenceSpecification24">
-            <elementDefinition Id="684db96e-bf4c-44a8-a541-997913daf622" />
-            <covered>
-              <lifelineMoniker Id="3d01180b-5483-4d1c-b05b-793980a74b52" LastKnownName="Rectangle2 : Rectangle" />
             </covered>
           </operandOccurrenceSpecification>
           <executionOccurrenceSpecification Id="8cc47eec-08fa-47a8-a0cb-4efff59392b1" name="ExecutionOccurrenceSpecification">
@@ -647,7 +627,7 @@
               <messageOccurrenceSpecificationMoniker Id="e6376fe7-8d14-40f6-97fa-e997105c0637" LastKnownName="MessageOccurrenceSpecification" />
             </receiveEvent>
           </message>
-          <message Id="7137f6d8-482e-4606-a2ab-716353e8db6c" name="Create Rectangle" messageKind="Complete" messageSort="CreateMessage" createSelfMessage="false" signatureText="new Rectangle(Rectangle2.X + Texture1.Width - Velocity, Rectangle1.Y, Rectangle1.Width, Rectangle1.Height)">
+          <message Id="7137f6d8-482e-4606-a2ab-716353e8db6c" name="Create Rectangle" messageKind="Complete" messageSort="CreateMessage" createSelfMessage="false" signatureText="new Rectangle(Rectangle2.X + Texture1.Width - Velocity,Rectangle1.Y, Rectangle1.Width, Rectangle1.Height)">
             <elementDefinition Id="95310ff3-7b6c-4160-9c0d-cd4cd414b841" />
             <sendEvent>
               <messageOccurrenceSpecificationMoniker Id="454b807f-2014-44ae-9b71-c17123dbd511" LastKnownName="MessageOccurrenceSpecification" />
@@ -775,5 +755,25 @@
   </packagedElements>
   <package Id="c17178a0-c5e2-4676-8287-95f5aafd660e" name="ScarFlyModelingProject">
     <elementDefinition Id="b10a0c78-71f8-4f2d-933a-10673cb01927" />
+    <profileInstances>
+      <packageHasProfileInstances Id="b6c374a0-dd2a-43ae-9b71-63feff1e2fff">
+        <profileInstance Id="2d6a90f0-7b55-428b-8515-902c032d249a" name="StandardProfileL2">
+          <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+        </profileInstance>
+        <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="5bb43368-ece0-4353-828a-c0688799518a">
+        <profileInstance Id="e44b2383-254b-4e2a-a18c-851ff312e23e" name="StandardProfileL3">
+          <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+        </profileInstance>
+        <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="5a7a72a7-7148-4862-b568-4a6e90034d60">
+        <profileInstance Id="c17e9759-ca17-4a5f-8757-63cb647147b7" name="CSharpProfile">
+          <elementDefinition Id="ee70e2cf-2376-41b0-974f-746add6be42b" />
+        </profileInstance>
+        <elementDefinition Id="8f7ce358-5cfb-4f83-87a0-39e54cb33676" />
+      </packageHasProfileInstances>
+    </profileInstances>
   </package>
 </SequenceDesignerModel>

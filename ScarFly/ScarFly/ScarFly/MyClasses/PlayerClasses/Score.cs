@@ -116,7 +116,7 @@ namespace ScarFly.MyClasses.PlayerClasses
             else if (TotalScore > 25000) { Rank = PlayerRank.Hardcore; }
             else if (TotalScore > 15000) { Rank = PlayerRank.Professional; }
             else if (TotalScore > 7500) { Rank = PlayerRank.Amateur; }
-            else if (TotalScore > 3000) { Rank = PlayerRank.Beginner; }
+            else { Rank = PlayerRank.Beginner; }
         }
 
         public void LoadHighScore()

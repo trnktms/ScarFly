@@ -201,11 +201,11 @@ namespace ScarFly.MyClasses.PlayerClasses
             {
                 switch (selectedModify)
                 {
-                    case 0: spriteBatch.DrawString(Font, "Faster!", new Vector2(10, Consts.PhoneHeight - 40), Consts.PastelGreen);
+                    case 0: spriteBatch.DrawString(Font, "Faster!", new Vector2(10, Consts.PhoneHeight - 40), Color.Gray);
                         break;
-                    case 1: spriteBatch.DrawString(Font, "Slower!", new Vector2(10, Consts.PhoneHeight - 40), Consts.PastelRed);
+                    case 1: spriteBatch.DrawString(Font, "Slower!", new Vector2(10, Consts.PhoneHeight - 40), Color.Gray);
                         break;
-                    case 2: spriteBatch.DrawString(Font, "Eat more!", new Vector2(10, Consts.PhoneHeight - 40), Consts.PastelGreen);
+                    case 2: spriteBatch.DrawString(Font, "Eat more!", new Vector2(10, Consts.PhoneHeight - 40), Color.Gray);
                         break;
                     default:
                         break;

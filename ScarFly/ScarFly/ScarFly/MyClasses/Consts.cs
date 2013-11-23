@@ -11,6 +11,7 @@ namespace ScarFly.MyClasses
     public enum GameState
     {
         Gaming,
+        NetworkGaming,
         InMainMenu,
         InPauseMenu,
         InEndGameMenu,

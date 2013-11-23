@@ -62,6 +62,9 @@
     <Reference Include="Microsoft.Xna.Framework.Input.Touch" />
     <Reference Include="mscorlib" />
     <Reference Include="System" />
+    <Reference Include="System.Runtime.Serialization, Version=2.0.5.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e, processorArchitecture=MSIL" />
+    <Reference Include="System.ServiceModel, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows, Version=2.0.5.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e, processorArchitecture=MSIL" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -80,6 +83,8 @@
     <Compile Include="MyClasses\LevelElementClasses\MoneyIndex.cs" />
     <Compile Include="MyClasses\LevelElementClasses\Moneys.cs" />
     <Compile Include="MyClasses\Consts.cs" />
+    <Compile Include="MyClasses\NetworkClasses\UdpAnySourceMulticastChannel.cs" />
+    <Compile Include="MyClasses\NetworkClasses\UdpPacketReceivedEventArgs.cs" />
     <Compile Include="MyClasses\PlayerClasses\Collosion.cs" />
     <Compile Include="MyClasses\MenuClasses\Menu.cs" />
     <Compile Include="MyClasses\MenuClasses\MenuButton.cs" />
@@ -126,6 +131,7 @@
       <XnaReferenceType>Content</XnaReferenceType>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\Microsoft.Xna.GameStudio.targets" />
   <!--

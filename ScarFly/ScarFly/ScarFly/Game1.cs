@@ -13,6 +13,11 @@ using ScarFly.MyClasses;
 using ScarFly.MyClasses.PlayerClasses;
 using ScarFly.MyClasses.LevelElementClasses;
 using ScarFly.MyClasses.MenuClasses;
+using ScarFly.MyClasses.NetworkClasses;
+using System.Net;
+using System.Net.NetworkInformation;
+using System.Net.Sockets;
+using System.Text;
 
 namespace ScarFly
 {
@@ -20,16 +25,21 @@ namespace ScarFly
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+        SpriteFont baseFont;
 
+        //NOTE: Menu
         Menu mainMenu;
         Menu pauseMenu;
+
         //Menu endGameMenu;
         Menu tutorialMenu;
         List<MenuButton> mainButtons = new List<MenuButton>();
         List<MenuButton> pauseButtons = new List<MenuButton>();
         List<MenuButton> endGameButtons = new List<MenuButton>();
         List<MenuButton> tutorialButtons = new List<MenuButton>();
+        bool firstEntry;
 
+        //NOTE: Gaming
         List<PlayerBackground> backgroundList;
         PlayerBackground backBackground;
         PlayerBackground foreBackground;
@@ -41,7 +51,10 @@ namespace ScarFly
         Collosion collosion;
         GameState gameState;
 
-        bool firstEntry;
+        //NOTE: Network
+        UdpAnySourceMulticastChannel Channel;
+        Guid guid = Guid.NewGuid();
+        string recievedData;
 
         public Game1()
         {
@@ -58,23 +71,19 @@ namespace ScarFly
             graphics.PreferredBackBufferWidth = 800;
             Consts.PhoneWidth = graphics.PreferredBackBufferWidth;
             Consts.PhoneHeight = graphics.PreferredBackBufferHeight;
-
             firstEntry = true;
             gameState = GameState.InMainMenu;
 
             mainButtons = new List<MenuButton>();
-            mainButtons.Add(new MenuButton("Main_Start", "Buttons/StartButton", (Consts.PhoneWidth / 2) + 20, (Consts.PhoneHeight / 2) - 200));
-            mainButtons.Add(new MenuButton("Main_Help", "Buttons/HelpButton", (Consts.PhoneWidth / 2) + 20, (Consts.PhoneHeight / 2) - 200 + 100));
-            mainButtons.Add(new MenuButton("Main_About", "Buttons/AboutButton", (Consts.PhoneWidth / 2) + 20, (Consts.PhoneHeight / 2) - 200 + 200));
+            mainButtons.Add(new MenuButton("Main_Start", "Buttons/StartButton", (Consts.PhoneWidth / 2) + 20, (Consts.PhoneHeight / 2) - 220));
+            mainButtons.Add(new MenuButton("Main_Help", "Buttons/HelpButton", (Consts.PhoneWidth / 2) + 20, (Consts.PhoneHeight / 2) - 220 + 200));
+            mainButtons.Add(new MenuButton("Main_About", "Buttons/AboutButton", (Consts.PhoneWidth / 2) + 20, (Consts.PhoneHeight / 2) - 220 + 300));
+            mainButtons.Add(new MenuButton("Main_Network", "Buttons/NetworkButton", (Consts.PhoneWidth / 2) + 20, (Consts.PhoneHeight / 2) - 220 + 100));
             mainMenu = new Menu(mainButtons);
 
             pauseButtons = new List<MenuButton>();
             pauseButtons.Add(new MenuButton("Pause_Resume", "Buttons/ResumeButton", (Consts.PhoneWidth / 2) - 166, (Consts.PhoneHeight / 2) - 200));
             pauseMenu = new Menu(pauseButtons);
-
-            //endGameButtons = new List<MenuButton>();
-            //endGameButtons.Add(new MenuButton("EndGame_Start", "Buttons/StartButton", (Consts.PhoneWidth / 2) + 20, (Consts.PhoneHeight / 2) - 200));
-            //endGameMenu = new Menu(endGameButtons);
 
             tutorialButtons = new List<MenuButton>();
             tutorialButtons.Add(new MenuButton("Tutorial", "Buttons/Tutorial", 0, 0));
@@ -109,15 +118,37 @@ namespace ScarFly
         protected override void Initialize()
         {
             base.Initialize();
+            InitializeSockets();
             TouchPanel.EnabledGestures = GestureType.Tap | GestureType.None;
         }
+
+        #region Sockets Helper Methods
+
+        void InitializeSockets()
+        {
+            this.Channel = new UdpAnySourceMulticastChannel(IPAddress.Parse("224.109.108.107"), 8080);
+            this.Channel.PacketReceived += new EventHandler<UdpPacketReceivedEventArgs>(Channel_PacketReceived);
+            this.Channel.Open();
+        }
+
+        void Channel_PacketReceived(object sender, UdpPacketReceivedEventArgs e)
+        {
+            recievedData = e.Source.ToString();
+        }
+
+        void SendPosition(string data)
+        {
+            this.Channel.Send(data);
+        }
+
+        #endregion
 
         protected override void LoadContent()
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
+            baseFont = this.Content.Load<SpriteFont>("Fonts/ModifierNotification");
             mainMenu.LoadButtonList(this);
             pauseMenu.LoadButtonList(this);
-            //endGameMenu.LoadButtonList(this);
             tutorialMenu.LoadButtonList(this);
             player.Load(this);
             backBackground.Load(this);
@@ -180,6 +211,10 @@ namespace ScarFly
                         }
                     }
                     break;
+                case GameState.NetworkGaming:
+                    if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed) gameState = GameState.InMainMenu;
+                    SendPosition(guid.ToString());
+                    break;
                 case GameState.InMainMenu:
                     if (firstEntry)
                     {
@@ -231,29 +266,6 @@ namespace ScarFly
                 default:
                     break;
             }
-            //NOTE: END GAME MENU
-            //else if (gameState == GameState.InEndGameMenu)
-            //{
-            //    if (firstEntry)
-            //    {
-            //        endGameMenu = new Menu(endGameButtons);
-            //        player.Score.SaveTotalScore();
-            //        firstEntry = false;
-            //    }
-            //    backBackground.Scroll(this);
-            //    foreBackground.Scroll(this);
-            //    walkPlace.Scroll(this);
-            //    //gameState = endGameMenu.IsTouched(this, TouchPanel.GetState(), gameState, ref firstEntry, spriteBatch);
-
-            //    if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
-            //    {
-            //        Transitions.TransitionCounter = 0;
-            //        Transitions.IsTransition = true;
-            //        gameState = GameState.InMainMenu;
-            //        firstEntry = true;
-            //    }
-            //}
-            //NOTE: TUTORIAL
 
             base.Update(gameTime);
         }
@@ -288,6 +300,12 @@ namespace ScarFly
                 player.Score.DrawGameScore(spriteBatch, color);
                 collosion.Draw(spriteBatch);
             }
+            //NOTE: NETWORK GAMING
+            else if (gameState == GameState.NetworkGaming)
+            {
+                spriteBatch.DrawString(baseFont, "My Guid: " + guid.ToString(), new Vector2(0, 0), Color.White);
+                spriteBatch.DrawString(baseFont, "Other: " + recievedData, new Vector2(0, 30), Color.White);
+            }
             //NOTE: PAUSE MENU
             else if (gameState == GameState.InPauseMenu)
             {
@@ -302,17 +320,6 @@ namespace ScarFly
                 player.Score.DrawGameScore(spriteBatch, color);
                 pauseMenu.DrawButtonList(spriteBatch, color);
             }
-            //NOTE: END GAME MENU
-            //else if (gameState == GameState.InEndGameMenu)
-            //{
-            //    Color color = Color.White;
-            //    Transitions.Transition(ref color);
-            //    backBackground.Draw(spriteBatch, color);
-            //    foreBackground.Draw(spriteBatch, color);
-            //    walkPlace.Draw(spriteBatch, color);
-            //    //endGameMenu.DrawButtonList(spriteBatch, color);
-            //    player.Score.DrawEndGameScores(spriteBatch, color);
-            //}
             //NOTE: TUTORIAL
             else if (gameState == GameState.InTutorial)
             {

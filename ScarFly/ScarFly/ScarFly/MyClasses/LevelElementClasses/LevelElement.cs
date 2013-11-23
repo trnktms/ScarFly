@@ -35,14 +35,14 @@ namespace ScarFly.MyClasses.LevelElementClasses
         public void UpdateRectangle()
         {
             Bound = new Rectangle((int)Position.X, (int)Position.Y, MoveWidth, Texture.Height);
+            _animateCount++;
+            if (_animateCount == MoveCount) { _animateCount = 0; }
         }
 
-        private int _animateCount = 0;
+        private int _animateCount = -1;
         public void Draw(SpriteBatch spriteBatch, Color color)
         {
             spriteBatch.Draw(Texture, Position, new Rectangle((int)(MoveWidth * _animateCount), 0, (int)MoveWidth, (int)Texture.Height), color);
-            _animateCount++;
-            if (_animateCount == MoveCount) { _animateCount = 0; }
         }
     }
 }

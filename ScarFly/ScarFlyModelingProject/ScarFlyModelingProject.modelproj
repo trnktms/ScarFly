@@ -26,6 +26,23 @@
   </PropertyGroup>
   <Import Project="$(VSToolsPath)\ArchitectureTools\Microsoft.VisualStudio.TeamArchitect.ModelingProject.targets" Condition="'$(VSToolsPath)' != ''" />
   <ItemGroup>
+    <Content Include="LevelElement.classdiagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="LevelElement.classdiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>LevelElement.classdiagram</DependentUpon>
+    </Content>
+    <Content Include="LevelElements.classdiagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="LevelElements.classdiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>LevelElements.classdiagram</DependentUpon>
+    </Content>
+    <Content Include="ModelDefinition\Package_1919.uml">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="PlayerBackgroundScroll.sequencediagram">
       <SubType>Content</SubType>
     </Content>

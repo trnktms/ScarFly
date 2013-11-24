@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm9="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner"
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
   dslVersion="1.0.0.0"
   Id="1f5897ff-a983-4baf-b779-2ee52182bea5"
   name="Framework"
@@ -32,34 +32,34 @@
         </referencesInternal>
         <appliedStereotypesInternal>
           <stereotypeInstance
-            Id="894dcca5-d097-4eba-b07a-f23198b9c954"
+            Id="3843f9e4-4ff8-445f-967e-c36f9f5e99c2"
             name="struct"
             profile="CSharpProfile">
             <propertyInstances>
               <stereotypeInstanceHasPropertyInstances
-                Id="2603c752-5802-42ed-971c-510be76b6b0b">
+                Id="705acc94-a08d-4590-8cf5-c67c016473c2">
                 <propertyInstance
-                  Id="a60bf43f-7b2d-4534-b73d-1e1d282d10c6"
+                  Id="765d5547-570c-47a3-b17d-9496508ca2ec"
                   name="ClrAttributes" />
               </stereotypeInstanceHasPropertyInstances>
               <stereotypeInstanceHasPropertyInstances
-                Id="c24a4c4c-4043-4fd3-af78-b37642018e60">
+                Id="91dad46f-850d-41be-af8f-1de7767021dd">
                 <propertyInstance
-                  Id="d0c40e4a-1905-41d3-9ae5-6b61ced28593"
+                  Id="c0ca2df6-b001-412d-8504-1e55ec469fbb"
                   name="IsPartial"
                   value="false" />
               </stereotypeInstanceHasPropertyInstances>
               <stereotypeInstanceHasPropertyInstances
-                Id="6d027e85-4199-4e32-8d2f-49d78b9e2e1e">
+                Id="5d3cf40b-ae19-4b42-b356-847b646f1ea5">
                 <propertyInstance
-                  Id="bcabba98-0339-4ad4-933e-f1cb9c2be5d2"
+                  Id="bd15063b-29ef-4465-a571-bb60960b7fa9"
                   name="IsUnsafe"
                   value="false" />
               </stereotypeInstanceHasPropertyInstances>
               <stereotypeInstanceHasPropertyInstances
-                Id="3eec811e-6f0e-4098-b3b6-272d3da0c5c2">
+                Id="203eaeb7-3478-4fec-a060-411cbb630e1c">
                 <propertyInstance
-                  Id="37dff619-736d-471f-a1c8-1519ea156023"
+                  Id="062dc3db-38e1-430d-8cd1-32f75c1ec328"
                   name="PackageVisibility"
                   value="internal" />
               </stereotypeInstanceHasPropertyInstances>

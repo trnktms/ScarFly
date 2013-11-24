@@ -8,116 +8,175 @@ using System.IO;
 
 namespace ScarFly.MyClasses.NetworkClasses
 {
-    public class UdpAnySourceMulticastChannel : IDisposable
+    public class UdpAnySourceMulticastChannel
     {
-        public UdpAnySourceMulticastChannel(IPAddress address, int port)
-            : this(address, port, 1024)
-        { }
+        private static IPAddress GROUP_ADDRESS = IPAddress.Parse("224.109.108.107");
+        private static int GROUP_PORT = 3007;
 
-        public UdpAnySourceMulticastChannel(IPAddress address, int port, int maxMessageSize)
+        public UdpAnySourceMulticastChannel()
+        {
+            this.GroupClient = new UdpAnySourceMulticastClient(GROUP_ADDRESS, GROUP_PORT);
+            this.ReceiveBuffer = new byte[1024];
+        }
+
+        public UdpAnySourceMulticastChannel(int maxMessageSize)
         {
             this.ReceiveBuffer = new byte[maxMessageSize];
-            this.Client = new UdpAnySourceMulticastClient(address, port);
+            this.GroupClient = new UdpAnySourceMulticastClient(GROUP_ADDRESS, GROUP_PORT);
         }
 
-        public event EventHandler<UdpPacketReceivedEventArgs> PacketReceived;
-        public event EventHandler AfterOpen;
-        public event EventHandler BeforeClose;
-        public bool IsDisposed { get; private set; }
-        public static bool IsJoined;
         private byte[] ReceiveBuffer { get; set; }
-        private UdpAnySourceMulticastClient Client { get; set; }
 
-        public void Dispose()
+        public event EventHandler<UdpPacketReceivedEventArgs> GroupPacketReceived;
+        public bool GroupIsDisposed { get; private set; }
+        public static bool GroupIsJoined;
+        private UdpAnySourceMulticastClient GroupClient { get; set; }
+
+        public event EventHandler<UdpPacketReceivedEventArgs> SinglePacketReceived;
+        public UdpSingleSourceMulticastClient SingleClient { get; set; }
+        public IPEndPoint SingleSourceEndPoint { get; set; }
+        public static bool SingleIsJoined;
+        public bool SingleIsDisposed { get; private set; }
+
+        public void GroupDispose()
         {
-            if (!IsDisposed)
+            if (!GroupIsDisposed)
             {
-                this.IsDisposed = true;
+                this.GroupIsDisposed = true;
 
-                if (this.Client != null)
-                    this.Client.Dispose();
+                if (this.GroupClient != null)
+                    this.GroupClient.Dispose();
             }
         }
 
-        public void Open()
+        public void SingleDispose()
         {
-            if (!IsJoined)
+            if (!SingleIsDisposed)
             {
-                this.Client.BeginJoinGroup(
+                this.SingleIsDisposed = true;
+
+                if (this.SingleClient != null)
+                    this.SingleClient.Dispose();
+            }
+        }
+
+        public void GroupOpen()
+        {
+            if (!GroupIsJoined)
+            {
+                this.GroupClient.BeginJoinGroup(
                     result =>
                     {
-                        try
-                        {
-                            this.Client.EndJoinGroup(result);
-                            IsJoined = true;
-
-                            this.OnAfterOpen();
-                            this.Receive();
-                        }
-                        catch
-                        { }
+                        this.GroupClient.EndJoinGroup(result);
+                        GroupIsJoined = true;
+                        this.GroupClient.MulticastLoopback = false;
+                        this.GroupReceive();
                     }, null);
             }
         }
 
-        public void Close()
+        public void SingleOpen()
         {
-            this.OnBeforeClose();
-            IsJoined = false;
-            this.Dispose();
+            if (!SingleIsJoined)
+            {
+                SingleClient = new UdpSingleSourceMulticastClient(SingleSourceEndPoint.Address, GROUP_ADDRESS, GROUP_PORT);
+                this.SingleClient.BeginJoinGroup(
+                    result =>
+                    {
+                        this.SingleClient.EndJoinGroup(result);
+                        SingleIsJoined = true;
+                        this.SingleClientReceive();
+                    }, null);
+            }
         }
 
-        public void Send(string format, params object[] args)
+        public void GroupClose()
         {
-            if (IsJoined)
+            GroupIsJoined = false;
+            this.GroupDispose();
+        }
+
+        public void SingleClose()
+        {
+            SingleIsJoined = false;
+            this.SingleDispose();
+        }
+
+        public void GroupSend(string format, params object[] args)
+        {
+            if (GroupIsJoined)
             {
                 byte[] data = Encoding.UTF8.GetBytes(string.Format(format, args));
 
-                this.Client.BeginSendToGroup(data, 0, data.Length,
+                this.GroupClient.BeginSendToGroup(data, 0, data.Length,
                     result =>
                     {
-                        this.Client.EndSendToGroup(result);
+                        this.GroupClient.EndSendToGroup(result);
                     }, null);
             }
         }
 
-        public void SendTo(IPEndPoint endPoint, string format, params object[] args)
+        public void SingleSendToSource(string format, params object[] args)
         {
-            if (IsJoined)
+            if (SingleIsJoined)
             {
                 byte[] data = Encoding.UTF8.GetBytes(string.Format(format, args));
-
-                this.Client.BeginSendTo(data, 0, data.Length, endPoint,
+                this.SingleClient.BeginSendToSource(data, 0, data.Length, SingleSourceEndPoint.Port,
                     result =>
                     {
-                        this.Client.EndSendToGroup(result);
+                        this.SingleClient.EndSendToSource(result);
                     }, null);
             }
         }
 
-        private void Receive()
+        private void GroupReceive()
         {
-            if (IsJoined)
+            if (GroupIsJoined)
             {
                 Array.Clear(this.ReceiveBuffer, 0, this.ReceiveBuffer.Length);
-
-                this.Client.BeginReceiveFromGroup(this.ReceiveBuffer, 0, this.ReceiveBuffer.Length,
+                this.GroupClient.BeginReceiveFromGroup(this.ReceiveBuffer, 0, this.ReceiveBuffer.Length,
                     result =>
                     {
-                        if (!IsDisposed)
+                        if (!GroupIsDisposed)
                         {
                             IPEndPoint source;
-
                             try
                             {
-                                this.Client.EndReceiveFromGroup(result, out source);
-                                this.OnReceive(source, this.ReceiveBuffer);
-                                this.Receive();
+                                this.GroupClient.EndReceiveFromGroup(result, out source);
+                                this.GroupOnReceive(source, this.ReceiveBuffer);
+                                this.GroupReceive();
                             }
                             catch
                             {
-                                IsJoined = false;
-                                this.Open();
+                                GroupIsJoined = false;
+                                this.GroupOpen();
+                            }
+                        }
+                    }, null);
+            }
+        }
+
+        private void SingleClientReceive()
+        {
+            if (SingleIsJoined)
+            {
+                Array.Clear(this.ReceiveBuffer, 0, this.ReceiveBuffer.Length);
+                this.SingleClient.BeginReceiveFromSource(this.ReceiveBuffer, 0, this.ReceiveBuffer.Length,
+                    result =>
+                    {
+                        if (!SingleIsDisposed)
+                        {
+                            int source;
+                            try
+                            {
+                                this.SingleClient.EndReceiveFromSource(result, out source);
+                                this.SingleOnReceive(source, this.ReceiveBuffer);
+                                this.SingleClientReceive();
+                            }
+                            catch
+                            {
+                                SingleIsJoined = false;
+                                this.SingleOpen();
                             }
 
                         }
@@ -125,28 +184,18 @@ namespace ScarFly.MyClasses.NetworkClasses
             }
         }
 
-        private void OnReceive(IPEndPoint source, byte[] data)
+        private void GroupOnReceive(IPEndPoint source, byte[] data)
         {
-            EventHandler<UdpPacketReceivedEventArgs> handler = this.PacketReceived;
-
+            EventHandler<UdpPacketReceivedEventArgs> handler = this.GroupPacketReceived;
             if (handler != null)
                 handler(this, new UdpPacketReceivedEventArgs(data, source));
         }
 
-        private void OnAfterOpen()
+        private void SingleOnReceive(int source, byte[] data)
         {
-            EventHandler handler = this.AfterOpen;
-
+            EventHandler<UdpPacketReceivedEventArgs> handler = this.SinglePacketReceived;
             if (handler != null)
-                handler(this, EventArgs.Empty);
-        }
-
-        private void OnBeforeClose()
-        {
-            EventHandler handler = this.BeforeClose;
-
-            if (handler != null)
-                handler(this, EventArgs.Empty);
+                handler(this, new UdpPacketReceivedEventArgs(data, SingleSourceEndPoint));
         }
     }
 }

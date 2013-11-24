@@ -30,7 +30,6 @@ namespace ScarFly
         //NOTE: Menu
         Menu mainMenu;
         Menu pauseMenu;
-
         //Menu endGameMenu;
         Menu tutorialMenu;
         List<MenuButton> mainButtons = new List<MenuButton>();
@@ -74,6 +73,7 @@ namespace ScarFly
             firstEntry = true;
             gameState = GameState.InMainMenu;
 
+            #region MENU
             mainButtons = new List<MenuButton>();
             mainButtons.Add(new MenuButton("Main_Start", "Buttons/StartButton", (Consts.PhoneWidth / 2) + 20, (Consts.PhoneHeight / 2) - 220));
             mainButtons.Add(new MenuButton("Main_Help", "Buttons/HelpButton", (Consts.PhoneWidth / 2) + 20, (Consts.PhoneHeight / 2) - 220 + 200));
@@ -88,7 +88,9 @@ namespace ScarFly
             tutorialButtons = new List<MenuButton>();
             tutorialButtons.Add(new MenuButton("Tutorial", "Buttons/Tutorial", 0, 0));
             tutorialMenu = new Menu(tutorialButtons);
+            #endregion MENU
 
+            #region GAMING
             //player = new Player("Player1", 4, 100, 370, "Player/PaperPlane_v2", "Player/PaperPlane_v2", "Player/PaperPlane_v2", 1, 1, 1);
             player = new Player("Player1", 4, 100, 370, "Player/PaperPlane_v2", 1);
             backBackground = new PlayerBackground("Background/Forest", 1);
@@ -106,6 +108,7 @@ namespace ScarFly
             backgroundList.Add(walkPlace);
 
             collosion = new Collosion(barriers, player, moneys, modifiers, backgroundList);
+            #endregion GAMING
 
             if (!Tutorial.FirstStart()) { gameState = GameState.InTutorial; }
         }
@@ -118,7 +121,6 @@ namespace ScarFly
         protected override void Initialize()
         {
             base.Initialize();
-            InitializeSockets();
             TouchPanel.EnabledGestures = GestureType.Tap | GestureType.None;
         }
 
@@ -126,20 +128,45 @@ namespace ScarFly
 
         void InitializeSockets()
         {
-            this.Channel = new UdpAnySourceMulticastChannel(IPAddress.Parse("224.109.108.107"), 8080);
-            this.Channel.PacketReceived += new EventHandler<UdpPacketReceivedEventArgs>(Channel_PacketReceived);
-            this.Channel.Open();
+            Channel = new UdpAnySourceMulticastChannel();
+            Channel.GroupPacketReceived += new EventHandler<UdpPacketReceivedEventArgs>(Channel_GroupPacketReceived);
+            Channel.SinglePacketReceived += new EventHandler<UdpPacketReceivedEventArgs>(Channel_SinglePacketReceived);
+            Channel.GroupOpen();
         }
 
-        void Channel_PacketReceived(object sender, UdpPacketReceivedEventArgs e)
+        void Channel_SinglePacketReceived(object sender, UdpPacketReceivedEventArgs e)
         {
-            recievedData = e.Source.ToString();
+            recievedData = e.Message.Trim('\0');
+            if (recievedData.Contains(" found you!"))
+            {
+                Channel.GroupClose();
+                Channel.SingleOpen();
+                Channel.SingleSourceEndPoint = e.Source;
+            }
+        }
+
+        void Channel_GroupPacketReceived(object sender, UdpPacketReceivedEventArgs e)
+        {
+            recievedData = e.Message.Trim('\0');
+            Channel.SingleSourceEndPoint = e.Source;
+            if (Channel.SingleSourceEndPoint != null)
+            {
+                Channel.SingleOpen();
+                Channel.GroupClose();
+            }
         }
 
         void SendPosition(string data)
         {
-            this.Channel.Send(data);
-        }
+            if (Channel.SingleSourceEndPoint != null && UdpAnySourceMulticastChannel.SingleIsJoined)
+            {
+                Channel.SingleSendToSource(guid + " found you!");
+            }
+            else
+            {
+                Channel.GroupSend(guid + " is searching pair...");
+            }
+        } 
 
         #endregion
 
@@ -212,6 +239,11 @@ namespace ScarFly
                     }
                     break;
                 case GameState.NetworkGaming:
+                    if (firstEntry)
+                    {
+                        InitializeSockets();
+                        firstEntry = false;
+                    }
                     if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed) gameState = GameState.InMainMenu;
                     SendPosition(guid.ToString());
                     break;

@@ -127,5 +127,63 @@
         </appliedStereotypesInternal>
       </class>
     </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="0bfc0b5c-1512-47a9-b516-b043b5d23ee3"
+        name="SpriteFont"
+        isAbstract="false"
+        isLeaf="true"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="cdc4c06a-218b-476a-b133-34a417747567"
+            handle="viewcode://./CodeSchema_Class?Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2FSilverlight%2Fv4.0%2FProfile%2FWindowsPhone71%2FMicrosoft.Xna.Framework.Graphics.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Graphics Type%3DSpriteFont"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="ab9e291c-386c-42f6-aabe-34e5cedc1298"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="65430e05-14a5-488d-a572-57fd49b13fc6">
+                <propertyInstance
+                  Id="bec3fe98-b1c5-4bb1-917f-4e2a9bca366d"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="5537972e-5194-47b2-8d37-be4d1c45fe80">
+                <propertyInstance
+                  Id="de4879a8-5cc1-4c83-b396-c660ef2ba486"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="56e4f589-627d-4f96-987d-b7fac12f9c70">
+                <propertyInstance
+                  Id="81a4a956-5b9a-4ca8-8841-57625683ee11"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="984ccc9d-8cfd-4ab2-a1a1-e71b5ed1e15b">
+                <propertyInstance
+                  Id="525823c7-84b8-4014-9523-55296d75edef"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="bbbcf2f3-4ad9-4355-a21d-17adca969edd">
+                <propertyInstance
+                  Id="d672297a-cf33-4559-9fe0-af54f2b03dee"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+      </class>
+    </packageHasNamedElement>
   </packagedElements>
 </package>

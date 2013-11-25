@@ -41,7 +41,7 @@ namespace ScarFly.MyClasses.LevelElementClasses
                     {
                         switch (id)
                         {
-                            case "*": ModifierList.Add(new Modifier("LevelElements/Modifier", new ModifierIndex(j, i, id), 20));
+                            case "*": ModifierList.Add(new Modifier("LevelElements/Modifier", new ModifierIndex(j, i, id), 1));
                                 break;
                             default:
                                 break;

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm9="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner"
+<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner"
   dslVersion="1.0.0.0"
   Id="b10a0c78-71f8-4f2d-933a-10673cb01927"
   name="ScarFlyModelingProject" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
@@ -1489,6 +1489,411 @@
     <packageHasNamedElement>
       <executionEvent
         Id="ade20e77-2325-4850-85ea-81524492abae"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <interaction
+        Id="a2d02587-033a-43a9-8997-a895e7fc0aac"
+        name="Collosion_IntersectsPixel"
+        collapseFragmentsFlag="false"
+        isActiveClass="false"
+        isAbstract="false"
+        isLeaf="false"
+        isReentrant="false">
+        <fragments>
+          <behaviorExecutionSpecification
+            Id="4244d676-ca93-454a-891b-36adcd9ee83e"
+            name="BehaviorExecutionSpecification">
+            <coveredLifelines>
+              <lifelineMoniker
+                Id="3bdbf7a6-1588-4301-b84a-62cf1acc0059"
+                LastKnownName="this : Collosion"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </coveredLifelines>
+            <finish>
+              <executionOccurrenceSpecificationMoniker
+                Id="dc6d7f64-2728-4a87-83bb-8cbc6bd874c5"
+                LastKnownName="ExecutionOccurrenceSpecification"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </finish>
+            <start>
+              <executionOccurrenceSpecificationMoniker
+                Id="1696d324-0a3e-4795-b46d-436ffdbedfe5"
+                LastKnownName="ExecutionOccurrenceSpecification"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </start>
+            <nestedOccurrences>
+              <messageOccurrenceSpecificationMoniker
+                Id="2c8d6be2-74c7-415f-a4ff-1cd080d80df5"
+                LastKnownName="MessageOccurrenceSpecification"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+              <operandOccurrenceSpecificationMoniker
+                Id="b2a6a8dc-686e-40e5-ad0b-9d03796386f6"
+                LastKnownName="OperandOccurrenceSpecification1"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+              <operandOccurrenceSpecificationMoniker
+                Id="6a787418-35fd-46ad-8094-bd37364703f2"
+                LastKnownName="OperandOccurrenceSpecification3"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+              <operandOccurrenceSpecificationMoniker
+                Id="652625f3-aba9-43e8-8308-1e8e3180f5a6"
+                LastKnownName="OperandOccurrenceSpecification5"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="37df593f-ee2a-4a13-bd78-d6b5aa581c01"
+                LastKnownName="MessageOccurrenceSpecification"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+              <operandOccurrenceSpecificationMoniker
+                Id="636daf14-0e82-49c1-abcb-a2cb2017e6b3"
+                LastKnownName="OperandOccurrenceSpecification6"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+              <operandOccurrenceSpecificationMoniker
+                Id="2bf9c153-44ce-40e3-a15c-68fe4d0db567"
+                LastKnownName="OperandOccurrenceSpecification4"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+              <operandOccurrenceSpecificationMoniker
+                Id="4eee3526-e17c-4339-b4c8-ed044e8103a8"
+                LastKnownName="OperandOccurrenceSpecification2"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </nestedOccurrences>
+          </behaviorExecutionSpecification>
+          <executionOccurrenceSpecification
+            Id="1696d324-0a3e-4795-b46d-436ffdbedfe5"
+            name="ExecutionOccurrenceSpecification">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="6955e4e6-2228-42d5-8033-d586468cb5c4"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="ScarFlyModelingProject.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="3bdbf7a6-1588-4301-b84a-62cf1acc0059"
+                LastKnownName="this : Collosion"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <lostFoundTarget
+            Id="2b73b01b-45b4-446c-88e7-52d13f2e2c69"
+            name="LostFoundTarget" />
+          <messageOccurrenceSpecification
+            Id="2c8d6be2-74c7-415f-a4ff-1cd080d80df5"
+            name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker
+                Id="3bdbf7a6-1588-4301-b84a-62cf1acc0059"
+                LastKnownName="this : Collosion"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <combinedFragment
+            Id="0e035a55-a5c8-45fe-8bd2-6ccd74a76d31"
+            name="CombinedFragment1"
+            interactionOperator="Loop"
+            customInteractionOperator="Loop">
+            <coveredLifelines>
+              <lifelineMoniker
+                Id="3bdbf7a6-1588-4301-b84a-62cf1acc0059"
+                LastKnownName="this : Collosion"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </coveredLifelines>
+            <operands>
+              <interactionOperand
+                Id="86911900-b93f-46cc-a149-4893cb4aea4c"
+                name="InteractionOperand1">
+                <coveredLifelines>
+                  <lifelineMoniker
+                    Id="3bdbf7a6-1588-4301-b84a-62cf1acc0059"
+                    LastKnownName="this : Collosion"
+                    LastKnownLocation="ScarFlyModelingProject.uml" />
+                </coveredLifelines>
+                <fragments>
+                  <combinedFragment
+                    Id="3804b200-e55f-418c-b37b-3f71efb9b608"
+                    name="CombinedFragment1"
+                    interactionOperator="Loop"
+                    customInteractionOperator="Loop">
+                    <coveredLifelines>
+                      <lifelineMoniker
+                        Id="3bdbf7a6-1588-4301-b84a-62cf1acc0059"
+                        LastKnownName="this : Collosion"
+                        LastKnownLocation="ScarFlyModelingProject.uml" />
+                    </coveredLifelines>
+                    <operands>
+                      <interactionOperand
+                        Id="fb0a4bda-4b68-4eff-832b-98794f1a83f9"
+                        name="InteractionOperand1">
+                        <coveredLifelines>
+                          <lifelineMoniker
+                            Id="3bdbf7a6-1588-4301-b84a-62cf1acc0059"
+                            LastKnownName="this : Collosion"
+                            LastKnownLocation="ScarFlyModelingProject.uml" />
+                        </coveredLifelines>
+                        <fragments>
+                          <combinedFragment
+                            Id="82889bc4-489f-4cec-afcc-8904ee105c89"
+                            name="CombinedFragment1"
+                            interactionOperator="Opt"
+                            customInteractionOperator="If">
+                            <coveredLifelines>
+                              <lifelineMoniker
+                                Id="3bdbf7a6-1588-4301-b84a-62cf1acc0059"
+                                LastKnownName="this : Collosion"
+                                LastKnownLocation="ScarFlyModelingProject.uml" />
+                            </coveredLifelines>
+                            <operands>
+                              <interactionOperand
+                                Id="7fa70666-1f4a-4153-b6b5-c064074b7f1b"
+                                name="InteractionOperand1">
+                                <coveredLifelines>
+                                  <lifelineMoniker
+                                    Id="3bdbf7a6-1588-4301-b84a-62cf1acc0059"
+                                    LastKnownName="this : Collosion"
+                                    LastKnownLocation="ScarFlyModelingProject.uml" />
+                                </coveredLifelines>
+                                <guard>
+                                  <interactionConstraint
+                                    Id="2a277736-ddfd-41dc-94d8-82a22dfc78cc"
+                                    guardText="if (color1.A != 0 &amp;&amp; color2.A != 0)" />
+                                </guard>
+                                <operandOccurrenceSpecifications>
+                                  <operandOccurrenceSpecificationMoniker
+                                    Id="652625f3-aba9-43e8-8308-1e8e3180f5a6"
+                                    LastKnownName="OperandOccurrenceSpecification5"
+                                    LastKnownLocation="ScarFlyModelingProject.uml" />
+                                  <operandOccurrenceSpecificationMoniker
+                                    Id="636daf14-0e82-49c1-abcb-a2cb2017e6b3"
+                                    LastKnownName="OperandOccurrenceSpecification6"
+                                    LastKnownLocation="ScarFlyModelingProject.uml" />
+                                </operandOccurrenceSpecifications>
+                              </interactionOperand>
+                            </operands>
+                          </combinedFragment>
+                        </fragments>
+                        <guard>
+                          <interactionConstraint
+                            Id="db539c89-ab68-464f-bff9-98321ae72930"
+                            guardText="for (int x = left;x &lt; right; x++)">
+                            <maxInt>
+                              <literalString
+                                Id="2c91100b-79e4-4038-9d91-9d24db0cee1d"
+                                name="LiteralString1" />
+                            </maxInt>
+                            <minInt>
+                              <literalString
+                                Id="aeff5ac1-6535-4a61-971d-0647412262f9"
+                                name="LiteralString2" />
+                            </minInt>
+                          </interactionConstraint>
+                        </guard>
+                        <operandOccurrenceSpecifications>
+                          <operandOccurrenceSpecificationMoniker
+                            Id="6a787418-35fd-46ad-8094-bd37364703f2"
+                            LastKnownName="OperandOccurrenceSpecification3"
+                            LastKnownLocation="ScarFlyModelingProject.uml" />
+                          <operandOccurrenceSpecificationMoniker
+                            Id="2bf9c153-44ce-40e3-a15c-68fe4d0db567"
+                            LastKnownName="OperandOccurrenceSpecification4"
+                            LastKnownLocation="ScarFlyModelingProject.uml" />
+                        </operandOccurrenceSpecifications>
+                      </interactionOperand>
+                    </operands>
+                  </combinedFragment>
+                </fragments>
+                <guard>
+                  <interactionConstraint
+                    Id="b222ed19-01aa-4777-97c7-a11388431c0a"
+                    guardText="for (int y = top;y &lt; bottom; y++)">
+                    <maxInt>
+                      <literalString
+                        Id="5c1f604d-4d2b-4bcd-8f40-c91a6c1ab83f"
+                        name="LiteralString1" />
+                    </maxInt>
+                    <minInt>
+                      <literalString
+                        Id="cad6f87e-6087-48c2-9e1c-91d8f7f0cb98"
+                        name="LiteralString2" />
+                    </minInt>
+                  </interactionConstraint>
+                </guard>
+                <operandOccurrenceSpecifications>
+                  <operandOccurrenceSpecificationMoniker
+                    Id="b2a6a8dc-686e-40e5-ad0b-9d03796386f6"
+                    LastKnownName="OperandOccurrenceSpecification1"
+                    LastKnownLocation="ScarFlyModelingProject.uml" />
+                  <operandOccurrenceSpecificationMoniker
+                    Id="4eee3526-e17c-4339-b4c8-ed044e8103a8"
+                    LastKnownName="OperandOccurrenceSpecification2"
+                    LastKnownLocation="ScarFlyModelingProject.uml" />
+                </operandOccurrenceSpecifications>
+              </interactionOperand>
+            </operands>
+          </combinedFragment>
+          <operandOccurrenceSpecification
+            Id="b2a6a8dc-686e-40e5-ad0b-9d03796386f6"
+            name="OperandOccurrenceSpecification1">
+            <covered>
+              <lifelineMoniker
+                Id="3bdbf7a6-1588-4301-b84a-62cf1acc0059"
+                LastKnownName="this : Collosion"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification
+            Id="6a787418-35fd-46ad-8094-bd37364703f2"
+            name="OperandOccurrenceSpecification3">
+            <covered>
+              <lifelineMoniker
+                Id="3bdbf7a6-1588-4301-b84a-62cf1acc0059"
+                LastKnownName="this : Collosion"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification
+            Id="652625f3-aba9-43e8-8308-1e8e3180f5a6"
+            name="OperandOccurrenceSpecification5">
+            <covered>
+              <lifelineMoniker
+                Id="3bdbf7a6-1588-4301-b84a-62cf1acc0059"
+                LastKnownName="this : Collosion"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="37df593f-ee2a-4a13-bd78-d6b5aa581c01"
+            name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker
+                Id="3bdbf7a6-1588-4301-b84a-62cf1acc0059"
+                LastKnownName="this : Collosion"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <lostFoundTarget
+            Id="54a7aded-9144-42d7-89e0-f93a99f9b421"
+            name="LostFoundTarget" />
+          <operandOccurrenceSpecification
+            Id="636daf14-0e82-49c1-abcb-a2cb2017e6b3"
+            name="OperandOccurrenceSpecification6">
+            <covered>
+              <lifelineMoniker
+                Id="3bdbf7a6-1588-4301-b84a-62cf1acc0059"
+                LastKnownName="this : Collosion"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification
+            Id="2bf9c153-44ce-40e3-a15c-68fe4d0db567"
+            name="OperandOccurrenceSpecification4">
+            <covered>
+              <lifelineMoniker
+                Id="3bdbf7a6-1588-4301-b84a-62cf1acc0059"
+                LastKnownName="this : Collosion"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification
+            Id="4eee3526-e17c-4339-b4c8-ed044e8103a8"
+            name="OperandOccurrenceSpecification2">
+            <covered>
+              <lifelineMoniker
+                Id="3bdbf7a6-1588-4301-b84a-62cf1acc0059"
+                LastKnownName="this : Collosion"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <executionOccurrenceSpecification
+            Id="dc6d7f64-2728-4a87-83bb-8cbc6bd874c5"
+            name="ExecutionOccurrenceSpecification">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="7d0c25ff-7b5b-4437-bc27-d61f41de8dba"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="ScarFlyModelingProject.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="3bdbf7a6-1588-4301-b84a-62cf1acc0059"
+                LastKnownName="this : Collosion"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+        </fragments>
+        <lifelines>
+          <lifeline
+            Id="3bdbf7a6-1588-4301-b84a-62cf1acc0059"
+            name="this : Collosion"
+            isActor="false"
+            lifelineDisplayName="this : Collosion"
+            referencedInstance="(Assembly=&quot;$(fd270f92-4dbc-4aaa-85f3-1e19d50a2358.OutputPathUri)&quot; Namespace=ScarFly.MyClasses.PlayerClasses Type=Collosion ObjectInstance=&quot;Object instance 5&quot;)"
+            referencedType="ScarFly‎.MyClasses‎.PlayerClasses‎.Collosion">
+            <topLevelOccurrences>
+              <executionOccurrenceSpecificationMoniker
+                Id="1696d324-0a3e-4795-b46d-436ffdbedfe5"
+                LastKnownName="ExecutionOccurrenceSpecification"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="dc6d7f64-2728-4a87-83bb-8cbc6bd874c5"
+                LastKnownName="ExecutionOccurrenceSpecification"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </topLevelOccurrences>
+          </lifeline>
+        </lifelines>
+        <messages>
+          <message
+            Id="90d60708-4a57-4a9a-bc0d-e47dc736045f"
+            name="IntersectsPixel"
+            messageKind="Found"
+            messageSort="AsynchCall"
+            createSelfMessage="false">
+            <sendEvent>
+              <lostFoundTargetMoniker
+                Id="2b73b01b-45b4-446c-88e7-52d13f2e2c69"
+                LastKnownName="LostFoundTarget"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="2c8d6be2-74c7-415f-a4ff-1cd080d80df5"
+                LastKnownName="MessageOccurrenceSpecification"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </receiveEvent>
+          </message>
+          <message
+            Id="7aad4a73-b730-4b72-ba45-87be3c120778"
+            name="Return"
+            messageKind="Lost"
+            messageSort="AsynchCall"
+            createSelfMessage="false"
+            signatureText="return true">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="37df593f-ee2a-4a13-bd78-d6b5aa581c01"
+                LastKnownName="MessageOccurrenceSpecification"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <lostFoundTargetMoniker
+                Id="54a7aded-9144-42d7-89e0-f93a99f9b421"
+                LastKnownName="LostFoundTarget"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </receiveEvent>
+          </message>
+        </messages>
+      </interaction>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="6955e4e6-2228-42d5-8033-d586468cb5c4"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="7d0c25ff-7b5b-4437-bc27-d61f41de8dba"
         name="ExecutionEvent" />
     </packageHasNamedElement>
   </packagedElements>

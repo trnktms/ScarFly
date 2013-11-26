@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading;
 using ScarFly.MyClasses.PlayerClasses;
 
-namespace ScarFly.MyClasses
+namespace ScarFly.MyClasses.PlayerClasses
 {
     public enum PlayerStates
     {

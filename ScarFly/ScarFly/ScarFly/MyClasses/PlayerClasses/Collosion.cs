@@ -18,6 +18,7 @@ namespace ScarFly.MyClasses.PlayerClasses
             this.Moneys = moneys;
             this.Modifiers = modifiers;
             this.Backgrounds = backgrounds;
+            this.R = new Random();
         }
 
         public SpriteFont Font { get; set; }
@@ -27,9 +28,15 @@ namespace ScarFly.MyClasses.PlayerClasses
         public Modifiers Modifiers { get; set; }
         public List<PlayerBackground> Backgrounds { get; set; }
 
+        private int selectedModify = -1;
+        private int modifyCounter = 0;
+        private int modifyCounterMax = 400;
+        private bool isModify { get; set; }
+        private Random R;
+
         public void Load(Game1 game) { Font = game.Content.Load<SpriteFont>(Consts.SF_ModifierNotification); }
 
-        public bool CollosionDetectionWithBarrier()
+        private bool CollosionDetectionWithBarrier()
         {
             bool result = false;
             foreach (var barrierItem in Barriers.BarrierList)
@@ -40,7 +47,7 @@ namespace ScarFly.MyClasses.PlayerClasses
             return result;
         }
 
-        public bool CollosionDetectionWithMoney()
+        private bool CollosionDetectionWithMoney()
         {
             bool result = false;
             int i = 0;
@@ -55,7 +62,7 @@ namespace ScarFly.MyClasses.PlayerClasses
             return result;
         }
 
-        public bool CollosionDetectionWithModifier()
+        private bool CollosionDetectionWithModifier()
         {
             bool result = false;
             int i = 0;
@@ -78,7 +85,7 @@ namespace ScarFly.MyClasses.PlayerClasses
             ModifyGame();
         }
 
-        public bool IntersectsPixel(Rectangle rectangle1, Color[] data1, Rectangle rectangle2, Color[] data2)
+        private bool IntersectsPixel(Rectangle rectangle1, Color[] data1, Rectangle rectangle2, Color[] data2)
         {
             int top = Math.Max(rectangle1.Top, rectangle2.Top);
             int bottom = Math.Min(rectangle1.Bottom, rectangle2.Bottom);
@@ -98,15 +105,10 @@ namespace ScarFly.MyClasses.PlayerClasses
             return false;
         }
 
-        private int selectedModify = -1;
-        private int modifyCounter = 0;
-        private int modifyCounterMax = 400;
-        private bool isModify { get; set; }
-        public void ModifyGame()
+        private void ModifyGame()
         {
             if (selectedModify == -1)
             {
-                Random R = new Random();
                 selectedModify = R.Next(0, 3);
             }
 
@@ -123,7 +125,7 @@ namespace ScarFly.MyClasses.PlayerClasses
             }
         }
 
-        public void IncreaseVelocity()
+        private void IncreaseVelocity()
         {
             if (Player.isEatModifier)
             {
@@ -151,7 +153,7 @@ namespace ScarFly.MyClasses.PlayerClasses
             }
         }
 
-        public void DecreaseVelocity()
+        private void DecreaseVelocity()
         {
             if (Player.isEatModifier)
             {
@@ -179,7 +181,7 @@ namespace ScarFly.MyClasses.PlayerClasses
             }
         }
 
-        public void EatMore()
+        private void EatMore()
         {
             if (Player.isEatModifier) { isModify = true; }
             if (isModify)

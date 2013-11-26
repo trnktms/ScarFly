@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<sequenceDesignerDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="Collosion_IntersectsPixel">
+  <SequenceDesignerModelMoniker Id="f2a1228f-0f49-48f6-8e53-7a340f129377" />
+  <nestedChildShapes>
+    <lifelineShape Id="1640d22c-bcf9-44b1-8278-d39f81d5f763" absoluteBounds="1.025, 1, 0.15, 7" visible="true" visualStyleMode="Custom">
+      <lifelineMoniker Id="3346c59e-4557-46d7-9b8e-b42f592511fa" LastKnownName="this : Collosion" />
+      <relativeChildShapes>
+        <lifelineHoverShape Id="0522d0f5-373a-4a54-b4a7-b00bad1963a1" absoluteBounds="1.025, 1, 0, 7">
+          <lifelineMoniker Id="3346c59e-4557-46d7-9b8e-b42f592511fa" LastKnownName="this : Collosion" />
+        </lifelineHoverShape>
+        <umlExecutionSpecificationShape Id="f93b187d-9831-47a2-852e-69f5dd2ead1e" absoluteBounds="1.025, 1.3, 0.15, 3.5640103776007885" customColor="184, 204, 215" visualStyleMode="Modified">
+          <behaviorExecutionSpecificationMoniker Id="293d3dfa-4ef9-4fcb-8239-8a5a22fbf583" LastKnownName="BehaviorExecutionSpecification" />
+        </umlExecutionSpecificationShape>
+        <lostFoundTargetShape Id="6e60161a-ec76-4653-a7c7-0dd08c257fbb" absoluteBounds="0, 1.2, 0.2, 0.2" customColor="89, 89, 89">
+          <lostFoundTargetMoniker Id="45e88f62-d71a-4800-bd15-ece887ebd782" LastKnownName="LostFoundTarget" />
+        </lostFoundTargetShape>
+        <lostFoundTargetShape Id="7be6fb0b-c403-4b49-8a60-a359a9060e64" absoluteBounds="2.0249999999999995, 3.5040103789418935, 0.2, 0.2" customColor="89, 89, 89">
+          <lostFoundTargetMoniker Id="9d71b633-76a2-4af8-b053-548a04a5b25d" LastKnownName="LostFoundTarget" />
+        </lostFoundTargetShape>
+        <umlLifelineHeadShape Id="8acd1cdf-5d53-4851-a682-1c8a0a7d9931" absoluteBounds="0.59999999999999987, 0.6, 1, 0.4" customColor="184, 204, 215" visualStyleMode="Custom">
+          <lifelineMoniker Id="3346c59e-4557-46d7-9b8e-b42f592511fa" LastKnownName="this : Collosion" />
+          <relativeChildShapes />
+        </umlLifelineHeadShape>
+      </relativeChildShapes>
+    </lifelineShape>
+    <combinedFragmentShape Id="ca3b8cdc-17d8-4294-9717-4f424f85fb6d" absoluteBounds="0.22499999925494185, 1.6, 2.6000000134110448, 2.9640103776007884" visible="true" visualStyleMode="Modified">
+      <combinedFragmentMoniker Id="ee876473-1550-4dce-bfbc-0b305abf7b2e" LastKnownName="CombinedFragment1" />
+      <nestedChildShapes>
+        <interactionOperandShape Id="7d213b5f-b09a-4712-8e9a-d1f54c3801f5" absoluteBounds="0.24499999880790702, 1.85, 2.5550000144168732, 2.6940103780478233">
+          <interactionOperandMoniker Id="08453495-e6f8-4d58-9cac-c54d5bed61aa" LastKnownName="InteractionOperand1" />
+          <nestedChildShapes>
+            <combinedFragmentShape Id="808a9b20-2ce9-4ea2-8f11-b10df818d210" absoluteBounds="0.3649999998509883, 2.2680034596472982, 2.3200000122189519, 1.9760069184005253" visible="true" visualStyleMode="Modified">
+              <combinedFragmentMoniker Id="908928fb-2b5d-4d24-8ca1-ef415748f9d0" LastKnownName="CombinedFragment1" />
+              <nestedChildShapes>
+                <interactionOperandShape Id="860efe43-e33a-4390-9e3f-b27e533dad99" absoluteBounds="0.38499999940395346, 2.5180034596472982, 2.2750000132247803, 1.7060069188475602">
+                  <interactionOperandMoniker Id="913993b7-c872-4dba-807a-ee7ef236b333" LastKnownName="InteractionOperand1" />
+                  <nestedChildShapes>
+                    <combinedFragmentShape Id="30be2435-94c4-4bf2-ab85-d742df6be496" absoluteBounds="0.50500000044703475, 2.9360069192945959, 2.040000011026859, 0.98800345920026267" visible="true" visualStyleMode="Modified">
+                      <combinedFragmentMoniker Id="8df2c3fa-0908-44b3-999b-6fa69e2353ac" LastKnownName="CombinedFragment1" />
+                      <nestedChildShapes>
+                        <interactionOperandShape Id="559fe8bb-8ea9-4e3e-b48f-9f06633631f6" absoluteBounds="0.52499999999999991, 3.1860069192945959, 1.9950000120326874, 0.7180034596472975">
+                          <interactionOperandMoniker Id="467b11bf-ec52-44e3-a0e6-c305f4bdd82c" LastKnownName="InteractionOperand1" />
+                        </interactionOperandShape>
+                      </nestedChildShapes>
+                    </combinedFragmentShape>
+                  </nestedChildShapes>
+                </interactionOperandShape>
+              </nestedChildShapes>
+            </combinedFragmentShape>
+          </nestedChildShapes>
+        </interactionOperandShape>
+      </nestedChildShapes>
+    </combinedFragmentShape>
+    <lostFoundMessageConnector edgePoints="[(0.2 : 1.3); (1.025 : 1.3)]" fixedFrom="Caller" fixedTo="Caller" TargetRelationshipDomainClassId="e24617ce-6c7e-4c7d-802a-63014f02e313" customColor="Black" visible="true" visualStyleMode="Modified" messageId="00000000-0000-0000-0000-000000000000">
+      <relativeChildShapes />
+      <nodes>
+        <lostFoundTargetShapeMoniker Id="6e60161a-ec76-4653-a7c7-0dd08c257fbb" />
+        <umlExecutionSpecificationShapeMoniker Id="f93b187d-9831-47a2-852e-69f5dd2ead1e" />
+      </nodes>
+    </lostFoundMessageConnector>
+    <lostFoundMessageConnector edgePoints="[(1.175 : 3.60401037894189); (2.025 : 3.60401037894189)]" fixedFrom="Caller" fixedTo="Caller" TargetRelationshipDomainClassId="e24617ce-6c7e-4c7d-802a-63014f02e313" customColor="Black" visible="true" visualStyleMode="Modified" messageId="00000000-0000-0000-0000-000000000000">
+      <relativeChildShapes />
+      <nodes>
+        <umlExecutionSpecificationShapeMoniker Id="f93b187d-9831-47a2-852e-69f5dd2ead1e" />
+        <lostFoundTargetShapeMoniker Id="7be6fb0b-c403-4b49-8a60-a359a9060e64" />
+      </nodes>
+    </lostFoundMessageConnector>
+  </nestedChildShapes>
+</sequenceDesignerDiagram>

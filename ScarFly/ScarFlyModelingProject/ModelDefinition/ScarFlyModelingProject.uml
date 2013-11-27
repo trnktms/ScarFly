@@ -1896,6 +1896,545 @@
         Id="7d0c25ff-7b5b-4437-bc27-d61f41de8dba"
         name="ExecutionEvent" />
     </packageHasNamedElement>
+    <packageHasNamedElement>
+      <interaction
+        Id="d9b6df26-e6dd-4012-b4c8-a55f8a820e59"
+        name="Transitions_Transition"
+        collapseFragmentsFlag="false"
+        isActiveClass="false"
+        isAbstract="false"
+        isLeaf="false"
+        isReentrant="false">
+        <fragments>
+          <behaviorExecutionSpecification
+            Id="63fcb0e6-c494-43cc-aab3-76daac471745"
+            name="BehaviorExecutionSpecification">
+            <coveredLifelines>
+              <lifelineMoniker
+                Id="aaf04c54-feac-4f5b-9236-7ebbed5ee290"
+                LastKnownName="Transitions"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </coveredLifelines>
+            <finish>
+              <executionOccurrenceSpecificationMoniker
+                Id="5a7fb079-4d31-427d-8e2b-d528a1677e5a"
+                LastKnownName="ExecutionOccurrenceSpecification"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </finish>
+            <start>
+              <executionOccurrenceSpecificationMoniker
+                Id="8938f4a4-e7ca-494c-a05d-bac0ac26d49f"
+                LastKnownName="ExecutionOccurrenceSpecification"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </start>
+            <nestedOccurrences>
+              <messageOccurrenceSpecificationMoniker
+                Id="8a63d9f1-7c17-45bc-8b3d-99989d4a21d0"
+                LastKnownName="MessageOccurrenceSpecification"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+              <operandOccurrenceSpecificationMoniker
+                Id="4ac38250-af33-4e6c-ad6b-84fe76b8cba1"
+                LastKnownName="OperandOccurrenceSpecification1"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+              <operandOccurrenceSpecificationMoniker
+                Id="75d04d39-c3fe-41cd-8761-9e40aec8f398"
+                LastKnownName="OperandOccurrenceSpecification5"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="ef77829c-450e-43eb-a087-9455ee2b5843"
+                LastKnownName="MessageOccurrenceSpecification"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+              <operandOccurrenceSpecificationMoniker
+                Id="4a189e0d-c378-4b7f-9181-fa746e54b391"
+                LastKnownName="OperandOccurrenceSpecification6"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="328c26de-8be1-4317-8171-ee5346d9c893"
+                LastKnownName="MessageOccurrenceSpecification"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="f57755af-e491-43e6-877b-c935e6370e2c"
+                LastKnownName="MessageOccurrenceSpecification"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+              <operandOccurrenceSpecificationMoniker
+                Id="ceba1821-be3b-4121-bd21-15ddd4c4cf44"
+                LastKnownName="OperandOccurrenceSpecification2"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </nestedOccurrences>
+          </behaviorExecutionSpecification>
+          <executionOccurrenceSpecification
+            Id="8938f4a4-e7ca-494c-a05d-bac0ac26d49f"
+            name="ExecutionOccurrenceSpecification">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="4d2dfd7d-6ade-4bb2-bbb4-486304f1a2e9"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="ScarFlyModelingProject.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="aaf04c54-feac-4f5b-9236-7ebbed5ee290"
+                LastKnownName="Transitions"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <lostFoundTarget
+            Id="d28f01fc-76e8-4ab0-89a8-6ed8b89b3c57"
+            name="LostFoundTarget" />
+          <messageOccurrenceSpecification
+            Id="8a63d9f1-7c17-45bc-8b3d-99989d4a21d0"
+            name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker
+                Id="aaf04c54-feac-4f5b-9236-7ebbed5ee290"
+                LastKnownName="Transitions"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <combinedFragment
+            Id="809fb851-5606-42d0-a6ba-895c4ed41e5a"
+            name="CombinedFragment1"
+            interactionOperator="Opt"
+            customInteractionOperator="If">
+            <coveredLifelines>
+              <lifelineMoniker
+                Id="aaf04c54-feac-4f5b-9236-7ebbed5ee290"
+                LastKnownName="Transitions"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+              <lifelineMoniker
+                Id="795fe53c-26fb-4658-9b72-968c8cefb5db"
+                LastKnownName="color : Color"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </coveredLifelines>
+            <operands>
+              <interactionOperand
+                Id="deea22c4-a00b-4a89-949b-94ac06d47e6c"
+                name="InteractionOperand1">
+                <coveredLifelines>
+                  <lifelineMoniker
+                    Id="aaf04c54-feac-4f5b-9236-7ebbed5ee290"
+                    LastKnownName="Transitions"
+                    LastKnownLocation="ScarFlyModelingProject.uml" />
+                  <lifelineMoniker
+                    Id="795fe53c-26fb-4658-9b72-968c8cefb5db"
+                    LastKnownName="color : Color"
+                    LastKnownLocation="ScarFlyModelingProject.uml" />
+                </coveredLifelines>
+                <fragments>
+                  <combinedFragment
+                    Id="6d12dc34-4a8f-402c-a163-86ae8af51511"
+                    name="CombinedFragment1"
+                    interactionOperator="Opt"
+                    customInteractionOperator="If">
+                    <coveredLifelines>
+                      <lifelineMoniker
+                        Id="aaf04c54-feac-4f5b-9236-7ebbed5ee290"
+                        LastKnownName="Transitions"
+                        LastKnownLocation="ScarFlyModelingProject.uml" />
+                    </coveredLifelines>
+                    <operands>
+                      <interactionOperand
+                        Id="3f37c4a4-367c-4ca7-a51c-f4ae0a225d13"
+                        name="InteractionOperand1">
+                        <coveredLifelines>
+                          <lifelineMoniker
+                            Id="aaf04c54-feac-4f5b-9236-7ebbed5ee290"
+                            LastKnownName="Transitions"
+                            LastKnownLocation="ScarFlyModelingProject.uml" />
+                        </coveredLifelines>
+                        <guard>
+                          <interactionConstraint
+                            Id="29a6f62e-870d-4c09-875a-79bdd0b1a546"
+                            guardText="if (TransitionCounter &gt;= 254)" />
+                        </guard>
+                        <operandOccurrenceSpecifications>
+                          <operandOccurrenceSpecificationMoniker
+                            Id="75d04d39-c3fe-41cd-8761-9e40aec8f398"
+                            LastKnownName="OperandOccurrenceSpecification5"
+                            LastKnownLocation="ScarFlyModelingProject.uml" />
+                          <operandOccurrenceSpecificationMoniker
+                            Id="4a189e0d-c378-4b7f-9181-fa746e54b391"
+                            LastKnownName="OperandOccurrenceSpecification6"
+                            LastKnownLocation="ScarFlyModelingProject.uml" />
+                        </operandOccurrenceSpecifications>
+                      </interactionOperand>
+                    </operands>
+                  </combinedFragment>
+                </fragments>
+                <guard>
+                  <interactionConstraint
+                    Id="464c5d69-00c5-4de0-8736-74fcaeef9523"
+                    guardText="if (IsTransition)" />
+                </guard>
+                <operandOccurrenceSpecifications>
+                  <operandOccurrenceSpecificationMoniker
+                    Id="4ac38250-af33-4e6c-ad6b-84fe76b8cba1"
+                    LastKnownName="OperandOccurrenceSpecification1"
+                    LastKnownLocation="ScarFlyModelingProject.uml" />
+                  <operandOccurrenceSpecificationMoniker
+                    Id="ceba1821-be3b-4121-bd21-15ddd4c4cf44"
+                    LastKnownName="OperandOccurrenceSpecification2"
+                    LastKnownLocation="ScarFlyModelingProject.uml" />
+                  <operandOccurrenceSpecificationMoniker
+                    Id="26d7e6f3-1b30-4831-bc2f-c4198f7088f4"
+                    LastKnownName="OperandOccurrenceSpecification3"
+                    LastKnownLocation="ScarFlyModelingProject.uml" />
+                  <operandOccurrenceSpecificationMoniker
+                    Id="a1676626-74d7-4441-a687-4a71d42a7e00"
+                    LastKnownName="OperandOccurrenceSpecification4"
+                    LastKnownLocation="ScarFlyModelingProject.uml" />
+                </operandOccurrenceSpecifications>
+              </interactionOperand>
+            </operands>
+          </combinedFragment>
+          <operandOccurrenceSpecification
+            Id="4ac38250-af33-4e6c-ad6b-84fe76b8cba1"
+            name="OperandOccurrenceSpecification1">
+            <covered>
+              <lifelineMoniker
+                Id="aaf04c54-feac-4f5b-9236-7ebbed5ee290"
+                LastKnownName="Transitions"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification
+            Id="26d7e6f3-1b30-4831-bc2f-c4198f7088f4"
+            name="OperandOccurrenceSpecification3">
+            <covered>
+              <lifelineMoniker
+                Id="795fe53c-26fb-4658-9b72-968c8cefb5db"
+                LastKnownName="color : Color"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification
+            Id="75d04d39-c3fe-41cd-8761-9e40aec8f398"
+            name="OperandOccurrenceSpecification5">
+            <covered>
+              <lifelineMoniker
+                Id="aaf04c54-feac-4f5b-9236-7ebbed5ee290"
+                LastKnownName="Transitions"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="ef77829c-450e-43eb-a087-9455ee2b5843"
+            name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker
+                Id="aaf04c54-feac-4f5b-9236-7ebbed5ee290"
+                LastKnownName="Transitions"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <lostFoundTarget
+            Id="121e20c4-89f1-4fdc-a1a7-8d16846cb142"
+            name="LostFoundTarget" />
+          <operandOccurrenceSpecification
+            Id="4a189e0d-c378-4b7f-9181-fa746e54b391"
+            name="OperandOccurrenceSpecification6">
+            <covered>
+              <lifelineMoniker
+                Id="aaf04c54-feac-4f5b-9236-7ebbed5ee290"
+                LastKnownName="Transitions"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <behaviorExecutionSpecification
+            Id="0bc3c715-faed-4853-8f2d-748519f139ba"
+            name="BehaviorExecutionSpecification">
+            <coveredLifelines>
+              <lifelineMoniker
+                Id="795fe53c-26fb-4658-9b72-968c8cefb5db"
+                LastKnownName="color : Color"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </coveredLifelines>
+            <finish>
+              <executionOccurrenceSpecificationMoniker
+                Id="434e8c72-27cc-4884-8b55-86e7b10fbcc4"
+                LastKnownName="ExecutionOccurrenceSpecification"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </finish>
+            <start>
+              <executionOccurrenceSpecificationMoniker
+                Id="062dd95c-0c3b-4026-8946-a58939166ab4"
+                LastKnownName="ExecutionOccurrenceSpecification"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </start>
+            <nestedOccurrences>
+              <messageOccurrenceSpecificationMoniker
+                Id="0abb013d-b02e-4a7a-b578-c1fa046feb76"
+                LastKnownName="MessageOccurrenceSpecification"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="92606b15-cf55-4b82-9aeb-d0ab4180d9c4"
+                LastKnownName="MessageOccurrenceSpecification"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </nestedOccurrences>
+          </behaviorExecutionSpecification>
+          <executionOccurrenceSpecification
+            Id="062dd95c-0c3b-4026-8946-a58939166ab4"
+            name="ExecutionOccurrenceSpecification">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="5f6c503a-9a85-48df-9587-bc3a70b2c316"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="ScarFlyModelingProject.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="795fe53c-26fb-4658-9b72-968c8cefb5db"
+                LastKnownName="color : Color"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="328c26de-8be1-4317-8171-ee5346d9c893"
+            name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker
+                Id="aaf04c54-feac-4f5b-9236-7ebbed5ee290"
+                LastKnownName="Transitions"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="0abb013d-b02e-4a7a-b578-c1fa046feb76"
+            name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker
+                Id="795fe53c-26fb-4658-9b72-968c8cefb5db"
+                LastKnownName="color : Color"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="92606b15-cf55-4b82-9aeb-d0ab4180d9c4"
+            name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker
+                Id="795fe53c-26fb-4658-9b72-968c8cefb5db"
+                LastKnownName="color : Color"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="f57755af-e491-43e6-877b-c935e6370e2c"
+            name="MessageOccurrenceSpecification">
+            <covered>
+              <lifelineMoniker
+                Id="aaf04c54-feac-4f5b-9236-7ebbed5ee290"
+                LastKnownName="Transitions"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <executionOccurrenceSpecification
+            Id="434e8c72-27cc-4884-8b55-86e7b10fbcc4"
+            name="ExecutionOccurrenceSpecification">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="21c1cf7a-f4a0-426c-93b6-b8565df4b877"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="ScarFlyModelingProject.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="795fe53c-26fb-4658-9b72-968c8cefb5db"
+                LastKnownName="color : Color"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <operandOccurrenceSpecification
+            Id="a1676626-74d7-4441-a687-4a71d42a7e00"
+            name="OperandOccurrenceSpecification4">
+            <covered>
+              <lifelineMoniker
+                Id="795fe53c-26fb-4658-9b72-968c8cefb5db"
+                LastKnownName="color : Color"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification
+            Id="ceba1821-be3b-4121-bd21-15ddd4c4cf44"
+            name="OperandOccurrenceSpecification2">
+            <covered>
+              <lifelineMoniker
+                Id="aaf04c54-feac-4f5b-9236-7ebbed5ee290"
+                LastKnownName="Transitions"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <executionOccurrenceSpecification
+            Id="5a7fb079-4d31-427d-8e2b-d528a1677e5a"
+            name="ExecutionOccurrenceSpecification">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="ebc2b57c-2488-41c0-9a9e-afad37b78cb7"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="ScarFlyModelingProject.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="aaf04c54-feac-4f5b-9236-7ebbed5ee290"
+                LastKnownName="Transitions"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+        </fragments>
+        <lifelines>
+          <lifeline
+            Id="aaf04c54-feac-4f5b-9236-7ebbed5ee290"
+            name="Transitions"
+            isActor="false"
+            lifelineDisplayName="Transitions"
+            referencedType="ScarFly‎.MyClasses‎.Transitions">
+            <topLevelOccurrences>
+              <executionOccurrenceSpecificationMoniker
+                Id="8938f4a4-e7ca-494c-a05d-bac0ac26d49f"
+                LastKnownName="ExecutionOccurrenceSpecification"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="5a7fb079-4d31-427d-8e2b-d528a1677e5a"
+                LastKnownName="ExecutionOccurrenceSpecification"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </topLevelOccurrences>
+          </lifeline>
+          <lifeline
+            Id="795fe53c-26fb-4658-9b72-968c8cefb5db"
+            name="color : Color"
+            isActor="false"
+            lifelineDisplayName="color : Color"
+            referencedInstance="(Assembly=&quot;$(FxReferenceAssembliesUri)/Silverlight/v4.0/Profile/WindowsPhone71/Microsoft.Xna.Framework.dll&quot; Namespace=Microsoft.Xna.Framework Type=Color ObjectInstance=&quot;Object instance 8&quot;)"
+            referencedType="Microsoft‎.Xna‎.Framework‎.Color">
+            <topLevelOccurrences>
+              <operandOccurrenceSpecificationMoniker
+                Id="26d7e6f3-1b30-4831-bc2f-c4198f7088f4"
+                LastKnownName="OperandOccurrenceSpecification3"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="062dd95c-0c3b-4026-8946-a58939166ab4"
+                LastKnownName="ExecutionOccurrenceSpecification"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="434e8c72-27cc-4884-8b55-86e7b10fbcc4"
+                LastKnownName="ExecutionOccurrenceSpecification"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+              <operandOccurrenceSpecificationMoniker
+                Id="a1676626-74d7-4441-a687-4a71d42a7e00"
+                LastKnownName="OperandOccurrenceSpecification4"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </topLevelOccurrences>
+          </lifeline>
+        </lifelines>
+        <messages>
+          <message
+            Id="984bf5ec-f6b1-4a1e-a150-9a5e50c96ea7"
+            name="Transition"
+            messageKind="Found"
+            messageSort="AsynchCall"
+            createSelfMessage="false">
+            <sendEvent>
+              <lostFoundTargetMoniker
+                Id="d28f01fc-76e8-4ab0-89a8-6ed8b89b3c57"
+                LastKnownName="LostFoundTarget"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="8a63d9f1-7c17-45bc-8b3d-99989d4a21d0"
+                LastKnownName="MessageOccurrenceSpecification"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </receiveEvent>
+          </message>
+          <message
+            Id="de5f7d32-cbca-4470-8d9d-70bc9e9e8438"
+            name="Return"
+            messageKind="Lost"
+            messageSort="AsynchCall"
+            createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="ef77829c-450e-43eb-a087-9455ee2b5843"
+                LastKnownName="MessageOccurrenceSpecification"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <lostFoundTargetMoniker
+                Id="121e20c4-89f1-4fdc-a1a7-8d16846cb142"
+                LastKnownName="LostFoundTarget"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </receiveEvent>
+          </message>
+          <message
+            Id="f2f5ef82-fa68-4e83-9189-729514731478"
+            name="Create Color"
+            messageKind="Complete"
+            messageSort="CreateMessage"
+            createSelfMessage="false"
+            signatureText="new Color(TransitionCounter, TransitionCounter, TransitionCounter)">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="328c26de-8be1-4317-8171-ee5346d9c893"
+                LastKnownName="MessageOccurrenceSpecification"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="0abb013d-b02e-4a7a-b578-c1fa046feb76"
+                LastKnownName="MessageOccurrenceSpecification"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </receiveEvent>
+          </message>
+          <message
+            Id="b38f46f7-e795-4131-be0a-4f08e749beda"
+            name="&lt;&lt;return&gt;&gt;"
+            messageKind="Complete"
+            messageSort="Reply"
+            createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="92606b15-cf55-4b82-9aeb-d0ab4180d9c4"
+                LastKnownName="MessageOccurrenceSpecification"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="f57755af-e491-43e6-877b-c935e6370e2c"
+                LastKnownName="MessageOccurrenceSpecification"
+                LastKnownLocation="ScarFlyModelingProject.uml" />
+            </receiveEvent>
+          </message>
+        </messages>
+      </interaction>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="4d2dfd7d-6ade-4bb2-bbb4-486304f1a2e9"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="ebc2b57c-2488-41c0-9a9e-afad37b78cb7"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="5f6c503a-9a85-48df-9587-bc3a70b2c316"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="21c1cf7a-f4a0-426c-93b6-b8565df4b877"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
   </packagedElements>
   <primitiveType
     Id="220a3521-e091-4221-bae9-3ef9018e845c"

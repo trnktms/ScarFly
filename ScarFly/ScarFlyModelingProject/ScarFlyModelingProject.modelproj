@@ -88,6 +88,13 @@
       <SubType>Content</SubType>
       <DependentUpon>PlayerBackground.classdiagram</DependentUpon>
     </Content>
+    <Content Include="Transitions_Transition.sequencediagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Transitions_Transition.sequencediagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>Transitions_Transition.sequencediagram</DependentUpon>
+    </Content>
     <Folder Include="ModelDefinition\" />
     <Content Include="Menu.classdiagram">
       <SubType>Content</SubType>

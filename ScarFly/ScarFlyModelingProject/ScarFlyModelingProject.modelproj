@@ -54,6 +54,9 @@
       <SubType>Content</SubType>
       <DependentUpon>Collosion_IntersectsPixel.sequencediagram</DependentUpon>
     </Content>
+    <Content Include="Graph1.dgml">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="LevelElement.classdiagram">
       <SubType>Content</SubType>
     </Content>

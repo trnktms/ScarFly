@@ -29,13 +29,13 @@ namespace ScarFly.MyClasses.NetworkClasses
 
         public event EventHandler<UdpPacketReceivedEventArgs> GroupPacketReceived;
         public bool GroupIsDisposed { get; private set; }
-        public static bool GroupIsJoined;
+        public bool GroupIsJoined { get; set; }
         private UdpAnySourceMulticastClient GroupClient { get; set; }
 
         public event EventHandler<UdpPacketReceivedEventArgs> SinglePacketReceived;
         public UdpSingleSourceMulticastClient SingleClient { get; set; }
         public IPEndPoint SingleSourceEndPoint { get; set; }
-        public static bool SingleIsJoined;
+        public bool SingleIsJoined { get; set; }
         public bool SingleIsDisposed { get; private set; }
 
         public void GroupDispose()
@@ -111,7 +111,14 @@ namespace ScarFly.MyClasses.NetworkClasses
                 this.GroupClient.BeginSendToGroup(data, 0, data.Length,
                     result =>
                     {
-                        this.GroupClient.EndSendToGroup(result);
+                        try
+                        {
+                            this.GroupClient.EndSendToGroup(result);
+                        }
+                        catch (SocketException e)
+                        {
+                            if (e.ErrorCode == 995) { GroupClose(); }
+                        }
                     }, null);
             }
         }
@@ -124,7 +131,14 @@ namespace ScarFly.MyClasses.NetworkClasses
                 this.SingleClient.BeginSendToSource(data, 0, data.Length, SingleSourceEndPoint.Port,
                     result =>
                     {
-                        this.SingleClient.EndSendToSource(result);
+                        try
+                        {
+                            this.SingleClient.EndSendToSource(result);
+                        }
+                        catch (SocketException e)
+                        {
+                            if (e.ErrorCode == 995) { SingleClose(); }
+                        }
                     }, null);
             }
         }
@@ -178,7 +192,6 @@ namespace ScarFly.MyClasses.NetworkClasses
                                 SingleIsJoined = false;
                                 this.SingleOpen();
                             }
-
                         }
                     }, null);
             }

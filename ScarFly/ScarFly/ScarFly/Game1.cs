@@ -51,12 +51,11 @@ namespace ScarFly
         GameState gameState;
 
         //NOTE: Network
-        UdpAnySourceMulticastChannel Channel;
-        Guid guid = Guid.NewGuid();
-        string recievedData;
+        NetworkHelper networkHelper;
 
         public Game1()
         {
+            #region Init
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             // Frame rate is 30 fps by default for Windows Phone.
@@ -72,6 +71,7 @@ namespace ScarFly
             Consts.PhoneHeight = graphics.PreferredBackBufferHeight;
             firstEntry = true;
             gameState = GameState.InMainMenu;
+            #endregion Init
 
             #region MENU
             mainButtons = new List<MenuButton>();
@@ -108,6 +108,8 @@ namespace ScarFly
             backgroundList.Add(walkPlace);
 
             collosion = new Collosion(barriers, player, moneys, modifiers, backgroundList);
+
+            networkHelper = new NetworkHelper();
             #endregion GAMING
 
             if (!Tutorial.FirstStart()) { gameState = GameState.InTutorial; }
@@ -124,60 +126,15 @@ namespace ScarFly
             TouchPanel.EnabledGestures = GestureType.Tap | GestureType.None;
         }
 
-        #region Sockets Helper Methods
-
-        void InitializeSockets()
-        {
-            Channel = new UdpAnySourceMulticastChannel();
-            Channel.GroupPacketReceived += new EventHandler<UdpPacketReceivedEventArgs>(Channel_GroupPacketReceived);
-            Channel.SinglePacketReceived += new EventHandler<UdpPacketReceivedEventArgs>(Channel_SinglePacketReceived);
-            Channel.GroupOpen();
-        }
-
-        void Channel_SinglePacketReceived(object sender, UdpPacketReceivedEventArgs e)
-        {
-            recievedData = e.Message.Trim('\0');
-            if (recievedData.Contains(" found you!"))
-            {
-                Channel.GroupClose();
-                Channel.SingleOpen();
-                Channel.SingleSourceEndPoint = e.Source;
-            }
-        }
-
-        void Channel_GroupPacketReceived(object sender, UdpPacketReceivedEventArgs e)
-        {
-            recievedData = e.Message.Trim('\0');
-            Channel.SingleSourceEndPoint = e.Source;
-            if (Channel.SingleSourceEndPoint != null)
-            {
-                Channel.SingleOpen();
-                Channel.GroupClose();
-            }
-        }
-
-        void SendPosition(string data)
-        {
-            if (Channel.SingleSourceEndPoint != null && UdpAnySourceMulticastChannel.SingleIsJoined)
-            {
-                Channel.SingleSendToSource(guid + " found you!");
-            }
-            else
-            {
-                Channel.GroupSend(guid + " is searching pair...");
-            }
-        } 
-
-        #endregion
-
         protected override void LoadContent()
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
-            baseFont = this.Content.Load<SpriteFont>("Fonts/ModifierNotification");
+            baseFont = this.Content.Load<SpriteFont>(Consts.SF_GameScore);
             mainMenu.LoadButtonList(this);
             pauseMenu.LoadButtonList(this);
             tutorialMenu.LoadButtonList(this);
             player.Load(this);
+            networkHelper.OtherPlayer.Load(this);
             backBackground.Load(this);
             foreBackground.Load(this);
             walkPlace.Load(this);
@@ -196,6 +153,7 @@ namespace ScarFly
         {
             switch (gameState)
             {
+                #region Gaming
                 case GameState.Gaming:
                     if (firstEntry)
                     {
@@ -238,15 +196,85 @@ namespace ScarFly
                         }
                     }
                     break;
+                #endregion Gaming
+                #region NetworkSearch
+                case GameState.NetworkSearch:
+                    if (firstEntry)
+                    {
+                        networkHelper.InitializeSockets();
+                        networkHelper.SendedData = "0";
+                        firstEntry = false;
+                    }
+                    else
+                    {
+                        networkHelper.SendData();
+                        if (networkHelper.Channel.SingleIsJoined)
+                        {
+                            gameState = GameState.NetworkGaming;
+                            Transitions.ChangeGameState(ref firstEntry);
+                        }
+                        if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
+                        {
+                            gameState = GameState.InMainMenu;
+                            networkHelper.Channel.GroupClose();
+                            networkHelper.Channel.SingleClose();
+                            Transitions.ChangeGameState(ref firstEntry);
+                        }
+                    }
+                    break;
+                #endregion NetworkSearch
+                #region NetworkGaming
                 case GameState.NetworkGaming:
                     if (firstEntry)
                     {
-                        InitializeSockets();
+                        foreach (PlayerBackground item in backgroundList) { item.RePosition(); }
+                        string level = "level_1";
+                        barriers = new Barriers(level, 4);
+                        barriers.Load(this);
+                        moneys = new Moneys(level, 4);
+                        moneys.Load(this);
+                        modifiers = new Modifiers(level, 4);
+                        modifiers.Load(this);
+                        player.RePosition();
+                        collosion = new Collosion(barriers, player, moneys, modifiers, backgroundList);
+                        collosion.Load(this);
                         firstEntry = false;
                     }
-                    if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed) gameState = GameState.InMainMenu;
-                    SendPosition(guid.ToString());
+                    else
+                    {
+                        if (networkHelper.RecievedData != "0")
+                        {
+                            player.Update();
+                            if (moneys.GetActualMoneyList().Count != 0 && moneys.GetActualMoneyList().LastOrDefault().Index.ID == "!")
+                            {
+                                player.isEnd = true;
+                                if (player.Position.X >= Consts.PhoneWidth)
+                                {
+                                    Transitions.ChangeGameState(ref firstEntry);
+                                    gameState = GameState.InEndGameMenu;
+                                }
+                            }
+                            backBackground.Scroll(this);
+                            foreBackground.Scroll(this);
+                            walkPlace.Scroll(this);
+                            barriers.Scroll(this);
+                            moneys.Scroll(this);
+                            modifiers.Scroll(this);
+                            collosion.Update();
+                        }
+                        networkHelper.SendedData = string.Format("{0},{1},{2},{3}", player.Position.X, player.Position.Y,player.Velocity, player.Score.GameScore);
+                        networkHelper.SendData();
+                        if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
+                        {
+                            gameState = GameState.InMainMenu;
+                            networkHelper.Channel.GroupClose();
+                            networkHelper.Channel.SingleClose();
+                            firstEntry = true;
+                        }
+                    }
                     break;
+                #endregion NetworkGaming
+                #region InMainMenu
                 case GameState.InMainMenu:
                     if (firstEntry)
                     {
@@ -265,6 +293,8 @@ namespace ScarFly
                     gameState = mainMenu.IsTouched(this, TouchPanel.GetState(), gameState, ref firstEntry, spriteBatch);
                     if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed) this.Exit();
                     break;
+                #endregion InMainMenu
+                #region InPauseMenu
                 case GameState.InPauseMenu:
                     if (firstEntry)
                     {
@@ -279,6 +309,8 @@ namespace ScarFly
                         gameState = GameState.InMainMenu;
                     }
                     break;
+                #endregion InPauseMenu
+                #region InTutorial
                 case GameState.InTutorial:
                     backBackground.Scroll(this);
                     foreBackground.Scroll(this);
@@ -290,11 +322,14 @@ namespace ScarFly
                         gameState = GameState.InMainMenu;
                     }
                     break;
+                #endregion InTutorial
+                #region InEndGameMenu
                 case GameState.InEndGameMenu:
                     player.Score.SaveTotalScore();
                     player.Score.SaveHighScore();
                     gameState = GameState.InMainMenu;
                     break;
+                #endregion InEndGameMenu
                 default:
                     break;
             }
@@ -332,11 +367,30 @@ namespace ScarFly
                 player.Score.DrawGameScore(spriteBatch, color);
                 collosion.Draw(spriteBatch);
             }
+            //NOTE: NETWORK SEARCH
+            else if (gameState == GameState.NetworkSearch)
+            {
+                Color color = Color.White;
+                Transitions.Transition(ref color);
+                backBackground.Draw(spriteBatch, color);
+                foreBackground.Draw(spriteBatch, color);
+                spriteBatch.DrawString(baseFont, "Searching player...", new Vector2(0, 0), color);
+            }
             //NOTE: NETWORK GAMING
             else if (gameState == GameState.NetworkGaming)
             {
-                spriteBatch.DrawString(baseFont, "My Guid: " + guid.ToString(), new Vector2(0, 0), Color.White);
-                spriteBatch.DrawString(baseFont, "Other: " + recievedData, new Vector2(0, 30), Color.White);
+                Color color = Color.White;
+                Transitions.Transition(ref color);
+                backBackground.Draw(spriteBatch, color);
+                foreBackground.Draw(spriteBatch, color);
+                player.Draw(spriteBatch, color);
+                networkHelper.OtherPlayer.Draw(spriteBatch, color);
+                barriers.Draw(spriteBatch, color);
+                moneys.Draw(spriteBatch, color);
+                modifiers.Draw(spriteBatch, color);
+                walkPlace.Draw(spriteBatch, color);
+                player.Score.DrawGameScore(spriteBatch, color);
+                collosion.Draw(spriteBatch);
             }
             //NOTE: PAUSE MENU
             else if (gameState == GameState.InPauseMenu)

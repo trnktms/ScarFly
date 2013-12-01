@@ -29,13 +29,15 @@ namespace ScarFly.MyClasses.NetworkClasses
 
         public event EventHandler<UdpPacketReceivedEventArgs> GroupPacketReceived;
         public bool GroupIsDisposed { get; private set; }
-        public bool GroupIsJoined { get; set; }
+        public bool GroupIsJoined { get; private set; }
+        public bool GroupIsJoining { get; private set; }
         private UdpAnySourceMulticastClient GroupClient { get; set; }
 
         public event EventHandler<UdpPacketReceivedEventArgs> SinglePacketReceived;
         public UdpSingleSourceMulticastClient SingleClient { get; set; }
         public IPEndPoint SingleSourceEndPoint { get; set; }
-        public bool SingleIsJoined { get; set; }
+        public bool SingleIsJoined { get; private set; }
+        public bool SingleIsJoining { get; private set; }
         public bool SingleIsDisposed { get; private set; }
 
         public void GroupDispose()
@@ -64,6 +66,7 @@ namespace ScarFly.MyClasses.NetworkClasses
         {
             if (!GroupIsJoined)
             {
+                GroupIsJoining = true;
                 this.GroupClient.BeginJoinGroup(
                     result =>
                     {
@@ -72,6 +75,7 @@ namespace ScarFly.MyClasses.NetworkClasses
                         this.GroupClient.MulticastLoopback = false;
                         this.GroupReceive();
                     }, null);
+                GroupIsJoining = false;
             }
         }
 
@@ -79,6 +83,7 @@ namespace ScarFly.MyClasses.NetworkClasses
         {
             if (!SingleIsJoined)
             {
+                SingleIsJoining = true;
                 SingleClient = new UdpSingleSourceMulticastClient(SingleSourceEndPoint.Address, GROUP_ADDRESS, GROUP_PORT);
                 this.SingleClient.BeginJoinGroup(
                     result =>
@@ -87,6 +92,7 @@ namespace ScarFly.MyClasses.NetworkClasses
                         SingleIsJoined = true;
                         this.SingleClientReceive();
                     }, null);
+                SingleIsJoining = false;
             }
         }
 

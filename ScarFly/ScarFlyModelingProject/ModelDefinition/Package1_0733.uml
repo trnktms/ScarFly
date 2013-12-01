@@ -3939,5 +3939,11 @@
         LastKnownName="LevelElementClasses"
         LastKnownLocation="Package_1919.uml" />
     </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="bb500394-3b1b-458c-a083-72bfa382b100"
+        LastKnownName="NetworkClasses"
+        LastKnownLocation="Package_0920.uml" />
+    </packageHasNamedElement>
   </packagedElements>
 </package>

@@ -22,6 +22,7 @@ namespace ScarFly.MyClasses.NetworkClasses
         public Vector2 Position { get; set; }
         public Texture2D Texture { get; set; }
         public int Score { get; set; }
+        public int Velocity { get; set; }
 
         public void Load(Game1 game)
         {

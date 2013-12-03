@@ -36,23 +36,22 @@ namespace ScarFly.MyClasses.LevelElementClasses
                     int id = 0;
                     if (int.TryParse(rows[i][j].ToString(), out id))
                     {
+                        var barrierAssetName = string.Empty;
                         switch (id)
                         {
-                            case 1: 
-                                BarrierList.Add(
-                                    new Barrier("LevelElements/PinWheelMini",
-                                        new BarrierIndex(j, i, id)
-                                        , 20));
+                            case 1:
+                                barrierAssetName = "LevelElements/PinWheelMini";
                                 break;
-                            case 2: 
-                                BarrierList.Add(
-                                    new Barrier("LevelElements/PinWheelBig",
-                                        new BarrierIndex(j, i, id),
-                                        20));
+                            case 2:
+                                barrierAssetName = "LevelElements/PinWheelBig";
                                 break;
                             default:
                                 break;
                         }
+
+                        BarrierList.Add(new Barrier(barrierAssetName,
+                            new BarrierIndex(j, i, id),
+                            20));
                     }
                 }
             }

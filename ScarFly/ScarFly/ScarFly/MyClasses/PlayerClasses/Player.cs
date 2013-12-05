@@ -61,6 +61,12 @@ namespace ScarFly.MyClasses.PlayerClasses
         public int RunMoveCount { get; set; }
         public int RunMoveWidth { get; set; }
 
+        private const int _max_vy = 8;
+        private int _fall_ay = 1;
+        private int _fly_ay = 1;
+        private int _fall_vy, _fall_sy;
+        private int _fly_vy, _fly_sy;
+
         public void Load(Game1 game) 
         { 
             RunTexture = game.Content.Load<Texture2D>(RunAssetName);
@@ -100,11 +106,6 @@ namespace ScarFly.MyClasses.PlayerClasses
             Animate(spriteBatch, RunMoveCount, color);
         }
 
-        private const int _max_vy = 8;
-        private int _fall_ay = 1;
-        private int _fly_ay = 1;
-        private int _fall_vy, _fall_sy;
-        private int _fly_vy, _fly_sy;
         public void Fall(SpriteBatch spriteBatch, Color color)
         {
             if (_fall_vy < _max_vy) { _fall_vy += _fall_ay; }

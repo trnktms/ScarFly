@@ -41,7 +41,7 @@ namespace ScarFly.MyClasses.PlayerClasses
             bool result = false;
             foreach (var barrierItem in Barriers.BarrierList)
             {
-                result = IntersectsPixel(barrierItem.Bound, barrierItem.ColorData, Player.RunBound, Player.RunColorData);
+                result = IntersectsPixel(barrierItem.Bound, barrierItem.ColorData, Player.RunBound, Player.ColorData);
                 if (result) { return true; }
             }
             return result;
@@ -53,7 +53,7 @@ namespace ScarFly.MyClasses.PlayerClasses
             int i = 0;
             foreach (var moneyItem in Moneys.MoneyList.Where(p => p.Index.ID != "!"))
             {
-                result = IntersectsPixel(moneyItem.Bound, moneyItem.ColorData, Player.RunBound, Player.RunColorData);
+                result = IntersectsPixel(moneyItem.Bound, moneyItem.ColorData, Player.RunBound, Player.ColorData);
                 if (result) { break; }
                 i++;
             }
@@ -68,7 +68,7 @@ namespace ScarFly.MyClasses.PlayerClasses
             int i = 0;
             foreach (var modifierItem in Modifiers.ModifierList.Where(p => p.Index.ID != "!"))
             {
-                result = IntersectsPixel(modifierItem.Bound, modifierItem.ColorData, Player.RunBound, Player.RunColorData);
+                result = IntersectsPixel(modifierItem.Bound, modifierItem.ColorData, Player.RunBound, Player.ColorData);
                 if (result) { break; }
                 i++;
             }

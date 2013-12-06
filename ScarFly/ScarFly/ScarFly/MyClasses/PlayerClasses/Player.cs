@@ -12,7 +12,7 @@ namespace ScarFly.MyClasses.PlayerClasses
 {
     public enum PlayerStates
     {
-        Running,
+        InOneAltitude,
         Flying,
         Falling
     }
@@ -22,11 +22,11 @@ namespace ScarFly.MyClasses.PlayerClasses
         public Player(string name, int velocity, float positionX, float positionY, string runAssetName, int runMoveCount)
         {
             this.Name = name;
-            this.RunAssetName = runAssetName;
+            this.AssetName = runAssetName;
             this.Position = new Vector2(positionX, positionY);
             this.ZeroPosition = new Vector2(positionX, positionY);
-            this.PlayerState = PlayerStates.Running;
-            this.RunMoveCount = runMoveCount;
+            this.PlayerState = PlayerStates.InOneAltitude;
+            this.MoveCount = runMoveCount;
             this.isDead = false;
             this.isEatMoney = false;
             this.isEnd = false;
@@ -54,25 +54,27 @@ namespace ScarFly.MyClasses.PlayerClasses
         private Vector2 ZeroPosition { get; set; }
         public Vector2 Position { get; set; }
 
-        public string RunAssetName { get; set; }
-        public Texture2D RunTexture { get; set; }
+        public string AssetName { get; set; }
+        public Texture2D Texture { get; set; }
         public Rectangle RunBound { get; set; }
-        public Color[] RunColorData { get; set; }
-        public int RunMoveCount { get; set; }
-        public int RunMoveWidth { get; set; }
+        public Color[] ColorData { get; set; }
+        public int MoveCount { get; set; }
+        public int MoveWidth { get; set; }
 
         private const int _max_vy = 8;
         private int _fall_ay = 1;
         private int _fly_ay = 1;
         private int _fall_vy, _fall_sy;
         private int _fly_vy, _fly_sy;
+        private int _animateCount = 0;
+        private int _positionHistoryMax = 20;
 
         public void Load(Game1 game) 
         { 
-            RunTexture = game.Content.Load<Texture2D>(RunAssetName);
-            RunColorData = new Color[RunTexture.Width * RunTexture.Height];
-            RunTexture.GetData(RunColorData);
-            RunMoveWidth = RunTexture.Width / this.RunMoveCount;
+            Texture = game.Content.Load<Texture2D>(AssetName);
+            ColorData = new Color[Texture.Width * Texture.Height];
+            Texture.GetData(ColorData);
+            MoveWidth = Texture.Width / this.MoveCount;
             UpdateRectangle();
             Score.Load(game);
             _line = game.Content.Load<Texture2D>(Consts.P_Pixel);
@@ -80,7 +82,7 @@ namespace ScarFly.MyClasses.PlayerClasses
 
         public void UpdateRectangle()
         {
-            RunBound = new Rectangle((int)Position.X, (int)Position.Y, RunMoveWidth, RunTexture.Height);
+            RunBound = new Rectangle((int)Position.X, (int)Position.Y, MoveWidth, Texture.Height);
         }
 
         public void Update()
@@ -93,17 +95,17 @@ namespace ScarFly.MyClasses.PlayerClasses
             while (TouchPanel.IsGestureAvailable)
             {
                 var gesture = TouchPanel.ReadGesture();
-                if (gesture.GestureType == GestureType.Tap && (PlayerState == PlayerStates.Falling || PlayerState == PlayerStates.Running))
+                if (gesture.GestureType == GestureType.Tap && (PlayerState == PlayerStates.Falling || PlayerState == PlayerStates.InOneAltitude))
                     PlayerState = PlayerStates.Flying;
                 else if (gesture.GestureType == GestureType.Tap && PlayerState == PlayerStates.Flying)
                     PlayerState = PlayerStates.Falling;
             }
         }
 
-        public void Run(SpriteBatch spriteBatch, Color color)
+        public void InOneAltitude(SpriteBatch spriteBatch, Color color)
         {
             Position = new Vector2(Position.X, Position.Y);
-            Animate(spriteBatch, RunMoveCount, color);
+            Animate(spriteBatch, MoveCount, color);
         }
 
         public void Fall(SpriteBatch spriteBatch, Color color)
@@ -117,7 +119,7 @@ namespace ScarFly.MyClasses.PlayerClasses
             { 
                 PlayerState = PlayerStates.Flying; 
             }
-            Animate(spriteBatch, RunMoveCount, color);
+            Animate(spriteBatch, MoveCount, color);
         }
 
         public void Fly(SpriteBatch spriteBatch, Color color)
@@ -131,42 +133,36 @@ namespace ScarFly.MyClasses.PlayerClasses
                 _fall_vy = 0;
             }
             else { PlayerState = PlayerStates.Falling; }
-            Animate(spriteBatch, RunMoveCount, color);
+            Animate(spriteBatch, MoveCount, color);
         }
 
-        private int _animateCount = 0;
         public void Animate(SpriteBatch spriteBatch, int moveCount, Color color)
         {
             UpdateRectangle();
             DrawHistory(spriteBatch, color);
 
+            spriteBatch.Draw(
+                Texture,
+                Position,
+                new Rectangle((int)(MoveWidth * _animateCount), 0, (int)MoveWidth, (int)Texture.Height),
+                color);
+
             if (_animateCount < moveCount - 1)
             {
-                spriteBatch.Draw(
-                            RunTexture,
-                            Position,
-                            new Rectangle((int)(RunMoveWidth * _animateCount), 0, (int)RunMoveWidth, (int)RunTexture.Height),
-                            color);
                 _animateCount++;
             }
             else
             {
-                spriteBatch.Draw(
-                            RunTexture,
-                            Position,
-                            new Rectangle((int)(RunMoveWidth * (moveCount - 1)), 0, (int)RunMoveWidth, (int)RunTexture.Height),
-                            color);
                 _animateCount = 0;
             }
         }
 
-        private int _positionHistoryMax = 20;
         private void DrawHistory(SpriteBatch spriteBatch, Color color)
         {
             PositionHistory.Enqueue(Position); int i = _positionHistoryMax;
             foreach (var item in PositionHistory)
             {
-                spriteBatch.Draw(_line, new Vector2(item.X - i * StartVelocity, item.Y + RunTexture.Height / 2), color);
+                spriteBatch.Draw(_line, new Vector2(item.X - i * StartVelocity, item.Y + Texture.Height / 2), color);
                 i--;
             }
             if (PositionHistory.Count == _positionHistoryMax) { PositionHistory.Dequeue(); }
@@ -176,7 +172,7 @@ namespace ScarFly.MyClasses.PlayerClasses
         {
             switch (PlayerState)
             {
-                case PlayerStates.Running: Run(spriteBatch, isDead ? Overlayer : color);
+                case PlayerStates.InOneAltitude: InOneAltitude(spriteBatch, isDead ? Overlayer : color);
                     break;
                 case PlayerStates.Flying: Fly(spriteBatch, isDead ? Overlayer : color);
                     break;
@@ -190,7 +186,7 @@ namespace ScarFly.MyClasses.PlayerClasses
         public void RePosition()
         {
             Position = ZeroPosition;
-            PlayerState = PlayerStates.Running;
+            PlayerState = PlayerStates.InOneAltitude;
             Score.TotalScore += Score.GameScore;
             Score.GameScore = 0;
             PositionHistory.Clear();

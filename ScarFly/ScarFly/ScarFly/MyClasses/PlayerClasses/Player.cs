@@ -92,13 +92,26 @@ namespace ScarFly.MyClasses.PlayerClasses
 
             if (isEnd) { Position = new Vector2(Position.X + Velocity, Position.Y); }
 
-            while (TouchPanel.IsGestureAvailable)
+            //while (TouchPanel.IsGestureAvailable)
+            //{
+            //    var gesture = TouchPanel.ReadGesture();
+            //    if (gesture.GestureType == GestureType.Tap && (PlayerState == PlayerStates.Falling || PlayerState == PlayerStates.InOneAltitude))
+            //        PlayerState = PlayerStates.Flying;
+            //    else if (gesture.GestureType == GestureType.Tap && PlayerState == PlayerStates.Flying)
+            //        PlayerState = PlayerStates.Falling;
+            //}
+
+            TouchCollection touches = TouchPanel.GetState();
+            foreach (var touch in touches)
             {
-                var gesture = TouchPanel.ReadGesture();
-                if (gesture.GestureType == GestureType.Tap && (PlayerState == PlayerStates.Falling || PlayerState == PlayerStates.InOneAltitude))
+                if (touch.State == TouchLocationState.Pressed)
+                {
                     PlayerState = PlayerStates.Flying;
-                else if (gesture.GestureType == GestureType.Tap && PlayerState == PlayerStates.Flying)
+                }
+                else if (touch.State == TouchLocationState.Released)
+                {
                     PlayerState = PlayerStates.Falling;
+                }
             }
         }
 
@@ -117,7 +130,7 @@ namespace ScarFly.MyClasses.PlayerClasses
             _fly_vy = 0;
             if (_fall_sy > ZeroPosition.Y || _fall_sy > ZeroPosition.Y - 12) 
             { 
-                PlayerState = PlayerStates.Flying; 
+                PlayerState = PlayerStates.InOneAltitude; 
             }
             Animate(spriteBatch, MoveCount, color);
         }

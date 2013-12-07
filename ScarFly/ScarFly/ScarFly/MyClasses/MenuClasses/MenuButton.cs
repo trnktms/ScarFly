@@ -24,19 +24,13 @@ namespace ScarFly.MyClasses.MenuClasses
 
         public void Load(Game1 game) { Texture = game.Content.Load<Texture2D>(AssetName); }
 
-        public bool IsTouched(Game1 game, TouchCollection touchCollection) 
+        public bool IsTouched(TouchLocation touchLocation) 
         {
-            if (touchCollection.Count != 0)
-            {
-                return touchCollection
-                .Where(p => (p.State == TouchLocationState.Pressed)
-                    && (p.Position.X >= Position.X
-                    && p.Position.Y >= Position.Y
-                    && p.Position.X <= Texture.Width + Position.X
-                    && p.Position.Y <= Texture.Height + Position.Y))
-                .Any();
-            }
-            return false;
+            return (touchLocation.State == TouchLocationState.Pressed)
+                    && (touchLocation.Position.X >= this.Position.X
+                    && touchLocation.Position.Y >= this.Position.Y
+                    && touchLocation.Position.X <= this.Texture.Width + this.Position.X
+                    && touchLocation.Position.Y <= this.Texture.Height + this.Position.Y);
         }
 
         public void Draw(SpriteBatch spriteBatch, Color color)

@@ -69,10 +69,10 @@ namespace ScarFly.MyClasses.PlayerClasses
             spriteBatch.Draw(RankIcon, new Vector2(5, 5), color);
             spriteBatch.DrawString(Font, Rank.ToString(), new Vector2(RankIcon.Width + 8, 8), color);
             spriteBatch.Draw(GameScoreIcon, new Vector2(5, 85), color);
-            spriteBatch.DrawString(Font, string.Format("{0}/{1}",TotalScore.ToString(), GameScore.ToString() + (IsNewHighScore ? "!":"")), new Vector2(GameScoreIcon.Width + 8, 88), color);
+            spriteBatch.DrawString(Font, string.Format("{0}/{1}",TotalScore.ToString(), GameScore.ToString()), new Vector2(GameScoreIcon.Width + 8, 88), color);
             spriteBatch.Draw(HighScoreIcon, new Vector2(5, 165), color);
             spriteBatch.DrawString(Font, HighScore.ToString(), new Vector2(GameScoreIcon.Width + 8, 168), color);
-            //if (IsNewHighScore) { spriteBatch.DrawString(Font, "New high score!", new Vector2(GameScoreIcon.Width + 8, 248), color); }
+            if (IsNewHighScore) { spriteBatch.DrawString(Font, "New high score!", new Vector2(GameScoreIcon.Width + 8, 248), color); }
         }
 
         public void DrawEndGameScores(SpriteBatch spriteBatch, Color color)

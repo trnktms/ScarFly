@@ -35,6 +35,7 @@ namespace ScarFly.MyClasses.PlayerClasses
             this.StartVelocity = velocity;
             this.PositionHistory = new Queue<Vector2>(20);
             this._fly_sy = (int)Position.Y;
+            this.Id = Guid.NewGuid();
         }
 
         public string Name { get; set; }
@@ -43,6 +44,7 @@ namespace ScarFly.MyClasses.PlayerClasses
         public bool isEatMoney { get; set; }
         public bool isEatModifier { get; set; }
         public bool isEnd { get; set; }
+        public Guid Id { get; set; }
 
         Queue<Vector2> PositionHistory;
         private Texture2D _line;

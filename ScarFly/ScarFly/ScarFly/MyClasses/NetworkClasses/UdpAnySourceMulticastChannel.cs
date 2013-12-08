@@ -33,13 +33,6 @@ namespace ScarFly.MyClasses.NetworkClasses
         public bool GroupIsJoining { get; private set; }
         private UdpAnySourceMulticastClient GroupClient { get; set; }
 
-        public event EventHandler<UdpPacketReceivedEventArgs> SinglePacketReceived;
-        public UdpSingleSourceMulticastClient SingleClient { get; set; }
-        public IPEndPoint SingleSourceEndPoint { get; set; }
-        public bool SingleIsJoined { get; private set; }
-        public bool SingleIsJoining { get; private set; }
-        public bool SingleIsDisposed { get; private set; }
-
         public void GroupDispose()
         {
             if (!GroupIsDisposed)
@@ -51,17 +44,6 @@ namespace ScarFly.MyClasses.NetworkClasses
             }
         }
 
-        public void SingleDispose()
-        {
-            if (!SingleIsDisposed)
-            {
-                this.SingleIsDisposed = true;
-
-                if (this.SingleClient != null)
-                    this.SingleClient.Dispose();
-            }
-        }
-
         public void GroupOpen()
         {
             if (!GroupIsJoined)
@@ -70,29 +52,16 @@ namespace ScarFly.MyClasses.NetworkClasses
                 this.GroupClient.BeginJoinGroup(
                     result =>
                     {
-                        this.GroupClient.EndJoinGroup(result);
-                        GroupIsJoined = true;
-                        this.GroupClient.MulticastLoopback = false;
-                        this.GroupReceive();
+                        try
+                        {
+                            this.GroupClient.EndJoinGroup(result);
+                            GroupIsJoined = true;
+                            this.GroupClient.MulticastLoopback = false;
+                            this.GroupReceive();
+                        }
+                        catch { }
                     }, null);
                 GroupIsJoining = false;
-            }
-        }
-
-        public void SingleOpen()
-        {
-            if (!SingleIsJoined)
-            {
-                SingleIsJoining = true;
-                SingleClient = new UdpSingleSourceMulticastClient(SingleSourceEndPoint.Address, GROUP_ADDRESS, GROUP_PORT);
-                this.SingleClient.BeginJoinGroup(
-                    result =>
-                    {
-                        this.SingleClient.EndJoinGroup(result);
-                        SingleIsJoined = true;
-                        this.SingleClientReceive();
-                    }, null);
-                SingleIsJoining = false;
             }
         }
 
@@ -100,12 +69,6 @@ namespace ScarFly.MyClasses.NetworkClasses
         {
             GroupIsJoined = false;
             this.GroupDispose();
-        }
-
-        public void SingleClose()
-        {
-            SingleIsJoined = false;
-            this.SingleDispose();
         }
 
         public void GroupSend(string format, params object[] args)
@@ -117,34 +80,7 @@ namespace ScarFly.MyClasses.NetworkClasses
                 this.GroupClient.BeginSendToGroup(data, 0, data.Length,
                     result =>
                     {
-                        try
-                        {
-                            this.GroupClient.EndSendToGroup(result);
-                        }
-                        catch (SocketException e)
-                        {
-                            if (e.ErrorCode == 995) { GroupClose(); }
-                        }
-                    }, null);
-            }
-        }
-
-        public void SingleSendToSource(string format, params object[] args)
-        {
-            if (SingleIsJoined)
-            {
-                byte[] data = Encoding.UTF8.GetBytes(string.Format(format, args));
-                this.SingleClient.BeginSendToSource(data, 0, data.Length, SingleSourceEndPoint.Port,
-                    result =>
-                    {
-                        try
-                        {
-                            this.SingleClient.EndSendToSource(result);
-                        }
-                        catch (SocketException e)
-                        {
-                            if (e.ErrorCode == 995) { SingleClose(); }
-                        }
+                        this.GroupClient.EndSendToGroup(result);
                     }, null);
             }
         }
@@ -176,45 +112,11 @@ namespace ScarFly.MyClasses.NetworkClasses
             }
         }
 
-        private void SingleClientReceive()
-        {
-            if (SingleIsJoined)
-            {
-                Array.Clear(this.ReceiveBuffer, 0, this.ReceiveBuffer.Length);
-                this.SingleClient.BeginReceiveFromSource(this.ReceiveBuffer, 0, this.ReceiveBuffer.Length,
-                    result =>
-                    {
-                        if (!SingleIsDisposed)
-                        {
-                            int source;
-                            try
-                            {
-                                this.SingleClient.EndReceiveFromSource(result, out source);
-                                this.SingleOnReceive(source, this.ReceiveBuffer);
-                                this.SingleClientReceive();
-                            }
-                            catch
-                            {
-                                SingleIsJoined = false;
-                                this.SingleOpen();
-                            }
-                        }
-                    }, null);
-            }
-        }
-
         private void GroupOnReceive(IPEndPoint source, byte[] data)
         {
             EventHandler<UdpPacketReceivedEventArgs> handler = this.GroupPacketReceived;
             if (handler != null)
                 handler(this, new UdpPacketReceivedEventArgs(data, source));
-        }
-
-        private void SingleOnReceive(int source, byte[] data)
-        {
-            EventHandler<UdpPacketReceivedEventArgs> handler = this.SinglePacketReceived;
-            if (handler != null)
-                handler(this, new UdpPacketReceivedEventArgs(data, SingleSourceEndPoint));
         }
     }
 }

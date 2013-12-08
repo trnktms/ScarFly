@@ -23,6 +23,7 @@ namespace ScarFly.MyClasses.NetworkClasses
         public Texture2D Texture { get; set; }
         public int Score { get; set; }
         public int Velocity { get; set; }
+        public Guid Id { get; set; }
 
         public void Load(Game1 game)
         {

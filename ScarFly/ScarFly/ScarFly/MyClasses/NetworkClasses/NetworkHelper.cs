@@ -12,7 +12,6 @@ namespace ScarFly.MyClasses.NetworkClasses
     {
         public NetworkHelper()
         {
-            Channel = new UdpAnySourceMulticastChannel();
             OtherPlayer = new OtherPlayer("Player/PaperPlane_v2");
             RecievedData = "";
             SendedData = "";
@@ -27,63 +26,31 @@ namespace ScarFly.MyClasses.NetworkClasses
         {
             Channel = new UdpAnySourceMulticastChannel();
             Channel.GroupPacketReceived += new EventHandler<UdpPacketReceivedEventArgs>(Channel_GroupPacketReceived);
-            Channel.SinglePacketReceived += new EventHandler<UdpPacketReceivedEventArgs>(Channel_SinglePacketReceived);
             Channel.GroupOpen();
         }
 
         public void SendData()
         {
-            if (Channel.SingleIsJoined)
-            {
-                SendedData = "Connected!";
-                Channel.SingleSendToSource(SendedData);
-            }
-            else if (Channel.GroupIsJoined)
-            {
-                if (RecievedData == "I am here!")
-                {
-                    SendedData = "I found you!";
-                    Channel.GroupSend(SendedData);
-                    Channel.GroupClose();
-                    Channel.SingleOpen();
-                    SendedData = "Connected!";
-                    Channel.SingleSendToSource(SendedData);
-                }
-                else if (RecievedData == "I found you!")
-                {
-                    SendedData = "I found you!";
-                    Channel.GroupSend(SendedData);
-                    Channel.GroupClose();
-                    Channel.SingleOpen();
-                    SendedData = "Connected!";
-                    Channel.SingleSendToSource(SendedData);
-                }
-                else
-                {
-                    SendedData = "I am here!";
-                    Channel.GroupSend(SendedData);
-                }
-            }
-        }
-
-        int i = 0;
-        void Channel_SinglePacketReceived(object sender, UdpPacketReceivedEventArgs e)
-        {
-            RecievedData = e.Message.Trim('\0');
-            RecievedData += " " + i++;
-            //if (!Channel.SingleIsJoining && Channel.SingleIsJoined)
-            //{
-            //    string[] recievedArray = RecievedData.Split(',');
-            //    OtherPlayer.Position = new Vector2(float.Parse(recievedArray[0]), float.Parse(recievedArray[1]));
-            //    OtherPlayer.Score = int.Parse(recievedArray[3]);
-            //    Channel.SingleSourceEndPoint = e.Source;
-            //}
+            Channel.GroupSend(SendedData);
         }
 
         void Channel_GroupPacketReceived(object sender, UdpPacketReceivedEventArgs e)
         {
             RecievedData = e.Message.Trim('\0');
-            Channel.SingleSourceEndPoint = e.Source;
+            string[] recievedDataArray = RecievedData.Split(',');
+            if (OtherPlayer.Id == Guid.Empty)
+            {
+                OtherPlayer.Id = Guid.Parse(recievedDataArray[0]);
+            }
+            //NOTE: if received data source is correct
+            else if (recievedDataArray[0] == OtherPlayer.Id.ToString())
+            {
+                if (recievedDataArray.Length == 4)
+                {
+                    OtherPlayer.Position = new Vector2(int.Parse(recievedDataArray[1]), int.Parse(recievedDataArray[2]));
+                    OtherPlayer.Score = int.Parse(recievedDataArray[3]);
+                }
+            }
         }
 
         public void Draw(SpriteBatch spriteBatch, Color color)

@@ -206,17 +206,17 @@ namespace ScarFly
                     }
                     else
                     {
+                        networkHelper.SendedData = player.Id.ToString();
                         networkHelper.SendData();
-                        if (networkHelper.Channel.SingleIsJoined)
+                        if (networkHelper.OtherPlayer.Id != Guid.Empty)
                         {
-                            //gameState = GameState.NetworkGaming;
-                            //Transitions.ChangeGameState(ref firstEntry);
+                            gameState = GameState.NetworkGaming;
+                            Transitions.ChangeGameState(ref firstEntry);
                         }
                         if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                         {
                             gameState = GameState.InMainMenu;
                             networkHelper.Channel.GroupClose();
-                            networkHelper.Channel.SingleClose();
                             Transitions.ChangeGameState(ref firstEntry);
                         }
                     }
@@ -241,6 +241,8 @@ namespace ScarFly
                     }
                     else
                     {
+                        networkHelper.SendedData = string.Format("{0},{1},{2},{3}", player.Id, player.Position.X, player.Position.Y, player.Score.GameScore);
+                        networkHelper.SendData();
                         player.Update();
                         if (moneys.GetActualMoneyList().Count != 0 && moneys.GetActualMoneyList().LastOrDefault().Index.ID == "!")
                         {
@@ -258,16 +260,10 @@ namespace ScarFly
                         moneys.Scroll(this);
                         modifiers.Scroll(this);
                         collosion.Update();
-                        if (networkHelper.Channel.SingleIsJoined)
-                        {
-                            networkHelper.SendedData = string.Format("{0},{1},{2},{3}", player.Position.X, player.Position.Y, player.Velocity, player.Score.GameScore);
-                            networkHelper.SendData();
-                        }
                         if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                         {
                             gameState = GameState.InMainMenu;
                             networkHelper.Channel.GroupClose();
-                            networkHelper.Channel.SingleClose();
                             firstEntry = true;
                         }
                     }
@@ -374,7 +370,6 @@ namespace ScarFly
                 backBackground.Draw(spriteBatch, color);
                 foreBackground.Draw(spriteBatch, color);
                 spriteBatch.DrawString(baseFont, "Searching player...", new Vector2(0, 0), color);
-                spriteBatch.DrawString(baseFont, string.IsNullOrWhiteSpace(networkHelper.RecievedData) ? "..." : networkHelper.RecievedData, new Vector2(100, 100), Color.White);
             }
             //NOTE: NETWORK GAMING
             else if (gameState == GameState.NetworkGaming)
@@ -391,7 +386,6 @@ namespace ScarFly
                 walkPlace.Draw(spriteBatch, color);
                 player.Score.DrawGameScore(spriteBatch, color);
                 collosion.Draw(spriteBatch);
-                spriteBatch.DrawString(baseFont, string.IsNullOrWhiteSpace(networkHelper.RecievedData) ? "..." : networkHelper.RecievedData, new Vector2(100, 100), Color.White);
             }
             //NOTE: PAUSE MENU
             else if (gameState == GameState.InPauseMenu)

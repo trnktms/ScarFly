@@ -10,8 +10,8 @@ namespace ScarFly.MyClasses.NetworkClasses
 {
     public class UdpAnySourceMulticastChannel
     {
-        private static IPAddress GROUP_ADDRESS = IPAddress.Parse("224.109.108.107");
-        private static int GROUP_PORT = 3007;
+        private static readonly IPAddress GROUP_ADDRESS = IPAddress.Parse("224.109.108.107");
+        private static readonly int GROUP_PORT = 3007;
 
         public UdpAnySourceMulticastChannel()
         {
@@ -26,12 +26,11 @@ namespace ScarFly.MyClasses.NetworkClasses
         }
 
         private byte[] ReceiveBuffer { get; set; }
+        private UdpAnySourceMulticastClient GroupClient { get; set; }
 
         public event EventHandler<UdpPacketReceivedEventArgs> GroupPacketReceived;
         public bool GroupIsDisposed { get; private set; }
         public bool GroupIsJoined { get; private set; }
-        public bool GroupIsJoining { get; private set; }
-        private UdpAnySourceMulticastClient GroupClient { get; set; }
 
         public void GroupDispose()
         {
@@ -48,7 +47,6 @@ namespace ScarFly.MyClasses.NetworkClasses
         {
             if (!GroupIsJoined)
             {
-                GroupIsJoining = true;
                 this.GroupClient.BeginJoinGroup(
                     result =>
                     {
@@ -61,7 +59,6 @@ namespace ScarFly.MyClasses.NetworkClasses
                         }
                         catch { }
                     }, null);
-                GroupIsJoining = false;
             }
         }
 
@@ -76,7 +73,6 @@ namespace ScarFly.MyClasses.NetworkClasses
             if (GroupIsJoined)
             {
                 byte[] data = Encoding.UTF8.GetBytes(string.Format(format, args));
-
                 this.GroupClient.BeginSendToGroup(data, 0, data.Length,
                     result =>
                     {

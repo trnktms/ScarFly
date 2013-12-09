@@ -206,7 +206,7 @@ namespace ScarFly
                     }
                     else
                     {
-                        networkHelper.SendedData = player.Id.ToString();
+                        networkHelper.SendedData = string.Format("{0},{1}", player.Id, "0");
                         networkHelper.SendData();
                         if (networkHelper.OtherPlayer.Id != Guid.Empty)
                         {
@@ -241,7 +241,7 @@ namespace ScarFly
                     }
                     else
                     {
-                        networkHelper.SendedData = string.Format("{0},{1},{2},{3}", player.Id, player.Position.X, player.Position.Y, player.Score.GameScore);
+                        networkHelper.SendedData = string.Format("{0},{1},{2},{3}", player.Id, "1", player.Distance, player.Score.GameScore);
                         networkHelper.SendData();
                         player.Update();
                         if (moneys.GetActualMoneyList().Count != 0 && moneys.GetActualMoneyList().LastOrDefault().Index.ID == "!")
@@ -379,13 +379,13 @@ namespace ScarFly
                 backBackground.Draw(spriteBatch, color);
                 foreBackground.Draw(spriteBatch, color);
                 player.Draw(spriteBatch, color);
-                networkHelper.OtherPlayer.Draw(spriteBatch, color);
                 barriers.Draw(spriteBatch, color);
                 moneys.Draw(spriteBatch, color);
                 modifiers.Draw(spriteBatch, color);
                 walkPlace.Draw(spriteBatch, color);
                 player.Score.DrawGameScore(spriteBatch, color);
                 collosion.Draw(spriteBatch);
+                networkHelper.OtherPlayer.Draw(spriteBatch, color);
             }
             //NOTE: PAUSE MENU
             else if (gameState == GameState.InPauseMenu)

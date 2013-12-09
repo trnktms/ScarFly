@@ -19,8 +19,10 @@ namespace ScarFly.MyClasses.NetworkClasses
 
         public string AssetName { get; set; }
         public SpriteFont Font { get; set; }
-        public Vector2 Position { get; set; }
+        //public Vector2 Position { get; set; }
+        public int Distance { get; set; }
         public Texture2D Texture { get; set; }
+        public Texture2D MoneyIconTexture { get; set; }
         public int Score { get; set; }
         public int Velocity { get; set; }
         public Guid Id { get; set; }
@@ -28,13 +30,16 @@ namespace ScarFly.MyClasses.NetworkClasses
         public void Load(Game1 game)
         {
             Texture = game.Content.Load<Texture2D>(AssetName);
+            MoneyIconTexture = game.Content.Load<Texture2D>(Consts.P_MoneyIcon);
             Font = game.Content.Load<SpriteFont>(Consts.SF_GameScore);
         }
 
         public void Draw(SpriteBatch spriteBatch, Color color)
         {
-            spriteBatch.Draw(Texture, Position, color);
-            spriteBatch.DrawString(Font, Score.ToString(), new Vector2(0, 80), color);
+            //spriteBatch.Draw(Texture, new Vector2(0, Consts.PhoneWidth / Distance), color);
+            spriteBatch.Draw(MoneyIconTexture, new Vector2(0, Consts.PhoneHeight - 100), color);
+            spriteBatch.DrawString(Font, Score.ToString(), new Vector2(MoneyIconTexture.Width + 3, Consts.PhoneHeight - 100 + 3), color);
+            spriteBatch.DrawString(Font, Distance.ToString(), new Vector2(0, 80), color);
         }
     }
 }

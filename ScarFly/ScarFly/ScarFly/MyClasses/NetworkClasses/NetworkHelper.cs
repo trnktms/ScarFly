@@ -38,16 +38,16 @@ namespace ScarFly.MyClasses.NetworkClasses
         {
             RecievedData = e.Message.Trim('\0');
             string[] recievedDataArray = RecievedData.Split(',');
-            if (OtherPlayer.Id == Guid.Empty)
+            if (OtherPlayer.Id == Guid.Empty && recievedDataArray[1] == "0")
             {
                 OtherPlayer.Id = Guid.Parse(recievedDataArray[0]);
             }
             //NOTE: if received data source is correct
-            else if (recievedDataArray[0] == OtherPlayer.Id.ToString())
+            else if (recievedDataArray[0] == OtherPlayer.Id.ToString() && recievedDataArray[1] == "1")
             {
                 if (recievedDataArray.Length == 4)
                 {
-                    OtherPlayer.Position = new Vector2(int.Parse(recievedDataArray[1]), int.Parse(recievedDataArray[2]));
+                    OtherPlayer.Distance = int.Parse(recievedDataArray[2]);
                     OtherPlayer.Score = int.Parse(recievedDataArray[3]);
                 }
             }

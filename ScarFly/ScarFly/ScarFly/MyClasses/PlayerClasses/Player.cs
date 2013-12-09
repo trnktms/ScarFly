@@ -51,6 +51,7 @@ namespace ScarFly.MyClasses.PlayerClasses
         public Score Score { get; set; }
         public int Velocity { get; set; }
         public int StartVelocity { get; set; }
+        public int Distance { get; set; }
         public Color Overlayer { get; set; }
 
         private Vector2 ZeroPosition { get; set; }
@@ -94,15 +95,6 @@ namespace ScarFly.MyClasses.PlayerClasses
 
             if (isEnd) { Position = new Vector2(Position.X + Velocity, Position.Y); }
 
-            //while (TouchPanel.IsGestureAvailable)
-            //{
-            //    var gesture = TouchPanel.ReadGesture();
-            //    if (gesture.GestureType == GestureType.Tap && (PlayerState == PlayerStates.Falling || PlayerState == PlayerStates.InOneAltitude))
-            //        PlayerState = PlayerStates.Flying;
-            //    else if (gesture.GestureType == GestureType.Tap && PlayerState == PlayerStates.Flying)
-            //        PlayerState = PlayerStates.Falling;
-            //}
-
             TouchCollection touches = TouchPanel.GetState();
             foreach (var touch in touches)
             {
@@ -115,6 +107,8 @@ namespace ScarFly.MyClasses.PlayerClasses
                     PlayerState = PlayerStates.Falling;
                 }
             }
+
+            Distance += Velocity;
         }
 
         public void InOneAltitude(SpriteBatch spriteBatch, Color color)
@@ -212,6 +206,7 @@ namespace ScarFly.MyClasses.PlayerClasses
             isEatMoney = false;
             isEatModifier = false;
             Velocity = StartVelocity;
+            Distance = 0;
         }
     }
 }

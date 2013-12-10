@@ -37,7 +37,6 @@ namespace ScarFly.MyClasses.NetworkClasses
             if (!GroupIsDisposed)
             {
                 this.GroupIsDisposed = true;
-
                 if (this.GroupClient != null)
                     this.GroupClient.Dispose();
             }

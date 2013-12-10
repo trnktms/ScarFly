@@ -51,7 +51,7 @@ namespace ScarFly
         GameState gameState;
 
         //NOTE: Network
-        NetworkHelper networkHelper;
+        Multiplayer multiPlayer;
 
         public Game1()
         {
@@ -109,7 +109,7 @@ namespace ScarFly
 
             collosion = new Collosion(barriers, player, moneys, modifiers, backgroundList);
 
-            networkHelper = new NetworkHelper();
+            multiPlayer = new Multiplayer(player);
             #endregion GAMING
 
             if (!Tutorial.FirstStart()) { gameState = GameState.InTutorial; }
@@ -134,7 +134,7 @@ namespace ScarFly
             pauseMenu.LoadButtonList(this);
             tutorialMenu.LoadButtonList(this);
             player.Load(this);
-            networkHelper.OtherPlayer.Load(this);
+            multiPlayer.OtherPlayer.Load(this);
             backBackground.Load(this);
             foreBackground.Load(this);
             walkPlace.Load(this);
@@ -201,14 +201,14 @@ namespace ScarFly
                 case GameState.NetworkSearch:
                     if (firstEntry)
                     {
-                        networkHelper.InitializeSockets();
+                        multiPlayer.InitializeSockets();
                         firstEntry = false;
                     }
                     else
                     {
-                        networkHelper.SendedData = string.Format("{0},{1}", player.Id, "0");
-                        networkHelper.SendData();
-                        if (networkHelper.OtherPlayer.Id != Guid.Empty)
+                        multiPlayer.SendedData = string.Format("{0},{1},{2}", player.Id, "0", LevelSelector.Select());
+                        multiPlayer.SendData();
+                        if (multiPlayer.OtherPlayer.Id != Guid.Empty)
                         {
                             gameState = GameState.NetworkGaming;
                             Transitions.ChangeGameState(ref firstEntry);
@@ -216,7 +216,7 @@ namespace ScarFly
                         if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                         {
                             gameState = GameState.InMainMenu;
-                            networkHelper.Channel.GroupClose();
+                            multiPlayer.Channel.GroupClose();
                             Transitions.ChangeGameState(ref firstEntry);
                         }
                     }
@@ -227,7 +227,7 @@ namespace ScarFly
                     if (firstEntry)
                     {
                         foreach (PlayerBackground item in backgroundList) { item.RePosition(); }
-                        string level = "level_1";
+                        string level = multiPlayer.Level;
                         barriers = new Barriers(level, 4);
                         barriers.Load(this);
                         moneys = new Moneys(level, 4);
@@ -241,8 +241,7 @@ namespace ScarFly
                     }
                     else
                     {
-                        networkHelper.SendedData = string.Format("{0},{1},{2},{3}", player.Id, "1", player.Distance, player.Score.GameScore);
-                        networkHelper.SendData();
+                        multiPlayer.Update();
                         player.Update();
                         if (moneys.GetActualMoneyList().Count != 0 && moneys.GetActualMoneyList().LastOrDefault().Index.ID == "!")
                         {
@@ -263,7 +262,7 @@ namespace ScarFly
                         if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                         {
                             gameState = GameState.InMainMenu;
-                            networkHelper.Channel.GroupClose();
+                            multiPlayer.Channel.GroupClose();
                             firstEntry = true;
                         }
                     }
@@ -385,7 +384,7 @@ namespace ScarFly
                 walkPlace.Draw(spriteBatch, color);
                 player.Score.DrawGameScore(spriteBatch, color);
                 collosion.Draw(spriteBatch);
-                networkHelper.OtherPlayer.Draw(spriteBatch, color);
+                multiPlayer.Draw(spriteBatch, color);
             }
             //NOTE: PAUSE MENU
             else if (gameState == GameState.InPauseMenu)

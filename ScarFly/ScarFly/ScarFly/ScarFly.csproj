@@ -83,7 +83,7 @@
     <Compile Include="MyClasses\LevelElementClasses\MoneyIndex.cs" />
     <Compile Include="MyClasses\LevelElementClasses\Moneys.cs" />
     <Compile Include="MyClasses\Consts.cs" />
-    <Compile Include="MyClasses\NetworkClasses\NetworkHelper.cs" />
+    <Compile Include="MyClasses\NetworkClasses\Multiplayer.cs" />
     <Compile Include="MyClasses\NetworkClasses\OtherPlayer.cs" />
     <Compile Include="MyClasses\NetworkClasses\UdpAnySourceMulticastChannel.cs" />
     <Compile Include="MyClasses\NetworkClasses\UdpPacketReceivedEventArgs.cs" />

@@ -5,14 +5,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading;
+using ScarFly.MyClasses.PlayerClasses;
 
 namespace ScarFly.MyClasses.NetworkClasses
 {
-    public class NetworkHelper
+    public class Multiplayer
     {
-        public NetworkHelper()
+        public Multiplayer(Player player)
         {
             OtherPlayer = new OtherPlayer("Player/PaperPlane_v2");
+            Player = player;
             RecievedData = "";
             SendedData = "";
         }
@@ -20,7 +22,9 @@ namespace ScarFly.MyClasses.NetworkClasses
         public UdpAnySourceMulticastChannel Channel { get; set; }
         public string RecievedData { get; set; }
         public string SendedData { get; set; }
+        public Player Player { get; set; }
         public OtherPlayer OtherPlayer { get; set; }
+        public string Level { get; set; }
 
         public void InitializeSockets()
         {
@@ -41,6 +45,14 @@ namespace ScarFly.MyClasses.NetworkClasses
             if (OtherPlayer.Id == Guid.Empty && recievedDataArray[1] == "0")
             {
                 OtherPlayer.Id = Guid.Parse(recievedDataArray[0]);
+                if (Player.Id.CompareTo(OtherPlayer.Id) == 1)
+                {
+                    Level = recievedDataArray[2];
+                }
+                else
+                {
+                    Level = SendedData.Split(',')[2];
+                }
             }
             //NOTE: if received data source is correct
             else if (recievedDataArray[0] == OtherPlayer.Id.ToString() && recievedDataArray[1] == "1")
@@ -51,6 +63,12 @@ namespace ScarFly.MyClasses.NetworkClasses
                     OtherPlayer.Score = int.Parse(recievedDataArray[3]);
                 }
             }
+        }
+
+        public void Update()
+        {
+            SendedData = string.Format("{0},{1},{2},{3}", Player.Id, "1", Player.Distance, Player.Score.GameScore);
+            SendData();
         }
 
         public void Draw(SpriteBatch spriteBatch, Color color)

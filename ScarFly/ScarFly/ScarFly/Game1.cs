@@ -55,7 +55,7 @@ namespace ScarFly
 
         public Game1()
         {
-            #region Init
+            //NOTE: Init
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             // Frame rate is 30 fps by default for Windows Phone.
@@ -71,31 +71,28 @@ namespace ScarFly
             Consts.PhoneHeight = graphics.PreferredBackBufferHeight;
             firstEntry = true;
             gameState = GameState.InMainMenu;
-            #endregion Init
 
-            #region MENU
+            //NOTE: MENU
             mainButtons = new List<MenuButton>();
-            mainButtons.Add(new MenuButton("Main_Start", "Buttons/StartButton", (Consts.PhoneWidth / 2) + 20, (Consts.PhoneHeight / 2) - 220));
-            mainButtons.Add(new MenuButton("Main_Help", "Buttons/HelpButton", (Consts.PhoneWidth / 2) + 20, (Consts.PhoneHeight / 2) - 220 + 200));
-            mainButtons.Add(new MenuButton("Main_About", "Buttons/AboutButton", (Consts.PhoneWidth / 2) + 20, (Consts.PhoneHeight / 2) - 220 + 300));
-            mainButtons.Add(new MenuButton("Main_Network", "Buttons/NetworkButton", (Consts.PhoneWidth / 2) + 20, (Consts.PhoneHeight / 2) - 220 + 100));
+            mainButtons.Add(new MenuButton("Main_Start", Consts.P_StartButton, (Consts.PhoneWidth / 2) + 20, (Consts.PhoneHeight / 2) - 220));
+            mainButtons.Add(new MenuButton("Main_Help", Consts.P_HelpButton, (Consts.PhoneWidth / 2) + 20, (Consts.PhoneHeight / 2) - 220 + 200));
+            mainButtons.Add(new MenuButton("Main_About", Consts.P_AboutButton, (Consts.PhoneWidth / 2) + 20, (Consts.PhoneHeight / 2) - 220 + 300));
+            mainButtons.Add(new MenuButton("Main_Network", Consts.P_NetworkButton, (Consts.PhoneWidth / 2) + 20, (Consts.PhoneHeight / 2) - 220 + 100));
             mainMenu = new Menu(mainButtons);
 
             pauseButtons = new List<MenuButton>();
-            pauseButtons.Add(new MenuButton("Pause_Resume", "Buttons/ResumeButton", (Consts.PhoneWidth / 2) - 166, (Consts.PhoneHeight / 2) - 200));
+            pauseButtons.Add(new MenuButton("Pause_Resume", Consts.P_ResumeButton, (Consts.PhoneWidth / 2) - 166, (Consts.PhoneHeight / 2) - 200));
             pauseMenu = new Menu(pauseButtons);
 
             tutorialButtons = new List<MenuButton>();
-            tutorialButtons.Add(new MenuButton("Tutorial", "Buttons/Tutorial", 0, 0));
+            tutorialButtons.Add(new MenuButton("Tutorial", Consts.P_Tutorial, 0, 0));
             tutorialMenu = new Menu(tutorialButtons);
-            #endregion MENU
 
-            #region GAMING
-            //player = new Player("Player1", 4, 100, 370, "Player/PaperPlane_v2", "Player/PaperPlane_v2", "Player/PaperPlane_v2", 1, 1, 1);
-            player = new Player("Player1", 4, 100, 370, "Player/PaperPlane_v2", 1);
-            backBackground = new PlayerBackground("Background/Forest", 1);
-            foreBackground = new PlayerBackground("Background/ForestFore", 2);
-            walkPlace = new PlayerBackground("Background/WalkPlace", 4);
+            //NOTE: GAMING
+            player = new Player("Player1", 4, 100, 370, Consts.P_Player, 1);
+            backBackground = new PlayerBackground(Consts.P_Backgrond, 1);
+            foreBackground = new PlayerBackground(Consts.P_ForeBackground, 2);
+            walkPlace = new PlayerBackground(Consts.P_Walkplace, 4);
 
             string level = LevelSelector.Select();
             barriers = new Barriers(level, 4);
@@ -110,7 +107,6 @@ namespace ScarFly
             collosion = new Collosion(barriers, player, moneys, modifiers, backgroundList);
 
             multiPlayer = new Multiplayer(player);
-            #endregion GAMING
 
             if (!Tutorial.FirstStart()) { gameState = GameState.InTutorial; }
         }
@@ -153,7 +149,7 @@ namespace ScarFly
         {
             switch (gameState)
             {
-                #region Gaming
+                //NOTE: GAMING
                 case GameState.Gaming:
                     if (firstEntry)
                     {
@@ -196,8 +192,7 @@ namespace ScarFly
                         }
                     }
                     break;
-                #endregion Gaming
-                #region NetworkSearch
+                //NOTE: NETWORK SEARCH
                 case GameState.NetworkSearch:
                     if (firstEntry)
                     {
@@ -221,8 +216,7 @@ namespace ScarFly
                         }
                     }
                     break;
-                #endregion NetworkSearch
-                #region NetworkGaming
+                //NOTE: NETWORK GAMING
                 case GameState.NetworkGaming:
                     if (firstEntry)
                     {
@@ -267,8 +261,7 @@ namespace ScarFly
                         }
                     }
                     break;
-                #endregion NetworkGaming
-                #region InMainMenu
+                //NOTE: MAIN MENU
                 case GameState.InMainMenu:
                     if (firstEntry)
                     {
@@ -287,8 +280,7 @@ namespace ScarFly
                     gameState = mainMenu.IsTouched(this, TouchPanel.GetState(), gameState, ref firstEntry, spriteBatch);
                     if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed) this.Exit();
                     break;
-                #endregion InMainMenu
-                #region InPauseMenu
+                //NOTE: PAUSE MENI
                 case GameState.InPauseMenu:
                     if (firstEntry)
                     {
@@ -303,8 +295,7 @@ namespace ScarFly
                         gameState = GameState.InMainMenu;
                     }
                     break;
-                #endregion InPauseMenu
-                #region InTutorial
+                //NOTE: TUTORIAL
                 case GameState.InTutorial:
                     backBackground.Scroll(this);
                     foreBackground.Scroll(this);
@@ -316,14 +307,12 @@ namespace ScarFly
                         gameState = GameState.InMainMenu;
                     }
                     break;
-                #endregion InTutorial
-                #region InEndGameMenu
+                //NOTE: ENDGAME MENU
                 case GameState.InEndGameMenu:
                     player.Score.SaveTotalScore();
                     player.Score.SaveHighScore();
                     gameState = GameState.InMainMenu;
                     break;
-                #endregion InEndGameMenu
                 default:
                     break;
             }

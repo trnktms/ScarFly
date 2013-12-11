@@ -13,7 +13,7 @@ namespace ScarFly.MyClasses.NetworkClasses
     {
         public Multiplayer(Player player)
         {
-            OtherPlayer = new OtherPlayer("Player/PaperPlane_v2");
+            OtherPlayer = new OtherPlayer(Consts.P_Player);
             Player = player;
             RecievedData = "";
             SendedData = "";

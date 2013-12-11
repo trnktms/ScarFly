@@ -280,7 +280,7 @@ namespace ScarFly
                     gameState = mainMenu.IsTouched(this, TouchPanel.GetState(), gameState, ref firstEntry, spriteBatch);
                     if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed) this.Exit();
                     break;
-                //NOTE: PAUSE MENI
+                //NOTE: PAUSE MENU
                 case GameState.InPauseMenu:
                     if (firstEntry)
                     {

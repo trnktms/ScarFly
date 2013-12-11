@@ -41,8 +41,8 @@ namespace ScarFly.MyClasses
         public static string P_NetworkButton = "Buttons/NetworkButton";
         public static string P_ResumeButton = "Buttons/ResumeButton";
         public static string P_Tutorial = "Buttons/Tutorial";
-        public static string P_Player = "Player/Forest";
-        public static string P_Backgrond = "Background/PaperPlane_v2";
+        public static string P_Player = "Player/PaperPlane_v2";
+        public static string P_Backgrond = "Background/Forest";
         public static string P_ForeBackground = "Background/ForestFore";
         public static string P_Walkplace = "Background/WalkPlace";
 

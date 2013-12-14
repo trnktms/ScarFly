@@ -49,14 +49,10 @@ namespace ScarFly.MyClasses.NetworkClasses
                 this.GroupClient.BeginJoinGroup(
                     result =>
                     {
-                        try
-                        {
-                            this.GroupClient.EndJoinGroup(result);
-                            GroupIsJoined = true;
-                            this.GroupClient.MulticastLoopback = false;
-                            this.GroupReceive();
-                        }
-                        catch { }
+                        this.GroupClient.EndJoinGroup(result);
+                        GroupIsJoined = true;
+                        this.GroupClient.MulticastLoopback = false;
+                        this.GroupReceive();
                     }, null);
             }
         }
@@ -75,7 +71,14 @@ namespace ScarFly.MyClasses.NetworkClasses
                 this.GroupClient.BeginSendToGroup(data, 0, data.Length,
                     result =>
                     {
-                        this.GroupClient.EndSendToGroup(result);
+                        try
+                        {
+                            this.GroupClient.EndSendToGroup(result);
+                        }
+                        catch (SocketException ex)
+                        {
+                            if (ex.ErrorCode != 995) { throw ex; }
+                        }
                     }, null);
             }
         }

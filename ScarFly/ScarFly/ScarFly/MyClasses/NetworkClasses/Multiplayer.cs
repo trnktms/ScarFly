@@ -41,7 +41,7 @@ namespace ScarFly.MyClasses.NetworkClasses
         void Channel_GroupPacketReceived(object sender, UdpPacketReceivedEventArgs e)
         {
             RecievedData = e.Message.Trim('\0');
-            string[] recievedDataArray = RecievedData.Split(',');
+            string[] recievedDataArray = RecievedData.Split(';');
             if (OtherPlayer.Id == Guid.Empty && recievedDataArray[1] == "0")
             {
                 OtherPlayer.Id = Guid.Parse(recievedDataArray[0]);
@@ -51,24 +51,34 @@ namespace ScarFly.MyClasses.NetworkClasses
                 }
                 else
                 {
-                    Level = SendedData.Split(',')[2];
+                    Level = SendedData.Split(';')[2];
                 }
             }
             //NOTE: if received data source is correct
             else if (recievedDataArray[0] == OtherPlayer.Id.ToString() && recievedDataArray[1] == "1")
             {
-                if (recievedDataArray.Length == 4)
+                if (recievedDataArray.Length == 5)
                 {
                     OtherPlayer.Distance = int.Parse(recievedDataArray[2]);
                     OtherPlayer.Score = int.Parse(recievedDataArray[3]);
+                    OtherPlayer.Time = double.Parse(recievedDataArray[4]);
                 }
             }
         }
 
-        public void Update()
+        public void Update(GameTime gameTime)
         {
-            SendedData = string.Format("{0},{1},{2},{3}", Player.Id, "1", Player.Distance, Player.Score.GameScore);
+            Player.Time += gameTime.ElapsedGameTime.TotalMilliseconds / 1000;
+            SendedData = string.Format("{0};{1};{2};{3};{4}", Player.Id, "1", Player.Distance, Player.Score.GameScore, Player.Time);
             SendData();
+        }
+
+        public void Reset()
+        {
+            OtherPlayer.Id = Guid.Empty;
+            OtherPlayer.Score = 0;
+            Level = string.Empty;
+            OtherPlayer.Distance = 0;
         }
 
         public void Draw(SpriteBatch spriteBatch, Color color)

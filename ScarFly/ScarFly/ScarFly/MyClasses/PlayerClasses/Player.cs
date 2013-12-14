@@ -53,6 +53,7 @@ namespace ScarFly.MyClasses.PlayerClasses
         public int StartVelocity { get; set; }
         public int Distance { get; set; }
         public Color Overlayer { get; set; }
+        public double Time { get; set; }
 
         private Vector2 ZeroPosition { get; set; }
         public Vector2 Position { get; set; }

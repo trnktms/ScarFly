@@ -25,6 +25,7 @@ namespace ScarFly.MyClasses.NetworkClasses
         public int Score { get; set; }
         public int Velocity { get; set; }
         public Guid Id { get; set; }
+        public double Time { get; set; }
 
         public void Load(Game1 game)
         {
@@ -37,7 +38,7 @@ namespace ScarFly.MyClasses.NetworkClasses
         {
             //spriteBatch.Draw(Texture, new Vector2(0, Consts.PhoneWidth / Distance), color);
             spriteBatch.Draw(MoneyIconTexture, new Vector2(0, Consts.PhoneHeight - 100), color);
-            spriteBatch.DrawString(Font, Score.ToString(), new Vector2(MoneyIconTexture.Width + 3, Consts.PhoneHeight - 100 + 3), color);
+            spriteBatch.DrawString(Font, Score.ToString() + " - " + Time, new Vector2(MoneyIconTexture.Width + 3, Consts.PhoneHeight - 100 + 3), color);
             spriteBatch.DrawString(Font, Distance.ToString(), new Vector2(0, 80), color);
         }
     }

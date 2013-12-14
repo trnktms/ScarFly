@@ -52,6 +52,7 @@ namespace ScarFly
 
         //NOTE: Network
         Multiplayer multiPlayer;
+        string selectedLevel;
 
         public Game1()
         {
@@ -89,7 +90,7 @@ namespace ScarFly
             tutorialMenu = new Menu(tutorialButtons);
 
             //NOTE: GAMING
-            player = new Player("Player1", 4, 100, 370, Consts.P_Player, 1);
+            player = new Player("Player1", 4, 100, 350, Consts.P_Player, 1);
             backBackground = new PlayerBackground(Consts.P_Backgrond, 1);
             foreBackground = new PlayerBackground(Consts.P_ForeBackground, 2);
             walkPlace = new PlayerBackground(Consts.P_Walkplace, 4);
@@ -168,8 +169,7 @@ namespace ScarFly
                     }
                     else
                     {
-                        player.Update();
-                        if (moneys.GetActualMoneyList().Count != 0 && moneys.GetActualMoneyList().LastOrDefault().Index.ID == "!")
+                        if (Helper.IsLevelEnd(moneys))
                         {
                             player.isEnd = true;
                             if (player.Position.X >= Consts.PhoneWidth)
@@ -178,6 +178,7 @@ namespace ScarFly
                                 gameState = GameState.InEndGameMenu;
                             }
                         }
+                        player.Update();
                         backBackground.Scroll(this);
                         foreBackground.Scroll(this);
                         walkPlace.Scroll(this);
@@ -196,14 +197,15 @@ namespace ScarFly
                 case GameState.NetworkSearch:
                     if (firstEntry)
                     {
+                        selectedLevel = LevelSelector.Select();
                         multiPlayer.InitializeSockets();
                         firstEntry = false;
                     }
                     else
                     {
-                        multiPlayer.SendedData = string.Format("{0},{1},{2}", player.Id, "0", LevelSelector.Select());
+                        multiPlayer.SendedData = string.Format("{0};{1};{2}", player.Id, "0", selectedLevel);
                         multiPlayer.SendData();
-                        if (multiPlayer.OtherPlayer.Id != Guid.Empty)
+                        if (multiPlayer.OtherPlayer.Id != Guid.Empty && !string.IsNullOrWhiteSpace(multiPlayer.Level))
                         {
                             gameState = GameState.NetworkGaming;
                             Transitions.ChangeGameState(ref firstEntry);
@@ -235,17 +237,17 @@ namespace ScarFly
                     }
                     else
                     {
-                        multiPlayer.Update();
-                        player.Update();
-                        if (moneys.GetActualMoneyList().Count != 0 && moneys.GetActualMoneyList().LastOrDefault().Index.ID == "!")
+                        if (Helper.IsLevelEnd(moneys))
                         {
                             player.isEnd = true;
                             if (player.Position.X >= Consts.PhoneWidth)
                             {
                                 Transitions.ChangeGameState(ref firstEntry);
-                                gameState = GameState.InEndGameMenu;
+                                gameState = GameState.NetworkEndGame;
                             }
                         }
+                        multiPlayer.Update(gameTime);
+                        player.Update();
                         backBackground.Scroll(this);
                         foreBackground.Scroll(this);
                         walkPlace.Scroll(this);
@@ -253,11 +255,21 @@ namespace ScarFly
                         moneys.Scroll(this);
                         modifiers.Scroll(this);
                         collosion.Update();
-                        if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
+                    }
+                    break;
+                //NOTE: NETWORK END GAME
+                case GameState.NetworkEndGame:
+                    multiPlayer.Update(gameTime);
+                    backBackground.Scroll(this);
+                    foreBackground.Scroll(this);
+                    walkPlace.Scroll(this);
+                    foreach (TouchLocation item in TouchPanel.GetState())
+                    {
+                        if (item.State == TouchLocationState.Released)
                         {
-                            gameState = GameState.InMainMenu;
                             multiPlayer.Channel.GroupClose();
-                            firstEntry = true;
+                            multiPlayer.Reset();
+                            gameState = GameState.InMainMenu;
                         }
                     }
                     break;
@@ -373,6 +385,16 @@ namespace ScarFly
                 walkPlace.Draw(spriteBatch, color);
                 player.Score.DrawGameScore(spriteBatch, color);
                 collosion.Draw(spriteBatch);
+                multiPlayer.Draw(spriteBatch, color);
+            }
+            //NOTE: NETWORK END GAME
+            else if (gameState == GameState.NetworkEndGame)
+            {
+                Color color = Color.White;
+                Transitions.Transition(ref color);
+                backBackground.Draw(spriteBatch, color);
+                foreBackground.Draw(spriteBatch, color);
+                walkPlace.Draw(spriteBatch, color);
                 multiPlayer.Draw(spriteBatch, color);
             }
             //NOTE: PAUSE MENU

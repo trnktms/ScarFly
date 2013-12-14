@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using ScarFly.MyClasses.LevelElementClasses;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -48,6 +49,14 @@ namespace ScarFly.MyClasses
 
         public static Color PastelGreen = new Color(119, 221, 119);
         public static Color PastelRed = new Color(255, 105, 97);
+    }
+
+    public static class Helper
+    {
+        public static bool IsLevelEnd(Moneys moneys)
+        {
+            return moneys.GetActualMoneyList().Count != 0 && moneys.GetActualMoneyList().LastOrDefault().Index.ID == "!";
+        }
     }
 
     public static class LevelSelector

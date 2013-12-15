@@ -21,12 +21,22 @@ namespace ScarFly.MyClasses.MenuClasses
         public Vector2 Position { get; set; }
         public string AssetName { get; set; }
         public Texture2D Texture { get; set; }
+        public bool IsPressed { get; set; }
 
         public void Load(Game1 game) { Texture = game.Content.Load<Texture2D>(AssetName); }
 
         public bool IsTouched(TouchLocation touchLocation) 
         {
-            return (touchLocation.State == TouchLocationState.Pressed)
+            return (touchLocation.State == TouchLocationState.Pressed || touchLocation.State == TouchLocationState.Moved)
+                    && (touchLocation.Position.X >= this.Position.X
+                    && touchLocation.Position.Y >= this.Position.Y
+                    && touchLocation.Position.X <= this.Texture.Width + this.Position.X
+                    && touchLocation.Position.Y <= this.Texture.Height + this.Position.Y);
+        }
+
+        public bool IsReleased(TouchLocation touchLocation)
+        {
+            return (touchLocation.State == TouchLocationState.Released)
                     && (touchLocation.Position.X >= this.Position.X
                     && touchLocation.Position.Y >= this.Position.Y
                     && touchLocation.Position.X <= this.Texture.Width + this.Position.X
@@ -35,7 +45,7 @@ namespace ScarFly.MyClasses.MenuClasses
 
         public void Draw(SpriteBatch spriteBatch, Color color)
         {
-            spriteBatch.Draw(Texture, Position, color);
+            spriteBatch.Draw(Texture, Position, IsPressed ? Color.Gray : color);
         }
     }
 }

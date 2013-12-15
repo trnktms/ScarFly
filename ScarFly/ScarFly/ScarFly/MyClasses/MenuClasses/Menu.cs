@@ -36,11 +36,8 @@ namespace ScarFly.MyClasses.MenuClasses
                 {
                     foreach (MenuButton buttonItem in ButtonList)
                     {
-                        if ((touchLocItem.State == TouchLocationState.Released)
-                        && (touchLocItem.Position.X >= buttonItem.Position.X
-                        && touchLocItem.Position.Y >= buttonItem.Position.Y
-                        && touchLocItem.Position.X <= buttonItem.Texture.Width + buttonItem.Position.X
-                        && touchLocItem.Position.Y <= buttonItem.Texture.Height + buttonItem.Position.Y))
+                        buttonItem.IsPressed = buttonItem.IsTouched(touchLocItem);
+                        if (buttonItem.IsReleased(touchLocItem))
                         {
                             switch (buttonItem.Name)
                             {

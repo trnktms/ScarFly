@@ -55,6 +55,7 @@
     <XnaCompressContent>false</XnaCompressContent>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Phone, Version=7.0.0.0, Culture=neutral, PublicKeyToken=24eec0d8c86cda1e, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.Xna.Framework" />
     <Reference Include="Microsoft.Xna.Framework.Game" />
     <Reference Include="Microsoft.Xna.Framework.Graphics" />
@@ -114,6 +115,7 @@
     </None>
     <Compile Include="Program.cs" />
     <Compile Include="Game1.cs" />
+    <None Include="ScarFly_2013_12_15_14_15_13.sap" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Game.ico" />

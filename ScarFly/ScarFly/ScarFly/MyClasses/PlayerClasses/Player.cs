@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using ScarFly.MyClasses.PlayerClasses;
-
+using Microsoft.Devices;
 namespace ScarFly.MyClasses.PlayerClasses
 {
     public enum PlayerStates
@@ -72,6 +72,7 @@ namespace ScarFly.MyClasses.PlayerClasses
         private int _fly_vy, _fly_sy;
         private int _animateCount = 0;
         private int _positionHistoryMax = 20;
+        private VibrateController vibrateController = VibrateController.Default;
 
         public void Load(Game1 game) 
         { 
@@ -91,7 +92,7 @@ namespace ScarFly.MyClasses.PlayerClasses
 
         public void Update()
         {
-            if (isDead) { Overlayer = new Color(255, 105, 97); Score.GameScore--; }
+            if (isDead) { Overlayer = new Color(255, 105, 97); Score.GameScore--; vibrateController.Start(TimeSpan.FromMilliseconds(50)); }
             else if (isEatMoney) { Score.GameScore += 10; }
 
             if (isEnd) { Position = new Vector2(Position.X + Velocity, Position.Y); }

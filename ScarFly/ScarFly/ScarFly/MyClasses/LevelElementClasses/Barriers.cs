@@ -45,6 +45,12 @@ namespace ScarFly.MyClasses.LevelElementClasses
                             case 2:
                                 barrierAssetName = "LevelElements/PinWheelBig";
                                 break;
+                            case 3:
+                                barrierAssetName = "LevelElements/PinWheelMiniDown";
+                                break;
+                            case 4:
+                                barrierAssetName = "LevelElements/PinWheelBigDown";
+                                break;
                             default:
                                 break;
                         }

@@ -18,6 +18,7 @@ using System.Net;
 using System.Net.NetworkInformation;
 using System.Net.Sockets;
 using System.Text;
+using System.Threading;
 
 namespace ScarFly
 {
@@ -150,21 +151,37 @@ namespace ScarFly
         {
             switch (gameState)
             {
+                //NOTE: LOAD LEVEL
+                case GameState.LoadLevel:
+                    if (firstEntry)
+                    {
+                        firstEntry = false;
+                        Thread loadThread = new Thread(() =>
+                            {
+                                foreach (PlayerBackground item in backgroundList) { item.RePosition(); }
+                                string level = LevelSelector.Select();
+                                barriers = new Barriers(level, 4);
+                                barriers.Load(this);
+                                moneys = new Moneys(level, 4);
+                                moneys.Load(this);
+                                modifiers = new Modifiers(level, 4);
+                                modifiers.Load(this);
+                                player.RePosition();
+                                collosion = new Collosion(barriers, player, moneys, modifiers, backgroundList);
+                                collosion.Load(this);
+                                gameState = GameState.Gaming;
+                                Transitions.ChangeGameState(ref firstEntry);
+                            });
+                        loadThread.Start();
+                    }
+                    backBackground.Scroll(this);
+                    foreBackground.Scroll(this);
+                    walkPlace.Scroll(this);
+                    break;
                 //NOTE: GAMING
                 case GameState.Gaming:
                     if (firstEntry)
                     {
-                        foreach (PlayerBackground item in backgroundList) { item.RePosition(); }
-                        string level = LevelSelector.Select();
-                        barriers = new Barriers(level, 4);
-                        barriers.Load(this);
-                        moneys = new Moneys(level, 4);
-                        moneys.Load(this);
-                        modifiers = new Modifiers(level, 4);
-                        modifiers.Load(this);
-                        player.RePosition();
-                        collosion = new Collosion(barriers, player, moneys, modifiers, backgroundList);
-                        collosion.Load(this);
                         firstEntry = false;
                     }
                     else
@@ -346,6 +363,16 @@ namespace ScarFly
                 walkPlace.Draw(spriteBatch, color);
                 mainMenu.DrawButtonList(spriteBatch, color);
                 player.Score.DrawMainMenuScores(spriteBatch, color);
+            }
+            //NOTE: LOAD LEVEL
+            else if (gameState == GameState.LoadLevel)
+            {
+                Color color = Color.White;
+                Transitions.Transition(ref color);
+                backBackground.Draw(spriteBatch, color);
+                foreBackground.Draw(spriteBatch, color);
+                walkPlace.Draw(spriteBatch, color);
+                spriteBatch.DrawString(baseFont, "Loading...", new Vector2(10, 10), color);
             }
             //NOTE: GAMING
             else if (gameState == GameState.Gaming)

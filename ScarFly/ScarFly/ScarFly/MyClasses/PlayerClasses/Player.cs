@@ -158,14 +158,8 @@ namespace ScarFly.MyClasses.PlayerClasses
                 new Rectangle((int)(MoveWidth * _animateCount), 0, (int)MoveWidth, (int)Texture.Height),
                 color);
 
-            if (_animateCount < moveCount - 1)
-            {
-                _animateCount++;
-            }
-            else
-            {
-                _animateCount = 0;
-            }
+            if (_animateCount < moveCount - 1) { _animateCount++; }
+            else { _animateCount = 0; }
         }
 
         private void DrawHistory(SpriteBatch spriteBatch, Color color)

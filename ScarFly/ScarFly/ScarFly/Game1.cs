@@ -180,10 +180,7 @@ namespace ScarFly
                     break;
                 //NOTE: GAMING
                 case GameState.Gaming:
-                    if (firstEntry)
-                    {
-                        firstEntry = false;
-                    }
+                    if (firstEntry) { firstEntry = false; }
                     else
                     {
                         if (Helper.IsLevelEnd(moneys))

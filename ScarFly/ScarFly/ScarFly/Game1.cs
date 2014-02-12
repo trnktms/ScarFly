@@ -13,7 +13,6 @@ using ScarFly.MyClasses;
 using ScarFly.MyClasses.PlayerClasses;
 using ScarFly.MyClasses.LevelElementClasses;
 using ScarFly.MyClasses.MenuClasses;
-using ScarFly.MyClasses.NetworkClasses;
 using System.Net;
 using System.Net.NetworkInformation;
 using System.Net.Sockets;
@@ -31,7 +30,6 @@ namespace ScarFly
         //NOTE: Menu
         Menu mainMenu;
         Menu pauseMenu;
-        //Menu endGameMenu;
         Menu tutorialMenu;
         List<MenuButton> mainButtons = new List<MenuButton>();
         List<MenuButton> pauseButtons = new List<MenuButton>();
@@ -50,10 +48,6 @@ namespace ScarFly
         Modifiers modifiers;
         Collosion collosion;
         GameState gameState;
-
-        //NOTE: Network
-        Multiplayer multiPlayer;
-        string selectedLevel;
 
         public Game1()
         {
@@ -77,9 +71,9 @@ namespace ScarFly
             //NOTE: MENU
             mainButtons = new List<MenuButton>();
             mainButtons.Add(new MenuButton("Main_Start", Consts.P_StartButton, (Consts.PhoneWidth / 2) + 20, (Consts.PhoneHeight / 2) - 220));
-            mainButtons.Add(new MenuButton("Main_Help", Consts.P_HelpButton, (Consts.PhoneWidth / 2) + 20, (Consts.PhoneHeight / 2) - 220 + 200));
-            mainButtons.Add(new MenuButton("Main_About", Consts.P_AboutButton, (Consts.PhoneWidth / 2) + 20, (Consts.PhoneHeight / 2) - 220 + 300));
-            mainButtons.Add(new MenuButton("Main_Network", Consts.P_NetworkButton, (Consts.PhoneWidth / 2) + 20, (Consts.PhoneHeight / 2) - 220 + 100));
+            mainButtons.Add(new MenuButton("Main_Help", Consts.P_HelpButton, (Consts.PhoneWidth / 2) + 20, (Consts.PhoneHeight / 2) - 220 + 100));
+            mainButtons.Add(new MenuButton("Main_About", Consts.P_AboutButton, (Consts.PhoneWidth / 2) + 20, (Consts.PhoneHeight / 2) - 220 + 200));
+            mainButtons.Add(new MenuButton("Main_Vibrate", Consts.P_VibrateButton, (Consts.PhoneWidth) -100, (Consts.PhoneHeight)-100));
             mainMenu = new Menu(mainButtons);
 
             pauseButtons = new List<MenuButton>();
@@ -108,8 +102,6 @@ namespace ScarFly
 
             collosion = new Collosion(barriers, player, moneys, modifiers, backgroundList);
 
-            multiPlayer = new Multiplayer(player);
-
             if (!Tutorial.FirstStart()) { gameState = GameState.InTutorial; }
         }
 
@@ -132,7 +124,6 @@ namespace ScarFly
             pauseMenu.LoadButtonList(this);
             tutorialMenu.LoadButtonList(this);
             player.Load(this);
-            multiPlayer.OtherPlayer.Load(this);
             backBackground.Load(this);
             foreBackground.Load(this);
             walkPlace.Load(this);
@@ -204,86 +195,6 @@ namespace ScarFly
                         {
                             gameState = GameState.InPauseMenu;
                             firstEntry = true;
-                        }
-                    }
-                    break;
-                //NOTE: NETWORK SEARCH
-                case GameState.NetworkSearch:
-                    if (firstEntry)
-                    {
-                        selectedLevel = LevelSelector.Select();
-                        multiPlayer.InitializeSockets();
-                        firstEntry = false;
-                    }
-                    else
-                    {
-                        multiPlayer.SendedData = string.Format("{0};{1};{2}", player.Id, "0", selectedLevel);
-                        multiPlayer.SendData();
-                        if (multiPlayer.OtherPlayer.Id != Guid.Empty && !string.IsNullOrWhiteSpace(multiPlayer.Level))
-                        {
-                            gameState = GameState.NetworkGaming;
-                            Transitions.ChangeGameState(ref firstEntry);
-                        }
-                        if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
-                        {
-                            gameState = GameState.InMainMenu;
-                            multiPlayer.Channel.GroupClose();
-                            Transitions.ChangeGameState(ref firstEntry);
-                        }
-                    }
-                    break;
-                //NOTE: NETWORK GAMING
-                case GameState.NetworkGaming:
-                    if (firstEntry)
-                    {
-                        foreach (PlayerBackground item in backgroundList) { item.RePosition(); }
-                        string level = multiPlayer.Level;
-                        barriers = new Barriers(level, 4);
-                        barriers.Load(this);
-                        moneys = new Moneys(level, 4);
-                        moneys.Load(this);
-                        modifiers = new Modifiers(level, 4);
-                        modifiers.Load(this);
-                        player.RePosition();
-                        collosion = new Collosion(barriers, player, moneys, modifiers, backgroundList);
-                        collosion.Load(this);
-                        firstEntry = false;
-                    }
-                    else
-                    {
-                        if (Helper.IsLevelEnd(moneys))
-                        {
-                            player.isEnd = true;
-                            if (player.Position.X >= Consts.PhoneWidth)
-                            {
-                                Transitions.ChangeGameState(ref firstEntry);
-                                gameState = GameState.NetworkEndGame;
-                            }
-                        }
-                        multiPlayer.Update(gameTime);
-                        player.Update();
-                        backBackground.Scroll(this);
-                        foreBackground.Scroll(this);
-                        walkPlace.Scroll(this);
-                        barriers.Scroll(this);
-                        moneys.Scroll(this);
-                        modifiers.Scroll(this);
-                        collosion.Update();
-                    }
-                    break;
-                //NOTE: NETWORK END GAME
-                case GameState.NetworkEndGame:
-                    multiPlayer.Update(gameTime);
-                    backBackground.Scroll(this);
-                    foreBackground.Scroll(this);
-                    walkPlace.Scroll(this);
-                    foreach (TouchLocation item in TouchPanel.GetState())
-                    {
-                        if (item.State == TouchLocationState.Released)
-                        {
-                            multiPlayer.Channel.GroupClose();
-                            multiPlayer.Reset();
-                            gameState = GameState.InMainMenu;
                         }
                     }
                     break;
@@ -385,41 +296,6 @@ namespace ScarFly
                 walkPlace.Draw(spriteBatch, color);
                 player.Score.DrawGameScore(spriteBatch, color);
                 collosion.Draw(spriteBatch);
-            }
-            //NOTE: NETWORK SEARCH
-            else if (gameState == GameState.NetworkSearch)
-            {
-                Color color = Color.White;
-                Transitions.Transition(ref color);
-                backBackground.Draw(spriteBatch, color);
-                foreBackground.Draw(spriteBatch, color);
-                spriteBatch.DrawString(baseFont, "Searching player...", new Vector2(0, 0), color);
-            }
-            //NOTE: NETWORK GAMING
-            else if (gameState == GameState.NetworkGaming)
-            {
-                Color color = Color.White;
-                Transitions.Transition(ref color);
-                backBackground.Draw(spriteBatch, color);
-                foreBackground.Draw(spriteBatch, color);
-                player.Draw(spriteBatch, color);
-                barriers.Draw(spriteBatch, color);
-                moneys.Draw(spriteBatch, color);
-                modifiers.Draw(spriteBatch, color);
-                walkPlace.Draw(spriteBatch, color);
-                player.Score.DrawGameScore(spriteBatch, color);
-                collosion.Draw(spriteBatch);
-                multiPlayer.Draw(spriteBatch, color);
-            }
-            //NOTE: NETWORK END GAME
-            else if (gameState == GameState.NetworkEndGame)
-            {
-                Color color = Color.White;
-                Transitions.Transition(ref color);
-                backBackground.Draw(spriteBatch, color);
-                foreBackground.Draw(spriteBatch, color);
-                walkPlace.Draw(spriteBatch, color);
-                multiPlayer.Draw(spriteBatch, color);
             }
             //NOTE: PAUSE MENU
             else if (gameState == GameState.InPauseMenu)

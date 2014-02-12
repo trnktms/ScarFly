@@ -12,9 +12,6 @@ namespace ScarFly.MyClasses
     public enum GameState
     {
         Gaming,
-        NetworkSearch,
-        NetworkGaming,
-        NetworkEndGame,
         InMainMenu,
         InPauseMenu,
         InEndGameMenu,
@@ -24,6 +21,8 @@ namespace ScarFly.MyClasses
 
     public static class Consts
     {
+        public static bool IsVibrate = true;
+
         public static int PhoneWidth;
         public static int PhoneHeight;
 
@@ -42,6 +41,7 @@ namespace ScarFly.MyClasses
         public static string P_AboutButton = "Buttons/AboutButton";
         public static string P_NetworkButton = "Buttons/NetworkButton";
         public static string P_ResumeButton = "Buttons/ResumeButton";
+        public static string P_VibrateButton = "Buttons/VibrateButton";
         public static string P_Tutorial = "Buttons/Tutorial";
         public static string P_Player = "Player/PaperPlane_v2";
         public static string P_Backgrond = "Background/Forest";

@@ -92,7 +92,12 @@ namespace ScarFly.MyClasses.PlayerClasses
 
         public void Update()
         {
-            if (isDead) { Overlayer = new Color(255, 105, 97); Score.GameScore--; vibrateController.Start(TimeSpan.FromMilliseconds(50)); }
+            if (isDead) 
+            { 
+                Overlayer = new Color(255, 105, 97); 
+                Score.GameScore--;
+                if (Consts.IsVibrate) { vibrateController.Start(TimeSpan.FromMilliseconds(50)); }
+            }
             else if (isEatMoney) { Score.GameScore += 10; }
 
             if (isEnd) { Position = new Vector2(Position.X + Velocity, Position.Y); }

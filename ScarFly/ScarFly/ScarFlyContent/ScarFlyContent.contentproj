@@ -158,13 +158,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Buttons\NetworkButton.png">
-      <Name>NetworkButton</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="LevelElements\PinWheelBigDown.png">
       <Name>PinWheelBigDown</Name>
       <Importer>TextureImporter</Importer>
@@ -172,6 +165,13 @@
     </Compile>
     <Compile Include="LevelElements\PinWheelMiniDown.png">
       <Name>PinWheelMiniDown</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Buttons\VibrateButton.png">
+      <Name>VibrateButton</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

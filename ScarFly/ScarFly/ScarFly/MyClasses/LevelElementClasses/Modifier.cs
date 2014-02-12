@@ -18,5 +18,6 @@ namespace ScarFly.MyClasses.LevelElementClasses
         }
 
         public ModifierIndex Index { get; set; }
+        public bool IsCatched { get; set; }
     }
 }

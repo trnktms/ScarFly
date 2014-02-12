@@ -57,7 +57,7 @@ namespace ScarFly.MyClasses.LevelElementClasses
 
         public override void Scroll(Game1 game)
         {
-            foreach (var moneyItem in MoneyList.Where(p => p.Position.X >= -p.Texture.Width))
+            foreach (var moneyItem in MoneyList.Where(p => p.Position.X >= -p.Texture.Width && !p.IsCatched))
             {
                 moneyItem.Position = new Vector2(moneyItem.Position.X - Velocity, moneyItem.Position.Y);
                 moneyItem.UpdateRectangle();
@@ -67,13 +67,13 @@ namespace ScarFly.MyClasses.LevelElementClasses
         public List<Money> GetActualMoneyList()
         {
             List<Money> result = new List<Money>();
-            result = MoneyList.Where(p => p.Position.X >= -p.Texture.Width && p.Position.X <= Consts.PhoneWidth).ToList();
+            result = MoneyList.Where(p => p.Position.X >= -p.Texture.Width && p.Position.X <= Consts.PhoneWidth && !p.IsCatched).ToList();
             return result;
         }
 
         public override void Draw(SpriteBatch spriteBatch, Color color)
         {
-            foreach (var moneyItem in MoneyList.Where(p => p.Position.X >= -p.Texture.Width && p.Position.X <= Consts.PhoneWidth && p.Index.ID != "!"))
+            foreach (var moneyItem in MoneyList.Where(p => p.Position.X >= -p.Texture.Width && p.Position.X <= Consts.PhoneWidth && p.Index.ID != "!" && !p.IsCatched))
             {
                 moneyItem.Draw(spriteBatch, color);
             }

@@ -53,7 +53,7 @@ namespace ScarFly.MyClasses.LevelElementClasses
 
         public override void Scroll(Game1 game)
         {
-            foreach (var moneyItem in ModifierList.Where(p => p.Position.X >= -p.Texture.Width))
+            foreach (var moneyItem in ModifierList.Where(p => p.Position.X >= -p.Texture.Width && !p.IsCatched))
             {
                 moneyItem.Position = new Vector2(moneyItem.Position.X - Velocity, moneyItem.Position.Y);
                 moneyItem.UpdateRectangle();
@@ -63,13 +63,13 @@ namespace ScarFly.MyClasses.LevelElementClasses
         public List<Modifier> GetActualMoneyList()
         {
             List<Modifier> result = new List<Modifier>();
-            result = ModifierList.Where(p => p.Position.X >= -p.Texture.Width && p.Position.X <= Consts.PhoneWidth).ToList();
+            result = ModifierList.Where(p => p.Position.X >= -p.Texture.Width && p.Position.X <= Consts.PhoneWidth && !p.IsCatched).ToList();
             return result;
         }
 
         public override void Draw(SpriteBatch spriteBatch, Color color)
         {
-            foreach (var moneyItem in ModifierList.Where(p => p.Position.X >= -p.Texture.Width && p.Position.X <= Consts.PhoneWidth))
+            foreach (var moneyItem in ModifierList.Where(p => p.Position.X >= -p.Texture.Width && p.Position.X <= Consts.PhoneWidth && !p.IsCatched))
             {
                 moneyItem.Draw(spriteBatch, color);
             }

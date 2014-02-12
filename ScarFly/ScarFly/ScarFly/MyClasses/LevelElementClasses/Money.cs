@@ -18,5 +18,6 @@ namespace ScarFly.MyClasses.LevelElementClasses
         }
 
         public MoneyIndex Index { get; set; }
+        public bool IsCatched { get; set; }
     }
 }

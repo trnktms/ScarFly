@@ -45,7 +45,15 @@ namespace ScarFly.MyClasses.MenuClasses
 
         public void Draw(SpriteBatch spriteBatch, Color color)
         {
-            spriteBatch.Draw(Texture, Position, IsPressed ? Color.Gray : color);
+            
+            if (Name == "Main_Vibrate" && !Consts.IsVibrate)
+            {
+                spriteBatch.Draw(Texture, Position, Transitions.IsTransition ? color : Color.Gray);
+            }
+            else
+            {
+                spriteBatch.Draw(Texture, Position, IsPressed ? Color.Gray : color);
+            }
         }
     }
 }

@@ -49,32 +49,28 @@ namespace ScarFly.MyClasses.PlayerClasses
 
         private bool CollosionDetectionWithMoney()
         {
-            bool result = false;
-            int i = 0;
-            foreach (var moneyItem in Moneys.MoneyList.Where(p => p.Index.ID != "!"))
+            foreach (var moneyItem in Moneys.MoneyList.Where(p => p.Index.ID != "!" && !p.IsCatched))
             {
-                result = IntersectsPixel(moneyItem.Bound, moneyItem.ColorData, Player.RunBound, Player.ColorData);
-                if (result) { break; }
-                i++;
+                if (IntersectsPixel(moneyItem.Bound, moneyItem.ColorData, Player.RunBound, Player.ColorData)) 
+                { 
+                    moneyItem.IsCatched = true; 
+                    return true; 
+                }
             }
-
-            if (result) { Moneys.MoneyList.RemoveAt(i); }
-            return result;
+            return false;
         }
 
         private bool CollosionDetectionWithModifier()
         {
-            bool result = false;
-            int i = 0;
-            foreach (var modifierItem in Modifiers.ModifierList.Where(p => p.Index.ID != "!"))
+            foreach (var modifierItem in Modifiers.ModifierList.Where(p => p.Index.ID != "!" && !p.IsCatched))
             {
-                result = IntersectsPixel(modifierItem.Bound, modifierItem.ColorData, Player.RunBound, Player.ColorData);
-                if (result) { break; }
-                i++;
+                if (IntersectsPixel(modifierItem.Bound, modifierItem.ColorData, Player.RunBound, Player.ColorData))
+                {
+                    modifierItem.IsCatched = true;
+                    return true;
+                }
             }
-
-            if (result) { Modifiers.ModifierList.RemoveAt(i); }
-            return result;
+            return false;
         }
 
         public void Update()

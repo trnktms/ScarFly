@@ -53,25 +53,30 @@ namespace ScarFly.MyClasses.LevelElementClasses
 
         public override void Scroll(Game1 game)
         {
-            foreach (var moneyItem in ModifierList.Where(p => p.Position.X >= -p.Texture.Width && !p.IsCatched))
+            foreach (var modifierItem in ModifierList.Where(p => p.Position.X >= -p.Texture.Width && !p.IsHidden))
             {
-                moneyItem.Position = new Vector2(moneyItem.Position.X - Velocity, moneyItem.Position.Y);
-                moneyItem.UpdateRectangle();
+                modifierItem.Position = new Vector2(modifierItem.Position.X - Velocity, modifierItem.Position.Y);
+                modifierItem.UpdateRectangle();
             }
         }
 
         public List<Modifier> GetActualMoneyList()
         {
-            List<Modifier> result = new List<Modifier>();
-            result = ModifierList.Where(p => p.Position.X >= -p.Texture.Width && p.Position.X <= Consts.PhoneWidth && !p.IsCatched).ToList();
-            return result;
+            return ModifierList.Where(p => p.Position.X >= -p.Texture.Width && p.Position.X <= Consts.PhoneWidth && !p.IsHidden).ToList();
         }
 
         public override void Draw(SpriteBatch spriteBatch, Color color)
         {
-            foreach (var moneyItem in ModifierList.Where(p => p.Position.X >= -p.Texture.Width && p.Position.X <= Consts.PhoneWidth && !p.IsCatched))
+            foreach (var modifierItem in ModifierList.Where(p => p.Position.X >= -p.Texture.Width && p.Position.X <= Consts.PhoneWidth && !p.IsHidden))
             {
-                moneyItem.Draw(spriteBatch, color);
+                if (modifierItem.IsCatched)
+                {
+                    modifierItem.DrawCatched(spriteBatch, color);
+                }
+                else
+                {
+                    modifierItem.Draw(spriteBatch, color);
+                }
             }
         }
     }

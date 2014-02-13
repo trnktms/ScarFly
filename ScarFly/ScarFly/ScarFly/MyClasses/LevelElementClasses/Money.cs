@@ -19,5 +19,19 @@ namespace ScarFly.MyClasses.LevelElementClasses
 
         public MoneyIndex Index { get; set; }
         public bool IsCatched { get; set; }
+        public bool IsHidden { get; set; }
+        private float _catchCounter = 1;
+        public void DrawCatched(SpriteBatch spriteBatch, Color color)
+        {
+            _catchCounter -= 0.1f;
+            if (_catchCounter > 0)
+            {
+                spriteBatch.Draw(Texture, Position, new Rectangle((int)(MoveWidth * animateCount), 0, (int)(MoveWidth * _catchCounter), (int)(Texture.Height * _catchCounter)), color);
+            }
+            else
+            {
+                IsHidden = true;
+            }
+        }
     }
 }

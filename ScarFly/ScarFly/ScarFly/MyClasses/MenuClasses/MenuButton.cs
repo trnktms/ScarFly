@@ -48,7 +48,7 @@ namespace ScarFly.MyClasses.MenuClasses
             
             if (Name == "Main_Vibrate" && !Consts.IsVibrate)
             {
-                spriteBatch.Draw(Texture, Position, Transitions.IsTransition ? color : Color.Gray);
+                spriteBatch.Draw(Texture, Position, Transitions.IsTransition ? color : Consts.PastelRed);
             }
             else
             {

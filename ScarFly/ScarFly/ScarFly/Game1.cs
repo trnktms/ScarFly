@@ -280,7 +280,7 @@ namespace ScarFly
                 backBackground.Draw(spriteBatch, color);
                 foreBackground.Draw(spriteBatch, color);
                 walkPlace.Draw(spriteBatch, color);
-                spriteBatch.DrawString(baseFont, "Loading...", new Vector2(10, 10), color);
+                spriteBatch.DrawString(baseFont, "Loading...", new Vector2(20, 20), color);
             }
             //NOTE: GAMING
             else if (gameState == GameState.Gaming)

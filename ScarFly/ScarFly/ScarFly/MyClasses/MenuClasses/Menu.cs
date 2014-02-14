@@ -27,7 +27,7 @@ namespace ScarFly.MyClasses.MenuClasses
             foreach (MenuButton buttonItem in ButtonList) { buttonItem.Draw(spriteBatch, color); }
         }
 
-        public GameState IsTouched(Game1 game, TouchCollection touchCollection, GameState currentGameState, ref bool firstEntry, SpriteBatch spriteBatch)
+        public GameState IsTouched(Game1 game, TouchCollection touchCollection, GameState currentGameState, ref bool firstEntry)
         {
             GameState result = currentGameState;
             if (ButtonList != null)
@@ -42,10 +42,10 @@ namespace ScarFly.MyClasses.MenuClasses
                             switch (buttonItem.Name)
                             {
                                 case "Main_Start": 
-                                    result = GameState.LoadLevel; Transitions.IsTransition = true; firstEntry = true; Transitions.TransitionCounter = 0;
+                                    result = GameState.LoadLevel; Transitions.ChangeGameState(ref firstEntry);
                                     break;
                                 case "Main_Help":
-                                    result = GameState.InTutorial; Transitions.IsTransition = true; firstEntry = true; Transitions.TransitionCounter = 0;
+                                    result = GameState.InTutorial; Transitions.ChangeGameState(ref firstEntry);
                                     break;
                                 case "Main_Vibrate":
                                     Consts.IsVibrate = !Consts.IsVibrate;
@@ -57,7 +57,7 @@ namespace ScarFly.MyClasses.MenuClasses
                                 //    result = GameState.Gaming; Transitions.IsTransition = true; firstEntry = true; Transitions.TransitionCounter = 0;
                                 //    break;
                                 case "Tutorial":
-                                    result = GameState.InMainMenu; Transitions.IsTransition = true; firstEntry = true; Transitions.TransitionCounter = 0;
+                                    result = GameState.InMainMenu; Transitions.ChangeGameState(ref firstEntry);
                                     break;
                                 default:
                                     break;

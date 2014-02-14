@@ -90,13 +90,16 @@ namespace ScarFly.MyClasses.PlayerClasses
             RunBound = new Rectangle((int)Position.X, (int)Position.Y, MoveWidth, Texture.Height);
         }
 
-        public void Update()
+        public void Update(Game1 game, ref bool firstEntry)
         {
             if (isDead) 
             { 
                 Overlayer = new Color(255, 105, 97); 
-                Score.GameScore--;
+                //Score.GameScore--;
                 if (Consts.IsVibrate) { vibrateController.Start(TimeSpan.FromMilliseconds(50)); }
+                game.gameState = GameState.InEndGameMenu;
+                Transitions.ChangeGameState(ref firstEntry);
+                
             }
             else if (isEatMoney) { Score.GameScore += 10; }
 

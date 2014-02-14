@@ -47,7 +47,7 @@ namespace ScarFly
         Moneys moneys;
         Modifiers modifiers;
         Collosion collosion;
-        GameState gameState;
+        public GameState gameState { get; set; }
 
         public Game1()
         {
@@ -183,7 +183,7 @@ namespace ScarFly
                                 gameState = GameState.InEndGameMenu;
                             }
                         }
-                        player.Update();
+                        player.Update(this, ref firstEntry);
                         backBackground.Scroll(this);
                         foreBackground.Scroll(this);
                         walkPlace.Scroll(this);
@@ -214,7 +214,7 @@ namespace ScarFly
                     backBackground.Scroll(this);
                     foreBackground.Scroll(this);
                     walkPlace.Scroll(this);
-                    gameState = mainMenu.IsTouched(this, TouchPanel.GetState(), gameState, ref firstEntry, spriteBatch);
+                    gameState = mainMenu.IsTouched(this, TouchPanel.GetState(), gameState, ref firstEntry);
                     if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed) this.Exit();
                     break;
                 //NOTE: PAUSE MENU
@@ -224,7 +224,7 @@ namespace ScarFly
                         pauseMenu = new Menu(pauseButtons);
                         firstEntry = false;
                     }
-                    gameState = pauseMenu.IsTouched(this, TouchPanel.GetState(), gameState, ref firstEntry, spriteBatch);
+                    gameState = pauseMenu.IsTouched(this, TouchPanel.GetState(), gameState, ref firstEntry);
                     if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                     {
                         Transitions.ChangeGameState(ref firstEntry);
@@ -237,7 +237,7 @@ namespace ScarFly
                     backBackground.Scroll(this);
                     foreBackground.Scroll(this);
                     walkPlace.Scroll(this);
-                    gameState = tutorialMenu.IsTouched(this, TouchPanel.GetState(), gameState, ref firstEntry, spriteBatch);
+                    gameState = tutorialMenu.IsTouched(this, TouchPanel.GetState(), gameState, ref firstEntry);
                     if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                     {
                         Transitions.ChangeGameState(ref firstEntry);

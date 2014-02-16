@@ -21,11 +21,11 @@ namespace ScarFly.MyClasses.PlayerClasses
     }
     public class Score
     {
-        public Score(string gameScoreIconAssetName, string totalScoreIconAssetName, string rankIconAssetName, string fontName)
+        public Score(string gameScoreIconAssetName, string totalScoreIconAssetName, string rankIconAssetName, string highScoreIconAssetName, string fontName)
         {
             this.GameScoreIconAssetName = gameScoreIconAssetName;
             this.TotalScoreIconAssetName = totalScoreIconAssetName;
-            this.HighScoreIconAssetName = totalScoreIconAssetName;
+            this.HighScoreIconAssetName = highScoreIconAssetName;
             this.RankIconAssetName = rankIconAssetName;
             this.FontAssetName = fontName;
         }
@@ -60,19 +60,20 @@ namespace ScarFly.MyClasses.PlayerClasses
 
         public void DrawGameScore(SpriteBatch spriteBatch, Color color)
         {
-            spriteBatch.Draw(GameScoreIcon, new Vector2(0, 0), color);
-            spriteBatch.DrawString(Font, GameScore.ToString(), new Vector2(GameScoreIcon.Width + 3, 3), color);
+            spriteBatch.Draw(GameScoreIcon, new Vector2(5, 5), color);
+            spriteBatch.DrawString(Font, GameScore.ToString(), new Vector2(GameScoreIcon.Width + 8, 8), color);
         }
 
         public void DrawMainMenuScores(SpriteBatch spriteBatch, Color color)
         {
             spriteBatch.Draw(RankIcon, new Vector2(5, 5), color);
             spriteBatch.DrawString(Font, Rank.ToString(), new Vector2(RankIcon.Width + 8, 8), color);
-            spriteBatch.Draw(GameScoreIcon, new Vector2(5, 85), color);
-            spriteBatch.DrawString(Font, string.Format("{0}/{1}", TotalScore.ToString(), GameScore.ToString()), new Vector2(GameScoreIcon.Width + 8, 88), color);
-            spriteBatch.Draw(HighScoreIcon, new Vector2(5, 165), color);
-            spriteBatch.DrawString(Font, HighScore.ToString(), new Vector2(GameScoreIcon.Width + 8, 168), color);
-            if (IsNewHighScore) { spriteBatch.DrawString(Font, "New high score!", new Vector2(GameScoreIcon.Width + 8, 248), color); }
+            spriteBatch.Draw(HighScoreIcon, new Vector2(5, 85), color * 0.8f);
+            spriteBatch.DrawString(Font, HighScore.ToString() + (IsNewHighScore ? " - Hit!" : ""), new Vector2(HighScoreIcon.Width + 8, 88), color);
+            spriteBatch.Draw(GameScoreIcon, new Vector2(5, 165), color);
+            spriteBatch.DrawString(Font, TotalScore.ToString(), new Vector2(GameScoreIcon.Width + 8, 168), color);
+            spriteBatch.Draw(GameScoreIcon, new Vector2(5, 245), color);
+            spriteBatch.DrawString(Font, GameScore.ToString(), new Vector2(GameScoreIcon.Width + 8, 248), color);
         }
 
         public void DrawEndGameScores(SpriteBatch spriteBatch, Color color)

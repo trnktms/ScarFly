@@ -30,7 +30,7 @@ namespace ScarFly.MyClasses.PlayerClasses
             this.isDead = false;
             this.isEatMoney = false;
             this.isEnd = false;
-            this.Score = new Score(Consts.P_MoneyIcon, Consts.P_MoneyIcon, Consts.P_RankIcon, Consts.SF_GameScore);
+            this.Score = new Score(Consts.P_MoneyIcon, Consts.P_MoneyIcon, Consts.P_RankIcon, Consts.P_BestIcon, Consts.SF_GameScore);
             this.Velocity = velocity;
             this.StartVelocity = velocity;
             this.PositionHistory = new Queue<Vector2>(20);

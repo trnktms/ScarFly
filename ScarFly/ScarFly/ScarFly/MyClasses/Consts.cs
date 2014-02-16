@@ -35,6 +35,7 @@ namespace ScarFly.MyClasses
 
         public static string P_MoneyIcon = "Icons/MoneyIcon";
         public static string P_RankIcon = "Icons/RankIcon";
+        public static string P_BestIcon = "Icons/BestIcon";
         public static string P_Pixel = "Player/Pixel";
         public static string P_StartButton = "Buttons/StartButton";
         public static string P_HelpButton = "Buttons/HelpButton";

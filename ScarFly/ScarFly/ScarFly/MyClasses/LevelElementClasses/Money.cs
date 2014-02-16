@@ -26,7 +26,7 @@ namespace ScarFly.MyClasses.LevelElementClasses
             _catchCounter -= 0.1f;
             if (_catchCounter > 0)
             {
-                spriteBatch.Draw(Texture, Position, new Rectangle((int)(MoveWidth * animateCount), 0, (int)(MoveWidth * _catchCounter), (int)(Texture.Height * _catchCounter)), color);
+                spriteBatch.Draw(Texture, Position, new Rectangle((int)(MoveWidth * animateCount), 0, (int)(MoveWidth), (int)(Texture.Height )), color * _catchCounter);
             }
             else
             {

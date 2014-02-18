@@ -30,7 +30,7 @@ namespace ScarFly.MyClasses.PlayerClasses
             this.isDead = false;
             this.isEatMoney = false;
             this.isEnd = false;
-            this.Score = new Score(Consts.P_MoneyIcon, Consts.P_MoneyIcon, Consts.P_RankIcon, Consts.P_BestIcon, Consts.SF_GameScore);
+            this.Score = new Score(Consts.P_MoneyIcon, Consts.P_MoneyIcon, Consts.P_RankIcon, Consts.P_BestIcon, Consts.SF_BaseFont);
             this.Velocity = velocity;
             this.StartVelocity = velocity;
             this.PositionHistory = new Queue<Vector2>(20);
@@ -134,7 +134,7 @@ namespace ScarFly.MyClasses.PlayerClasses
             Position = new Vector2(Position.X, _fall_sy);
             _fly_sy = (int)Position.Y;
             _fly_vy = 0;
-            if (_fall_sy > ZeroPosition.Y || _fall_sy > ZeroPosition.Y - 12) 
+            if (_fall_sy > ZeroPosition.Y || _fall_sy > ZeroPosition.Y - 15) 
             { 
                 PlayerState = PlayerStates.InOneAltitude; 
             }

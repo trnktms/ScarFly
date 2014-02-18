@@ -26,6 +26,7 @@ namespace ScarFly
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         SpriteFont baseFont;
+        SpriteFont baseFontBig;
 
         //NOTE: Menu
         Menu mainMenu;
@@ -85,7 +86,7 @@ namespace ScarFly
             tutorialMenu = new Menu(tutorialButtons);
 
             //NOTE: GAMING
-            player = new Player("Player1", 4, 100, 350, Consts.P_Player, 1);
+            player = new Player("Player1", 4, 100, 340, Consts.P_Player, 1);
             backBackground = new PlayerBackground(Consts.P_Backgrond, 1);
             foreBackground = new PlayerBackground(Consts.P_ForeBackground, 2);
             walkPlace = new PlayerBackground(Consts.P_Walkplace, 4);
@@ -119,7 +120,8 @@ namespace ScarFly
         protected override void LoadContent()
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
-            baseFont = this.Content.Load<SpriteFont>(Consts.SF_GameScore);
+            baseFont = this.Content.Load<SpriteFont>(Consts.SF_BaseFont);
+            baseFontBig = this.Content.Load<SpriteFont>(Consts.SF_BaseFontBig);
             mainMenu.LoadButtonList(this);
             pauseMenu.LoadButtonList(this);
             tutorialMenu.LoadButtonList(this);
@@ -146,6 +148,7 @@ namespace ScarFly
                 case GameState.LoadLevel:
                     if (firstEntry)
                     {
+                        player.RePosition();
                         firstEntry = false;
                         Thread loadThread = new Thread(() =>
                             {
@@ -157,14 +160,15 @@ namespace ScarFly
                                 moneys.Load(this);
                                 modifiers = new Modifiers(level, 4);
                                 modifiers.Load(this);
-                                player.RePosition();
+                                
                                 collosion = new Collosion(barriers, player, moneys, modifiers, backgroundList);
                                 collosion.Load(this);
                                 gameState = GameState.Gaming;
-                                Transitions.ChangeGameState(ref firstEntry);
+                                //Transitions.ChangeGameState(ref firstEntry);
                             });
                         loadThread.Start();
                     }
+                    player.Update(this, ref firstEntry);
                     backBackground.Scroll(this);
                     foreBackground.Scroll(this);
                     walkPlace.Scroll(this);
@@ -208,6 +212,9 @@ namespace ScarFly
                         player.isDead = false;
                         player.isEatMoney = false;
                         player.isEatModifier = false;
+                        backBackground.RePosition();
+                        foreBackground.RePosition();
+                        walkPlace.RePosition();
                         collosion.Reset();
                         firstEntry = false;
                     }
@@ -271,6 +278,7 @@ namespace ScarFly
                 walkPlace.Draw(spriteBatch, color);
                 mainMenu.DrawButtonList(spriteBatch, color);
                 player.Score.DrawMainMenuScores(spriteBatch, color);
+                
             }
             //NOTE: LOAD LEVEL
             else if (gameState == GameState.LoadLevel)
@@ -279,8 +287,10 @@ namespace ScarFly
                 Transitions.Transition(ref color);
                 backBackground.Draw(spriteBatch, color);
                 foreBackground.Draw(spriteBatch, color);
+                player.Draw(spriteBatch, color);
                 walkPlace.Draw(spriteBatch, color);
-                spriteBatch.DrawString(baseFont, "Loading...", new Vector2(20, 20), color);
+                player.Score.DrawGameScore(spriteBatch, color);
+                spriteBatch.DrawString(baseFontBig, "Are you ready?", new Vector2(Consts.PhoneWidth / 2, Consts.PhoneHeight / 2), color * 0.5f, 0.0f, baseFontBig.MeasureString("Are you ready?") / 2, 1.0f, SpriteEffects.None, 0.0f);
             }
             //NOTE: GAMING
             else if (gameState == GameState.Gaming)

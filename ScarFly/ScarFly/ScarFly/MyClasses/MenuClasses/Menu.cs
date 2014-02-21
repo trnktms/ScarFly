@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using Microsoft.Phone.Tasks;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input.Touch;
 using System;
@@ -50,6 +51,9 @@ namespace ScarFly.MyClasses.MenuClasses
                                 case "Main_Vibrate":
                                     Consts.IsVibrate = !Consts.IsVibrate;
                                     break;
+                                case "Main_About":
+                                    result = GameState.About; Transitions.ChangeGameState(ref firstEntry);
+                                    break;
                                 case "Pause_Resume": 
                                     result = GameState.Gaming;
                                     break;
@@ -58,6 +62,10 @@ namespace ScarFly.MyClasses.MenuClasses
                                 //    break;
                                 case "Tutorial":
                                     result = GameState.InMainMenu; Transitions.ChangeGameState(ref firstEntry);
+                                    break;
+                                case "About_Rate":
+                                    MarketplaceReviewTask review = new MarketplaceReviewTask();
+                                    review.Show();
                                     break;
                                 default:
                                     break;

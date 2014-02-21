@@ -16,7 +16,8 @@ namespace ScarFly.MyClasses
         InPauseMenu,
         InEndGameMenu,
         InTutorial,
-        LoadLevel
+        LoadLevel,
+        About
     }
 
     public static class Consts
@@ -45,6 +46,7 @@ namespace ScarFly.MyClasses
         public static string P_ResumeButton = "Buttons/ResumeButton";
         public static string P_VibrateButton = "Buttons/VibrateButton";
         public static string P_Tutorial = "Buttons/Tutorial";
+        public static string P_RateButton = "Buttons/RateButton";
         public static string P_Player = "Player/PaperPlane_v2";
         public static string P_Backgrond = "Background/Forest";
         public static string P_ForeBackground = "Background/ForestFore";

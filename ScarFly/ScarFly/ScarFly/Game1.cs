@@ -32,10 +32,12 @@ namespace ScarFly
         Menu mainMenu;
         Menu pauseMenu;
         Menu tutorialMenu;
+        Menu aboutMenu;
         List<MenuButton> mainButtons = new List<MenuButton>();
         List<MenuButton> pauseButtons = new List<MenuButton>();
         List<MenuButton> endGameButtons = new List<MenuButton>();
         List<MenuButton> tutorialButtons = new List<MenuButton>();
+        List<MenuButton> aboutButtons = new List<MenuButton>();
         bool firstEntry;
 
         //NOTE: Gaming
@@ -85,6 +87,10 @@ namespace ScarFly
             tutorialButtons.Add(new MenuButton("Tutorial", Consts.P_Tutorial, 0, 0));
             tutorialMenu = new Menu(tutorialButtons);
 
+            aboutButtons = new List<MenuButton>();
+            aboutButtons.Add(new MenuButton("About_Rate", Consts.P_RateButton, (Consts.PhoneWidth / 2) - 166, (Consts.PhoneHeight / 2) - 50));
+            aboutMenu = new Menu(aboutButtons);
+
             //NOTE: GAMING
             player = new Player("Player1", 4, 100, 340, Consts.P_Player, 1);
             backBackground = new PlayerBackground(Consts.P_Backgrond, 1);
@@ -125,6 +131,7 @@ namespace ScarFly
             mainMenu.LoadButtonList(this);
             pauseMenu.LoadButtonList(this);
             tutorialMenu.LoadButtonList(this);
+            aboutMenu.LoadButtonList(this);
             player.Load(this);
             backBackground.Load(this);
             foreBackground.Load(this);
@@ -251,6 +258,18 @@ namespace ScarFly
                         gameState = GameState.InMainMenu;
                     }
                     break;
+                //NOTE: ABOUT
+                case GameState.About:
+                    backBackground.Scroll(this);
+                    foreBackground.Scroll(this);
+                    walkPlace.Scroll(this);
+                    gameState = aboutMenu.IsTouched(this, TouchPanel.GetState(), gameState, ref firstEntry);
+                    if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
+                    {
+                        Transitions.ChangeGameState(ref firstEntry);
+                        gameState = GameState.InMainMenu;
+                    }
+                    break;
                 //NOTE: ENDGAME MENU
                 case GameState.InEndGameMenu:
                     player.Score.SaveTotalScore();
@@ -290,7 +309,7 @@ namespace ScarFly
                 player.Draw(spriteBatch, color);
                 walkPlace.Draw(spriteBatch, color);
                 player.Score.DrawGameScore(spriteBatch, color);
-                spriteBatch.DrawString(baseFontBig, "Are you ready?", new Vector2(Consts.PhoneWidth / 2, Consts.PhoneHeight / 2), color * 0.5f, 0.0f, baseFontBig.MeasureString("Are you ready?") / 2, 1.0f, SpriteEffects.None, 0.0f);
+                spriteBatch.DrawString(baseFontBig, "Get ready!", new Vector2(Consts.PhoneWidth / 2, Consts.PhoneHeight / 2), color * 0.7f, 0.0f, baseFontBig.MeasureString("Get ready!") / 2, 1.0f, SpriteEffects.None, 0.0f);
             }
             //NOTE: GAMING
             else if (gameState == GameState.Gaming)
@@ -330,6 +349,17 @@ namespace ScarFly
                 foreBackground.Draw(spriteBatch, color);
                 walkPlace.Draw(spriteBatch, color);
                 tutorialMenu.DrawButtonList(spriteBatch, color);
+            }
+            //NOTE: ABOUT
+            else if (gameState == GameState.About)
+            {
+                Color color = Color.White;
+                Transitions.Transition(ref color);
+                backBackground.Draw(spriteBatch, color);
+                foreBackground.Draw(spriteBatch, color);
+                walkPlace.Draw(spriteBatch, color);
+                aboutMenu.DrawButtonList(spriteBatch, color);
+                spriteBatch.DrawString(baseFontBig, "Developed by Tamas Tarnok", new Vector2(Consts.PhoneWidth / 2, 100), color, 0.0f, baseFontBig.MeasureString("Developed by Tamas Tarnok") / 2, 1.0f, SpriteEffects.None, 0.0f);
             }
 
             spriteBatch.End();

@@ -13,9 +13,7 @@ using ScarFly.MyClasses;
 using ScarFly.MyClasses.PlayerClasses;
 using ScarFly.MyClasses.LevelElementClasses;
 using ScarFly.MyClasses.MenuClasses;
-using System.Net;
-using System.Net.NetworkInformation;
-using System.Net.Sockets;
+using ScarFly.MyClasses.Helpers;
 using System.Text;
 using System.Threading;
 
@@ -23,6 +21,7 @@ namespace ScarFly
 {
     public class Game1 : Microsoft.Xna.Framework.Game
     {
+        //NOTE: Common
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         SpriteFont baseFont;
@@ -97,7 +96,7 @@ namespace ScarFly
             foreBackground = new PlayerBackground(Consts.P_ForeBackground, 2);
             walkPlace = new PlayerBackground(Consts.P_Walkplace, 4);
 
-            string level = LevelSelector.Select();
+            string level = LevelHelper.SelectLevel();
             barriers = new Barriers(level, 4);
             moneys = new Moneys(level, 4);
             modifiers = new Modifiers(level, 4);
@@ -109,7 +108,7 @@ namespace ScarFly
 
             collosion = new Collosion(barriers, player, moneys, modifiers, backgroundList);
 
-            if (!Tutorial.FirstStart()) { gameState = GameState.InTutorial; }
+            if (!MenuHelper.FirstStart()) { gameState = GameState.InTutorial; }
         }
 
         private void Game1_Deactivated(object sender, EventArgs e)
@@ -160,7 +159,7 @@ namespace ScarFly
                         Thread loadThread = new Thread(() =>
                             {
                                 foreach (PlayerBackground item in backgroundList) { item.RePosition(); }
-                                string level = LevelSelector.Select();
+                                string level = LevelHelper.SelectLevel();
                                 barriers = new Barriers(level, 4);
                                 barriers.Load(this);
                                 moneys = new Moneys(level, 4);
@@ -185,7 +184,7 @@ namespace ScarFly
                     if (firstEntry) { firstEntry = false; }
                     else
                     {
-                        if (Helper.IsLevelEnd(moneys))
+                        if (LevelHelper.IsLevelEnd(moneys))
                         {
                             player.isEnd = true;
                             if (player.Position.X >= Consts.PhoneWidth)

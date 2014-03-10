@@ -7,11 +7,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScarFlyContent", "ScarFly\S
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "POC", "POC\POC.csproj", "{AE7A653A-E6FE-4317-9B44-652223D56981}"
 EndProject
-Project("{F088123C-0E9E-452A-89E6-6BA2F21D5CAC}") = "ScarFlyModelingProject", "ScarFlyModelingProject\ScarFlyModelingProject.modelproj", "{C3154CE4-EA60-42EB-AD6B-D7DE4C684F15}"
-EndProject
 Global
 	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 5
+		SccNumberOfProjects = 4
 		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
 		SccTeamFoundationServer = https://tarnok.visualstudio.com/defaultcollection
 		SccLocalPath0 = .
@@ -24,9 +22,6 @@ Global
 		SccProjectUniqueName3 = POC\\POC.csproj
 		SccProjectName3 = POC
 		SccLocalPath3 = POC
-		SccProjectUniqueName4 = ScarFlyModelingProject\\ScarFlyModelingProject.modelproj
-		SccProjectName4 = ScarFlyModelingProject
-		SccLocalPath4 = ScarFlyModelingProject
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -67,16 +62,6 @@ Global
 		{AE7A653A-E6FE-4317-9B44-652223D56981}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{AE7A653A-E6FE-4317-9B44-652223D56981}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{AE7A653A-E6FE-4317-9B44-652223D56981}.Release|Windows Phone.ActiveCfg = Release|Any CPU
-		{C3154CE4-EA60-42EB-AD6B-D7DE4C684F15}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C3154CE4-EA60-42EB-AD6B-D7DE4C684F15}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C3154CE4-EA60-42EB-AD6B-D7DE4C684F15}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{C3154CE4-EA60-42EB-AD6B-D7DE4C684F15}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{C3154CE4-EA60-42EB-AD6B-D7DE4C684F15}.Debug|Windows Phone.ActiveCfg = Debug|Any CPU
-		{C3154CE4-EA60-42EB-AD6B-D7DE4C684F15}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C3154CE4-EA60-42EB-AD6B-D7DE4C684F15}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C3154CE4-EA60-42EB-AD6B-D7DE4C684F15}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{C3154CE4-EA60-42EB-AD6B-D7DE4C684F15}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{C3154CE4-EA60-42EB-AD6B-D7DE4C684F15}.Release|Windows Phone.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

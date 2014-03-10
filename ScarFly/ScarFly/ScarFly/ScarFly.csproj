@@ -72,6 +72,8 @@
     <Reference Include="System.Net" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MyClasses\Helpers\LevelHelper.cs" />
+    <Compile Include="MyClasses\Helpers\MenuHelper.cs" />
     <Compile Include="MyClasses\LevelElementClasses\Barrier.cs" />
     <Compile Include="MyClasses\LevelElementClasses\BarrierIndex.cs" />
     <Compile Include="MyClasses\LevelElementClasses\Barriers.cs" />
@@ -84,6 +86,7 @@
     <Compile Include="MyClasses\LevelElementClasses\MoneyIndex.cs" />
     <Compile Include="MyClasses\LevelElementClasses\Moneys.cs" />
     <Compile Include="MyClasses\Consts.cs" />
+    <Compile Include="MyClasses\MenuClasses\Transitions.cs" />
     <Compile Include="MyClasses\PlayerClasses\Collosion.cs" />
     <Compile Include="MyClasses\MenuClasses\Menu.cs" />
     <Compile Include="MyClasses\MenuClasses\MenuButton.cs" />

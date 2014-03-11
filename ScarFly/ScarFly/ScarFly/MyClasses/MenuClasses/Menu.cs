@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input.Touch;
+using ScarFly.MyClasses.Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;

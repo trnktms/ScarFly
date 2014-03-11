@@ -7,19 +7,8 @@ using System.IO.IsolatedStorage;
 using System.Linq;
 using System.Text;
 
-namespace ScarFly.MyClasses
+namespace ScarFly.MyClasses.Common
 {
-    public enum GameState
-    {
-        Gaming,
-        InMainMenu,
-        InPauseMenu,
-        InEndGameMenu,
-        InTutorial,
-        LoadLevel,
-        About
-    }
-
     public static class Consts
     {
         public static bool IsVibrate = true;

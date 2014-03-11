@@ -10,6 +10,7 @@ using ScarFly.MyClasses.PlayerClasses;
 using Microsoft.Devices;
 using ScarFly.MyClasses.Helpers;
 using ScarFly.MyClasses.MenuClasses;
+using ScarFly.MyClasses.Common;
 namespace ScarFly.MyClasses.PlayerClasses
 {
     public enum PlayerStates

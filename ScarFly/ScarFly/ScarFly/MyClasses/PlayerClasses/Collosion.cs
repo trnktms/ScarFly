@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using ScarFly.MyClasses.LevelElementClasses;
 using ScarFly.MyClasses.PlayerClasses;
+using ScarFly.MyClasses.Common;
 
 namespace ScarFly.MyClasses.PlayerClasses
 {

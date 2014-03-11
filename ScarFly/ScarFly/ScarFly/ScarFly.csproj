@@ -72,6 +72,7 @@
     <Reference Include="System.Net" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MyClasses\Common\GameState.cs" />
     <Compile Include="MyClasses\Helpers\LevelHelper.cs" />
     <Compile Include="MyClasses\Helpers\MenuHelper.cs" />
     <Compile Include="MyClasses\LevelElementClasses\Barrier.cs" />
@@ -85,7 +86,7 @@
     <Compile Include="MyClasses\LevelElementClasses\Money.cs" />
     <Compile Include="MyClasses\LevelElementClasses\MoneyIndex.cs" />
     <Compile Include="MyClasses\LevelElementClasses\Moneys.cs" />
-    <Compile Include="MyClasses\Consts.cs" />
+    <Compile Include="MyClasses\Common\Consts.cs" />
     <Compile Include="MyClasses\MenuClasses\Transitions.cs" />
     <Compile Include="MyClasses\PlayerClasses\Collosion.cs" />
     <Compile Include="MyClasses\MenuClasses\Menu.cs" />
@@ -114,7 +115,6 @@
     </None>
     <Compile Include="Program.cs" />
     <Compile Include="Game1.cs" />
-    <None Include="ScarFly_2013_12_15_14_15_13.sap" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Game.ico" />

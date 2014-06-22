@@ -1,0 +1,932 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="4235375c-707f-4b17-a109-f3e5911f79a4" name="LevelElement" linkedPackageId="f3db4b14-d025-4521-a372-2017e4218728" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+  <profileInstances>
+    <packageHasProfileInstances Id="c4f33a71-cf92-48e9-95b0-fb82abd4c419">
+      <profileInstance Id="182e9803-8d7e-4df5-b5a5-abeda2d83d80" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="7f790df0-718d-40dd-be0b-c349fdab1c8d">
+      <profileInstance Id="681836d0-5d06-44a4-b240-e9fbe8962d5d" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="11f82a98-dbc2-487d-9b13-3dadf14c9ba4">
+      <profileInstance Id="f00be691-e5e2-440c-b92f-96e959066a95" name="CSharpProfile">
+        <elementDefinition Id="ee70e2cf-2376-41b0-974f-746add6be42b" />
+      </profileInstance>
+      <elementDefinition Id="8f7ce358-5cfb-4f83-87a0-39e54cb33676" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="cc4311d8-554d-4eea-b009-f3cb91f0ceca" name="LevelElement" isAbstract="true" isLeaf="false" isActiveClass="false">
+        <referencesInternal>
+          <reference Id="a46a7e6c-1544-43c8-82da-74db4f032d3e" handle="viewcode://./CodeSchema_Class?Assembly%3D&quot;file:%2F%2F%2FD:%2FProjects%2FTHESIS%2FScarFly%2FScarFly%2FScarFly%2Fbin%2FWindows Phone%2FDebug%2FScarFly.dll&quot; Namespace%3DScarFly.MyClasses.LevelElementClasses Type%3DLevelElement" tag="ViewCode">
+            <elementDefinition Id="afa2ad79-0ad4-48e6-add5-83909d3c3e05" />
+          </reference>
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance Id="a8d1d254-a9ef-4da0-a390-33ac0b0db72e" name="class" profile="CSharpProfile">
+            <elementDefinition Id="17ececca-34a7-4fe0-ba0b-3cd46d138fe2" />
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances Id="27d6030e-0fc3-4cd4-8e98-87e2d52decdb">
+                <propertyInstance Id="725230fc-239c-4bde-86b6-f8fdbe067252" name="ClrAttributes">
+                  <elementDefinition Id="553a9e99-c92b-4571-b4c7-32c190f318ba" />
+                </propertyInstance>
+                <elementDefinition Id="f24386f9-4f51-4051-bf1b-e32443b11c2e" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances Id="2f67266d-ff2b-4066-93a2-0cc361a2aac5">
+                <propertyInstance Id="95c2ec8b-03ff-49f5-97e2-9fbf46a20b25" name="IsPartial" value="false">
+                  <elementDefinition Id="f3fc110c-9464-43da-8246-add1bc6b35a0" />
+                </propertyInstance>
+                <elementDefinition Id="d864d50e-c181-4abf-8d1e-35c51fb8afab" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances Id="93ca0365-4311-4063-9d29-5927e25fb1ab">
+                <propertyInstance Id="b4f25536-5139-4fe4-9ad3-2ffb1ef27481" name="IsStatic" value="False">
+                  <elementDefinition Id="7343d0a3-0cff-45b9-9692-15c19f6e0c3e" />
+                </propertyInstance>
+                <elementDefinition Id="11be28af-467d-48c6-906f-2cf9a477a5f4" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances Id="efa279de-d35f-4150-a447-af90174a624d">
+                <propertyInstance Id="ddafdf9f-7b43-48e1-ae67-810c7ad8083f" name="IsUnsafe" value="false">
+                  <elementDefinition Id="2f3b4226-6a37-4239-97d1-0f1bcf6f51ef" />
+                </propertyInstance>
+                <elementDefinition Id="b2f59099-c7bf-49c0-8683-a263246c03a5" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances Id="1711c489-31f5-4eaa-b83d-3b07e1bb9b0e">
+                <propertyInstance Id="c728882c-b3b0-47a1-9a9b-a678c9106435" name="PackageVisibility" value="internal">
+                  <elementDefinition Id="07114169-10f4-4c78-b55b-9541d32c7b24" />
+                </propertyInstance>
+                <elementDefinition Id="bf0caf30-b7e6-470b-8b98-594349042bd0" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+        <elementDefinition Id="53171c83-5e0c-4711-9514-c77afa93a435" />
+        <ownedAttributesInternal>
+          <property Id="57b0204c-c56f-4975-926e-e63c8cd0a118" name="AssetName" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <referencesInternal>
+              <reference Id="7e473581-0ffa-4839-8ab2-e70f409c2e28" handle="viewcode://./CodeSchema_Property?Assembly%3D&quot;file:%2F%2F%2FD:%2FProjects%2FTHESIS%2FScarFly%2FScarFly%2FScarFly%2Fbin%2FWindows Phone%2FDebug%2FScarFly.dll&quot; Namespace%3DScarFly.MyClasses.LevelElementClasses Type%3DLevelElement Member%3DAssetName" tag="ViewCode">
+                <elementDefinition Id="b457dfe8-58be-4e2b-9cc8-0787e35b436a" />
+              </reference>
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance Id="35f15d1a-5256-446a-8300-f8cce2c336f4" name="property" profile="CSharpProfile">
+                <elementDefinition Id="44cdebff-06e3-495d-9966-2765fbe60a6c" />
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="07d29ac9-9e8e-40ac-956f-561eb1aea23f">
+                    <propertyInstance Id="2aa9087e-d1c8-48a7-8c01-d2c7d3f08566" name="ClrAttributes">
+                      <elementDefinition Id="65d08e13-3205-43c5-83f9-e870ac897db0" />
+                    </propertyInstance>
+                    <elementDefinition Id="60e976ec-9425-45c2-8a4b-77c8cd517697" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="1a295186-405c-4d8b-8177-0bc50b19b833">
+                    <propertyInstance Id="381dd19a-9698-48e5-9803-b532d97c3363" name="Get" value="public">
+                      <elementDefinition Id="a360318f-f0a9-43e5-9e47-84e20fa7a492" />
+                    </propertyInstance>
+                    <elementDefinition Id="c4d963fc-44a6-4f60-b9dd-12fee1a0836d" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="acebe9f5-520e-4f85-9583-004a8bff5018">
+                    <propertyInstance Id="917dd4ef-a9fb-467e-b0a1-fa5f14dddffa" name="HasBody" value="false">
+                      <elementDefinition Id="b55b5448-28b9-4dff-ac88-8141d74a2493" />
+                    </propertyInstance>
+                    <elementDefinition Id="95984fe7-c347-4a89-92c7-a0a44bf5512a" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="aa251baa-2f80-44ec-affa-76ae5b110d6a">
+                    <propertyInstance Id="d2e99cb3-adb7-45e2-90d3-fee767cafe35" name="IsUnsafe" value="false">
+                      <elementDefinition Id="cdbdb9d1-5c81-49a0-8398-7cd0b9062e1b" />
+                    </propertyInstance>
+                    <elementDefinition Id="0fcc4651-473f-4478-b10c-e94df1231647" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="2df38abc-1853-4dc8-8aee-f759450b6bf9">
+                    <propertyInstance Id="c2d80197-cd9e-4363-9571-fee0af5cbf72" name="Inheritance" value="none">
+                      <elementDefinition Id="18965e17-a6d3-4791-b0ec-8829269a6b87" />
+                    </propertyInstance>
+                    <elementDefinition Id="42d96f54-aa46-41b8-ab63-297bbefa8749" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="f58d0d82-15fc-4b5c-bdff-0ee922ad254e">
+                    <propertyInstance Id="c42d7998-00c2-4010-9bda-da685f337314" name="PackageVisibility" value="internal">
+                      <elementDefinition Id="812fdcb1-5ede-4c08-894e-93d8c2f3ca1c" />
+                    </propertyInstance>
+                    <elementDefinition Id="7ace87e3-c233-40b5-9aa8-61cec5829bc8" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="5d5cf37e-6841-46f1-9b2b-330aa9e4005f">
+                    <propertyInstance Id="ebb70925-e8f3-4f03-9064-d370049db497" name="Set" value="public">
+                      <elementDefinition Id="1ef11a6f-bfe5-4dab-8822-ed2f752e55b5" />
+                    </propertyInstance>
+                    <elementDefinition Id="1c882ee2-3019-4536-9324-d9ec93b9f82a" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <elementDefinition Id="0e1b27a3-5f30-4d51-af8f-7f2fd85aea71" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="7db70d37-10d1-4eaa-8ff5-2ba7d496444a" LastKnownName="String" />
+            </type_NamedElement>
+          </property>
+          <property Id="6330480f-fdce-4fc2-98b6-12462a0c4980" name="Bound" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <referencesInternal>
+              <reference Id="e9fee5f4-7761-4172-92ac-43111122e06d" handle="viewcode://./CodeSchema_Property?Assembly%3D&quot;file:%2F%2F%2FD:%2FProjects%2FTHESIS%2FScarFly%2FScarFly%2FScarFly%2Fbin%2FWindows Phone%2FDebug%2FScarFly.dll&quot; Namespace%3DScarFly.MyClasses.LevelElementClasses Type%3DLevelElement Member%3DBound" tag="ViewCode">
+                <elementDefinition Id="48bdfef1-2151-41fa-b2d6-860bc69089b0" />
+              </reference>
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance Id="35925d56-747d-4ccd-817b-a87696b05945" name="property" profile="CSharpProfile">
+                <elementDefinition Id="094f9583-b902-48c3-90ad-0e9234d3ccb8" />
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="6026c38b-06a1-48da-bde4-8d972136473b">
+                    <propertyInstance Id="f39b615b-7a64-42cb-be7f-99d62a4c30c2" name="ClrAttributes">
+                      <elementDefinition Id="a4d6d9e2-04a8-434c-90ea-43f33e0a4a9f" />
+                    </propertyInstance>
+                    <elementDefinition Id="da1fc358-b372-48ee-8cff-493dd9edafab" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="eeb42811-7497-45d3-b53d-28485449d51b">
+                    <propertyInstance Id="28f17f56-9def-49c6-992d-1498d6d3466e" name="Get" value="public">
+                      <elementDefinition Id="fad03f81-9dfe-43ec-811f-5d2ebee1952d" />
+                    </propertyInstance>
+                    <elementDefinition Id="cedf6023-d5d4-440e-a473-b9aa8257a983" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="bf58eb01-b63b-4c7f-94f1-657a0203f5dd">
+                    <propertyInstance Id="8db53d63-8416-4e76-92eb-4030a493f9e7" name="HasBody" value="false">
+                      <elementDefinition Id="1fffeab9-a7e9-448a-a6bc-6d384ed733d3" />
+                    </propertyInstance>
+                    <elementDefinition Id="b2e943de-9c52-45c8-9a25-33fe4eac1e04" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="822cc918-0d98-4314-b115-8515a0befbae">
+                    <propertyInstance Id="c67b1e15-0044-400f-9208-ba00cd03b73e" name="IsUnsafe" value="false">
+                      <elementDefinition Id="fd0b48bf-7e00-4d0e-adc6-4a7aadbf50cb" />
+                    </propertyInstance>
+                    <elementDefinition Id="804ba397-3694-4000-8444-051d8bf4fa7c" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="31b0e3e9-bdaa-4ebc-9c32-f01cd6f59106">
+                    <propertyInstance Id="02a116b2-1f84-409b-a22a-7041413c5226" name="Inheritance" value="none">
+                      <elementDefinition Id="15dfaa6a-be8e-44dd-a25f-c3ef40c9da1e" />
+                    </propertyInstance>
+                    <elementDefinition Id="de53fe74-a7df-4336-b7e2-ba0db819af98" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="9defb237-1a7d-4710-a019-744bd750b0ac">
+                    <propertyInstance Id="c29248ba-bf8a-4ff1-baa9-c1dd3c0542ed" name="PackageVisibility" value="internal">
+                      <elementDefinition Id="51cca61c-a2c1-48e3-9017-f424e8801225" />
+                    </propertyInstance>
+                    <elementDefinition Id="d489a2bb-eb70-4f04-b2bb-9432c4b7b49a" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="57bb3935-392e-4fe5-adbd-ab1d391a1656">
+                    <propertyInstance Id="214a4975-c619-432f-af7f-b792ced939d8" name="Set" value="public">
+                      <elementDefinition Id="ad87832a-b2a8-4c74-880e-0e17361ebd66" />
+                    </propertyInstance>
+                    <elementDefinition Id="7fcae4eb-4084-44ab-9029-0380d3749d11" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <elementDefinition Id="f0d64857-6d86-4db4-a1b7-9c21ce2fe234" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="46dc6ccd-6a15-4167-a9da-d83758054229" LastKnownName="Rectangle" />
+            </type_NamedElement>
+          </property>
+          <property Id="f384805a-c5db-40cc-84cf-d560d169dd3e" name="ColorData" isLeaf="false" isStatic="false" isReadOnly="false" isOrdered="true" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <referencesInternal>
+              <reference Id="6f5ad102-27d9-496d-903a-7f63174e71fb" handle="viewcode://./CodeSchema_Property?Assembly%3D&quot;file:%2F%2F%2FD:%2FProjects%2FTHESIS%2FScarFly%2FScarFly%2FScarFly%2Fbin%2FWindows Phone%2FDebug%2FScarFly.dll&quot; Namespace%3DScarFly.MyClasses.LevelElementClasses Type%3DLevelElement Member%3DColorData" tag="ViewCode">
+                <elementDefinition Id="14372dee-c9aa-468e-bee5-6e88a635604c" />
+              </reference>
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance Id="dc2f4c7f-fe51-47bb-8a8f-84d74703300c" name="property" profile="CSharpProfile">
+                <elementDefinition Id="e8ea31af-7871-4361-91dc-857ae7bcd2a3" />
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="8eebb44c-6913-4eea-ac5d-d4e417190bf5">
+                    <propertyInstance Id="c9fa466a-14a9-4e83-a45a-cc1e75926f3e" name="ClrAttributes">
+                      <elementDefinition Id="f820570c-0491-477e-a1ad-ab523577e9bc" />
+                    </propertyInstance>
+                    <elementDefinition Id="6dbb0012-0a5d-4d2e-be3c-a2435dfb93dc" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="97bf5722-38df-4b16-88dc-763d73868a07">
+                    <propertyInstance Id="dd11dc8e-0f01-4a19-93a4-ba994f14be0a" name="Get" value="public">
+                      <elementDefinition Id="67ce0d32-091d-4289-9488-ffdf29576f7e" />
+                    </propertyInstance>
+                    <elementDefinition Id="ee7c4b8a-c33e-4686-9861-ac7c3cb0460e" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="71935b81-751a-4b98-b624-7f08c5c93005">
+                    <propertyInstance Id="e5e4e32f-5e62-4a08-aa89-faee6eade61c" name="HasBody" value="false">
+                      <elementDefinition Id="c5952e42-72db-4ae7-ab57-6591dd71bf63" />
+                    </propertyInstance>
+                    <elementDefinition Id="f97d2103-a602-4f2d-a3f8-abb2cdc4c731" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="f36aa89c-8423-414b-8896-f58144a3f755">
+                    <propertyInstance Id="ee666357-73d9-4ae1-8e8a-a69a245c43d2" name="IsUnsafe" value="false">
+                      <elementDefinition Id="4724e971-d750-42e8-ace1-84931dd138b2" />
+                    </propertyInstance>
+                    <elementDefinition Id="c12376ed-45f8-4bd5-9958-8b458cff16ba" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="2ca3c68f-ea4d-4b36-aabb-f113cb674a06">
+                    <propertyInstance Id="8fbd21e6-a142-4ffa-9f94-b50b98a8470e" name="Inheritance" value="none">
+                      <elementDefinition Id="f6953ed9-5471-4f2c-b669-c6646b9a55a5" />
+                    </propertyInstance>
+                    <elementDefinition Id="3a39d209-4917-4880-8842-997d7918d5ba" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="c6ce484a-a498-4570-8a81-a3fe8b9ca050">
+                    <propertyInstance Id="4e66f12c-e611-49d3-a601-a97add73d7c4" name="PackageVisibility" value="internal">
+                      <elementDefinition Id="5a59899d-534e-4d0c-ad3b-1b6c98ea5497" />
+                    </propertyInstance>
+                    <elementDefinition Id="a15ab3fe-08da-448a-8167-f2963e1428b1" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="c0e7ea2f-fe03-451a-941c-13d791100861">
+                    <propertyInstance Id="343afbb1-0b5a-4d1b-b8e9-cf41ad699203" name="Set" value="public">
+                      <elementDefinition Id="eefa1e36-a0c3-4ec5-ac31-407151b2f9f8" />
+                    </propertyInstance>
+                    <elementDefinition Id="8b56dea1-9c39-40bf-80a8-cbcb6175d94e" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <lowerValueInternal>
+              <literalString Id="fd0ebcc0-ab7b-4fe9-bb71-d3a06f1297c5" name="Lower" value="*">
+                <elementDefinition Id="a09ba951-dc06-4fae-9522-9357130fdf2a" />
+              </literalString>
+            </lowerValueInternal>
+            <upperValueInternal>
+              <literalString Id="6fbf8a4c-ed34-4a07-885e-0db78f6ef145" name="Upper" value="*">
+                <elementDefinition Id="eabb4992-821d-4881-a120-6abed0e7bc5a" />
+              </literalString>
+            </upperValueInternal>
+            <elementDefinition Id="583b9625-322b-4269-b0ad-579b9743f589" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="dd53ced0-7f30-4628-85cc-1ec282afef04" LastKnownName="Color" />
+            </type_NamedElement>
+          </property>
+          <property Id="97adcc2a-a9fa-4f9f-83ce-268d62731ab9" name="MoveCount" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <referencesInternal>
+              <reference Id="e3498e4a-e4e4-46dd-9059-ade12ad38c90" handle="viewcode://./CodeSchema_Property?Assembly%3D&quot;file:%2F%2F%2FD:%2FProjects%2FTHESIS%2FScarFly%2FScarFly%2FScarFly%2Fbin%2FWindows Phone%2FDebug%2FScarFly.dll&quot; Namespace%3DScarFly.MyClasses.LevelElementClasses Type%3DLevelElement Member%3DMoveCount" tag="ViewCode">
+                <elementDefinition Id="21adf93b-6b23-48f8-8547-19d5a2e7fe29" />
+              </reference>
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance Id="3584159d-ec79-40db-b2cc-db3d4a486095" name="property" profile="CSharpProfile">
+                <elementDefinition Id="c5beeadf-fb6b-4bc1-a711-3b4dc449dd3d" />
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="c45aff1a-fdd3-4810-bb83-bcc8456bbbd8">
+                    <propertyInstance Id="8250ce37-588c-4ed0-a660-3b8bca8c3a4c" name="ClrAttributes">
+                      <elementDefinition Id="6972cae8-e9bc-4fa0-ae90-b2491cea662a" />
+                    </propertyInstance>
+                    <elementDefinition Id="9f81c809-193b-404c-83af-d8d666104140" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="2be1e129-159c-46bd-917f-9ccc2bae835f">
+                    <propertyInstance Id="337d01bd-1dfc-4bab-8217-55eaac770b9b" name="Get" value="public">
+                      <elementDefinition Id="29623f0f-024e-409d-96a3-fc25fb7a7ca9" />
+                    </propertyInstance>
+                    <elementDefinition Id="58278493-d3cd-4c51-9944-fd99108518fb" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="5714bf99-46b8-4651-9e05-ccb3548e71bd">
+                    <propertyInstance Id="fc4d6e18-0737-4bea-9889-8af21074b7c8" name="HasBody" value="false">
+                      <elementDefinition Id="c917f03e-ed31-47a6-8be4-920f923e5df0" />
+                    </propertyInstance>
+                    <elementDefinition Id="16abaf61-aa8c-4491-8274-4429492c18b3" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="86ee8190-d509-45c5-ab03-a79ad0f10e60">
+                    <propertyInstance Id="e4f4ab36-12e7-44f9-9f9e-efad4ab7bfac" name="IsUnsafe" value="false">
+                      <elementDefinition Id="e79cc8b0-77d4-4e95-b5a2-6aaa8c56df9b" />
+                    </propertyInstance>
+                    <elementDefinition Id="a88e5053-6c1e-4b0e-b3c4-bbf1370efed7" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="fcc2b9dc-d50c-4d3d-897b-d9169d26bd85">
+                    <propertyInstance Id="4e37a00d-fe3d-4edb-8ed0-0480b2ae2c69" name="Inheritance" value="none">
+                      <elementDefinition Id="b1dbb09f-375d-482f-a077-b483d8b693a9" />
+                    </propertyInstance>
+                    <elementDefinition Id="fa564bf5-2faa-43a9-9e91-2db4e91d1a09" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="74157932-09f7-4f6f-95ed-4cc5daab2de1">
+                    <propertyInstance Id="5c1a0cd8-cfac-432a-8013-3d2f082b9dd2" name="PackageVisibility" value="internal">
+                      <elementDefinition Id="f371f734-2328-4b6e-9b48-58d3af480a4b" />
+                    </propertyInstance>
+                    <elementDefinition Id="af9282f2-dea5-469b-b016-d8c379424a07" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="d5acd817-9cad-4afc-b85f-b6bcf82e7dad">
+                    <propertyInstance Id="1949443b-bfa5-472b-88de-356a1848b99d" name="Set" value="public">
+                      <elementDefinition Id="83f1a85f-4fe6-480b-91d9-cbf028126ca6" />
+                    </propertyInstance>
+                    <elementDefinition Id="23b39b27-153f-4b99-aadb-f69f1f161c01" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <elementDefinition Id="519d9fd3-d947-4712-96a8-6cf1108cff6e" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="49b30ee2-c5c7-4717-8dee-7b049423f525" LastKnownName="Integer" />
+            </type_NamedElement>
+          </property>
+          <property Id="0550c00c-465e-458b-82a3-23595f5f24dd" name="MoveWidth" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <referencesInternal>
+              <reference Id="5a173742-1c06-474d-9b18-da44c8c766c1" handle="viewcode://./CodeSchema_Property?Assembly%3D&quot;file:%2F%2F%2FD:%2FProjects%2FTHESIS%2FScarFly%2FScarFly%2FScarFly%2Fbin%2FWindows Phone%2FDebug%2FScarFly.dll&quot; Namespace%3DScarFly.MyClasses.LevelElementClasses Type%3DLevelElement Member%3DMoveWidth" tag="ViewCode">
+                <elementDefinition Id="0782afa3-c1df-4791-b3d7-2561385849e0" />
+              </reference>
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance Id="f173417e-a4ed-47e0-a488-c7bb14c12d80" name="property" profile="CSharpProfile">
+                <elementDefinition Id="99e9a3e7-4f59-4aca-be35-003ac18db574" />
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="aaff7e70-4c7f-4238-ac47-989477fdcb44">
+                    <propertyInstance Id="0efe1cb7-7f44-4cc9-85d9-96bb09c4e1b3" name="ClrAttributes">
+                      <elementDefinition Id="861c8a56-a2e1-42e2-88b9-11b7e95c38e0" />
+                    </propertyInstance>
+                    <elementDefinition Id="5d40ab68-c0e3-4ca2-8386-1e1c93048448" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="5c71e547-29e1-445e-8484-a63e53df7215">
+                    <propertyInstance Id="f5c66e14-f7f5-4d43-b2c6-f71c1b62b8c4" name="Get" value="public">
+                      <elementDefinition Id="5235c6e7-839b-4498-abbb-356250d8c255" />
+                    </propertyInstance>
+                    <elementDefinition Id="83cac030-8d63-4770-98b0-1792ac027b80" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="f7b9c635-b22e-48cf-83d6-1e1b3020742c">
+                    <propertyInstance Id="d5432bf0-9544-49af-be2d-fa683a9f4127" name="HasBody" value="false">
+                      <elementDefinition Id="0a873768-0182-410e-b91e-52148e40aa4f" />
+                    </propertyInstance>
+                    <elementDefinition Id="ff19ea30-9814-4a39-9525-412f97cb567e" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="2968aff8-5bfb-4079-b4bf-c2c6ab5b5f35">
+                    <propertyInstance Id="63fa4cbd-ad2f-41e5-a7a1-b16b8620bbfc" name="IsUnsafe" value="false">
+                      <elementDefinition Id="4669456e-4110-4ea2-b3f5-4b1853bf8ce2" />
+                    </propertyInstance>
+                    <elementDefinition Id="95b01e0d-6260-4015-af16-6ead1be847f8" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="e75608d6-fa3f-4c81-8a8c-719baa1b6d37">
+                    <propertyInstance Id="18a715cc-7c9e-4854-84c1-dff2d4327432" name="Inheritance" value="none">
+                      <elementDefinition Id="a3e72465-469a-4e23-9009-81de8b498f20" />
+                    </propertyInstance>
+                    <elementDefinition Id="0ed7c86d-6ff8-4b41-8653-1e5958ca528b" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="4b54691f-d4dd-40e6-910f-a5b3cb5f9200">
+                    <propertyInstance Id="5d3d99e3-2ef4-461c-aabd-106e2cde087b" name="PackageVisibility" value="internal">
+                      <elementDefinition Id="4ae3c45f-8015-4ece-93c2-4bc092f56c0c" />
+                    </propertyInstance>
+                    <elementDefinition Id="1ffdc2b3-d306-4ff0-9587-7ca99ecaed2a" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="184f86a3-696f-4348-8d6e-333ba5823b81">
+                    <propertyInstance Id="f0c49b71-1b9c-422b-b488-8ff479f95247" name="Set" value="public">
+                      <elementDefinition Id="d16f1b72-0f92-4f72-b8a7-4e7085a5a094" />
+                    </propertyInstance>
+                    <elementDefinition Id="c024e9d5-55b8-4381-a24a-71b92e250271" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <elementDefinition Id="c1fe7f32-85de-4d0a-a8db-4d1aaa8b8329" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="49b30ee2-c5c7-4717-8dee-7b049423f525" LastKnownName="Integer" />
+            </type_NamedElement>
+          </property>
+          <property Id="efbaa670-8464-4c05-b0df-103031ef08ab" name="Position" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <referencesInternal>
+              <reference Id="de49658c-f5a3-4c75-94e1-b64fe4ca1ca6" handle="viewcode://./CodeSchema_Property?Assembly%3D&quot;file:%2F%2F%2FD:%2FProjects%2FTHESIS%2FScarFly%2FScarFly%2FScarFly%2Fbin%2FWindows Phone%2FDebug%2FScarFly.dll&quot; Namespace%3DScarFly.MyClasses.LevelElementClasses Type%3DLevelElement Member%3DPosition" tag="ViewCode">
+                <elementDefinition Id="f4d19055-adb2-4fbc-9340-63dbc57698ee" />
+              </reference>
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance Id="d4fba263-67c9-4f66-ba93-98f5cf54553e" name="property" profile="CSharpProfile">
+                <elementDefinition Id="35f39be1-790d-40bd-86fc-e852ff6dd096" />
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="88bf2fda-8459-4be3-9a3a-d5675d87f5e4">
+                    <propertyInstance Id="690e89ed-7bd7-4b46-9355-c0d663a2c1a0" name="ClrAttributes">
+                      <elementDefinition Id="f4217520-aeb5-4cd8-8843-b7935f753d5f" />
+                    </propertyInstance>
+                    <elementDefinition Id="b24f7502-c44e-4cab-8bef-e4c6de9d1b02" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="4dcadb42-d8ab-4ca3-b25c-b19a712fbed3">
+                    <propertyInstance Id="ded0579e-7d94-4cc3-8996-4fba7479a8b3" name="Get" value="public">
+                      <elementDefinition Id="d3e93c89-1fc9-4549-a859-cbd0b54d805d" />
+                    </propertyInstance>
+                    <elementDefinition Id="39020969-6d09-4d60-be92-fe79ca79e91a" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="07e61c2a-b092-4ff9-9b8f-761334f184df">
+                    <propertyInstance Id="2ae893e9-0468-4639-95b8-7189378cee8b" name="HasBody" value="false">
+                      <elementDefinition Id="13c81539-cc19-459c-ac93-6931fa4a4226" />
+                    </propertyInstance>
+                    <elementDefinition Id="1fc003a1-7cd6-46d7-a0b2-a86d6443c447" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="cb790729-7a31-47de-95a7-44bbba4e5b40">
+                    <propertyInstance Id="c5c22801-1458-4260-b66b-4329305d189f" name="IsUnsafe" value="false">
+                      <elementDefinition Id="247379b2-50cd-4388-a41c-2361acba7a2e" />
+                    </propertyInstance>
+                    <elementDefinition Id="2a1fdcff-0697-4c05-8e4c-4e54f64dd4c1" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="34f57091-8a32-46d1-94e3-2d57ecac5300">
+                    <propertyInstance Id="963f4b87-8f4a-432e-b2d4-8d37281ad423" name="Inheritance" value="none">
+                      <elementDefinition Id="e85e1c2d-607a-4ecd-b68c-f152c4cd9842" />
+                    </propertyInstance>
+                    <elementDefinition Id="35c54c65-7611-4df7-b72b-a400e7ead787" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="71c53477-a078-4526-81f7-023a51ac902f">
+                    <propertyInstance Id="35add9c1-9dc0-46a1-9970-a58a9c8d0b54" name="PackageVisibility" value="internal">
+                      <elementDefinition Id="3a05a46a-b63b-47a6-94b8-931b7b320188" />
+                    </propertyInstance>
+                    <elementDefinition Id="e064c29d-df3c-435e-9b77-30af430c0de2" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="7260756e-4384-4ded-995c-9bd014cc9c3d">
+                    <propertyInstance Id="2990961c-14b3-418b-8784-5a10da523b41" name="Set" value="public">
+                      <elementDefinition Id="dcc04d09-2554-4010-b4ac-2393c38c8728" />
+                    </propertyInstance>
+                    <elementDefinition Id="0fdceb3f-aadb-4596-88b9-eee889dbb414" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <elementDefinition Id="823c03c4-876c-4932-ad87-07efaf200825" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="5ff01096-a767-45df-b325-08b990299cb9" LastKnownName="Vector2" />
+            </type_NamedElement>
+          </property>
+          <property Id="55bbf738-b280-4320-aad0-fc0064570a27" name="StartPosition" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <referencesInternal>
+              <reference Id="c4c87ffd-90bc-408d-89b8-739c98ace14b" handle="viewcode://./CodeSchema_Property?Assembly%3D&quot;file:%2F%2F%2FD:%2FProjects%2FTHESIS%2FScarFly%2FScarFly%2FScarFly%2Fbin%2FWindows Phone%2FDebug%2FScarFly.dll&quot; Namespace%3DScarFly.MyClasses.LevelElementClasses Type%3DLevelElement Member%3DStartPosition" tag="ViewCode">
+                <elementDefinition Id="a2371479-94bb-4583-b122-641653438b6b" />
+              </reference>
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance Id="5293f53a-2891-41d6-a1e5-c0c55cdc8a79" name="property" profile="CSharpProfile">
+                <elementDefinition Id="98a153bd-727f-4b91-9d1c-cba33ca4c820" />
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="e6ed830d-0f6d-4280-81cc-09cf2def6132">
+                    <propertyInstance Id="7a1df45c-85a8-4cab-94be-bb7b31830f3d" name="ClrAttributes">
+                      <elementDefinition Id="ef0bb997-e1a0-47d8-91d2-38a93764255c" />
+                    </propertyInstance>
+                    <elementDefinition Id="a6e55d7c-9f9d-48d4-b4bc-4650b53f9dc5" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="c1532fd8-0061-42f6-9c8e-02a957358b30">
+                    <propertyInstance Id="da39d923-4869-4ac4-8e26-5b40d90738cf" name="Get" value="public">
+                      <elementDefinition Id="d30fef98-5057-4c9c-bee1-eb372cc49fd0" />
+                    </propertyInstance>
+                    <elementDefinition Id="b83cedc8-7b08-458a-ae90-cc547bebdee8" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="cae7e6ca-45e7-45c8-8838-16164f264cb6">
+                    <propertyInstance Id="3f817736-0d33-44f7-911d-3a45f9b43677" name="HasBody" value="false">
+                      <elementDefinition Id="9b7e05b9-ebe3-494f-bbb0-1f548a2640f7" />
+                    </propertyInstance>
+                    <elementDefinition Id="c226ea07-aed2-4488-9421-9cf6cf82a266" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="b3062f25-e0a8-48ea-a400-7b29813259eb">
+                    <propertyInstance Id="fdcfe147-e65d-4654-9e7e-e623697774bb" name="IsUnsafe" value="false">
+                      <elementDefinition Id="18b2b0aa-633d-4782-9bca-282c7401226d" />
+                    </propertyInstance>
+                    <elementDefinition Id="be2d4cd1-6602-4dc3-952c-43111de30941" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="c011bc3e-69e1-4c58-9508-e53c4d1c88aa">
+                    <propertyInstance Id="5b02e6db-bd22-4022-b3f2-0979c37b4277" name="Inheritance" value="none">
+                      <elementDefinition Id="6e771854-b59c-4d27-9fcb-b7910121eb22" />
+                    </propertyInstance>
+                    <elementDefinition Id="738825be-9c3f-426d-baf6-921bc99f575d" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="b96eecb5-2df5-4ed7-a6b0-5509211e689c">
+                    <propertyInstance Id="9ffe97b7-5922-4583-ad40-3d6ae8ad51f4" name="PackageVisibility" value="internal">
+                      <elementDefinition Id="a44798e6-b847-48e7-af78-eda38edbffac" />
+                    </propertyInstance>
+                    <elementDefinition Id="b1c99bbe-f65f-4692-bafa-81bc3d82e30b" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="fda81503-eaab-4770-b7dc-21d124da3831">
+                    <propertyInstance Id="6b005658-8ea2-49bd-8a7c-f4170c7fe31b" name="Set" value="public">
+                      <elementDefinition Id="8f925685-3820-4ce6-9e35-79fd962e0ef4" />
+                    </propertyInstance>
+                    <elementDefinition Id="1707a00b-fca4-4fdf-9bd1-27fffdcd78f3" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <elementDefinition Id="df912a57-cb19-496b-a02f-5efedd88c22f" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="5ff01096-a767-45df-b325-08b990299cb9" LastKnownName="Vector2" />
+            </type_NamedElement>
+          </property>
+          <property Id="446c21ad-e806-49f0-99d2-eddb6604ed76" name="Texture" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <referencesInternal>
+              <reference Id="66cf99ba-4545-4bbf-aa6c-9aff5fc3340c" handle="viewcode://./CodeSchema_Property?Assembly%3D&quot;file:%2F%2F%2FD:%2FProjects%2FTHESIS%2FScarFly%2FScarFly%2FScarFly%2Fbin%2FWindows Phone%2FDebug%2FScarFly.dll&quot; Namespace%3DScarFly.MyClasses.LevelElementClasses Type%3DLevelElement Member%3DTexture" tag="ViewCode">
+                <elementDefinition Id="e0ffbc6d-53f9-4ec6-9ba6-95542c7b7d18" />
+              </reference>
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance Id="eac77674-c1fe-4976-b1be-509b91cada04" name="property" profile="CSharpProfile">
+                <elementDefinition Id="4ddb9cf2-8029-45fb-9a1b-54a75f654a99" />
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="5f28de60-4358-488a-b736-580fbf890918">
+                    <propertyInstance Id="c05adfcd-b269-4418-bb49-511e70eb92db" name="ClrAttributes">
+                      <elementDefinition Id="806c4b03-fa26-4e56-a812-a1dca9fb3d8d" />
+                    </propertyInstance>
+                    <elementDefinition Id="d4b9f5f0-66d3-47c2-94d9-ebaa2a8e5ef7" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="9f4df64c-c690-4852-a0e3-8d0bd1e0f87b">
+                    <propertyInstance Id="8653d3da-af10-4eed-867f-58c260bd1af4" name="Get" value="public">
+                      <elementDefinition Id="58e807ca-b88b-4359-a16a-d86387372cc2" />
+                    </propertyInstance>
+                    <elementDefinition Id="00ba1072-ee28-49d0-a807-0a128e907b72" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="550d59fa-4495-42e7-9ee4-cc947dc9fc95">
+                    <propertyInstance Id="192069a0-7a77-4572-9f3c-24d2e7f3d789" name="HasBody" value="false">
+                      <elementDefinition Id="b85ffc81-78e5-4e0a-89ce-c17d63eeb633" />
+                    </propertyInstance>
+                    <elementDefinition Id="0564ca44-7451-46ae-b3fd-8e4a84ad45d4" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="adbeabf6-0ce3-424c-90f0-ef7a133a76cc">
+                    <propertyInstance Id="6e1217be-04cc-4e4c-a431-3070c678baae" name="IsUnsafe" value="false">
+                      <elementDefinition Id="dc8ec5d9-5789-4866-80a2-6ebc64bb19fd" />
+                    </propertyInstance>
+                    <elementDefinition Id="18c7fdc4-cedb-49b7-a7cb-4a359b52d4b7" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="f3dcc0a9-550c-4ecd-8636-9b1f9f51758e">
+                    <propertyInstance Id="085043bf-af88-4c9d-85fa-ecd2de2d5ffc" name="Inheritance" value="none">
+                      <elementDefinition Id="3fd12746-79b6-478d-a92d-f939e69b8899" />
+                    </propertyInstance>
+                    <elementDefinition Id="4732d41d-71c1-43a4-b8ef-68f8da2511cf" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="fd8f09e2-a320-4a9a-bbbd-3091d1230d00">
+                    <propertyInstance Id="d89f5527-0b9d-4ec7-98e3-feacc939fcf4" name="PackageVisibility" value="internal">
+                      <elementDefinition Id="bbb8747c-e8d8-4c31-a8f4-dbbd3040e6e0" />
+                    </propertyInstance>
+                    <elementDefinition Id="bb335248-4bb3-4d90-949a-9e1bf7c5b6db" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="12043d6c-78db-472b-9783-754d6db78bc9">
+                    <propertyInstance Id="36935efd-264a-48fb-bced-c43a81ea45d2" name="Set" value="public">
+                      <elementDefinition Id="a4e82fdf-21c2-4ae1-9e25-5c839e807f40" />
+                    </propertyInstance>
+                    <elementDefinition Id="3f387c12-1862-4bc9-83dd-b041304a953d" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <elementDefinition Id="86d343b3-371d-49aa-a5e9-3682ce719ede" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="e69d7446-9a66-4d4b-8b3f-2622cf44f1e7" LastKnownName="Texture2D" />
+            </type_NamedElement>
+          </property>
+          <property Id="5ed568bb-bc59-4727-aa25-0d7a87419fa2" name="_animateCount" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <referencesInternal>
+              <reference Id="97565a18-2d9c-4d71-87fd-d3b9226ee027" handle="viewcode://./CodeSchema_Field?Assembly%3D&quot;file:%2F%2F%2FD:%2FProjects%2FTHESIS%2FScarFly%2FScarFly%2FScarFly%2Fbin%2FWindows Phone%2FDebug%2FScarFly.dll&quot; Namespace%3DScarFly.MyClasses.LevelElementClasses Type%3DLevelElement Member%3D_animateCount" tag="ViewCode">
+                <elementDefinition Id="7e2510ce-1251-4d15-b35e-bb73e8ec6d1b" />
+              </reference>
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance Id="0116e2f5-5ed1-461e-952e-38167bc3dac0" name="field" profile="CSharpProfile">
+                <elementDefinition Id="aa4d6dee-d6eb-4dd1-b4f9-40a63329b658" />
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="754c9f22-9992-409d-8d10-57b2fead8000">
+                    <propertyInstance Id="c53d7891-a806-49b1-ac0f-2b468c093022" name="ClrAttributes">
+                      <elementDefinition Id="f0fecb4f-2eda-40a6-bd02-b2050f22b9f0" />
+                    </propertyInstance>
+                    <elementDefinition Id="4b173d8d-f6f3-45e5-aaa1-a96d6a2b41b7" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="5999ed3c-31a0-498a-ad6d-4c35f6ed653c">
+                    <propertyInstance Id="f6a487bf-9006-4f6e-b737-966bcc140a9b" name="IsConst" value="false">
+                      <elementDefinition Id="4b0dd3df-6c98-4f0e-a483-3e043451c418" />
+                    </propertyInstance>
+                    <elementDefinition Id="25ddbb25-ef69-4d39-ac55-38efc94ebee8" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="188f9988-4668-4714-a757-eaba539af916">
+                    <propertyInstance Id="959810c4-5ffa-4c3e-b1ae-a49290dd9c18" name="IsNullable" value="false">
+                      <elementDefinition Id="b627aaa4-c630-42cf-a238-7855841d3083" />
+                    </propertyInstance>
+                    <elementDefinition Id="a84cbd1f-dfdf-4c09-9ce9-4ee6a4189615" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="02ce9a5f-a567-4f30-b7f4-d3b170218439">
+                    <propertyInstance Id="63386727-fa60-40af-98e9-38feec8d039a" name="IsVolatile" value="false">
+                      <elementDefinition Id="6024b5a5-a9ae-4f79-9cf9-f077fd50fe02" />
+                    </propertyInstance>
+                    <elementDefinition Id="ffa40462-9323-46e0-98ec-015664f73caf" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="5c1077ea-6065-4a00-a7f8-e203e510002a">
+                    <propertyInstance Id="a49f2836-16fb-46ed-bfbc-a0d775464d8c" name="PackageVisibility" value="internal">
+                      <elementDefinition Id="1385a306-3a9c-450a-9aed-ff002e017c72" />
+                    </propertyInstance>
+                    <elementDefinition Id="5aa58c08-57a7-473f-9f61-df5dafce63f9" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <elementDefinition Id="c419fa76-5d2a-4047-b08e-931f937f604d" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="49b30ee2-c5c7-4717-8dee-7b049423f525" LastKnownName="Integer" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation Id="59900f45-d617-4c9d-a28d-ada9dba46cc8" name="LevelElement" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <referencesInternal>
+              <reference Id="f9f78e69-88a7-4ca6-bc66-29a08ae7f8b3" handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FD:%2FProjects%2FTHESIS%2FScarFly%2FScarFly%2FScarFly%2Fbin%2FWindows Phone%2FDebug%2FScarFly.dll&quot; Namespace%3DScarFly.MyClasses.LevelElementClasses Type%3DLevelElement Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2FSilverlight%2Fv4.0%2FProfile%2FWindowsPhone71%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2FSilverlight%2Fv4.0%2FProfile%2FWindowsPhone71%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)])" tag="ViewCode">
+                <elementDefinition Id="957ff48e-6b00-4487-a6c3-cd308387c513" />
+              </reference>
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance Id="5993dfee-7f19-4fc8-b70f-f4561fb24458" name="method" profile="CSharpProfile">
+                <elementDefinition Id="6b84f8c2-768c-4b70-8f2b-ffd34fbeb333" />
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="b517f733-6693-42c8-a86a-bc18de50784d">
+                    <propertyInstance Id="a881245a-1f8e-447b-a732-f4478fdb2758" name="ClrAttributes">
+                      <elementDefinition Id="18da2d0e-ed0a-4428-8965-7a331af56e3c" />
+                    </propertyInstance>
+                    <elementDefinition Id="13b9d7b1-6102-48e1-be84-d71a46bbcf66" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="e585396c-5168-4d11-98e6-6bb5c198b3a4">
+                    <propertyInstance Id="7fdd458e-5fbc-4b56-9a06-669dab4c1e51" name="IsPartial" value="false">
+                      <elementDefinition Id="2d6cbe59-55bc-47cb-9dec-b874b1ba1cec" />
+                    </propertyInstance>
+                    <elementDefinition Id="a4558161-db7b-4e45-89f9-9abe559873b5" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="1f2931e8-20cd-468e-a422-a5feb3fd36b1">
+                    <propertyInstance Id="b719782b-bebf-4260-9180-351e8506cfa7" name="IsUnsafe" value="false">
+                      <elementDefinition Id="39955996-d9ad-4fb0-8ae1-eab4a6b4582f" />
+                    </propertyInstance>
+                    <elementDefinition Id="e3044467-cab2-4b3a-b3be-2ded6bfb8d46" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="f853d2cc-41be-4076-9493-d25997b909ec">
+                    <propertyInstance Id="4f26e367-2c45-4d8d-95d6-45a975b82db7" name="Inheritance" value="none">
+                      <elementDefinition Id="13e19e9e-ffd4-496c-a1df-c7082a4429f4" />
+                    </propertyInstance>
+                    <elementDefinition Id="f3cdaf57-2ec8-49f5-b436-9b4d4495bdb7" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="5a12d6e8-dc8b-4e64-8f4d-b2c28071a457">
+                    <propertyInstance Id="7ccfb70f-5f8a-4417-922b-2d780d81eebb" name="PackageVisibility" value="internal">
+                      <elementDefinition Id="fcfd9d07-49d3-494b-9715-72e81398e49c" />
+                    </propertyInstance>
+                    <elementDefinition Id="b74ab3c4-52ed-46e2-9494-84662e240773" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="ea418a94-5c2b-494c-b60d-c3d1aedb89b4">
+                    <propertyInstance Id="e090f56a-61d4-4edb-b548-e155cf88a0f0" name="params" value="false">
+                      <elementDefinition Id="38c03dfb-fe0b-4f77-bf3b-d1e6ed0e9a53" />
+                    </propertyInstance>
+                    <elementDefinition Id="19af24d1-c335-49c3-bb97-19a91ab34f33" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <elementDefinition Id="552c014d-48a0-4680-98d6-af970a5de620" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="3fa97757-83af-4aab-88dc-0771a9bd86b5" name="assetName" direction="In">
+                  <referencesInternal>
+                    <reference Id="924d10a8-5df5-453d-8d44-616cfb3c6a8d" handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FD:%2FProjects%2FTHESIS%2FScarFly%2FScarFly%2FScarFly%2Fbin%2FWindows Phone%2FDebug%2FScarFly.dll&quot; Namespace%3DScarFly.MyClasses.LevelElementClasses Type%3DLevelElement Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2FSilverlight%2Fv4.0%2FProfile%2FWindowsPhone71%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2FSilverlight%2Fv4.0%2FProfile%2FWindowsPhone71%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)]) ParameterIdentifier%3DassetName" tag="ViewCode">
+                      <elementDefinition Id="0f33437c-58ba-4069-9158-11f9a577486b" />
+                    </reference>
+                  </referencesInternal>
+                  <elementDefinition Id="e15c0cc6-76e3-4140-9fd2-8eca13ee7590" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="7db70d37-10d1-4eaa-8ff5-2ba7d496444a" LastKnownName="String" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="3f64255e-5744-4a41-aa26-c20839e736ce" name="moveCount" direction="In">
+                  <referencesInternal>
+                    <reference Id="0edd380a-fa2e-4c7b-a1ea-044ccd484417" handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FD:%2FProjects%2FTHESIS%2FScarFly%2FScarFly%2FScarFly%2Fbin%2FWindows Phone%2FDebug%2FScarFly.dll&quot; Namespace%3DScarFly.MyClasses.LevelElementClasses Type%3DLevelElement Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2FSilverlight%2Fv4.0%2FProfile%2FWindowsPhone71%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2FSilverlight%2Fv4.0%2FProfile%2FWindowsPhone71%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)]) ParameterIdentifier%3DmoveCount" tag="ViewCode">
+                      <elementDefinition Id="9fbfcefe-d6ba-4c25-a39f-75eb1e915d8e" />
+                    </reference>
+                  </referencesInternal>
+                  <elementDefinition Id="3288c4e2-4beb-4450-b023-c0b01d95f1a8" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="49b30ee2-c5c7-4717-8dee-7b049423f525" LastKnownName="Integer" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="2a4507d6-1b7d-4304-8188-5e52812206a8" name="Draw" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <referencesInternal>
+              <reference Id="be1e9c74-4a46-443c-9483-7a2dc15419bf" handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FD:%2FProjects%2FTHESIS%2FScarFly%2FScarFly%2FScarFly%2Fbin%2FWindows Phone%2FDebug%2FScarFly.dll&quot; Namespace%3DScarFly.MyClasses.LevelElementClasses Type%3DLevelElement Member%3D(Name%3DDraw OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2FSilverlight%2Fv4.0%2FProfile%2FWindowsPhone71%2FMicrosoft.Xna.Framework.Graphics.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Graphics Type%3DSpriteBatch)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2FSilverlight%2Fv4.0%2FProfile%2FWindowsPhone71%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DColor)])" tag="ViewCode">
+                <elementDefinition Id="73eca9b7-3337-4ab5-92a6-8c310bea91b9" />
+              </reference>
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance Id="40750647-70d5-425a-ae41-3404d9177336" name="method" profile="CSharpProfile">
+                <elementDefinition Id="a1920a85-35c1-4675-b0d6-a59055bc2fff" />
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="7b902e15-0a81-4fed-9b69-fa86c7769504">
+                    <propertyInstance Id="1b2549a7-dd6e-4bf0-98e4-36341328eab2" name="ClrAttributes">
+                      <elementDefinition Id="35ecc833-b238-4c32-a8ec-332c46e4eec3" />
+                    </propertyInstance>
+                    <elementDefinition Id="20c020d6-ae5a-4f49-81f8-68758de78129" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="4d8c52d5-5a0e-4c64-9ada-ff458749736c">
+                    <propertyInstance Id="79d84655-c0fa-49a6-ae44-e2aaa3ce7ae7" name="IsPartial" value="false">
+                      <elementDefinition Id="71a05816-746b-413d-8156-9d293816a2a0" />
+                    </propertyInstance>
+                    <elementDefinition Id="d2be2e00-4ae1-4ea9-be36-7a0169af5c17" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="b200f037-cab1-4b8b-b383-8e6480334059">
+                    <propertyInstance Id="fdb1847a-c739-4a0d-9476-d3ab207876b1" name="IsUnsafe" value="false">
+                      <elementDefinition Id="ff0afc40-95a3-4954-9ab0-7342194826cf" />
+                    </propertyInstance>
+                    <elementDefinition Id="ee210286-8308-4853-8ac2-53b4aeaad0d9" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="19e6fc05-ed91-49d2-a81b-84c932cc20c3">
+                    <propertyInstance Id="bcf42693-dec9-4d68-aa81-dffe6f8cc296" name="Inheritance" value="none">
+                      <elementDefinition Id="87e13fe3-fac1-492c-a950-8701dc08d8cc" />
+                    </propertyInstance>
+                    <elementDefinition Id="6eecc684-eaff-4a6f-ae6f-60f7c6401ff9" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="bef39db4-9e26-4526-bd95-4c6967fe6b21">
+                    <propertyInstance Id="37beef7a-a804-4cfa-bdf7-abdbca29aba9" name="PackageVisibility" value="internal">
+                      <elementDefinition Id="8a0dcffd-2515-402c-b23a-929bf55aced0" />
+                    </propertyInstance>
+                    <elementDefinition Id="6053a889-842a-4ea2-a745-de44969ee338" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="61cd4cfa-d430-4212-bba8-21a0776f2a64">
+                    <propertyInstance Id="844760c6-418f-4e78-866a-64e89ab4df89" name="params" value="false">
+                      <elementDefinition Id="c1e7d78d-2bd8-4023-a4ed-efd138076456" />
+                    </propertyInstance>
+                    <elementDefinition Id="fd42b7b8-af67-43f7-9300-2061bd07b8fa" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <elementDefinition Id="d88d6a76-c16d-4782-adc3-44be9481de52" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="c7c3f3a3-ece3-4e5a-ac60-cd302ba630b6" name="spriteBatch" direction="In">
+                  <referencesInternal>
+                    <reference Id="84780921-af33-4f66-aba9-a4142e1a3072" handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FD:%2FProjects%2FTHESIS%2FScarFly%2FScarFly%2FScarFly%2Fbin%2FWindows Phone%2FDebug%2FScarFly.dll&quot; Namespace%3DScarFly.MyClasses.LevelElementClasses Type%3DLevelElement Member%3D(Name%3DDraw OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2FSilverlight%2Fv4.0%2FProfile%2FWindowsPhone71%2FMicrosoft.Xna.Framework.Graphics.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Graphics Type%3DSpriteBatch)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2FSilverlight%2Fv4.0%2FProfile%2FWindowsPhone71%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DColor)]) ParameterIdentifier%3DspriteBatch" tag="ViewCode">
+                      <elementDefinition Id="2980b840-70ca-4b80-b5ec-374429660053" />
+                    </reference>
+                  </referencesInternal>
+                  <elementDefinition Id="24c557b1-0ad2-4446-bc78-63613d7593f7" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="ef67ed56-a6bb-4d9a-ab2f-194164ecb264" LastKnownName="SpriteBatch" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="50f76b0c-f761-4a12-b522-0314b17a32fa" name="color" direction="In">
+                  <referencesInternal>
+                    <reference Id="71790566-35be-4be9-9a99-c207bd0bc1fc" handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FD:%2FProjects%2FTHESIS%2FScarFly%2FScarFly%2FScarFly%2Fbin%2FWindows Phone%2FDebug%2FScarFly.dll&quot; Namespace%3DScarFly.MyClasses.LevelElementClasses Type%3DLevelElement Member%3D(Name%3DDraw OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2FSilverlight%2Fv4.0%2FProfile%2FWindowsPhone71%2FMicrosoft.Xna.Framework.Graphics.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Graphics Type%3DSpriteBatch)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2FSilverlight%2Fv4.0%2FProfile%2FWindowsPhone71%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DColor)]) ParameterIdentifier%3Dcolor" tag="ViewCode">
+                      <elementDefinition Id="cd464ef0-386c-4938-88dc-57e76b83dbf1" />
+                    </reference>
+                  </referencesInternal>
+                  <elementDefinition Id="39b78ff7-96ae-4e3a-ade4-d5d46469eac3" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="dd53ced0-7f30-4628-85cc-1ec282afef04" LastKnownName="Color" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="610ab690-9fb9-49cf-8941-927285ea462e" name="Load" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <referencesInternal>
+              <reference Id="7bdc1158-331c-4359-b5e9-30a97e9f8aa9" handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FD:%2FProjects%2FTHESIS%2FScarFly%2FScarFly%2FScarFly%2Fbin%2FWindows Phone%2FDebug%2FScarFly.dll&quot; Namespace%3DScarFly.MyClasses.LevelElementClasses Type%3DLevelElement Member%3D(Name%3DLoad OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FD:%2FProjects%2FTHESIS%2FScarFly%2FScarFly%2FScarFly%2Fbin%2FWindows Phone%2FDebug%2FScarFly.dll&quot; Namespace%3DScarFly Type%3DGame1)])" tag="ViewCode">
+                <elementDefinition Id="4da4a62b-f919-426e-b0ed-26d6e92d1b88" />
+              </reference>
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance Id="9f2fd21f-fc1b-4c07-9c58-57ecec985432" name="method" profile="CSharpProfile">
+                <elementDefinition Id="16982d9b-d6f9-4587-95d2-a540d16505da" />
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="c801b25f-8742-49d4-9efa-106029b183f1">
+                    <propertyInstance Id="d3342459-bd9e-4b11-80bc-9ee9fc67db19" name="ClrAttributes">
+                      <elementDefinition Id="da7806b4-40c0-4bb4-88bd-b64b17517bba" />
+                    </propertyInstance>
+                    <elementDefinition Id="1d290484-2c90-4018-a403-fc7b803d343a" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="e196624f-ac87-452e-9a86-2a4be2b6365b">
+                    <propertyInstance Id="f3c40d3f-accf-472f-889d-494719fa2057" name="IsPartial" value="false">
+                      <elementDefinition Id="f0661d3e-6e94-43b4-b65f-e611c040e617" />
+                    </propertyInstance>
+                    <elementDefinition Id="41eadc3e-691e-48f2-a7cc-4f8cf7b31e46" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="db69b9aa-ba9c-455f-a9f3-01d344f1f540">
+                    <propertyInstance Id="7635cc07-2546-4edf-8771-2d218d6fa501" name="IsUnsafe" value="false">
+                      <elementDefinition Id="fff6e3f0-f280-4b27-92dd-d6c9891b60cf" />
+                    </propertyInstance>
+                    <elementDefinition Id="d153f699-9e6d-4f21-94f5-3825935892b4" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="8d5ecb4c-4e89-4c26-ba96-e79269406514">
+                    <propertyInstance Id="fcbfba0e-f1f0-49e7-90f3-b37ffd24c3ee" name="Inheritance" value="none">
+                      <elementDefinition Id="d707e7ac-a621-40d8-9fbb-a74f3dcb5e21" />
+                    </propertyInstance>
+                    <elementDefinition Id="d8ae6072-1e09-4359-8937-21fc6ab259c9" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="a6837f3d-7b77-4d66-919e-531f3fe0f136">
+                    <propertyInstance Id="d72bdbce-9d5e-42af-96ef-37e54e5ce2c5" name="PackageVisibility" value="internal">
+                      <elementDefinition Id="d71deb9e-18e9-4005-916c-ed7131c69c3b" />
+                    </propertyInstance>
+                    <elementDefinition Id="8d7ec6a3-974b-4049-8ccb-b9928d4c63a4" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="5298c63e-aa4f-4a66-aa1a-d26aa4af2834">
+                    <propertyInstance Id="784ebfb8-e0a9-49c6-8d0f-467d07ada256" name="params" value="false">
+                      <elementDefinition Id="589f9915-f4df-4f70-bd94-f224420dc303" />
+                    </propertyInstance>
+                    <elementDefinition Id="04a7b64c-916d-40b9-99fd-ac3d8644030e" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <elementDefinition Id="6f81119f-81ed-4fb6-8a59-0ee9c5fbdb24" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="8e782090-ca58-4448-9a19-80902cf1e31d" name="game" direction="In">
+                  <referencesInternal>
+                    <reference Id="fb99221b-9afd-449b-8a36-226b0a393113" handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FD:%2FProjects%2FTHESIS%2FScarFly%2FScarFly%2FScarFly%2Fbin%2FWindows Phone%2FDebug%2FScarFly.dll&quot; Namespace%3DScarFly.MyClasses.LevelElementClasses Type%3DLevelElement Member%3D(Name%3DLoad OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FD:%2FProjects%2FTHESIS%2FScarFly%2FScarFly%2FScarFly%2Fbin%2FWindows Phone%2FDebug%2FScarFly.dll&quot; Namespace%3DScarFly Type%3DGame1)]) ParameterIdentifier%3Dgame" tag="ViewCode">
+                      <elementDefinition Id="692e093b-fc78-413e-90d3-a527c4af730d" />
+                    </reference>
+                  </referencesInternal>
+                  <elementDefinition Id="41861cff-0a0a-4e23-b7dc-d6a297f1e950" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="b1c7e584-32e9-41c7-b505-4882964a52e5" LastKnownName="Game1" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="5639c0bc-ecd0-46fe-8cda-9e4ca44855f0" name="UpdateRectangle" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <referencesInternal>
+              <reference Id="25699c27-95e1-4546-98bb-b17dca9bf052" handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FD:%2FProjects%2FTHESIS%2FScarFly%2FScarFly%2FScarFly%2Fbin%2FWindows Phone%2FDebug%2FScarFly.dll&quot; Namespace%3DScarFly.MyClasses.LevelElementClasses Type%3DLevelElement Member%3DUpdateRectangle" tag="ViewCode">
+                <elementDefinition Id="0a9b2c08-7374-4bd8-876e-37f208c7c9d0" />
+              </reference>
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance Id="c7d528e4-d216-4b65-ba35-bdfd34c8aaaa" name="method" profile="CSharpProfile">
+                <elementDefinition Id="d7bb9bc7-e36a-4544-a556-10693d335a4a" />
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="03633271-4fc4-4ea3-abfb-cfc08739eaa9">
+                    <propertyInstance Id="bf42010c-b565-471f-a280-83db49ad6813" name="ClrAttributes">
+                      <elementDefinition Id="e390ea1d-94c4-4a39-8635-433b25f92466" />
+                    </propertyInstance>
+                    <elementDefinition Id="e574766a-3383-4149-9b3f-d3308ab5a8ae" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="1a86885a-cf2a-4a90-bbb8-99a368a6b7e5">
+                    <propertyInstance Id="99bc9c28-8772-4122-85f1-aec3a5f2900c" name="IsPartial" value="false">
+                      <elementDefinition Id="2adfa303-66ba-407a-85e1-f08b794206d6" />
+                    </propertyInstance>
+                    <elementDefinition Id="ac077a81-3e28-4fd0-b762-b041859c6228" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="52915122-c80a-4206-a813-da2dbfe681c4">
+                    <propertyInstance Id="4a9c88b0-8c8b-4041-979a-0f02c40d9377" name="IsUnsafe" value="false">
+                      <elementDefinition Id="f81aa38a-1ec8-4010-bb8b-dc2f1f1f77db" />
+                    </propertyInstance>
+                    <elementDefinition Id="5ec49e3c-72ac-4a75-b937-921a485e8249" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="7c269c5c-5baa-455a-9aea-f02533ef6ed9">
+                    <propertyInstance Id="d753d38c-6fd1-4abd-91b8-1b73371207ae" name="Inheritance" value="none">
+                      <elementDefinition Id="6cee797f-564b-485f-8cdb-d48f4aa7fb9f" />
+                    </propertyInstance>
+                    <elementDefinition Id="da3c6776-d8cc-4841-b227-ddfae49f53cd" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="8d206c03-5148-4043-9759-15b60a5d840d">
+                    <propertyInstance Id="52191103-f696-4f72-8124-335e76b71985" name="PackageVisibility" value="internal">
+                      <elementDefinition Id="c677193b-6643-4efa-b126-bde70db5392b" />
+                    </propertyInstance>
+                    <elementDefinition Id="3a1bd119-980a-48d0-bc49-7c4492562b08" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="c6989566-7cfc-4186-9b3d-036a3b24b9a5">
+                    <propertyInstance Id="14b83b39-73f6-4fce-a396-0e64118023b7" name="params" value="false">
+                      <elementDefinition Id="14c997e7-2631-4ba0-88e9-835e6b3fefab" />
+                    </propertyInstance>
+                    <elementDefinition Id="f9952c5d-831a-46d2-9837-2d5531a946df" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <elementDefinition Id="35c8f713-9ea7-4387-bd32-4119b3853369" />
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="7db70d37-10d1-4eaa-8ff5-2ba7d496444a" name="String" isAbstract="false" isLeaf="false" cachedFullName="String">
+        <elementDefinition Id="59259974-6d55-42c6-b7bd-763d77ac8ef9" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="46dc6ccd-6a15-4167-a9da-d83758054229" name="Rectangle" isAbstract="false" isLeaf="false" cachedFullName="ScarFlyModelingProject::Microsoft::Xna::Framework::Rectangle">
+        <elementDefinition Id="6972d9e6-3153-4294-a7ad-7d6e262a65ef" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="dd53ced0-7f30-4628-85cc-1ec282afef04" name="Color" isAbstract="false" isLeaf="false" cachedFullName="ScarFlyModelingProject::Microsoft::Xna::Framework::Color">
+        <elementDefinition Id="37db623c-d568-4200-a6fb-2a3035db9929" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="49b30ee2-c5c7-4717-8dee-7b049423f525" name="Integer" isAbstract="false" isLeaf="false" cachedFullName="Integer">
+        <elementDefinition Id="220a3521-e091-4221-bae9-3ef9018e845c" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="5ff01096-a767-45df-b325-08b990299cb9" name="Vector2" isAbstract="false" isLeaf="false" cachedFullName="ScarFlyModelingProject::Microsoft::Xna::Framework::Vector2">
+        <elementDefinition Id="c411de0a-c401-48d6-a8ed-2f871a21f77f" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="e69d7446-9a66-4d4b-8b3f-2622cf44f1e7" name="Texture2D" isAbstract="false" isLeaf="false" cachedFullName="ScarFlyModelingProject::Microsoft::Xna::Framework::Graphics::Texture2D">
+        <elementDefinition Id="38cb006b-2475-4d58-a789-9bb97485db1b" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="ef67ed56-a6bb-4d9a-ab2f-194164ecb264" name="SpriteBatch" isAbstract="false" isLeaf="false" cachedFullName="ScarFlyModelingProject::Microsoft::Xna::Framework::Graphics::SpriteBatch">
+        <elementDefinition Id="b135a420-4256-4c5b-b70d-2e264fe449ca" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="b1c7e584-32e9-41c7-b505-4882964a52e5" name="Game1" isAbstract="false" isLeaf="false" cachedFullName="ScarFlyModelingProject::ScarFly::Game1">
+        <elementDefinition Id="5070ea35-342a-4ab3-be8f-de15dda718e4" />
+      </referencedType>
+    </packageHasNamedElement>
+  </packagedElements>
+  <package Id="f3db4b14-d025-4521-a372-2017e4218728" name="ScarFlyModelingProject">
+    <elementDefinition Id="b10a0c78-71f8-4f2d-933a-10673cb01927" />
+  </package>
+</logicalClassDesignerModel>

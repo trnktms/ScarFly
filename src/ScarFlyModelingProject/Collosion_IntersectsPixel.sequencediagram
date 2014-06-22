@@ -1,0 +1,265 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SequenceDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="f2a1228f-0f49-48f6-8e53-7a340f129377" name="Collosion_IntersectsPixel" linkedPackageId="9c2d9566-9418-4ac2-ab44-50f17215685e" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner">
+  <profileInstances>
+    <packageHasProfileInstances Id="6225794d-6444-488b-ac8c-74075fecc72a">
+      <profileInstance Id="2a5ca693-ace5-477a-b40e-508971cef9c7" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="9326e2e1-4897-4688-a9eb-5bf1d829e0cc">
+      <profileInstance Id="1bc2f2d2-d588-44fa-9c46-c6b23f1334b5" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="c22feaa7-e8f6-4305-903e-ef21db3a1976">
+      <profileInstance Id="c16d9f8e-06ad-481f-9e5f-496ae6972cee" name="CSharpProfile">
+        <elementDefinition Id="ee70e2cf-2376-41b0-974f-746add6be42b" />
+      </profileInstance>
+      <elementDefinition Id="8f7ce358-5cfb-4f83-87a0-39e54cb33676" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <packageHasNamedElement>
+      <interaction Id="8aa348b0-a53d-4295-a36d-41815bb3641c" name="Collosion_IntersectsPixel" collapseFragmentsFlag="false" isActiveClass="false" isAbstract="false" isLeaf="false" isReentrant="false">
+        <elementDefinition Id="a2d02587-033a-43a9-8997-a895e7fc0aac" />
+        <fragments>
+          <behaviorExecutionSpecification Id="293d3dfa-4ef9-4fcb-8239-8a5a22fbf583" name="BehaviorExecutionSpecification">
+            <elementDefinition Id="4244d676-ca93-454a-891b-36adcd9ee83e" />
+            <coveredLifelines>
+              <lifelineMoniker Id="3346c59e-4557-46d7-9b8e-b42f592511fa" LastKnownName="this : Collosion" />
+            </coveredLifelines>
+            <finish>
+              <executionOccurrenceSpecificationMoniker Id="469d150e-e9b4-46ab-896f-36b1f8108ffb" LastKnownName="ExecutionOccurrenceSpecification" />
+            </finish>
+            <start>
+              <executionOccurrenceSpecificationMoniker Id="174b7f3e-0f95-4de7-bba1-844549c764af" LastKnownName="ExecutionOccurrenceSpecification" />
+            </start>
+            <nestedOccurrences>
+              <messageOccurrenceSpecificationMoniker Id="4a40b861-60ce-4c00-834c-159b54417ff4" LastKnownName="MessageOccurrenceSpecification" />
+              <operandOccurrenceSpecificationMoniker Id="30410800-c939-4681-9fc5-83c12ce0a73c" LastKnownName="OperandOccurrenceSpecification1" />
+              <operandOccurrenceSpecificationMoniker Id="e60ac1a7-295f-4b98-91cb-f13fe73a3e49" LastKnownName="OperandOccurrenceSpecification3" />
+              <operandOccurrenceSpecificationMoniker Id="b48d01fc-f0e8-4af9-808b-b0b2aa7ddb94" LastKnownName="OperandOccurrenceSpecification5" />
+              <messageOccurrenceSpecificationMoniker Id="868908ff-8fa6-47e5-be98-5797c4cebccc" LastKnownName="MessageOccurrenceSpecification" />
+              <operandOccurrenceSpecificationMoniker Id="fd6657b4-19a8-484f-93c0-3a2a809f4014" LastKnownName="OperandOccurrenceSpecification6" />
+              <operandOccurrenceSpecificationMoniker Id="62576394-c84d-4f0a-b0c6-eb0e0e65023a" LastKnownName="OperandOccurrenceSpecification4" />
+              <operandOccurrenceSpecificationMoniker Id="1214d3d0-4d80-46c7-9d3e-1fd572d7ab5d" LastKnownName="OperandOccurrenceSpecification2" />
+            </nestedOccurrences>
+          </behaviorExecutionSpecification>
+          <executionOccurrenceSpecification Id="174b7f3e-0f95-4de7-bba1-844549c764af" name="ExecutionOccurrenceSpecification">
+            <elementDefinition Id="1696d324-0a3e-4795-b46d-436ffdbedfe5" />
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker Id="19909450-977a-49d3-a5d3-767214d16f93" LastKnownName="ExecutionEvent" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker Id="3346c59e-4557-46d7-9b8e-b42f592511fa" LastKnownName="this : Collosion" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <lostFoundTarget Id="45e88f62-d71a-4800-bd15-ece887ebd782" name="LostFoundTarget">
+            <elementDefinition Id="2b73b01b-45b4-446c-88e7-52d13f2e2c69" />
+          </lostFoundTarget>
+          <messageOccurrenceSpecification Id="4a40b861-60ce-4c00-834c-159b54417ff4" name="MessageOccurrenceSpecification">
+            <elementDefinition Id="2c8d6be2-74c7-415f-a4ff-1cd080d80df5" />
+            <covered>
+              <lifelineMoniker Id="3346c59e-4557-46d7-9b8e-b42f592511fa" LastKnownName="this : Collosion" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <combinedFragment Id="ee876473-1550-4dce-bfbc-0b305abf7b2e" name="CombinedFragment1" interactionOperator="Loop" customInteractionOperator="Loop">
+            <elementDefinition Id="0e035a55-a5c8-45fe-8bd2-6ccd74a76d31" />
+            <coveredLifelines>
+              <lifelineMoniker Id="3346c59e-4557-46d7-9b8e-b42f592511fa" LastKnownName="this : Collosion" />
+            </coveredLifelines>
+            <operands>
+              <interactionOperand Id="08453495-e6f8-4d58-9cac-c54d5bed61aa" name="InteractionOperand1">
+                <elementDefinition Id="86911900-b93f-46cc-a149-4893cb4aea4c" />
+                <coveredLifelines>
+                  <lifelineMoniker Id="3346c59e-4557-46d7-9b8e-b42f592511fa" LastKnownName="this : Collosion" />
+                </coveredLifelines>
+                <fragments>
+                  <combinedFragment Id="908928fb-2b5d-4d24-8ca1-ef415748f9d0" name="CombinedFragment1" interactionOperator="Loop" customInteractionOperator="Loop">
+                    <elementDefinition Id="3804b200-e55f-418c-b37b-3f71efb9b608" />
+                    <coveredLifelines>
+                      <lifelineMoniker Id="3346c59e-4557-46d7-9b8e-b42f592511fa" LastKnownName="this : Collosion" />
+                    </coveredLifelines>
+                    <operands>
+                      <interactionOperand Id="913993b7-c872-4dba-807a-ee7ef236b333" name="InteractionOperand1">
+                        <elementDefinition Id="fb0a4bda-4b68-4eff-832b-98794f1a83f9" />
+                        <coveredLifelines>
+                          <lifelineMoniker Id="3346c59e-4557-46d7-9b8e-b42f592511fa" LastKnownName="this : Collosion" />
+                        </coveredLifelines>
+                        <fragments>
+                          <combinedFragment Id="8df2c3fa-0908-44b3-999b-6fa69e2353ac" name="CombinedFragment1" interactionOperator="Opt" customInteractionOperator="If">
+                            <elementDefinition Id="82889bc4-489f-4cec-afcc-8904ee105c89" />
+                            <coveredLifelines>
+                              <lifelineMoniker Id="3346c59e-4557-46d7-9b8e-b42f592511fa" LastKnownName="this : Collosion" />
+                            </coveredLifelines>
+                            <operands>
+                              <interactionOperand Id="467b11bf-ec52-44e3-a0e6-c305f4bdd82c" name="InteractionOperand1">
+                                <elementDefinition Id="7fa70666-1f4a-4153-b6b5-c064074b7f1b" />
+                                <coveredLifelines>
+                                  <lifelineMoniker Id="3346c59e-4557-46d7-9b8e-b42f592511fa" LastKnownName="this : Collosion" />
+                                </coveredLifelines>
+                                <guard>
+                                  <interactionConstraint Id="b765d8d8-cee8-443a-8c57-eaa015145b66" guardText="if (color1.A != 0 &amp;&amp; color2.A != 0)">
+                                    <elementDefinition Id="2a277736-ddfd-41dc-94d8-82a22dfc78cc" />
+                                  </interactionConstraint>
+                                </guard>
+                                <operandOccurrenceSpecifications>
+                                  <operandOccurrenceSpecificationMoniker Id="b48d01fc-f0e8-4af9-808b-b0b2aa7ddb94" LastKnownName="OperandOccurrenceSpecification5" />
+                                  <operandOccurrenceSpecificationMoniker Id="fd6657b4-19a8-484f-93c0-3a2a809f4014" LastKnownName="OperandOccurrenceSpecification6" />
+                                </operandOccurrenceSpecifications>
+                              </interactionOperand>
+                            </operands>
+                          </combinedFragment>
+                        </fragments>
+                        <guard>
+                          <interactionConstraint Id="b48e253b-dadb-48be-a7fb-5da7056f8cb3" guardText="for (int x = left;x &lt; right; x++)">
+                            <elementDefinition Id="db539c89-ab68-464f-bff9-98321ae72930" />
+                            <maxInt>
+                              <literalString Id="5f2d4fa0-ef15-4e6d-bd81-8bfa058eae36" name="LiteralString1">
+                                <elementDefinition Id="2c91100b-79e4-4038-9d91-9d24db0cee1d" />
+                              </literalString>
+                            </maxInt>
+                            <minInt>
+                              <literalString Id="ac172856-c745-4535-a782-43764e219024" name="LiteralString2">
+                                <elementDefinition Id="aeff5ac1-6535-4a61-971d-0647412262f9" />
+                              </literalString>
+                            </minInt>
+                          </interactionConstraint>
+                        </guard>
+                        <operandOccurrenceSpecifications>
+                          <operandOccurrenceSpecificationMoniker Id="e60ac1a7-295f-4b98-91cb-f13fe73a3e49" LastKnownName="OperandOccurrenceSpecification3" />
+                          <operandOccurrenceSpecificationMoniker Id="62576394-c84d-4f0a-b0c6-eb0e0e65023a" LastKnownName="OperandOccurrenceSpecification4" />
+                        </operandOccurrenceSpecifications>
+                      </interactionOperand>
+                    </operands>
+                  </combinedFragment>
+                </fragments>
+                <guard>
+                  <interactionConstraint Id="1ca4aff8-a64b-497e-83df-434f70f13ba8" guardText="for (int y = top;y &lt; bottom; y++)">
+                    <elementDefinition Id="b222ed19-01aa-4777-97c7-a11388431c0a" />
+                    <maxInt>
+                      <literalString Id="89d060ac-d76d-42d1-a17c-692875786af3" name="LiteralString1">
+                        <elementDefinition Id="5c1f604d-4d2b-4bcd-8f40-c91a6c1ab83f" />
+                      </literalString>
+                    </maxInt>
+                    <minInt>
+                      <literalString Id="032a6b35-7fc0-4afd-b300-085b0a569c57" name="LiteralString2">
+                        <elementDefinition Id="cad6f87e-6087-48c2-9e1c-91d8f7f0cb98" />
+                      </literalString>
+                    </minInt>
+                  </interactionConstraint>
+                </guard>
+                <operandOccurrenceSpecifications>
+                  <operandOccurrenceSpecificationMoniker Id="30410800-c939-4681-9fc5-83c12ce0a73c" LastKnownName="OperandOccurrenceSpecification1" />
+                  <operandOccurrenceSpecificationMoniker Id="1214d3d0-4d80-46c7-9d3e-1fd572d7ab5d" LastKnownName="OperandOccurrenceSpecification2" />
+                </operandOccurrenceSpecifications>
+              </interactionOperand>
+            </operands>
+          </combinedFragment>
+          <operandOccurrenceSpecification Id="30410800-c939-4681-9fc5-83c12ce0a73c" name="OperandOccurrenceSpecification1">
+            <elementDefinition Id="b2a6a8dc-686e-40e5-ad0b-9d03796386f6" />
+            <covered>
+              <lifelineMoniker Id="3346c59e-4557-46d7-9b8e-b42f592511fa" LastKnownName="this : Collosion" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="e60ac1a7-295f-4b98-91cb-f13fe73a3e49" name="OperandOccurrenceSpecification3">
+            <elementDefinition Id="6a787418-35fd-46ad-8094-bd37364703f2" />
+            <covered>
+              <lifelineMoniker Id="3346c59e-4557-46d7-9b8e-b42f592511fa" LastKnownName="this : Collosion" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="b48d01fc-f0e8-4af9-808b-b0b2aa7ddb94" name="OperandOccurrenceSpecification5">
+            <elementDefinition Id="652625f3-aba9-43e8-8308-1e8e3180f5a6" />
+            <covered>
+              <lifelineMoniker Id="3346c59e-4557-46d7-9b8e-b42f592511fa" LastKnownName="this : Collosion" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="868908ff-8fa6-47e5-be98-5797c4cebccc" name="MessageOccurrenceSpecification">
+            <elementDefinition Id="37df593f-ee2a-4a13-bd78-d6b5aa581c01" />
+            <covered>
+              <lifelineMoniker Id="3346c59e-4557-46d7-9b8e-b42f592511fa" LastKnownName="this : Collosion" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <lostFoundTarget Id="9d71b633-76a2-4af8-b053-548a04a5b25d" name="LostFoundTarget">
+            <elementDefinition Id="54a7aded-9144-42d7-89e0-f93a99f9b421" />
+          </lostFoundTarget>
+          <operandOccurrenceSpecification Id="fd6657b4-19a8-484f-93c0-3a2a809f4014" name="OperandOccurrenceSpecification6">
+            <elementDefinition Id="636daf14-0e82-49c1-abcb-a2cb2017e6b3" />
+            <covered>
+              <lifelineMoniker Id="3346c59e-4557-46d7-9b8e-b42f592511fa" LastKnownName="this : Collosion" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="62576394-c84d-4f0a-b0c6-eb0e0e65023a" name="OperandOccurrenceSpecification4">
+            <elementDefinition Id="2bf9c153-44ce-40e3-a15c-68fe4d0db567" />
+            <covered>
+              <lifelineMoniker Id="3346c59e-4557-46d7-9b8e-b42f592511fa" LastKnownName="this : Collosion" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <operandOccurrenceSpecification Id="1214d3d0-4d80-46c7-9d3e-1fd572d7ab5d" name="OperandOccurrenceSpecification2">
+            <elementDefinition Id="4eee3526-e17c-4339-b4c8-ed044e8103a8" />
+            <covered>
+              <lifelineMoniker Id="3346c59e-4557-46d7-9b8e-b42f592511fa" LastKnownName="this : Collosion" />
+            </covered>
+          </operandOccurrenceSpecification>
+          <executionOccurrenceSpecification Id="469d150e-e9b4-46ab-896f-36b1f8108ffb" name="ExecutionOccurrenceSpecification">
+            <elementDefinition Id="dc6d7f64-2728-4a87-83bb-8cbc6bd874c5" />
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker Id="44c0ba7f-8197-4d6d-bdcf-01c6a760c112" LastKnownName="ExecutionEvent" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker Id="3346c59e-4557-46d7-9b8e-b42f592511fa" LastKnownName="this : Collosion" />
+            </covered>
+          </executionOccurrenceSpecification>
+        </fragments>
+        <lifelines>
+          <lifeline Id="3346c59e-4557-46d7-9b8e-b42f592511fa" name="this : Collosion" isActor="false" lifelineDisplayName="this : Collosion" referencedInstance="(Assembly=&quot;$(fd270f92-4dbc-4aaa-85f3-1e19d50a2358.OutputPathUri)&quot; Namespace=ScarFly.MyClasses.PlayerClasses Type=Collosion ObjectInstance=&quot;Object instance 5&quot;)" referencedType="ScarFly‎.MyClasses‎.PlayerClasses‎.Collosion">
+            <elementDefinition Id="3bdbf7a6-1588-4301-b84a-62cf1acc0059" />
+            <topLevelOccurrences>
+              <executionOccurrenceSpecificationMoniker Id="174b7f3e-0f95-4de7-bba1-844549c764af" LastKnownName="ExecutionOccurrenceSpecification" />
+              <executionOccurrenceSpecificationMoniker Id="469d150e-e9b4-46ab-896f-36b1f8108ffb" LastKnownName="ExecutionOccurrenceSpecification" />
+            </topLevelOccurrences>
+          </lifeline>
+        </lifelines>
+        <messages>
+          <message Id="4d663f4f-fb5d-4288-9aa7-b24774fee062" name="IntersectsPixel" messageKind="Found" messageSort="AsynchCall" createSelfMessage="false">
+            <elementDefinition Id="90d60708-4a57-4a9a-bc0d-e47dc736045f" />
+            <sendEvent>
+              <lostFoundTargetMoniker Id="45e88f62-d71a-4800-bd15-ece887ebd782" LastKnownName="LostFoundTarget" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker Id="4a40b861-60ce-4c00-834c-159b54417ff4" LastKnownName="MessageOccurrenceSpecification" />
+            </receiveEvent>
+          </message>
+          <message Id="b11cdd79-3900-4a36-af56-46f5d95d4e43" name="Return" messageKind="Lost" messageSort="AsynchCall" createSelfMessage="false" signatureText="return true">
+            <elementDefinition Id="7aad4a73-b730-4b72-ba45-87be3c120778" />
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker Id="868908ff-8fa6-47e5-be98-5797c4cebccc" LastKnownName="MessageOccurrenceSpecification" />
+            </sendEvent>
+            <receiveEvent>
+              <lostFoundTargetMoniker Id="9d71b633-76a2-4af8-b053-548a04a5b25d" LastKnownName="LostFoundTarget" />
+            </receiveEvent>
+          </message>
+        </messages>
+      </interaction>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent Id="19909450-977a-49d3-a5d3-767214d16f93" name="ExecutionEvent">
+        <elementDefinition Id="6955e4e6-2228-42d5-8033-d586468cb5c4" />
+      </executionEvent>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent Id="44c0ba7f-8197-4d6d-bdcf-01c6a760c112" name="ExecutionEvent">
+        <elementDefinition Id="7d0c25ff-7b5b-4437-bc27-d61f41de8dba" />
+      </executionEvent>
+    </packageHasNamedElement>
+  </packagedElements>
+  <package Id="9c2d9566-9418-4ac2-ab44-50f17215685e" name="ScarFlyModelingProject">
+    <elementDefinition Id="b10a0c78-71f8-4f2d-933a-10673cb01927" />
+  </package>
+</SequenceDesignerModel>

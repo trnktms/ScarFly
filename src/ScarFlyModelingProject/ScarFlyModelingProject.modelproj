@@ -1,0 +1,179 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{c3154ce4-ea60-42eb-ad6b-d7de4c684f15}</ProjectGuid>
+    <ArchitectureToolsVersion>2.0.0.0</ArchitectureToolsVersion>
+    <Name>ScarFlyModelingProject</Name>
+    <RootNamespace>ScarFlyModelingProject</RootNamespace>
+    <SccProjectName>SAK</SccProjectName>
+    <SccProvider>SAK</SccProvider>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(VSToolsPath)\ArchitectureTools\Microsoft.VisualStudio.TeamArchitect.ModelingProject.targets" Condition="'$(VSToolsPath)' != ''" />
+  <ItemGroup>
+    <Content Include="Barrier.classdiagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Barrier.classdiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>Barrier.classdiagram</DependentUpon>
+    </Content>
+    <Content Include="BarrierIndex.classdiagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="BarrierIndex.classdiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>BarrierIndex.classdiagram</DependentUpon>
+    </Content>
+    <Content Include="Barriers.classdiagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Barriers.classdiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>Barriers.classdiagram</DependentUpon>
+    </Content>
+    <Content Include="Collosion_IntersectsPixel.sequencediagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Collosion_IntersectsPixel.sequencediagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>Collosion_IntersectsPixel.sequencediagram</DependentUpon>
+    </Content>
+    <Content Include="Graph1.dgml">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="LevelElement.classdiagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="LevelElement.classdiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>LevelElement.classdiagram</DependentUpon>
+    </Content>
+    <Content Include="LevelElements.classdiagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="LevelElements.classdiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>LevelElements.classdiagram</DependentUpon>
+    </Content>
+    <Content Include="ModelDefinition\Package1_0920.uml">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ModelDefinition\Package2_0920.uml">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ModelDefinition\Package_0920.uml">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ModelDefinition\Package_1919.uml">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="NetworkHelper.classdiagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="NetworkHelper.classdiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>NetworkHelper.classdiagram</DependentUpon>
+    </Content>
+    <Content Include="OtherPlayer.classdiagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="OtherPlayer.classdiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>OtherPlayer.classdiagram</DependentUpon>
+    </Content>
+    <Content Include="PlayerBackgroundScroll.sequencediagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="PlayerBackgroundScroll.sequencediagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>PlayerBackgroundScroll.sequencediagram</DependentUpon>
+    </Content>
+    <Content Include="ModelDefinition\Package_2026.uml">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="PlayerBackground.classdiagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="PlayerBackground.classdiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>PlayerBackground.classdiagram</DependentUpon>
+    </Content>
+    <Content Include="Transitions_Transition.sequencediagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Transitions_Transition.sequencediagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>Transitions_Transition.sequencediagram</DependentUpon>
+    </Content>
+    <Content Include="UdpAnySourceMulticastChannel.classdiagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="UdpAnySourceMulticastChannel.classdiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>UdpAnySourceMulticastChannel.classdiagram</DependentUpon>
+    </Content>
+    <Folder Include="ModelDefinition\" />
+    <Content Include="Menu.classdiagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Menu.classdiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>Menu.classdiagram</DependentUpon>
+    </Content>
+    <Content Include="ModelDefinition\Package10_0733.uml">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ModelDefinition\Package11_0733.uml">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ModelDefinition\Package1_0733.uml">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ModelDefinition\Package2_0733.uml">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ModelDefinition\Package3_0733.uml">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ModelDefinition\Package4_0733.uml">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ModelDefinition\Package5_0733.uml">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ModelDefinition\Package6_0733.uml">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ModelDefinition\Package7_0733.uml">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ModelDefinition\Package8_0733.uml">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ModelDefinition\Package9_0733.uml">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ModelDefinition\Package_0733.uml">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ModelDefinition\ScarFlyModelingProject.uml">
+      <SubType>Content</SubType>
+    </Content>
+  </ItemGroup>
+</Project>

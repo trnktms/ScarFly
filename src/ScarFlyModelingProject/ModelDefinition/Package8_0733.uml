@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="1f5897ff-a983-4baf-b779-2ee52182bea5"
+  name="Framework"
+  visibility="Private" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <referencesInternal>
+    <reference
+      Id="eed4ac35-4be6-4385-b5c7-8e0f05e0ed72"
+      handle="viewcode://./CodeSchema_Namespace?Namespace%3DMicrosoft.Xna.Framework"
+      tag="ViewCode" />
+  </referencesInternal>
+  <packagedElements>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="57f5417a-dbec-4074-9917-b1c50273cc4b"
+        LastKnownName="Graphics"
+        LastKnownLocation="Package9_0733.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="37db623c-d568-4200-a6fb-2a3035db9929"
+        name="Color"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="546242c4-6841-4c19-ae49-3a3e9aeabd2d"
+            handle="viewcode://./CodeSchema_Struct?Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2FSilverlight%2Fv4.0%2FProfile%2FWindowsPhone71%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DColor"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="3843f9e4-4ff8-445f-967e-c36f9f5e99c2"
+            name="struct"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="705acc94-a08d-4590-8cf5-c67c016473c2">
+                <propertyInstance
+                  Id="765d5547-570c-47a3-b17d-9496508ca2ec"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="91dad46f-850d-41be-af8f-1de7767021dd">
+                <propertyInstance
+                  Id="c0ca2df6-b001-412d-8504-1e55ec469fbb"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="5d3cf40b-ae19-4b42-b356-847b646f1ea5">
+                <propertyInstance
+                  Id="bd15063b-29ef-4465-a571-bb60960b7fa9"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="203eaeb7-3478-4fec-a060-411cbb630e1c">
+                <propertyInstance
+                  Id="062dc3db-38e1-430d-8cd1-32f75c1ec328"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="0854ff91-9289-4780-921d-d0b665d0736e"
+        LastKnownName="Input"
+        LastKnownLocation="Package10_0733.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="c411de0a-c401-48d6-a8ed-2f871a21f77f"
+        name="Vector2"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="8ae9267a-5792-46c7-88f0-a55410288356"
+            handle="viewcode://./CodeSchema_Struct?Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2FSilverlight%2Fv4.0%2FProfile%2FWindowsPhone71%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DVector2"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="e2b01ec7-9a24-4e23-8fc6-e008d91cf7ac"
+            name="struct"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="07c8aba6-f561-4a37-858b-c8496ef1d677">
+                <propertyInstance
+                  Id="288a7b07-d2bc-43b9-9888-c4d5edd6be06"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="e02dadaf-02bb-48e2-bd13-e4f18617b194">
+                <propertyInstance
+                  Id="2b5d928a-3bf4-4703-8832-9ac37d0ddac3"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="78a01125-3c7c-4c96-8c90-8d1ca1103415">
+                <propertyInstance
+                  Id="04c57fbb-4576-42c8-93e7-db2bff081729"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="bc32221b-9782-44a9-b57c-b8cf992a20ae">
+                <propertyInstance
+                  Id="4634c60f-d3a2-4c5c-9377-a7d281eba9f0"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="6972d9e6-3153-4294-a7ad-7d6e262a65ef"
+        name="Rectangle"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="e1ad5420-dbce-4020-954f-08f0d86b984d"
+            handle="viewcode://./CodeSchema_Struct?Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2FSilverlight%2Fv4.0%2FProfile%2FWindowsPhone71%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DRectangle"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="eebb2190-3654-40ae-b771-a2a1a562cacb"
+            name="struct"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="57c7e56b-507f-4a91-85e4-b8c84bc00638">
+                <propertyInstance
+                  Id="58632574-d679-42bd-9b89-b26f3ec5aab5"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="e9ea899d-faa1-4039-be5f-ac9f51945727">
+                <propertyInstance
+                  Id="76a619fc-bea2-41e7-86f7-7dabf2bb4bac"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="7fa67a1e-1abc-4177-8382-bbb7d9274292">
+                <propertyInstance
+                  Id="7b26b84d-550d-48de-bc34-546402c18941"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="97f47f21-c7ec-435b-aadb-4cb90d2b1d0f">
+                <propertyInstance
+                  Id="84fdaf08-64ad-4ee4-bac3-ff02a759d8ce"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+      </class>
+    </packageHasNamedElement>
+  </packagedElements>
+</package>

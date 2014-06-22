@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<logicalClassDesignerDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="UdpAnySourceMulticastChannel">
+  <logicalClassDesignerModelMoniker Id="2ee77256-1cd8-49b7-b89e-c6b44791e4b7" />
+  <nestedChildShapes>
+    <classShape Id="2f1295c4-128d-4894-b6b0-eb4618430dfd" absoluteBounds="0.5, 1.5, 4.625, 5.191741745273271" hideQualifiedName="false" increaseHeight="0.18800345897674561" customColor="181, 193, 223">
+      <classMoniker Id="0e2e1810-ee10-4849-af28-47ceb820685c" LastKnownName="UdpAnySourceMulticastChannel" />
+      <nestedChildShapes>
+        <AttributeElementListCompartment Id="53f631da-19e1-4b9f-ba1f-c91f2f4cdb61" absoluteBounds="0.515, 2.0153356393178306, 4.5950000000000006, 2.1230468079447746" name="AttributesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <OperationElementListCompartment Id="70c19c4b-b684-426a-8b6e-b68a205ad885" absoluteBounds="0.515, 4.1483824472626054, 4.5950000000000006, 2.4433592980106664" name="OperationsCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</logicalClassDesignerDiagram>

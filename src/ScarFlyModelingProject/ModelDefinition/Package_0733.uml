@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="738e315e-7d0e-4d05-b1c0-1ef037290e8f"
+  name="ScarFly"
+  visibility="Private" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <referencesInternal>
+    <reference
+      Id="9188f1cb-86ac-4d6f-9756-d7663ff91102"
+      handle="viewcode://./CodeSchema_Namespace?Namespace%3DScarFly"
+      tag="ViewCode" />
+  </referencesInternal>
+  <packagedElements>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="7b4b0d9b-21cd-4d62-aef7-138207cac254"
+        LastKnownName="MyClasses"
+        LastKnownLocation="Package1_0733.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="5070ea35-342a-4ab3-be8f-de15dda718e4"
+        name="Game1"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="8f2f1520-edbd-4505-91e9-6d4490443872"
+            handle="viewcode://./CodeSchema_Class?Assembly%3D&quot;file:%2F%2F%2FD:%2FProjects%2FTHESIS%2FScarFly%2FScarFly%2FScarFly%2Fbin%2FWindows Phone%2FDebug%2FScarFly.dll&quot; Namespace%3DScarFly Type%3DGame1"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="04a564ed-958d-426c-84df-bf1a90b7aae2"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="12a59185-fb1c-4192-a433-8efccea7fcda">
+                <propertyInstance
+                  Id="2fee7ee7-6ac9-48eb-ae9c-abaaca9c528e"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="b7e3ce12-de57-4265-b884-f80c71c9dda6">
+                <propertyInstance
+                  Id="dc0794b6-00b8-47ac-a7e7-8b2ccf35adfc"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="177f35cf-c4cc-40d8-a41e-4787849d675b">
+                <propertyInstance
+                  Id="944bb449-ac26-45b5-960c-2ca10b929d44"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="faf89e26-b791-4bd5-9a5a-714e940af1e8">
+                <propertyInstance
+                  Id="913ecb9c-1a38-4722-a8f7-ae8af1d81121"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="d00b483d-812d-4457-a144-19d8c9bbb472">
+                <propertyInstance
+                  Id="1938da9a-641d-4a48-a955-ce5af2e3aacd"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+      </class>
+    </packageHasNamedElement>
+  </packagedElements>
+</package>

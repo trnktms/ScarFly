@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<logicalClassDesignerDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="PlayerBackground">
+  <logicalClassDesignerModelMoniker Id="7f39f6cc-3e77-4299-9b40-f5fd02f53d77" />
+  <nestedChildShapes>
+    <classShape Id="fe162929-1141-4842-a680-c8263adf5abc" absoluteBounds="0.5, 1.5, 3.625, 2.9495543148120236" hideQualifiedName="false" increaseHeight="0.18800345897674561" customColor="181, 193, 223">
+      <classMoniker Id="68d1ee42-5a25-4658-af7a-dee59ed29c53" LastKnownName="PlayerBackground" />
+      <nestedChildShapes>
+        <AttributeElementListCompartment Id="74ac7afc-e5f7-4d58-ae9f-7072176449b2" absoluteBounds="0.515, 2.0153356393178306, 3.5949999999999998, 1.3222655827800431" name="AttributesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <OperationElementListCompartment Id="82106bf5-6187-4214-9430-b31f8abd0faf" absoluteBounds="0.515, 3.3476012220978735, 3.5949999999999998, 1.0019530927141507" name="OperationsCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</logicalClassDesignerDiagram>

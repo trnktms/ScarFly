@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<logicalClassDesignerDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="NetworkHelper">
+  <logicalClassDesignerModelMoniker Id="ac003070-6ac5-4e5c-a256-0c5fe15550cd" />
+  <nestedChildShapes>
+    <classShape Id="4de74ff7-4dd6-47b8-8f51-3939dc5e0795" absoluteBounds="0.5, 1.5, 4.625, 2.6292418247461313" hideQualifiedName="false" increaseHeight="0.18800345897674561" customColor="181, 193, 223">
+      <classMoniker Id="be37c57c-2c20-4741-ad8a-cd5c122060b4" LastKnownName="NetworkHelper" />
+      <nestedChildShapes>
+        <AttributeElementListCompartment Id="f2ce3df9-0f9a-4f10-957e-efede5fbfb46" absoluteBounds="0.515, 2.0153356393178306, 4.5950000000000006, 0.84179684768120444" name="AttributesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <OperationElementListCompartment Id="2654be3a-d212-42ff-ba29-1b729a64f6ce" absoluteBounds="0.515, 2.8671324869990347, 4.5950000000000006, 1.1621093377470968" name="OperationsCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</logicalClassDesignerDiagram>

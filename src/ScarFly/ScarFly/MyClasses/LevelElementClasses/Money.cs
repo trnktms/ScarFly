@@ -14,8 +14,8 @@ namespace ScarFly.MyClasses.LevelElementClasses
             :base(assetName, moveCount)
         {
             this.Index = index;
-            Position = new Vector2(this.Index.Column * (Consts.PhoneWidth / Consts.PhoneWidthRate), (this.Index.Row) * (Consts.PhoneHeight / Consts.PhoneHeightRate));
-            StartPosition = Position;
+            this.Position = new Vector2(this.Index.Column * (Consts.PhoneWidth / Consts.PhoneWidthRate), (this.Index.Row) * (Consts.PhoneHeight / Consts.PhoneHeightRate));
+            this.StartPosition = Position;
         }
 
         public MoneyIndex Index { get; set; }
@@ -24,14 +24,14 @@ namespace ScarFly.MyClasses.LevelElementClasses
         private float _catchCounter = 1;
         public void DrawCatched(SpriteBatch spriteBatch, Color color)
         {
-            _catchCounter -= 0.1f;
-            if (_catchCounter > 0)
+            this._catchCounter -= 0.1f;
+            if (this._catchCounter > 0)
             {
-                spriteBatch.Draw(Texture, Position, new Rectangle((int)(MoveWidth * animateCount), 0, (int)(MoveWidth), (int)(Texture.Height )), color * _catchCounter);
+                spriteBatch.Draw(this.Texture, this.Position, new Rectangle((int)(this.MoveWidth * this.animateCount), 0, (int)(this.MoveWidth), (int)(this.Texture.Height)), color * this._catchCounter);
             }
             else
             {
-                IsHidden = true;
+                this.IsHidden = true;
             }
         }
     }

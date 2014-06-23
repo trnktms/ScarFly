@@ -51,41 +51,41 @@ namespace ScarFly.MyClasses.PlayerClasses
 
         public void Load(Game1 game)
         {
-            Font = game.Content.Load<SpriteFont>(FontAssetName);
-            GameScoreIcon = game.Content.Load<Texture2D>(GameScoreIconAssetName);
-            TotalScoreIcon = game.Content.Load<Texture2D>(TotalScoreIconAssetName);
-            HighScoreIcon = game.Content.Load<Texture2D>(HighScoreIconAssetName);
-            RankIcon = game.Content.Load<Texture2D>(RankIconAssetName);
+            this.Font = game.Content.Load<SpriteFont>(FontAssetName);
+            this.GameScoreIcon = game.Content.Load<Texture2D>(GameScoreIconAssetName);
+            this.TotalScoreIcon = game.Content.Load<Texture2D>(TotalScoreIconAssetName);
+            this.HighScoreIcon = game.Content.Load<Texture2D>(HighScoreIconAssetName);
+            this.RankIcon = game.Content.Load<Texture2D>(RankIconAssetName);
         }
 
         public void DrawGameScore(SpriteBatch spriteBatch, Color color)
         {
-            spriteBatch.Draw(GameScoreIcon, new Vector2(5, 5), color);
-            spriteBatch.DrawString(Font, GameScore.ToString(), new Vector2(GameScoreIcon.Width + 8, 8), color);
+            spriteBatch.Draw(this.GameScoreIcon, new Vector2(5, 5), color);
+            spriteBatch.DrawString(this.Font, this.GameScore.ToString(), new Vector2(this.GameScoreIcon.Width + 8, 8), color);
         }
 
         public void DrawMainMenuScores(SpriteBatch spriteBatch, Color color)
         {
-            spriteBatch.Draw(RankIcon, new Vector2(5, 5), color);
-            spriteBatch.DrawString(Font, Rank.ToString(), new Vector2(RankIcon.Width + 8, 8), color);
-            spriteBatch.Draw(HighScoreIcon, new Vector2(5, 85), color * 0.8f);
-            spriteBatch.DrawString(Font, HighScore.ToString() + (IsNewHighScore ? " - Hit!" : ""), new Vector2(HighScoreIcon.Width + 8, 88), color);
-            spriteBatch.Draw(GameScoreIcon, new Vector2(5, 165), color);
-            spriteBatch.DrawString(Font, TotalScore.ToString(), new Vector2(GameScoreIcon.Width + 8, 168), color);
-            spriteBatch.Draw(GameScoreIcon, new Vector2(5, 245), color);
-            spriteBatch.DrawString(Font, GameScore.ToString(), new Vector2(GameScoreIcon.Width + 8, 248), color);
+            spriteBatch.Draw(this.RankIcon, new Vector2(5, 5), color);
+            spriteBatch.DrawString(this.Font, this.Rank.ToString(), new Vector2(this.RankIcon.Width + 8, 8), color);
+            spriteBatch.Draw(this.HighScoreIcon, new Vector2(5, 85), color * 0.8f);
+            spriteBatch.DrawString(this.Font, this.HighScore.ToString() + (this.IsNewHighScore ? " - Hit!" : ""), new Vector2(this.HighScoreIcon.Width + 8, 88), color);
+            spriteBatch.Draw(this.GameScoreIcon, new Vector2(5, 165), color);
+            spriteBatch.DrawString(this.Font, this.TotalScore.ToString(), new Vector2(this.GameScoreIcon.Width + 8, 168), color);
+            spriteBatch.Draw(this.GameScoreIcon, new Vector2(5, 245), color);
+            spriteBatch.DrawString(this.Font, this.GameScore.ToString(), new Vector2(this.GameScoreIcon.Width + 8, 248), color);
         }
 
         public void DrawEndGameScores(SpriteBatch spriteBatch, Color color)
         {
-            spriteBatch.Draw(GameScoreIcon, new Vector2(5, 5), color);
-            spriteBatch.DrawString(Font, GameScore.ToString(), new Vector2(GameScoreIcon.Width + 8, 8), color);
+            spriteBatch.Draw(this.GameScoreIcon, new Vector2(5, 5), color);
+            spriteBatch.DrawString(this.Font, this.GameScore.ToString(), new Vector2(this.GameScoreIcon.Width + 8, 8), color);
         }
 
         public void SaveTotalScore()
         {
-            LoadTotalScore();
-            TotalScore += GameScore;
+            this.LoadTotalScore();
+            this.TotalScore += this.GameScore;
             IsolatedStorageFile myIsolatedStorage = IsolatedStorageFile.GetUserStoreForApplication();
             IsolatedStorageFileStream fileStream = myIsolatedStorage.OpenFile("TotalScore.txt", FileMode.OpenOrCreate, FileAccess.Write);
             using (StreamWriter writer = new StreamWriter(fileStream))
@@ -106,18 +106,33 @@ namespace ScarFly.MyClasses.PlayerClasses
                     {
                         string temp = reader.ReadToEnd();
                         if (temp != null && temp != "")
-                        { 
-                            TotalScore = int.Parse(temp);
+                        {
+                            this.TotalScore = int.Parse(temp);
                         }
                     }
                 }
             }
 
-            if (TotalScore > 50000) { Rank = PlayerRank.Impendent; }
-            else if (TotalScore > 25000) { Rank = PlayerRank.Hardcore; }
-            else if (TotalScore > 15000) { Rank = PlayerRank.Professional; }
-            else if (TotalScore > 7500) { Rank = PlayerRank.Amateur; }
-            else { Rank = PlayerRank.Beginner; }
+            if (this.TotalScore > 50000)
+            {
+                this.Rank = PlayerRank.Impendent;
+            }
+            else if (this.TotalScore > 25000)
+            {
+                this.Rank = PlayerRank.Hardcore;
+            }
+            else if (this.TotalScore > 15000)
+            {
+                this.Rank = PlayerRank.Professional;
+            }
+            else if (this.TotalScore > 7500)
+            {
+                this.Rank = PlayerRank.Amateur;
+            }
+            else
+            {
+                this.Rank = PlayerRank.Beginner;
+            }
         }
 
         public void LoadHighScore()
@@ -132,7 +147,7 @@ namespace ScarFly.MyClasses.PlayerClasses
                         string temp = reader.ReadToEnd();
                         if (temp != null && temp != "")
                         {
-                            HighScore = int.Parse(temp);
+                            this.HighScore = int.Parse(temp);
                         }
                     }
                 }
@@ -141,22 +156,22 @@ namespace ScarFly.MyClasses.PlayerClasses
 
         public void SaveHighScore()
         {
-            LoadHighScore();
-            if (GameScore > HighScore)
+            this.LoadHighScore();
+            if (this.GameScore > this.HighScore)
             {
-                IsNewHighScore = true;
-                HighScore = GameScore;
+                this.IsNewHighScore = true;
+                this.HighScore = GameScore;
                 IsolatedStorageFile myIsolatedStorage = IsolatedStorageFile.GetUserStoreForApplication();
                 IsolatedStorageFileStream fileStream = myIsolatedStorage.OpenFile("HighScore.txt", FileMode.OpenOrCreate, FileAccess.Write);
                 using (StreamWriter writer = new StreamWriter(fileStream))
                 {
-                    writer.Write(HighScore);
+                    writer.Write(this.HighScore);
                     writer.Close();
                 }
             }
             else
             {
-                IsNewHighScore = false;
+                this.IsNewHighScore = false;
             }
         }
     }

@@ -16,9 +16,29 @@ namespace ScarFly.MyClasses.LevelElementClasses
 
         public List<Modifier> ModifierList { get; set; }
 
-        public override void Load(Game1 game) { foreach (var item in ModifierList) { item.Load(game); } }
+        public override void Load(Game1 game)
+        {
+            var modifiers = new List<Modifier>();
+            foreach (var item in this.ModifierList)
+            {
+                var modifier = modifiers.SingleOrDefault(b => b.AssetName == item.AssetName);
+                if (modifier != null)
+                {
+                    item.Load(game, modifier);
+                }
+                else
+                {
+                    modifiers.Add(item);
+                    item.Load(game);
+                }
+            }
+        }
 
-        public override void RePosition(Game1 game) { ProcLevelFile(); Load(game); }
+        public override void RePosition(Game1 game)
+        {
+            this.ProcLevelFile();
+            this.Load(game);
+        }
 
         public override void ProcLevelFile()
         {

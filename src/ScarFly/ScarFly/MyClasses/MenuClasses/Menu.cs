@@ -21,12 +21,12 @@ namespace ScarFly.MyClasses.MenuClasses
 
         public void LoadButtonList(Game1 game)
         {
-            foreach (MenuButton buttonItem in ButtonList) { buttonItem.Load(game); }
+            foreach (MenuButton buttonItem in this.ButtonList) { buttonItem.Load(game); }
         }
 
         public void DrawButtonList(SpriteBatch spriteBatch, Color color)
         {
-            foreach (MenuButton buttonItem in ButtonList) { buttonItem.Draw(spriteBatch, color); }
+            foreach (MenuButton buttonItem in this.ButtonList) { buttonItem.Draw(spriteBatch, color); }
         }
 
         public GameState IsTouched(Game1 game, TouchCollection touchCollection, GameState currentGameState, ref bool firstEntry)
@@ -44,16 +44,19 @@ namespace ScarFly.MyClasses.MenuClasses
                             switch (buttonItem.Name)
                             {
                                 case "Main_Start": 
-                                    result = GameState.LoadLevel; Transitions.ChangeGameState(ref firstEntry);
+                                    result = GameState.LoadLevel; 
+                                    Transitions.ChangeGameState(ref firstEntry);
                                     break;
                                 case "Main_Help":
-                                    result = GameState.InTutorial; Transitions.ChangeGameState(ref firstEntry);
+                                    result = GameState.InTutorial; 
+                                    Transitions.ChangeGameState(ref firstEntry);
                                     break;
                                 case "Main_Vibrate":
                                     Consts.IsVibrate = !Consts.IsVibrate;
                                     break;
                                 case "Main_About":
-                                    result = GameState.About; Transitions.ChangeGameState(ref firstEntry);
+                                    result = GameState.About; 
+                                    Transitions.ChangeGameState(ref firstEntry);
                                     break;
                                 case "Pause_Resume": 
                                     result = GameState.Gaming;
@@ -62,7 +65,8 @@ namespace ScarFly.MyClasses.MenuClasses
                                 //    result = GameState.Gaming; Transitions.IsTransition = true; firstEntry = true; Transitions.TransitionCounter = 0;
                                 //    break;
                                 case "Tutorial":
-                                    result = GameState.InMainMenu; Transitions.ChangeGameState(ref firstEntry);
+                                    result = GameState.InMainMenu;
+                                    Transitions.ChangeGameState(ref firstEntry);
                                     break;
                                 case "About_Rate":
                                     MarketplaceReviewTask review = new MarketplaceReviewTask();

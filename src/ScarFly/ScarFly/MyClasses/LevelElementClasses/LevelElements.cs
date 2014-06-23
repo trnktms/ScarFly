@@ -14,8 +14,8 @@ namespace ScarFly.MyClasses.LevelElementClasses
         {
             this.LevelName = string.Format(@"Levels\{0}.level", levelName);
             this.Velocity = velocity;
-            _horizontalStep = Consts.PhoneWidth / Consts.PhoneWidthRate;
-            _verticalStep = Consts.PhoneHeight / Consts.PhoneHeightRate;
+            this._horizontalStep = Consts.PhoneWidth / Consts.PhoneWidthRate;
+            this._verticalStep = Consts.PhoneHeight / Consts.PhoneHeightRate;
             ProcLevelFile();
         }
 

@@ -40,22 +40,25 @@ namespace ScarFly.MyClasses.PlayerClasses
         private bool CollosionDetectionWithBarrier()
         {
             bool result = false;
-            foreach (var barrierItem in Barriers.BarrierList)
+            foreach (var barrierItem in this.Barriers.BarrierList)
             {
-                result = IntersectsPixel(barrierItem.Bound, barrierItem.ColorData, Player.RunBound, Player.ColorData);
-                if (result) { return true; }
+                result = this.IntersectsPixel(barrierItem.Bound, barrierItem.ColorData, this.Player.RunBound, this.Player.ColorData);
+                if (result)
+                {
+                    return true;
+                }
             }
             return result;
         }
 
         private bool CollosionDetectionWithMoney()
         {
-            foreach (var moneyItem in Moneys.MoneyList.Where(p => p.Index.ID != "!" && !p.IsCatched))
+            foreach (var moneyItem in this.Moneys.MoneyList.Where(p => p.Index.ID != "!" && !p.IsCatched))
             {
-                if (IntersectsPixel(moneyItem.Bound, moneyItem.ColorData, Player.RunBound, Player.ColorData)) 
-                { 
-                    moneyItem.IsCatched = true; 
-                    return true; 
+                if (this.IntersectsPixel(moneyItem.Bound, moneyItem.ColorData, this.Player.RunBound, this.Player.ColorData))
+                {
+                    moneyItem.IsCatched = true;
+                    return true;
                 }
             }
             return false;
@@ -63,9 +66,9 @@ namespace ScarFly.MyClasses.PlayerClasses
 
         private bool CollosionDetectionWithModifier()
         {
-            foreach (var modifierItem in Modifiers.ModifierList.Where(p => p.Index.ID != "!" && !p.IsCatched))
+            foreach (var modifierItem in this.Modifiers.ModifierList.Where(p => p.Index.ID != "!" && !p.IsCatched))
             {
-                if (IntersectsPixel(modifierItem.Bound, modifierItem.ColorData, Player.RunBound, Player.ColorData))
+                if (this.IntersectsPixel(modifierItem.Bound, modifierItem.ColorData, Player.RunBound, Player.ColorData))
                 {
                     modifierItem.IsCatched = true;
                     return true;
@@ -76,10 +79,10 @@ namespace ScarFly.MyClasses.PlayerClasses
 
         public void Update()
         {
-            Player.isDead = CollosionDetectionWithBarrier();
-            Player.isEatMoney = CollosionDetectionWithMoney();
-            Player.isEatModifier = CollosionDetectionWithModifier();
-            ModifyGame();
+            this.Player.isDead = this.CollosionDetectionWithBarrier();
+            this.Player.isEatMoney = this.CollosionDetectionWithMoney();
+            this.Player.isEatModifier = this.CollosionDetectionWithModifier();
+            this.ModifyGame();
         }
 
         private bool IntersectsPixel(Rectangle rectangle1, Color[] data1, Rectangle rectangle2, Color[] data2)
@@ -95,7 +98,10 @@ namespace ScarFly.MyClasses.PlayerClasses
                 {
                     Color color1 = data1[(x - rectangle1.Left) + (y - rectangle1.Top) * rectangle1.Width];
                     Color color2 = data2[(x - rectangle2.Left) + (y - rectangle2.Top) * rectangle2.Width];
-                    if (color1.A != 0 && color2.A != 0) { return true; }
+                    if (color1.A != 0 && color2.A != 0)
+                    {
+                        return true;
+                    }
                 }
             }
 
@@ -111,11 +117,11 @@ namespace ScarFly.MyClasses.PlayerClasses
 
             switch (selectedModify)
             {
-                case 0: IncreaseVelocity();
+                case 0: this.IncreaseVelocity();
                     break;
-                case 1: DecreaseVelocity();
+                case 1: this.DecreaseVelocity();
                     break;
-                case 2: EatMore();
+                case 2: this.EatMore();
                     break;
                 default:
                     break;
@@ -124,87 +130,95 @@ namespace ScarFly.MyClasses.PlayerClasses
 
         private void IncreaseVelocity()
         {
-            if (Player.isEatModifier)
+            if (this.Player.isEatModifier)
             {
-                isModify = true;
+                this.isModify = true;
                 foreach (var item in Backgrounds) { item.Velocity *= 2; }
-                Player.Velocity *= 2;
-                Barriers.Velocity *= 2;
-                Moneys.Velocity *= 2;
-                Modifiers.Velocity *= 2;
+                this.Player.Velocity *= 2;
+                this.Barriers.Velocity *= 2;
+                this.Moneys.Velocity *= 2;
+                this.Modifiers.Velocity *= 2;
             }
-            if (isModify)
+            if (this.isModify)
             {
-                modifyCounter++;
+                this.modifyCounter++;
                 if (modifyCounter >= modifyCounterMax || Player.isEnd)
                 {
-                    isModify = false;
-                    modifyCounter = 0;
-                    selectedModify = -1;
-                    foreach (var item in Backgrounds) { item.Velocity /= 2; }
-                    Player.Velocity /= 2;
-                    Barriers.Velocity /= 2;
-                    Moneys.Velocity /= 2;
-                    Modifiers.Velocity /= 2;
+                    this.isModify = false;
+                    this.modifyCounter = 0;
+                    this.selectedModify = -1;
+                    foreach (var item in this.Backgrounds) { item.Velocity /= 2; }
+                    this.Player.Velocity /= 2;
+                    this.Barriers.Velocity /= 2;
+                    this.Moneys.Velocity /= 2;
+                    this.Modifiers.Velocity /= 2;
                 }
             }
         }
 
         private void DecreaseVelocity()
         {
-            if (Player.isEatModifier)
+            if (this.Player.isEatModifier)
             {
-                isModify = true;
-                foreach (var item in Backgrounds) { if (item.Velocity != 1) { item.Velocity /= 2; } }
-                Player.Velocity /= 2;
-                Barriers.Velocity /= 2;
-                Moneys.Velocity /= 2;
-                Modifiers.Velocity /= 2;
+                this.isModify = true;
+                foreach (var item in this.Backgrounds) { if (item.Velocity != 1) { item.Velocity /= 2; } }
+                this.Player.Velocity /= 2;
+                this.Barriers.Velocity /= 2;
+                this.Moneys.Velocity /= 2;
+                this.Modifiers.Velocity /= 2;
             }
-            if (isModify)
+            if (this.isModify)
             {
-                modifyCounter++;
-                if (modifyCounter >= modifyCounterMax || Player.isEnd)
+                this.modifyCounter++;
+                if (this.modifyCounter >= this.modifyCounterMax || this.Player.isEnd)
                 {
-                    isModify = false;
-                    modifyCounter = 0;
-                    selectedModify = -1;
-                    foreach (var item in Backgrounds) { if (item.StartVelocity != 1) { item.Velocity *= 2; } }
-                    Player.Velocity *= 2;
-                    Barriers.Velocity *= 2;
-                    Moneys.Velocity *= 2;
-                    Modifiers.Velocity *= 2;
+                    this.isModify = false;
+                    this.modifyCounter = 0;
+                    this.selectedModify = -1;
+                    foreach (var item in this.Backgrounds) { if (item.StartVelocity != 1) { item.Velocity *= 2; } }
+                    this.Player.Velocity *= 2;
+                    this.Barriers.Velocity *= 2;
+                    this.Moneys.Velocity *= 2;
+                    this.Modifiers.Velocity *= 2;
                 }
             }
         }
 
         private void EatMore()
         {
-            if (Player.isEatModifier) { isModify = true; }
-            if (isModify)
+            if (this.Player.isEatModifier)
             {
-                modifyCounter++;
-                if (Player.isEatMoney) { Player.Score.GameScore += 10; }
-                if (modifyCounter >= modifyCounterMax || Player.isEnd)
+                this.isModify = true;
+            }
+
+            if (this.isModify)
+            {
+                this.modifyCounter++;
+                if (this.Player.isEatMoney)
                 {
-                    isModify = false;
-                    modifyCounter = 0;
-                    selectedModify = -1;
+                    this.Player.Score.GameScore += 10;
+                }
+
+                if (this.modifyCounter >= this.modifyCounterMax || this.Player.isEnd)
+                {
+                    this.isModify = false;
+                    this.modifyCounter = 0;
+                    this.selectedModify = -1;
                 }
             }
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            if (isModify)
+            if (this.isModify)
             {
-                switch (selectedModify)
+                switch (this.selectedModify)
                 {
-                    case 0: spriteBatch.DrawString(Font, "Faster!", new Vector2(10, Consts.PhoneHeight - 40), Color.Gray);
+                    case 0: spriteBatch.DrawString(this.Font, "Faster!", new Vector2(10, Consts.PhoneHeight - 40), Color.Gray);
                         break;
-                    case 1: spriteBatch.DrawString(Font, "Slower!", new Vector2(10, Consts.PhoneHeight - 40), Color.Gray);
+                    case 1: spriteBatch.DrawString(this.Font, "Slower!", new Vector2(10, Consts.PhoneHeight - 40), Color.Gray);
                         break;
-                    case 2: spriteBatch.DrawString(Font, "Eat more!", new Vector2(10, Consts.PhoneHeight - 40), Color.Gray);
+                    case 2: spriteBatch.DrawString(this.Font, "Eat more!", new Vector2(10, Consts.PhoneHeight - 40), Color.Gray);
                         break;
                     default:
                         break;
@@ -214,9 +228,9 @@ namespace ScarFly.MyClasses.PlayerClasses
 
         public void Reset()
         {
-            selectedModify = -1;
-            modifyCounter = 0;
-            isModify = false;
+            this.selectedModify = -1;
+            this.modifyCounter = 0;
+            this.isModify = false;
         }
     }
 }

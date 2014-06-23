@@ -14,8 +14,8 @@ namespace ScarFly.MyClasses.LevelElementClasses
             :base(assetName, moveCount)
         {
             this.Index = index;
-            Position = new Vector2(this.Index.Column * (Consts.PhoneWidth / Consts.PhoneWidthRate), (this.Index.Row) * (Consts.PhoneHeight / Consts.PhoneHeightRate));
-            StartPosition = Position;
+            this.Position = new Vector2(this.Index.Column * (Consts.PhoneWidth / Consts.PhoneWidthRate), (this.Index.Row) * (Consts.PhoneHeight / Consts.PhoneHeightRate));
+            this.StartPosition = Position;
         }
 
         public BarrierIndex Index { get; set; }

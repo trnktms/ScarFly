@@ -26,43 +26,44 @@ namespace ScarFly.MyClasses.PlayerClasses
 
         public void Load(Game1 game) 
         {
-            Texture1 = game.Content.Load<Texture2D>(AssetName);
-            Texture2 = game.Content.Load<Texture2D>(AssetName);
-            Rectangle1 = new Rectangle(0, 0, Texture1.Width, Texture1.Height);
-            Rectangle2 = new Rectangle(Texture1.Width, 0, Texture1.Width, Texture1.Height);
+            this.Texture1 = game.Content.Load<Texture2D>(AssetName);
+            this.Texture2 = game.Content.Load<Texture2D>(AssetName);
+            this.Rectangle1 = new Rectangle(0, 0, Texture1.Width, Texture1.Height);
+            this.Rectangle2 = new Rectangle(Texture1.Width, 0, Texture1.Width, Texture1.Height);
         }
 
         public void Scroll(Game1 game)
         {
-            if (Rectangle1.X + Texture1.Width <= 0)
+            if (this.Rectangle1.X + this.Texture1.Width <= 0)
             {
-                Rectangle1 = new Rectangle(Rectangle2.X + Texture1.Width - Velocity, Rectangle1.Y, Rectangle1.Width, Rectangle1.Height);
+                this.Rectangle1 = new Rectangle(this.Rectangle2.X + this.Texture1.Width - this.Velocity, this.Rectangle1.Y, this.Rectangle1.Width, this.Rectangle1.Height);
             }
             else
             {
-                Rectangle1 = new Rectangle(Rectangle1.X - Velocity, Rectangle1.Y, Rectangle1.Width, Rectangle1.Height);
+                this.Rectangle1 = new Rectangle(this.Rectangle1.X - this.Velocity, this.Rectangle1.Y, this.Rectangle1.Width, this.Rectangle1.Height);
                 //Rectangle2 = new Rectangle(Rectangle2.X - Step, Rectangle2.Y, Rectangle2.Width, Rectangle2.Height);
             }
-            if (Rectangle2.X + Texture1.Width <= 0)
+
+            if (this.Rectangle2.X + this.Texture1.Width <= 0)
             {
-                Rectangle2 = new Rectangle(Rectangle1.X + Texture1.Width - Velocity, Rectangle2.Y, Rectangle2.Width, Rectangle2.Height);
+                this.Rectangle2 = new Rectangle(this.Rectangle1.X + this.Texture1.Width - this.Velocity, this.Rectangle2.Y, this.Rectangle2.Width, this.Rectangle2.Height);
             }
             else
             {
                 //Rectangle1 = new Rectangle(Rectangle1.X - Step, Rectangle1.Y, Rectangle1.Width, Rectangle1.Height);
-                Rectangle2 = new Rectangle(Rectangle2.X - Velocity, Rectangle2.Y, Rectangle2.Width, Rectangle2.Height);
+                this.Rectangle2 = new Rectangle(this.Rectangle2.X - this.Velocity, this.Rectangle2.Y, this.Rectangle2.Width, this.Rectangle2.Height);
             }
         }
 
         public void Draw(SpriteBatch spriteBatch, Color color)
         {
-            spriteBatch.Draw(Texture1, Rectangle1, color);
-            spriteBatch.Draw(Texture2, Rectangle2, color);
+            spriteBatch.Draw(this.Texture1, this.Rectangle1, color);
+            spriteBatch.Draw(this.Texture2, this.Rectangle2, color);
         }
 
         public void RePosition()
         {
-            Velocity = StartVelocity;
+            this.Velocity = this.StartVelocity;
         }
     }
 }

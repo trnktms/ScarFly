@@ -15,7 +15,7 @@ namespace ScarFly.MyClasses.MenuClasses
         {
             this.Name = name;
             this.AssetName = assetName;
-            Position = new Vector2(positionX, positionY);
+            this.Position = new Vector2(positionX, positionY);
         }
 
         public string Name { get; set; }
@@ -49,11 +49,11 @@ namespace ScarFly.MyClasses.MenuClasses
             
             if (Name == "Main_Vibrate" && !Consts.IsVibrate)
             {
-                spriteBatch.Draw(Texture, Position, Transitions.IsTransition ? color : Consts.PastelRed);
+                spriteBatch.Draw(this.Texture, this.Position, Transitions.IsTransition ? color : Consts.PastelRed);
             }
             else
             {
-                spriteBatch.Draw(Texture, Position, IsPressed ? Color.Gray : color);
+                spriteBatch.Draw(this.Texture, this.Position, this.IsPressed ? Color.Gray : color);
             }
         }
     }

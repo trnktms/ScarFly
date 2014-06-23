@@ -17,8 +17,8 @@ namespace ScarFly.MyClasses.LevelElementClasses
         public List<Barrier> BarrierList { get; set; }
 
         public override void ProcLevelFile()
-        {            
-            BarrierList = new List<Barrier>();
+        {
+            this.BarrierList = new List<Barrier>();
             List<string> rows = new List<string>();
 
             using (var stream = TitleContainer.OpenStream(LevelName))
@@ -56,7 +56,7 @@ namespace ScarFly.MyClasses.LevelElementClasses
                                 break;
                         }
 
-                        BarrierList.Add(new Barrier(barrierAssetName,
+                        this.BarrierList.Add(new Barrier(barrierAssetName,
                             new BarrierIndex(j, i, id),
                             20));
                     }
@@ -64,13 +64,35 @@ namespace ScarFly.MyClasses.LevelElementClasses
             }
         }
 
-        public override void Load(Game1 game) { foreach (var item in BarrierList) { item.Load(game); } }
+        public override void Load(Game1 game)
+        {
+            var barriers = new List<Barrier>();
+            foreach (var item in this.BarrierList)
+            {
+                var barrier = barriers.SingleOrDefault(b => b.AssetName == item.AssetName);
+                if (barrier != null)
+                {
+                    item.Load(game, barrier);
+                }
+                else
+                {
+                    barriers.Add(item);
+                    item.Load(game);
+                }
+            }
+        }
 
-        public override void RePosition(Game1 game) { foreach (var item in BarrierList) { item.Position = item.StartPosition; } }
+        public override void RePosition(Game1 game)
+        {
+            foreach (var item in this.BarrierList)
+            {
+                item.Position = item.StartPosition;
+            }
+        }
 
         public override void Scroll(Game1 game)
         {
-            foreach (var barrierItem in BarrierList.Where(p => p.Position.X >= -p.Texture.Width))
+            foreach (var barrierItem in this.BarrierList.Where(p => p.Position.X >= -p.Texture.Width))
             {
                 barrierItem.Position = new Vector2(barrierItem.Position.X - Velocity, barrierItem.Position.Y);
                 barrierItem.UpdateRectangle();
@@ -79,10 +101,10 @@ namespace ScarFly.MyClasses.LevelElementClasses
 
         public override void Draw(SpriteBatch spriteBatch, Color color)
         {
-            foreach (var barrierItem in BarrierList.Where(p => p.Position.X >= -p.Texture.Width && p.Position.X <= Consts.PhoneWidth))
+            foreach (var barrierItem in this.BarrierList.Where(p => p.Position.X >= -p.Texture.Width && p.Position.X <= Consts.PhoneWidth))
             {
                 barrierItem.Draw(spriteBatch, color);
             }
-        } 
+        }
     }
 }

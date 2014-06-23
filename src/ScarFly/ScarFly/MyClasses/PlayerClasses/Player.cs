@@ -77,111 +77,144 @@ namespace ScarFly.MyClasses.PlayerClasses
         private int _positionHistoryMax = 20;
         private VibrateController vibrateController = VibrateController.Default;
 
-        public void Load(Game1 game) 
-        { 
-            Texture = game.Content.Load<Texture2D>(AssetName);
-            ColorData = new Color[Texture.Width * Texture.Height];
-            Texture.GetData(ColorData);
-            MoveWidth = Texture.Width / this.MoveCount;
-            UpdateRectangle();
-            Score.Load(game);
-            _line = game.Content.Load<Texture2D>(Consts.P_Pixel);
+        public void Load(Game1 game)
+        {
+            this.Texture = game.Content.Load<Texture2D>(AssetName);
+            this.ColorData = new Color[Texture.Width * Texture.Height];
+            this.Texture.GetData(ColorData);
+            this.MoveWidth = this.Texture.Width / this.MoveCount;
+            this.UpdateRectangle();
+            this.Score.Load(game);
+            this._line = game.Content.Load<Texture2D>(Consts.P_Pixel);
         }
 
         public void UpdateRectangle()
         {
-            RunBound = new Rectangle((int)Position.X, (int)Position.Y, MoveWidth, Texture.Height);
+            this.RunBound = new Rectangle((int)this.Position.X, (int)this.Position.Y, this.MoveWidth, this.Texture.Height);
         }
 
         public void Update(Game1 game, ref bool firstEntry)
         {
-            if (isDead) 
-            { 
-                Overlayer = new Color(255, 105, 97); 
+            if (this.isDead)
+            {
+                this.Overlayer = new Color(255, 105, 97);
                 //Score.GameScore--;
-                if (Consts.IsVibrate) { vibrateController.Start(TimeSpan.FromMilliseconds(50)); }
+                if (Consts.IsVibrate)
+                {
+                    this.vibrateController.Start(TimeSpan.FromMilliseconds(50));
+                }
+
                 game.gameState = GameState.InEndGameMenu;
                 Transitions.ChangeGameState(ref firstEntry);
-                
-            }
-            else if (isEatMoney) { Score.GameScore += 10; }
 
-            if (isEnd) { Position = new Vector2(Position.X + Velocity, Position.Y); }
+            }
+            else if (this.isEatMoney)
+            {
+                this.Score.GameScore += 10;
+            }
+
+            if (this.isEnd)
+            {
+                this.Position = new Vector2(this.Position.X + this.Velocity, this.Position.Y);
+            }
 
             TouchCollection touches = TouchPanel.GetState();
             foreach (var touch in touches)
             {
                 if (touch.State == TouchLocationState.Pressed)
                 {
-                    PlayerState = PlayerStates.Flying;
+                    this.PlayerState = PlayerStates.Flying;
                 }
                 else if (touch.State == TouchLocationState.Released)
                 {
-                    PlayerState = PlayerStates.Falling;
+                    this.PlayerState = PlayerStates.Falling;
                 }
             }
 
-            Distance += Velocity;
+            this.Distance += this.Velocity;
         }
 
         public void InOneAltitude(SpriteBatch spriteBatch, Color color)
         {
-            Position = new Vector2(Position.X, Position.Y);
-            Animate(spriteBatch, MoveCount, color);
+            this.Position = new Vector2(this.Position.X, this.Position.Y);
+            this.Animate(spriteBatch, this.MoveCount, color);
         }
 
         public void Fall(SpriteBatch spriteBatch, Color color)
         {
-            if (_fall_vy < _max_vy) { _fall_vy += _fall_ay; }
-            _fall_sy += _fall_vy;
-            Position = new Vector2(Position.X, _fall_sy);
-            _fly_sy = (int)Position.Y;
-            _fly_vy = 0;
-            if (_fall_sy > ZeroPosition.Y || _fall_sy > ZeroPosition.Y - 15) 
-            { 
-                PlayerState = PlayerStates.InOneAltitude; 
+            if (this._fall_vy < _max_vy)
+            {
+                this._fall_vy += this._fall_ay;
             }
-            Animate(spriteBatch, MoveCount, color);
+
+            this._fall_sy += this._fall_vy;
+            this.Position = new Vector2(this.Position.X, this._fall_sy);
+            this._fly_sy = (int)this.Position.Y;
+            this._fly_vy = 0;
+            if (this._fall_sy > this.ZeroPosition.Y || this._fall_sy > this.ZeroPosition.Y - 15)
+            {
+                this.PlayerState = PlayerStates.InOneAltitude;
+            }
+
+            this.Animate(spriteBatch, this.MoveCount, color);
         }
 
         public void Fly(SpriteBatch spriteBatch, Color color)
         {
-            if (Position.Y > 5)
+            if (this.Position.Y > 5)
             {
-                if (_fly_vy < _max_vy) { _fly_vy += _fly_ay; }
-                _fly_sy -= _fly_vy;
-                Position = new Vector2(Position.X, _fly_sy);
-                _fall_sy = (int)Position.Y;
-                _fall_vy = 0;
+                if (this._fly_vy < _max_vy)
+                {
+                    this._fly_vy += _fly_ay;
+                }
+
+                this._fly_sy -= this._fly_vy;
+                this.Position = new Vector2(this.Position.X, this._fly_sy);
+                this._fall_sy = (int)this.Position.Y;
+                this._fall_vy = 0;
             }
-            else { PlayerState = PlayerStates.Falling; }
-            Animate(spriteBatch, MoveCount, color);
+            else
+            {
+                this.PlayerState = PlayerStates.Falling;
+            }
+
+            this.Animate(spriteBatch, MoveCount, color);
         }
 
         public void Animate(SpriteBatch spriteBatch, int moveCount, Color color)
         {
-            UpdateRectangle();
-            DrawHistory(spriteBatch, color);
+            this.UpdateRectangle();
+            this.DrawHistory(spriteBatch, color);
 
             spriteBatch.Draw(
                 Texture,
                 Position,
-                new Rectangle((int)(MoveWidth * _animateCount), 0, (int)MoveWidth, (int)Texture.Height),
+                new Rectangle((int)(this.MoveWidth * this._animateCount), 0, (int)this.MoveWidth, (int)this.Texture.Height),
                 color);
 
-            if (_animateCount < moveCount - 1) { _animateCount++; }
-            else { _animateCount = 0; }
+            if (this._animateCount < moveCount - 1)
+            {
+                this._animateCount++;
+            }
+            else
+            {
+                this._animateCount = 0;
+            }
         }
 
         private void DrawHistory(SpriteBatch spriteBatch, Color color)
         {
-            PositionHistory.Enqueue(Position); int i = _positionHistoryMax;
-            foreach (var item in PositionHistory)
+            this.PositionHistory.Enqueue(Position); int i = _positionHistoryMax;
+            foreach (var item in this.PositionHistory)
             {
-                spriteBatch.Draw(_line, new Vector2(item.X - i * StartVelocity, item.Y + Texture.Height / 2), color);
+                spriteBatch.Draw(this._line, new Vector2(item.X - i * this.StartVelocity, item.Y + this.Texture.Height / 2), color);
                 i--;
             }
-            if (PositionHistory.Count == _positionHistoryMax) { PositionHistory.Dequeue(); }
+
+            if (this.PositionHistory.Count == this._positionHistoryMax)
+            {
+                this.PositionHistory.Dequeue();
+            }
         }
 
         public void Draw(SpriteBatch spriteBatch, Color color)
@@ -201,19 +234,19 @@ namespace ScarFly.MyClasses.PlayerClasses
 
         public void RePosition()
         {
-            Position = ZeroPosition;
-            PlayerState = PlayerStates.InOneAltitude;
-            Score.TotalScore += Score.GameScore;
-            Score.GameScore = 0;
-            PositionHistory.Clear();
-            _fly_sy = (int)Position.Y;
-            _fall_sy = 0;
-            isEnd = false;
-            isDead = false;
-            isEatMoney = false;
-            isEatModifier = false;
-            Velocity = StartVelocity;
-            Distance = 0;
+            this.Position = ZeroPosition;
+            this.PlayerState = PlayerStates.InOneAltitude;
+            this.Score.TotalScore += Score.GameScore;
+            this.Score.GameScore = 0;
+            this.PositionHistory.Clear();
+            this._fly_sy = (int)Position.Y;
+            this._fall_sy = 0;
+            this.isEnd = false;
+            this.isDead = false;
+            this.isEatMoney = false;
+            this.isEatModifier = false;
+            this.Velocity = StartVelocity;
+            this.Distance = 0;
         }
     }
 }
